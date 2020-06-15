@@ -1,9 +1,9 @@
 {
-  "name": "saleor-site",
+  "name": "sitarri-site",
   "version": "2.10.1",
   "private": true,
   "author": "Mirumee",
-  "homepage": "https://getsaleor.com/",
+  "homepage": "https://erocery.com/",
   "main": "dist/index.js",
   "browserslist": "last 2 versions",
   "dependencies": {
