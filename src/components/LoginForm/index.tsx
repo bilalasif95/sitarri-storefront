@@ -25,15 +25,28 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
   };
 
   const responseGoogle = response => {
-    console.log(response,'========');
+    if (response.accessToken) {
+      alert("successfully login...")
+    }
+    else {
+      alert("Error try agin...")
+    }
+    console.log(response, "google response");
   };
 
   const responseFacebook = response => {
-    console.log(response,"====++++++++++");
+    if (response.accessToken) {
+      alert("successfully login...")
+    }
+    else {
+      alert("Error try agin...")
+    }
+    console.log(response, "facebook response");
   };
 
   return (
     <div className="login-form">
+     <br /><br />
       <GoogleLogin
         clientId="501755889014-btls89ktsuijoj5c1lrrjvtr3jmg1fba.apps.googleusercontent.com"
         buttonText="Continue with google"
@@ -41,8 +54,9 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
         onFailure={responseGoogle}
         cookiePolicy={"single_host_origin"}
       />
+      <br /><br />
       <FacebookLogin
-        appId="1007814429617488"
+        appId="250845706205535"
         // autoLoad={true}
         fields="name,email,picture"
         callback={responseFacebook}
@@ -51,6 +65,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
         // buttonText="Login"
         icon="fab fa-facebook-square"
       />
+       <br /><br />
       <Form
         errors={maybe(() => error.extraInfo.userInputErrors, [])}
         onSubmit={handleOnSubmit}
