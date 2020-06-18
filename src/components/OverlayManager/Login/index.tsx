@@ -10,13 +10,13 @@ import {
   Online,
   Overlay,
   OverlayContextInterface,
-  OverlayTheme,
-  OverlayType
+  // OverlayTheme,
+  // OverlayType
 } from "../..";
 import RegisterForm from "./RegisterForm";
 
 import closeImg from "../../../images/x.svg";
-import ForgottenPassword from "./ForgottenPassword";
+// import ForgottenPassword from "./ForgottenPassword";
 
 class Login extends React.Component<
   { overlay: OverlayContextInterface; active?: "login" | "register" },
@@ -69,12 +69,12 @@ class Login extends React.Component<
             <div className="login__content">
               {this.state.active === "login" ? (
                 <>
-                  <LoginForm hide={hide} />
-                  <ForgottenPassword
+                  <LoginForm hide={hide} show={show} />
+                  {/* <ForgottenPassword
                     onClick={() => {
                       show(OverlayType.password, OverlayTheme.right);
                     }}
-                  />
+                  /> */}
                 </>
               ) : (
                 <RegisterForm hide={hide} />

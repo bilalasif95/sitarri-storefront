@@ -7,14 +7,18 @@ import GoogleLogin from "react-google-login";
 import { useSignIn } from "@sdk/react";
 import { maybe } from "@utils/misc";
 
-import { Button, Form, TextField } from "..";
+import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
+
+import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
 
 interface ILoginForm {
   hide?: () => void;
+  show?: any;
 }
 
-const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
+const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
   const [signIn, { loading, error }] = useSignIn();
+  const [emailClick,setEmailClick] = React.useState(false);
 
   const handleOnSubmit = async (evt, { email, password }) => {
     evt.preventDefault();
@@ -31,8 +35,13 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
     else {
       alert("Error try agin...")
     }
-    console.log(response, "google response");
+    // console.log(response, "google response");
   };
+
+  const onEmailClick = e => {
+    e.preventDefault();
+    setEmailClick(true);
+  }
 
   const responseFacebook = response => {
     if (response.accessToken) {
@@ -41,31 +50,13 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
     else {
       alert("Error try agin...")
     }
-    console.log(response, "facebook response");
+    // console.log(response, "facebook response");
   };
 
   return (
     <div className="login-form">
-     <br /><br />
-      <GoogleLogin
-        clientId="501755889014-btls89ktsuijoj5c1lrrjvtr3jmg1fba.apps.googleusercontent.com"
-        buttonText="Continue with google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        cookiePolicy={"single_host_origin"}
-      />
-      <br /><br />
-      <FacebookLogin
-        appId="250845706205535"
-        // autoLoad={true}
-        fields="name,email,picture"
-        callback={responseFacebook}
-        className="facebookLoginButton"
-        textButton="Continue with Facebook"
-        // buttonText="Login"
-        icon="fab fa-facebook-square"
-      />
-       <br /><br />
+      {emailClick ?
+      <>
       <Form
         errors={maybe(() => error.extraInfo.userInputErrors, [])}
         onSubmit={handleOnSubmit}
@@ -90,6 +81,37 @@ const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
           </Button>
         </div>
       </Form>
+      <ForgottenPassword
+        onClick={() => {
+          show(OverlayType.password, OverlayTheme.right);
+        }}
+      />
+      </>
+      :
+      <>
+      <FacebookLogin
+        appId="250845706205535"
+        // autoLoad={true}
+        fields="name,email,picture"
+        callback={responseFacebook}
+        textButton="Continue with Facebook"
+        // buttonText="Login"
+        icon="fab fa-facebook-square"
+      />
+      <br /><br />
+      <GoogleLogin
+        clientId="501755889014-btls89ktsuijoj5c1lrrjvtr3jmg1fba.apps.googleusercontent.com"
+        buttonText="Continue with Google"
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        className="googleLoginButton"
+        cookiePolicy={"single_host_origin"}
+      />
+      <br /><br />
+      <div className="line"><span>OR</span></div>
+      <Button className="emailButton" onClick={onEmailClick}>Continue with Email</Button>
+      </>
+      }
     </div>
   );
 };
