@@ -1,4 +1,4 @@
-import { round } from "lodash";
+import round from "lodash/round";
 
 import { DataErrorCheckoutTypes } from "../api/Checkout/types";
 import { NamedObservable } from "../helpers";

@@ -105,6 +105,23 @@ const startApp = async () => {
         }
       }, [updateAvailable]);
 
+      React.useEffect(() => {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          console.log("Geolocation is not supported by this browser.")
+        }
+      }, [])
+
+      const showPosition = (position) => {
+        console.log("postionnnnnnnnn", position, "dddd", position.coords.latitude
+          , position.coords.longitude)
+
+      }
+      const showError = () => {
+        console.log("not allowed.")
+      }
+      
       useAuth((authenticated: boolean) => {
         if (authenticated) {
           alert.show(
