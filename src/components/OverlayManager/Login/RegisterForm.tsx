@@ -6,6 +6,10 @@ import GoogleLogin from "react-google-login";
 
 import { accountConfirmUrl } from "../../../app/routes";
 
+import { useSocialAuth } from "@sdk/react";
+
+import { setAuthToken } from "@sdk/auth";
+
 import { Button, Form, TextField } from "../..";
 import { maybe } from "../../../core/utils";
 import { RegisterAccount } from "./gqlTypes/RegisterAccount";
@@ -36,15 +40,26 @@ const showSuccessNotification = (
 const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
   const alert = useAlert();
   const [emailClick,setEmailClick] = React.useState(false);
-
-  const responseGoogle = response => {
+  const [socialAuth] = useSocialAuth();
+  const responseGoogle = async response => {
     if (response.accessToken) {
-      alert.show("successfully login...")
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2" });
+      if (authenticated && hide) {
+        setAuthToken(authenticated.data.socialAuth.token);
+        hide();
+      }
     }
     else {
-      alert.show("Error try agin...")
+      alert.show(
+        {
+          title: "Error with Google login. Please try again.",
+        },
+        {
+          timeout: 5000,
+          type: "error",
+        }
+      );
     }
-    // console.log(response, "google response");
   };
 
   const onEmailClick = e => {
@@ -52,14 +67,25 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
     setEmailClick(true);
   }
 
-  const responseFacebook = response => {
+  const responseFacebook = async response => {
     if (response.accessToken) {
-      alert.show("successfully login...")
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook" });
+      if (authenticated && hide) {
+        setAuthToken(authenticated.data.socialAuth.token);
+        hide();
+      }
     }
     else {
-      alert.show("Error try agin...")
+      alert.show(
+        {
+          title: "Error with Facebook login. Please try again.",
+        },
+        {
+          timeout: 5000,
+          type: "error",
+        }
+      );
     }
-    // console.log(response, "facebook response");
   };
 
   return (
@@ -116,7 +142,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
       />
       <br /><br />
       <GoogleLogin
-        clientId="501755889014-btls89ktsuijoj5c1lrrjvtr3jmg1fba.apps.googleusercontent.com"
+        clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
         buttonText="Continue with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}

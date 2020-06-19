@@ -1,6 +1,7 @@
 import { mutationFactory } from "./useMutation";
 
 export const useSignIn = mutationFactory("signIn");
+export const useSocialAuth = mutationFactory("socialAuth");
 export const useSignOut = mutationFactory("signOut");
 
 // Address mutations

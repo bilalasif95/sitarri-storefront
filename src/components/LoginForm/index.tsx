@@ -1,15 +1,18 @@
 import "./scss/index.scss";
 
 import * as React from "react";
+import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
 
-import { useSignIn } from "@sdk/react";
+import { useSignIn,useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
 
 import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
 
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
+
+import { setAuthToken } from "@sdk/auth";
 
 interface ILoginForm {
   hide?: () => void;
@@ -18,8 +21,9 @@ interface ILoginForm {
 
 const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
   const [signIn, { loading, error }] = useSignIn();
+  const [socialAuth] = useSocialAuth();
   const [emailClick,setEmailClick] = React.useState(false);
-
+  const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
     evt.preventDefault();
     const authenticated = await signIn({ email, password });
@@ -28,14 +32,25 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
     }
   };
 
-  const responseGoogle = response => {
+  const responseGoogle = async response => {
     if (response.accessToken) {
-      alert("successfully login...")
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2" });
+      if (authenticated && hide) {
+        setAuthToken(authenticated.data.socialAuth.token);
+        hide();
+      }
     }
     else {
-      alert("Error try agin...")
+      alert.show(
+        {
+          title: "Error with Google login. Please try again.",
+        },
+        {
+          timeout: 5000,
+          type: "error",
+        }
+      );
     }
-    // console.log(response, "google response");
   };
 
   const onEmailClick = e => {
@@ -43,14 +58,25 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
     setEmailClick(true);
   }
 
-  const responseFacebook = response => {
+  const responseFacebook = async response => {
     if (response.accessToken) {
-      alert("successfully login...")
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook" });
+      if (authenticated && hide) {
+        setAuthToken(authenticated.data.socialAuth.token);
+        hide();
+      }
     }
     else {
-      alert("Error try agin...")
+      alert.show(
+        {
+          title: "Error with Facebook login. Please try again.",
+        },
+        {
+          timeout: 5000,
+          type: "error",
+        }
+      );
     }
-    // console.log(response, "facebook response");
   };
 
   return (
@@ -90,7 +116,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
       :
       <>
       <FacebookLogin
-        appId="250845706205535"
+        appId="1078436535883692"
         // autoLoad={true}
         fields="name,email,picture"
         callback={responseFacebook}
@@ -100,7 +126,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
       />
       <br /><br />
       <GoogleLogin
-        clientId="501755889014-btls89ktsuijoj5c1lrrjvtr3jmg1fba.apps.googleusercontent.com"
+        clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
         buttonText="Continue with Google"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}

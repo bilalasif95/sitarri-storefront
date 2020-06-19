@@ -18,6 +18,19 @@ export const tokenAuthMutation = gql`
   }
 `;
 
+export const socialAuth = gql`
+  ${userFragment}
+  mutation SocialAuth($accessToken: String!,$provider: String!) {
+    socialAuth(accessToken: $accessToken, provider: $provider){
+      token
+      social{
+        user{
+          ...User
+        }
+      }
+    }
+  }
+`;
 export const tokenVeryficationMutation = gql`
   ${userFragment}
   mutation VerifyToken($token: String!) {

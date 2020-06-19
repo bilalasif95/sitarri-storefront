@@ -85,6 +85,8 @@ export class APIProxy {
   setPasswordChange = this.fireQuery(MUTATIONS.PasswordChange, data => data);
 
   setPassword = this.fireQuery(MUTATIONS.SetPassword, data => data);
+  
+  socialAuth = this.fireQuery(MUTATIONS.SocialAuth, data => data);
 
   client: ApolloClient<any>;
 

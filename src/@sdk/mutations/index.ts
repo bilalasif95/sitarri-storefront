@@ -29,6 +29,8 @@ import {
 
 import { SetPassword, SetPasswordVariables } from "./gqlTypes/SetPassword";
 
+import { SignInWithSocialMedia, SignInWithSocialMediaVariables } from "./gqlTypes/SignInWithSocialMedia";
+
 import { TokenAuth, TokenAuthVariables } from "./gqlTypes/TokenAuth";
 
 import {
@@ -97,6 +99,14 @@ export const MUTATIONS = {
   ) =>
     client.mutate({
       mutation: User.setPassword,
+      ...options,
+    }),
+  SocialAuth: <TCacheShape>(
+    client: ApolloClient<TCacheShape>,
+    options: MutationOptions<SignInWithSocialMedia, SignInWithSocialMediaVariables>
+  ) =>
+    client.mutate({
+      mutation: Auth.socialAuth,
       ...options,
     }),
   TokenAuth: <TCacheShape>(
