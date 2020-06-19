@@ -5,7 +5,8 @@ import {
 } from "../../globalStyles/scss/variables.scss";
 import "./scss/index.scss";
 
-import { useCart, useSignOut, useUserDetails } from "@sdk/react";
+// import { useCart, useSignOut, useUserDetails } from "@sdk/react";
+import { useSignOut, useUserDetails } from "@sdk/react";
 
 import Media from "react-media";
 import { Link } from "react-router-dom";
@@ -21,10 +22,10 @@ import {
 } from "..";
 import * as appPaths from "../../app/routes";
 import { maybe } from "../../core/utils";
-import NavDropdown from "./NavDropdown";
+// import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
 
-import cartImg from "../../images/cart.svg";
+// import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/logo.svg";
@@ -34,21 +35,26 @@ import userImg from "../../images/user.svg";
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
   const [signOut] = useSignOut();
-  const { items } = useCart();
+  // const { items } = useCart();
 
   const handleSignOut = () => {
     signOut();
   };
 
-  const cartItemsQuantity =
-    (items &&
-      items.reduce((prevVal, currVal) => prevVal + currVal.quantity, 0)) ||
-    0;
+  // const cartItemsQuantity =
+  //   (items &&
+  //     items.reduce((prevVal, currVal) => prevVal + currVal.quantity, 0)) ||
+  //   0;
 
   return (
     <OverlayContext.Consumer>
       {overlayContext => (
         <nav className="main-menu" id="header">
+          <div className="main-menu__center">
+            <Link to={appPaths.baseUrl}>
+              <ReactSVG path={logoImg} />
+            </Link>
+          </div>
           <div className="main-menu__left">
             <TypedMainMenuQuery renderOnError displayLoader={false}>
               {({ data }) => {
@@ -80,7 +86,7 @@ const MainMenu: React.FC = () => {
                         </li>
                       )}
                     />
-                    <Media
+                    {/* <Media
                       query={{ minWidth: mediumScreen }}
                       render={() =>
                         items.map(item => (
@@ -93,7 +99,7 @@ const MainMenu: React.FC = () => {
                           </li>
                         ))
                       }
-                    />
+                    /> */}
                     <Online>
                 <Media
                   query={{ maxWidth: smallScreen }}
@@ -155,12 +161,6 @@ const MainMenu: React.FC = () => {
             </TypedMainMenuQuery>
           </div>
 
-          <div className="main-menu__center">
-            <Link to={appPaths.baseUrl}>
-              <ReactSVG path={logoImg} />
-            </Link>
-          </div>
-
           <div className="main-menu__right">
             <ul>
               <Online>
@@ -216,7 +216,7 @@ const MainMenu: React.FC = () => {
                     </>
                   )}
                 />
-                <li
+                {/* <li
                   className="main-menu__icon main-menu__cart"
                   onClick={() => {
                     overlayContext.show(OverlayType.cart, OverlayTheme.right);
@@ -228,7 +228,7 @@ const MainMenu: React.FC = () => {
                       {cartItemsQuantity}
                     </span>
                   ) : null}
-                </li>
+                </li> */}
               </Online>
               <Offline>
                 <li className="main-menu__offline">

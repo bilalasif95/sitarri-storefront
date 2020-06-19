@@ -8,6 +8,7 @@ import { Account, AccountConfirm } from "../../views/Account";
 import { ArticlePage } from "../../views/Article";
 import { CategoryPage } from "../../views/Category";
 import { CollectionPage } from "../../views/Collection";
+import PrivacyPolicy from "../../views/FooterPages/PrivacyPolicy";
 import { HomePage } from "../../views/Home";
 import { ProductPage } from "../../views/Product";
 import { SearchPage } from "../../views/Search";
@@ -36,6 +37,7 @@ export const Routes: React.FC = () => (
     <Route path={paths.passwordResetUrl} component={PasswordReset} />
     <Route path={paths.checkoutUrl} component={CheckoutPage} />
     <Route path={paths.orderFinalizedUrl} component={ThankYouPage} />
+    <Route path={paths.privacyPolicyUrl} component={PrivacyPolicy} />
     <Route component={NotFound} />
   </Switch>
 );

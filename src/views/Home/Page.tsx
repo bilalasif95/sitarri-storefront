@@ -1,11 +1,12 @@
 import "./scss/index.scss";
 
-import classNames from "classnames";
+// import classNames from "classnames";
 import * as React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import { Button, Loader, ProductsFeatured } from "../../components";
-import { generateCategoryUrl } from "../../core/utils";
+// import { Button, Loader, ProductsFeatured } from "../../components";
+import { ProductsFeatured } from "../../components";
+// import { generateCategoryUrl } from "../../core/utils";
 
 import {
   ProductsList_categories,
@@ -15,7 +16,7 @@ import {
 
 import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
-import noPhotoImg from "../../images/no-photo.svg";
+// import noPhotoImg from "../../images/no-photo.svg";
 
 const Page: React.FC<{
   loading: boolean;
@@ -23,16 +24,16 @@ const Page: React.FC<{
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage;
   shop: ProductsList_shop;
 }> = ({ loading, categories, backgroundImage, shop }) => {
-  const categoriesExist = () => {
-    return categories && categories.edges && categories.edges.length > 0;
-  };
+  // const categoriesExist = () => {
+  //   return categories && categories.edges && categories.edges.length > 0;
+  // };
 
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
         {structuredData(shop)}
       </script>
-      <div
+      {/* <div
         className="home-page__hero"
         style={
           backgroundImage
@@ -68,9 +69,12 @@ const Page: React.FC<{
             )
           )}
         </div>
-      </div>
+      </div> */}
       <ProductsFeatured />
-      {categoriesExist() && (
+      <ProductsFeatured />
+      <ProductsFeatured />
+      <ProductsFeatured />
+      {/* {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
             <h3>Shop by category</h3>
@@ -103,7 +107,7 @@ const Page: React.FC<{
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };

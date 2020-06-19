@@ -3,7 +3,7 @@ module.exports = {
     includes: ["./queries/*.ts", "./mutations/*.ts", "./fragments/*.ts"],
     service: {
       name: "saleor",
-      url: "http://localhost:8000/graphql/"
+      url: "http://3.8.208.154:8000/graphql/"
     }
   }
 };

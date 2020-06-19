@@ -51,4 +51,59 @@
       margin-top: $spacer * 2;
     }
   }
+
+  .emailButton {
+    background-color: red !important;
+    border-radius: 7px;
+    width: 100%;
+    margin-top: 1rem;
+    span{
+      font: 400 14.3333px Arial;
+    }
+  }
+
+  .googleLoginButton {
+    padding: 0.9rem 3.7rem !important;
+    border-radius: 7px !important;
+    border: none !important;
+    width: 100%;
+    text-transform: uppercase;
+    font: 400 13.3333px Arial;
+
+    div {
+      padding: 0 !important;
+      border-radius: unset !important;
+      margin-left: 20px;
+      margin-right: 5px !important;
+    }
+    span {
+      padding: 0 !important;
+    }
+  }
+
+  .kep-login-facebook {
+    padding: 0.9rem 3.7rem !important;
+    border-radius: 7px !important;
+    border: none !important;
+    font: 400 13.3333px Arial;
+    width: 100%;
+  }
+
+  .line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: grey;
+  }
+
+  .line span{
+    position: absolute;
+    background: white;
+    top: -11px;
+    padding: 0 5px;
+    left: 47%;
+    right: 0;
+    height: 20px;
+    width: 32px;
+  }
 }
