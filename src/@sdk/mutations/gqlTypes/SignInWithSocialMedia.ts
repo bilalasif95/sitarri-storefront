@@ -164,6 +164,10 @@ export interface TokenAuth_tokenCreate {
   __typename: "CreateToken";
   token: string | null;
   errors: TokenAuth_tokenCreate_errors[];
+  error: {
+    field: string;
+    message: string;
+  }
   /**
    * A user instance.
    */
@@ -184,4 +188,6 @@ export interface SignInWithSocialMedia {
 export interface SignInWithSocialMediaVariables {
   accessToken: string;
   provider: string;
+  email: string;
+  authType: any;
 }

@@ -4,6 +4,7 @@
   &__control {
     padding: $carousel-control-padding;
     background-color: $white;
+    border-radius: 25px;
     box-shadow: $carousel-control-shadow;
 
     &:hover {
@@ -20,6 +21,9 @@
       svg {
         transform: rotate(180deg);
         margin-top: 0.5rem;
+        path {
+          fill: red
+        }
       }
     }
 
@@ -32,6 +36,9 @@
 
       svg {
         margin-top: 0.4rem;
+        path {
+          fill: red
+        }
       }
     }
   }

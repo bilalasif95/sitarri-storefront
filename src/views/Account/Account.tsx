@@ -4,19 +4,20 @@ import { RouteComponentProps, withRouter } from "react-router";
 
 import { useUserDetails } from "@sdk/react";
 import { smallScreen } from "@styles/constants";
-import AddressBook from "../../account/AddressBook/AddressBook";
+// import AddressBook from "../../account/AddressBook/AddressBook";
 
 import "./scss/index.scss";
 
 import {
   accountUrl,
-  addressBookUrl,
+  // addressBookUrl,
   baseUrl,
-  orderHistoryUrl,
+  // orderHistoryUrl,
 } from "../../app/routes";
 
 import { AccountMenu, AccountMenuMobile } from "@components/molecules";
-import { AccountTab, OrdersHistory } from "@pages";
+// import { AccountTab, OrdersHistory } from "@pages";
+import { AccountTab } from "@pages";
 import { Breadcrumbs, Loader } from "../../components";
 
 const returnTab: any = (path: string, userDetails, history) => {
@@ -26,14 +27,14 @@ const returnTab: any = (path: string, userDetails, history) => {
       tabContent = <AccountTab />;
       break;
     }
-    case addressBookUrl: {
-      tabContent = <AddressBook user={userDetails} />;
-      break;
-    }
-    case orderHistoryUrl: {
-      tabContent = <OrdersHistory {...{ history }} />;
-      break;
-    }
+    // case addressBookUrl: {
+    //   tabContent = <AddressBook user={userDetails} />;
+    //   break;
+    // }
+    // case orderHistoryUrl: {
+    //   tabContent = <OrdersHistory {...{ history }} />;
+    //   break;
+    // }
   }
   return tabContent;
 };
@@ -41,7 +42,8 @@ const returnTab: any = (path: string, userDetails, history) => {
 const Account: React.FC<RouteComponentProps> = ({ history, match }) => {
   const { data: user, loading } = useUserDetails();
 
-  const links = [accountUrl, orderHistoryUrl, addressBookUrl];
+  // const links = [accountUrl, orderHistoryUrl, addressBookUrl];
+  const links = [accountUrl];
 
   if (loading) {
     return <Loader />;

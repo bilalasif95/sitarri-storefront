@@ -28,9 +28,9 @@ import { TypedMainMenuQuery } from "./queries";
 // import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
+import userImg from "../../images/iconmonstr-home-6.svg";
 import logoImg from "../../images/logo.svg";
 import searchImg from "../../images/search.svg";
-import userImg from "../../images/user.svg";
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -118,7 +118,7 @@ const MainMenu: React.FC = () => {
                               <li data-testid="my_account__link">
                                 <Link to={appPaths.accountUrl}>My Account</Link>
                               </li>
-                              <li data-testid="order_history__link">
+                              {/* <li data-testid="order_history__link">
                                 <Link to={appPaths.orderHistoryUrl}>
                                   Order history
                                 </Link>
@@ -127,7 +127,7 @@ const MainMenu: React.FC = () => {
                                 <Link to={appPaths.addressBookUrl}>
                                   Address book
                                 </Link>
-                              </li>
+                              </li> */}
                               <li
                                 onClick={handleSignOut}
                                 data-testid="logout-link"
@@ -180,7 +180,7 @@ const MainMenu: React.FC = () => {
                               <li data-testid="my_account__link">
                                 <Link to={appPaths.accountUrl}>My Account</Link>
                               </li>
-                              <li data-testid="order_history__link">
+                              {/* <li data-testid="order_history__link">
                                 <Link to={appPaths.orderHistoryUrl}>
                                   Order history
                                 </Link>
@@ -189,7 +189,7 @@ const MainMenu: React.FC = () => {
                                 <Link to={appPaths.addressBookUrl}>
                                   Address book
                                 </Link>
-                              </li>
+                              </li> */}
                               <li
                                 onClick={handleSignOut}
                                 data-testid="logout-link"

@@ -40,26 +40,30 @@ const showSuccessNotification = (
 const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
   const alert = useAlert();
   const [emailClick,setEmailClick] = React.useState(false);
+  const [error,setError] = React.useState("");
   const [socialAuth] = useSocialAuth();
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2" });
-      if (authenticated && hide) {
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email, authType: "REGISTER"  });
+      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
       }
+      else {
+        setError(authenticated.data.socialAuth.error.message)
+      }
     }
-    else {
-      alert.show(
-        {
-          title: "Error with Google login. Please try again.",
-        },
-        {
-          timeout: 5000,
-          type: "error",
-        }
-      );
-    }
+    // else {
+    //   alert.show(
+    //     {
+    //       title: "Error with Google login. Please try again.",
+    //     },
+    //     {
+    //       timeout: 5000,
+    //       type: "error",
+    //     }
+    //   );
+    // }
   };
 
   const onEmailClick = e => {
@@ -69,23 +73,26 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook" });
-      if (authenticated && hide) {
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email, authType: "REGISTER" });
+      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
       }
+      else {
+        setError(authenticated.data.socialAuth.error.message)
+      }
     }
-    else {
-      alert.show(
-        {
-          title: "Error with Facebook login. Please try again.",
-        },
-        {
-          timeout: 5000,
-          type: "error",
-        }
-      );
-    }
+    // else {
+    //   alert.show(
+    //     {
+    //       title: "Error with Facebook login. Please try again.",
+    //     },
+    //     {
+    //       timeout: 5000,
+    //       type: "error",
+    //     }
+    //   );
+    // }
   };
 
   return (
@@ -131,8 +138,9 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
     </>
       :
       <>
+      <div className="errorMessages">{error}</div>
       <FacebookLogin
-        appId="250845706205535"
+        appId="1078436535883692"
         // autoLoad={true}
         fields="name,email,picture"
         callback={responseFacebook}

@@ -19,5 +19,12 @@ export const userFragment = gql`
     addresses {
       ...Address
     }
+    socialAuth(first:10){
+      edges{
+        node{
+          provider
+        }
+      }
+    }
   }
 `;

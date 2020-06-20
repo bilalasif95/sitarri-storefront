@@ -139,6 +139,9 @@ export interface UserDetails_me {
   firstName: string;
   lastName: string;
   isStaff: boolean;
+  socialAuth: {
+    edges: []
+  }
   defaultShippingAddress: UserDetails_me_defaultShippingAddress | null;
   defaultBillingAddress: UserDetails_me_defaultBillingAddress | null;
   /**
