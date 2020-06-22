@@ -35,7 +35,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email, authType: "LOGIN" });
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email,uid:"", authType: "LOGIN" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -64,7 +64,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email|| "", authType: "LOGIN" });
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: "",uid:response.id, authType: "LOGIN" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
