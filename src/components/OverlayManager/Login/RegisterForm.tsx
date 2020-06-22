@@ -39,12 +39,12 @@ const showSuccessNotification = (
 
 const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
   const alert = useAlert();
-  const [emailClick,setEmailClick] = React.useState(false);
-  const [error,setError] = React.useState("");
+  const [emailClick, setEmailClick] = React.useState(false);
+  const [error, setError] = React.useState("");
   const [socialAuth] = useSocialAuth();
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email, authType: "REGISTER"  });
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, authType: "REGISTER" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -73,7 +73,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email, authType: "REGISTER" });
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email: response.email || "", authType: "REGISTER" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -97,72 +97,72 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
 
   return (
     <>
-    {emailClick ?
-      <>
-      <TypedAccountRegisterMutation
-        onCompleted={data => showSuccessNotification(data, hide, alert)}
-      >
-        {(registerCustomer, { loading, data }) => {
-          return (
-            <Form
-              errors={maybe(() => data.accountRegister.errors, [])}
-              onSubmit={(event, { email, password }) => {
-                event.preventDefault();
-                const redirectUrl = `${window.location.origin}${accountConfirmUrl}`;
-                registerCustomer({ variables: { email, password, redirectUrl } });
-              }}
-            >
-              <TextField
-                name="email"
-                autoComplete="email"
-                label="Email Address"
-                type="email"
-                required
-              />
-              <TextField
-                name="password"
-                autoComplete="password"
-                label="Password"
-                type="password"
-                required
-              />
-              <div className="login__content__button">
-                <Button type="submit" {...(loading && { disabled: true })}>
-                  {loading ? "Loading" : "Register"}
-                </Button>
-              </div>
-            </Form>
-          );
-        }}
-      </TypedAccountRegisterMutation>
-    </>
-      :
-      <>
-      <div className="errorMessages">{error}</div>
-      <FacebookLogin
-        appId="1078436535883692"
-        // autoLoad={true}
-        fields="name,email,picture"
-        callback={responseFacebook}
-        textButton="Continue with Facebook"
-        // buttonText="Login"
-        icon="fab fa-facebook-square"
-      />
-      <br /><br />
-      <GoogleLogin
-        clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
-        buttonText="Continue with Google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        className="googleLoginButton"
-        cookiePolicy={"single_host_origin"}
-      />
-      <br /><br />
-      <div className="line"><span>OR</span></div>
-      <Button className="emailButton" onClick={onEmailClick}>Continue with Email</Button>
-      </>
+      {emailClick ?
+        <>
+          <TypedAccountRegisterMutation
+            onCompleted={data => showSuccessNotification(data, hide, alert)}
+          >
+            {(registerCustomer, { loading, data }) => {
+              return (
+                <Form
+                  errors={maybe(() => data.accountRegister.errors, [])}
+                  onSubmit={(event, { email, password }) => {
+                    event.preventDefault();
+                    const redirectUrl = `${window.location.origin}${accountConfirmUrl}`;
+                    registerCustomer({ variables: { email, password, redirectUrl } });
+                  }}
+                >
+                  <TextField
+                    name="email"
+                    autoComplete="email"
+                    label="Email Address"
+                    type="email"
+                    required
+                  />
+                  <TextField
+                    name="password"
+                    autoComplete="password"
+                    label="Password"
+                    type="password"
+                    required
+                  />
+                  <div className="login__content__button">
+                    <Button type="submit" {...(loading && { disabled: true })}>
+                      {loading ? "Loading" : "Register"}
+                    </Button>
+                  </div>
+                </Form>
+              );
+            }}
+          </TypedAccountRegisterMutation>
+        </>
+        :
+        <>
+          <div className="errorMessages">{error}</div>
+          <FacebookLogin
+            appId="2673361789585831"
+            // autoLoad={true}
+            fields="name,email,picture"
+            callback={responseFacebook}
+            textButton="Continue with Facebook"
+            // buttonText="Login"
+            icon="fab fa-facebook-square"
+          />
+          <br /><br />
+          <GoogleLogin
+            clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
+            buttonText="Continue with Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            className="googleLoginButton"
+            cookiePolicy={"single_host_origin"}
+          />
+          <br /><br />
+          <div className="line"><span>OR</span></div>
+          <Button className="emailButton" onClick={onEmailClick}>Continue with Email</Button>
+        </>
       }
-      </>
+    </>
   );
 };
 

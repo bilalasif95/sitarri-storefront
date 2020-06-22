@@ -64,7 +64,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email, authType: "LOGIN" });
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email|| "", authType: "LOGIN" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();

@@ -20,7 +20,7 @@ export const tokenAuthMutation = gql`
 
 export const socialAuth = gql`
   ${userFragment}
-  mutation SocialAuth($accessToken: String!,$provider: String!, $email: String!, $authType: AuthEnum!) {
+  mutation SocialAuth($accessToken: String!,$provider: String!, $email: String, $authType: AuthEnum!) {
     socialAuth(accessToken: $accessToken, provider: $provider, email: $email, authType: $authType){
       token
       social{
