@@ -1,16 +1,18 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-import { withRouter } from "react-router-dom";
-
+import { useAlert } from "react-alert";
 import { Button, Form, TextField } from "..";
 import { maybe } from "../../core/utils";
+
 import { TypedPasswordResetMutation } from "./queries";
 
 import { passwordResetUrl } from "../../app/routes";
 
-const PasswordResetForm: React.FC = (props) => (
-  <div className="password-reset-form">
+
+const PasswordResetForm: React.FC<{ hide?: () => void }> = ({ hide }) => {
+  const alert = useAlert();
+  return <div className="password-reset-form">
     <p>
       Please provide us your email address so we can share you a link to reset
       your password
@@ -29,20 +31,33 @@ const PasswordResetForm: React.FC = (props) => (
                   redirectUrl: `${window.location.origin}${passwordResetUrl}`,
                 },
               })
-              
-              // .then((resp) => {
-              //   console.log("rpooooooooooooooooo", resp, "error length", resp.data.requestPasswordReset.errors.length)
-              //   setTimeout(() => {
-              //     if (resp.data.requestPasswordReset.errors.length === 0) {
-              //       console.log("histroy before", props)
-              //       props.history.push("/checkout")
-              //       console.log("updat histero", props)
-              //     }
-              //   }, 2000)
+                .then((resp: any) => {
+                  if (resp.data.requestPasswordReset.errors.length === 0) {
+                    hide()
+                    alert.show(
+                      {
+                        title: "Please check your email.",
+                      },
+                      {
+                        timeout: 5000,
+                        type: "info",
+                      }
+                    );
+                  }
+                  else {
+                    hide()
+                    alert.show(
+                      {
+                        title: resp.data.requestPasswordReset.errors.message,
+                      },
+                      {
+                        timeout: 5000,
+                        type: "info",
+                      }
+                    );
 
-              // })
-
-
+                  }
+                })
             }}
           >
             <TextField
@@ -62,6 +77,7 @@ const PasswordResetForm: React.FC = (props) => (
       }}
     </TypedPasswordResetMutation>
   </div>
-);
+}
+  ;
 
-export default withRouter(PasswordResetForm);
+export default PasswordResetForm;
