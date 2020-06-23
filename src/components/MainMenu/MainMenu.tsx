@@ -30,7 +30,8 @@ import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 import userImg from "../../images/iconmonstr-home-6.svg";
 import logoImg from "../../images/logo.svg";
-import searchImg from "../../images/search.svg";
+// import searchImg from "../../images/search.svg";
+import Search from "./search"
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();
@@ -40,19 +41,6 @@ const MainMenu: React.FC = () => {
   const handleSignOut = () => {
     signOut();
   };
-  // const showSearchBar = useContext(OverlayContext);
-  // React.useEffect(() => {
-  //   if (!showSearchBar.type) {
-  //     showSearchBar.show(OverlayType.search, OverlayTheme.left)
-  //   }
-  //   console.log("dkkkkkkkkkkk",)
-  // }, [showSearchBar])
-
-  // const cartItemsQuantity =
-  //   (items &&
-  //     items.reduce((prevVal, currVal) => prevVal + currVal.quantity, 0)) ||
-  //   0;
-
   return (
     <OverlayContext.Consumer>
 
@@ -65,7 +53,7 @@ const MainMenu: React.FC = () => {
               </Link>
             </div>
             <div className="main-menu__left">
-        
+              <Search />
               <TypedMainMenuQuery renderOnError displayLoader={false}>
                 {({ data }) => {
                   const items = maybe(() => data.shop.navigation.main.items, []);
@@ -247,7 +235,7 @@ const MainMenu: React.FC = () => {
                     />
                   </li>
                 </Offline>
-                <li
+                {/* <li
                 className="main-menu__search"
                 onClick={() =>
                   overlayContext.show(OverlayType.search, OverlayTheme.right)
@@ -258,7 +246,7 @@ const MainMenu: React.FC = () => {
                   render={() => <span>Search</span>}
                 />
                 <ReactSVG path={searchImg} />
-              </li>
+              </li> */}
               </ul>
             </div>
           </nav>
