@@ -1,7 +1,9 @@
 import "./scss/index.scss";
 
 import * as React from "react";
+
 import ReactSVG from "react-svg";
+
 // import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";

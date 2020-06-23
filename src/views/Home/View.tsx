@@ -1,12 +1,19 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-import { TypedSearchResults } from "../../components/OverlayManager/Search/queries";
+
 import { MetaWrapper } from "../../components";
+
 import Page from "./Page";
-import { TypedHomePageQuery } from "./queries";
+
 import ReactSVG from "react-svg";
+
 import searchicon from "../../images/search.svg";
+
+import { TypedHomePageQuery } from "./queries";
+
+import { TypedSearchResults } from "../../components/OverlayManager/Search/queries";
+
 
 const View: React.FC = () => {
   const [search, setSearch] = React.useState(null)
