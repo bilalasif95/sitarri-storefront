@@ -109,7 +109,7 @@
 
     &:hover {
       svg * {
-        fill: red;
+        fill: #f34928;
       }
     }
 
@@ -140,7 +140,7 @@
 
   &__user {
     &--active * {
-      fill: red;
+      fill: #f34928;
       fill-rule: inherit;
     }
   }

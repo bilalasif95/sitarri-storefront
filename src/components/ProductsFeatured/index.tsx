@@ -6,9 +6,7 @@ import { Carousel, ProductListItem } from "..";
 import { maybe } from "../../core/utils";
 import { TypedFeaturedProductsQuery } from "./queries";
 
-import { AddressFormModal } from "@components/organisms";
-
-import { ShopContext } from "../../components/ShopProvider/context";
+import { Modal } from "@components/organisms/Modal";
 
 import "./scss/index.scss";
 
@@ -17,8 +15,9 @@ interface ProductsFeaturedProps {
 }
 
 const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
-  const { defaultCountry, countries } = React.useContext(ShopContext);
   const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  const [product, setProduct] = React.useState({});
+  const [show, setShow] = React.useState(true);
   return (
     <>
     <TypedFeaturedProductsQuery displayError={false}>
@@ -35,7 +34,10 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
                 <h3>{title}</h3>
                 <Carousel>
                   {products.map(({ node: product }) => (
-                    <div className="modalDiv" onClick={()=> setDisplayNewModal(true)}>
+                    <div className="modalDiv" onClick={()=> {
+                      setDisplayNewModal(true)
+                      setProduct(product)
+                      }}>
                     {/* <Link
                       to={generateProductUrl(product.id, product.name)}
                       key={product.id}
@@ -54,17 +56,19 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
       }}
     </TypedFeaturedProductsQuery>
     {displayNewModal && (
-        <AddressFormModal
-          hideModal={() => {
-            setDisplayNewModal(false);
-          }}
-          userId={"1"}
-          {...{ defaultValue: defaultCountry ? defaultCountry : {} }}
-          submitBtnText={"Add"}
-          title={"Add new address"}
-          {...{ countriesOptions: countries }}
-          formId="address-form"
-        />
+      <Modal
+        title=""
+        hide={() => {
+          setDisplayNewModal(false);
+          setShow(false);
+        }}
+        formId="product-form"
+        disabled={false}
+        show={show}
+        submitBtnText=""
+      >
+        <ProductListItem product={product} />
+      </Modal>
     )}
     </>
   );

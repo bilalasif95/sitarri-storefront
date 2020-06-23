@@ -3,6 +3,7 @@ import "./scss/index.scss";
 import * as React from "react";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
+import ReactSVG from "react-svg";
 
 import { accountConfirmUrl } from "../../../app/routes";
 
@@ -16,6 +17,8 @@ import { RegisterAccount } from "./gqlTypes/RegisterAccount";
 import { TypedAccountRegisterMutation } from "./queries";
 
 import { AlertManager, useAlert } from "react-alert";
+
+import emailImg from "../../../images/email.svg";
 
 const showSuccessNotification = (
   data: RegisterAccount,
@@ -159,7 +162,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
       />
       <br /><br />
       <div className="line"><span>OR</span></div>
-      <Button className="emailButton" onClick={onEmailClick}>Continue with Email</Button>
+      <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
       </>
       }
       </>

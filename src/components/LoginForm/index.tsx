@@ -1,6 +1,7 @@
 import "./scss/index.scss";
 
 import * as React from "react";
+import ReactSVG from "react-svg";
 // import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
@@ -13,6 +14,8 @@ import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
 
 import { setAuthToken } from "@sdk/auth";
+
+import emailImg from "../../images/email.svg";
 
 interface ILoginForm {
   hide?: () => void;
@@ -143,7 +146,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
       />
       <br /><br />
       <div className="line"><span>OR</span></div>
-      <Button className="emailButton" onClick={onEmailClick}>Continue with Email</Button>
+      <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
       </>
       }
     </div>

@@ -28,9 +28,9 @@ import { TypedMainMenuQuery } from "./queries";
 // import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
-import userImg from "../../images/iconmonstr-home-6.svg";
 import logoImg from "../../images/logo.svg";
 import searchImg from "../../images/search.svg";
+import userImg from "../../images/user.svg";
 
 const MainMenu: React.FC = () => {
   const { data: user } = useUserDetails();

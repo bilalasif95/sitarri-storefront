@@ -42,13 +42,15 @@ export const Modal: React.FC<IProps> = ({
           {title}
         </CardHeader>
         <S.Content>{children}</S.Content>
-        <FormFooter
-          divider
-          disabled={disabled}
-          {...getSubmitBtnProps(submitBtnText, onSubmit)}
-          {...getCancelBtnProps(hide, cancelBtnText)}
-          formId={formId}
-        />
+        {formId === "product-form" ? "" :
+          <FormFooter
+            divider
+            disabled={disabled}
+            {...getSubmitBtnProps(submitBtnText, onSubmit)}
+            {...getCancelBtnProps(hide, cancelBtnText)}
+            formId={formId}
+          />
+        }
       </S.Modal>
     </Overlay>
   );

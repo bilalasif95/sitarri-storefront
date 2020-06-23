@@ -42,7 +42,7 @@ export interface Product extends BasicProductFields {
 }
 
 interface ProductListItemProps {
-  product: Product;
+  product: any;
 }
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
