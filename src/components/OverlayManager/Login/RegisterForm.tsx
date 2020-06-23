@@ -42,12 +42,12 @@ const showSuccessNotification = (
 
 const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
   const alert = useAlert();
-  const [emailClick,setEmailClick] = React.useState(false);
-  const [error,setError] = React.useState("");
+  const [emailClick, setEmailClick] = React.useState(false);
+  const [error, setError] = React.useState("");
   const [socialAuth] = useSocialAuth();
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email, authType: "REGISTER"  });
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid:"",authType: "REGISTER" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -76,7 +76,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: response.email, authType: "REGISTER" });
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email:  "", uid:response.id,authType: "REGISTER" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -165,7 +165,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
       <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
       </>
       }
-      </>
+    </>
   );
 };
 
