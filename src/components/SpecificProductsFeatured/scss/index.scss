@@ -20,21 +20,8 @@
     display: inline-block;
     // max-width: 255px;
     text-decoration: none;
-    width: 48%;
-    margin: 0 0 2rem 0;
-  }
-  .modalDiv:nth-child(odd) {
+    width: 47%;
     margin: 0 1rem 2rem 0;
-  }
-  @media(max-width: 575px){
-    .modalDiv {
-      width: 47%;
-    }
-    h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: 18px;
-      font-weight: 500;
-    }
+
   }
 }

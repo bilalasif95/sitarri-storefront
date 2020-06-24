@@ -1,12 +1,10 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-
-import ReactSVG from "react-svg";
-
 // import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
+import ReactSVG from "react-svg";
 
 import { useSignIn,useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
@@ -149,6 +147,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
       <br /><br />
       <div className="line"><span>OR</span></div>
       <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
+      <span>By continuing you agree to our <span className="statementSection">T&Cs</span> and<span className="statementSection"> privacy policy</span>.</span>
       </>
       }
     </div>

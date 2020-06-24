@@ -12,6 +12,7 @@ import ReactSVG from "react-svg";
 
 import { stringify } from "query-string";
 
+import mainimg from "../../images/mainimg.jpg";
 import searchicon from "../../images/search.svg";
 
 import { searchUrl } from "../../app/routes";
@@ -35,15 +36,16 @@ const View: React.FC = (props: any) => {
     <div className="home-page">
       <div className="main-section">
         <div className="container">
-          <div className="searchbox">
-            <h2>Find businessess and products near you</h2>
-            <div className="searchfield">
-              <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
-              <span className="searchicon">
-                <ReactSVG path={searchicon} />
-              </span>
-            </div>
-            <div className="searchedlist">
+          <div className="content">
+            <div className="searchbox">
+              <h2>Find businessess and products near you</h2>
+              <div className="searchfield">
+                <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
+                <span className="searchicon">
+                  <ReactSVG path={searchicon} />
+                </span>
+              </div>
+               <div className="searchedlist">
               {search ? <TypedSearchResults
                 renderOnError
                 displayError={false}
@@ -71,39 +73,41 @@ const View: React.FC = (props: any) => {
 
                 }}
               </TypedSearchResults> : ""}
+              
             </div>
-          </div>
+            </div>
           <div className="img">
-
+                <img src={mainimg} alt="Main" />
+              </div>
           </div>
         </div>
+        </div>
+        <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
+          {({ data, loading }) => {
+            return (
+              <MetaWrapper
+                meta={{
+                  description: data.shop ? data.shop.description : "",
+                  title: data.shop ? data.shop.name : "",
+                }}
+              >
+                <Page
+                  SeeDetails={SeeDetails}
+                  loading={loading}
+                  backgroundImage={
+                    data.shop &&
+                    data.shop.homepageCollection &&
+                    data.shop.homepageCollection.backgroundImage
+                  }
+                  categories={data.categories}
+                  shop={data.shop}
+                />
+              </MetaWrapper>
+            );
+          }}
+        </TypedHomePageQuery>
       </div>
-      <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
-        {({ data, loading }) => {
-          return (
-            <MetaWrapper
-              meta={{
-                description: data.shop ? data.shop.description : "",
-                title: data.shop ? data.shop.name : "",
-              }}
-            >
-              <Page
-                SeeDetails={SeeDetails}
-                loading={loading}
-                backgroundImage={
-                  data.shop &&
-                  data.shop.homepageCollection &&
-                  data.shop.homepageCollection.backgroundImage
-                }
-                categories={data.categories}
-                shop={data.shop}
-              />
-            </MetaWrapper>
-          );
-        }}
-      </TypedHomePageQuery>
     </div>
-  </div>
 };
 
 export default withRouter(View);
