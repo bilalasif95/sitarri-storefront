@@ -40,6 +40,7 @@ export const Content = styled.div`
   padding: 1rem;
   position: relative;
 `;
+
 export const Link = styled.div`
   position: absolute;
   top: -1rem;
@@ -53,6 +54,7 @@ export const Link = styled.div`
   -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
 `;
+
 export const Title = styled.h4`
   font-weight: normal;
   ${textProps}
@@ -171,10 +173,9 @@ svg{
 `;
 
 export const Miles = styled.p`
-font-size: 12px
-color: #666;
-text-align: left;
-margin: 0 1rem 0 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 export const Distance = styled.p`

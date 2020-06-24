@@ -16,6 +16,7 @@ export * from "./InputSelect";
 export * from "./AttributeValuesChecklist";
 export * from "./ResetPasswordForm";
 export * from "./ProductTile";
+export * from "./BusinessTile";
 export * from "./ProductDescription";
 export * from "./CartSummaryRow";
 export * from "./CheckoutProgressBar";
