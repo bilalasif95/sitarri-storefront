@@ -9,13 +9,15 @@ import ReactSVG from "react-svg";
 import { useSignIn,useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
 
-import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
+// import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
 
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
 
 import { setAuthToken } from "@sdk/auth";
 
 import emailImg from "../../images/email.svg";
+
+import RegisterForm from "../OverlayManager/Login/RegisterForm";
 
 interface ILoginForm {
   hide?: () => void;
@@ -26,6 +28,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
   const [signIn, { loading, error }] = useSignIn();
   const [socialAuth] = useSocialAuth();
   const [emailClick,setEmailClick] = React.useState(false);
+  const [registerClick,setRegisterClick] = React.useState(false);
   const [errors,setErrors] = React.useState("");
   // const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
@@ -38,7 +41,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email,uid:"", authType: "LOGIN" });
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email,uid:""});
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -60,14 +63,9 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
     // }
   };
 
-  const onEmailClick = e => {
-    e.preventDefault();
-    setEmailClick(true);
-  }
-
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: "",uid:response.id, authType: "LOGIN" });
+      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: "",uid:response.id});
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -89,10 +87,14 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
     // }
   };
 
+  const menuBack = () => {
+    setEmailClick(true)
+  }
   return (
     <div className="login-form">
       {emailClick ?
       <>
+      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}}>Back</Button>
       <Form
         errors={maybe(() => error.extraInfo.userInputErrors, [])}
         onSubmit={handleOnSubmit}
@@ -111,18 +113,33 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
           type="password"
           required
         />
+        <Button onClick={() => {
+          show(OverlayType.password, OverlayTheme.right);
+        }}>Forgot Password?</Button>
         <div className="login-form__button">
           <Button type="submit" {...(loading && { disabled: true })}>
             {loading ? "Loading" : "Sign in"}
           </Button>
         </div>
       </Form>
-      <ForgottenPassword
+      <div className="login__content__password-reminder">
+        <p>
+          Don't have an account?&nbsp;
+          <span className="u-link" onClick={()=> {setRegisterClick(true);setEmailClick(false)}}>
+            Sign up
+          </span>
+        </p>
+      </div>
+      {/* <ForgottenPassword
         onClick={() => {
           show(OverlayType.password, OverlayTheme.right);
         }}
-      />
+      /> */}
       </>
+      :
+      <>
+      {registerClick ?
+        <RegisterForm menuBack={menuBack} hide={hide}/>
       :
       <>
       <div className="errorMessages">{errors}</div>
@@ -146,8 +163,10 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
       />
       <br /><br />
       <div className="line"><span>OR</span></div>
-      <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
+      <Button className="emailButton" onClick={()=>setEmailClick(true)}><ReactSVG path={emailImg} />Continue with Email</Button>
       <span>By continuing you agree to our <span className="statementSection">T&Cs</span> and<span className="statementSection"> privacy policy</span>.</span>
+      </>
+      }
       </>
       }
     </div>

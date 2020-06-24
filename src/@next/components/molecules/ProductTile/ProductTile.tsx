@@ -7,7 +7,7 @@ import * as S from "./styles";
 import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 // import tileimg from "../../../../images/tile.png";
-import stileimg from "../../../../images/smalltile.png";
+// import stileimg from "../../../../images/smalltile.png";
 
 export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
   const price =

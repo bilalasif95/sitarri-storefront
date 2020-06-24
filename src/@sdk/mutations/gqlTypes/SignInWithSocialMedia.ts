@@ -189,6 +189,5 @@ export interface SignInWithSocialMediaVariables {
   accessToken: string;
   provider: string;
   email: string;
-  authType: any;
   uid:string;
 }
