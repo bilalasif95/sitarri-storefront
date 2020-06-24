@@ -2,21 +2,34 @@ import "./scss/index.scss";
 
 import * as React from "react";
 
+import { withRouter } from "react-router-dom";
+
 import { MetaWrapper } from "../../components";
 
 import Page from "./Page";
 
 import ReactSVG from "react-svg";
 
+import { stringify } from "query-string";
+
 import searchicon from "../../images/search.svg";
+
+import { searchUrl } from "../../app/routes";
 
 import { TypedHomePageQuery } from "./queries";
 
 import { TypedSearchResults } from "../../components/OverlayManager/Search/queries";
 
 
-const View: React.FC = () => {
-  const [search, setSearch] = React.useState(null)
+const View: React.FC = (props: any) => {
+  const [search, setSearch] = React.useState(null);
+  const SeeDetails = (searchWord) => {
+    setSearch(null)
+    props.history.push(`${searchUrl}?${searchQs(searchWord.slice(0, 3))}`);
+  }
+  const searchQs = (searchWord) => {
+    return stringify({ q: searchWord });
+  }
   return <div>
 
     <div className="home-page">
@@ -45,7 +58,7 @@ const View: React.FC = () => {
                     return (
                       data.products.edges.length > 0 ? data.products.edges.map(product => (
 
-                        <div className="items">
+                        <div className="items" onClick={() => SeeDetails(product.node.category.name)}>
                           <p>{product.node.category.name}</p>
                         </div>
 
@@ -75,6 +88,7 @@ const View: React.FC = () => {
               }}
             >
               <Page
+                SeeDetails={SeeDetails}
                 loading={loading}
                 backgroundImage={
                   data.shop &&
@@ -92,4 +106,4 @@ const View: React.FC = () => {
   </div>
 };
 
-export default View;
+export default withRouter(View);
