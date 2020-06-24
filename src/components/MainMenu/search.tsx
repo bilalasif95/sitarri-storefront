@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { TypedSearchResults } from "../OverlayManager/Search/queries";
 import ReactSVG from "react-svg";
 import searchicon from "../../images/search.svg";
+import { TypedSearchResults } from "../OverlayManager/Search/queries";
+
 
 const search: React.FC = () => {
     const [search, setSearch] = useState(null)

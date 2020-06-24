@@ -1,11 +1,11 @@
 import "./scss/index.scss";
 
-import isEqual from "lodash/isEqual";
+// import isEqual from "lodash/isEqual";
 import * as React from "react";
 
 import { Thumbnail } from "@components/molecules";
 
-import { TaxedMoney } from "../../@next/components/containers";
+// import { TaxedMoney } from "../../@next/components/containers";
 import { BasicProductFields } from "../../views/Product/gqlTypes/BasicProductFields";
 
 export interface Product extends BasicProductFields {
@@ -46,25 +46,25 @@ interface ProductListItemProps {
 }
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
-  const { category } = product;
-  const price = product.pricing.priceRange.start;
-  const priceUndiscounted = product.pricing.priceRangeUndiscounted.start;
+  //  const { category } = product;
+  // const price = product.pricing.priceRange.start;
+  // const priceUndiscounted = product.pricing.priceRangeUndiscounted.start;
 
-  const getProductPrice = () => {
-    if (isEqual(price, priceUndiscounted)) {
-      return <TaxedMoney taxedMoney={price} />;
-    } else {
-      return (
-        <>
-          <span className="product-list-item__undiscounted_price">
-            <TaxedMoney taxedMoney={priceUndiscounted} />
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <TaxedMoney taxedMoney={price} />
-        </>
-      );
-    }
-  };
+  // const getProductPrice = () => {
+  //   if (isEqual(price, priceUndiscounted)) {
+  //     return <TaxedMoney taxedMoney={price} />;
+  //   } else {
+  //     return (
+  //       <>
+  //         <span className="product-list-item__undiscounted_price">
+  //           <TaxedMoney taxedMoney={priceUndiscounted} />
+  //         </span>
+  //         &nbsp;&nbsp;&nbsp;&nbsp;
+  //         <TaxedMoney taxedMoney={price} />
+  //       </>
+  //     );
+  //   }
+  // };
   return (
     <div className="product-list-item">
       <div className="product-list-item__image">
