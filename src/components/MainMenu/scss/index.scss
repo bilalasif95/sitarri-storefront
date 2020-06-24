@@ -137,6 +137,9 @@
 
     svg {
       vertical-align: bottom;
+      path{
+        fill: #fd4b01;
+      }
     }
   }
 
@@ -151,7 +154,22 @@
   &__icon {
     padding: 0 $spacer;
     cursor: pointer;
-
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    div{
+      width: 24px;
+    }
+    span{
+      padding: 0 10px;
+      width: 85%;
+      font-size: 12px;
+      text-transform: capitalize;
+    }
+    .ad {
+      transform: rotate(-90deg);
+    }
     svg * {
       transition: 0.3s;
     }
@@ -188,6 +206,8 @@
   }
 
   &__user {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
     &--active * {
       fill: #f34928;
       fill-rule: inherit;

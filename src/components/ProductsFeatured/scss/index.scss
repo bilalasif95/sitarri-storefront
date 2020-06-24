@@ -1,12 +1,14 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .products-featured {
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 0;
 
   h3 {
-    font-weight: $bold-font-weight;
+    font-weight: 400;
     margin-top: 2.4rem;
     margin-bottom: 2.4rem;
+    font-size: 32px;
+    color: #000;
   }
 
   .pro-list{
@@ -21,20 +23,21 @@
     // max-width: 255px;
     text-decoration: none;
     width: 48%;
-    margin: 0 0 2rem 0;
+  }
+  .modalDiv:nth-child(even) {
+    margin: 0 0 2rem 0 !important;
   }
   .modalDiv:nth-child(odd) {
-    margin: 0 1rem 2rem 0;
+    margin: 0 1rem 2rem 0 !important;
   }
-  @media(max-width: 575px){
+  @media(max-width: $small-screen){
     .modalDiv {
       width: 47%;
     }
     h3 {
-      margin-top: 0;
-      margin-bottom: 1rem;
+      margin-top: 0 ;
+      margin-bottom: 1rem ;
       font-size: 18px;
-      font-weight: 500;
     }
   }
 }

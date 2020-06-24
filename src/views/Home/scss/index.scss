@@ -31,6 +31,7 @@
         padding: 0.7rem;
         background: #fff;
         position: relative;
+        border-radius: 5px;
         .searchicon {
           position: absolute;
           right: 1.5rem;
@@ -62,7 +63,7 @@
     @media(max-width: 575px){
       .searchbox{
         width: 100%;
-        padding: 3rem 0;
+        padding: 1rem 0;
       }
       .img{
         display: none;

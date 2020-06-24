@@ -3,7 +3,7 @@ import "./scss/index.scss";
 import * as React from "react";
 
 import { IFilterAttributes, IFilters } from "@types";
-import { DebounceChange, ProductsFeatured, TextField } from "../../components";
+// import { DebounceChange, ProductsFeatured, TextField } from "../../components";
 
 import { ProductListHeader } from "../../@next/components/molecules";
 import { ProductList } from "../../@next/components/organisms";
@@ -59,7 +59,7 @@ const Page: React.FC<PageProps> = ({
   const canDisplayProducts = maybe(
     () => !!products.edges && products.totalCount !== undefined
   );
-  const hasProducts = canDisplayProducts && !!products.totalCount;
+  // const hasProducts = canDisplayProducts && !!products.totalCount;
   const [showFilters, setShowFilters] = React.useState(false);
 
   const getAttribute = (attributeSlug: string, valueSlug: string) => {
@@ -85,7 +85,7 @@ const Page: React.FC<PageProps> = ({
 
   return (
     <div className="category">
-      <div className="search-page">
+      {/* <div className="search-page">
         <div className="search-page__header">
           <div className="search-page__header__input container">
             <DebounceChange
@@ -108,7 +108,7 @@ const Page: React.FC<PageProps> = ({
             </DebounceChange>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="container">
         <FilterSidebar
           show={showFilters}
@@ -138,7 +138,7 @@ const Page: React.FC<PageProps> = ({
         )}
       </div>
 
-      {!hasProducts && <ProductsFeatured title="You might like" />}
+      {/* {!hasProducts && <ProductsFeatured title="You might like" />} */}
     </div>
   );
 };
