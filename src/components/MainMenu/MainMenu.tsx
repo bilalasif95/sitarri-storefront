@@ -32,7 +32,7 @@ import hamburgerImg from "../../images/hamburger.svg";
 import homeicon from "../../images/homeicon.svg";
 import logoImg from "../../images/logo.jpg";
 
-// import userImg from "../../images/user.svg";
+import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
 import Search from "./search"
 
@@ -69,7 +69,7 @@ const MainMenu: React.FC = () => {
                         query={{ minWidth: smallScreen }}
                         render={() => (
                           <> */}
-                    {/* {user ? ( */}
+                    {user ? (
                     <MenuDropdown
                       head={
                         <li className="main-menu__icon main-menu__user--active">
@@ -102,8 +102,8 @@ const MainMenu: React.FC = () => {
                         </ul>
                       }
                     />
-                    {/* // ) : ( */}
-                    {/* <li
+                     ) : (
+                    <li
                                   data-testid="login-btn"
                                   className="main-menu__icon"
                                   onClick={() =>
@@ -114,11 +114,11 @@ const MainMenu: React.FC = () => {
                                   }
                                 >
                                   <ReactSVG path={userImg} />
-                                </li> */}
-                    {/* )} */}
+                                </li> 
+                    )}
                     {/* </>
                         )}
-                      /> */}
+                      />
                     {/* <li
                   className="main-menu__icon main-menu__cart"
                   onClick={() => {
