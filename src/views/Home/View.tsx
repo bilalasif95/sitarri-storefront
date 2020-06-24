@@ -8,6 +8,7 @@ import Page from "./Page";
 
 import ReactSVG from "react-svg";
 
+import mainimg from "../../images/mainimg.jpg";
 import searchicon from "../../images/search.svg";
 
 import { TypedHomePageQuery } from "./queries";
@@ -22,46 +23,42 @@ const View: React.FC = () => {
     <div className="home-page">
       <div className="main-section">
         <div className="container">
-          <div className="searchbox">
-            <h2>Find businessess and products near you</h2>
-            <div className="searchfield">
-              <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
-              <span className="searchicon">
-                <ReactSVG path={searchicon} />
-              </span>
+          <div className="content">
+            <div className="searchbox">
+              <h2>Find businessess and products near you</h2>
+              <div className="searchfield">
+                <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
+                <span className="searchicon">
+                  <ReactSVG path={searchicon} />
+                </span>
+              </div>
+              <div className="searchedlist">
+                {search ? <TypedSearchResults
+                  renderOnError
+                  displayError={false}
+                  errorPolicy="all"
+                  variables={{ query: search }}
+                >
+                  {({ data, error, loading }) => {
+                    if (loading) {
+                      return <h6>..</h6>
+                    }
+                    else {
+                      return (
+                        data.products.edges.length > 0 ? data.products.edges.map(product => (
+                          <div className="items">
+                            <p>{product.node.category.name}</p>
+                          </div>
+                        )) : <div>No data found...</div>
+                      )
+                    }
+                  }}
+                </TypedSearchResults> : ""}
+              </div>
             </div>
-            <div className="searchedlist">
-              {search ? <TypedSearchResults
-                renderOnError
-                displayError={false}
-                errorPolicy="all"
-                variables={{ query: search }}
-              >
-                {({ data, error, loading }) => {
-                  if (loading) {
-                    return <h6>..</h6>
-                  }
-                  else {
-                    return (
-                      data.products.edges.length > 0 ? data.products.edges.map(product => (
-
-                        <div className="items">
-                          <p>{product.node.category.name}</p>
-                        </div>
-
-                      )) : <div>No data found...</div>
-
-
-
-                    )
-                  }
-
-                }}
-              </TypedSearchResults> : ""}
+            <div className="img">
+              <img src={mainimg} alt="Main" />
             </div>
-          </div>
-          <div className="img">
-
           </div>
         </div>
       </div>

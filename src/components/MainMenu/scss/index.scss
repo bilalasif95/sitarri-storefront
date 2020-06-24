@@ -12,6 +12,9 @@
 
   &__left {
     width: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   &__right {
@@ -31,6 +34,7 @@
     align-self: center;
     width: 72%;
     position: relative;
+    padding: 0 1rem;
     .searchedlist {
       max-height: 170px;
       overflow-y: auto;
@@ -69,6 +73,32 @@
     }
   }
 
+  @media(max-width: 992px){
+    &__left {
+      width: 140px
+    }
+  
+    &__right {
+      width: 15%;
+      justify-content: flex-end;
+    }
+    &__center {
+      width: 70%;
+    }
+  }
+  @media(max-width: 575px){
+    &__left {
+      width: 140px
+    }
+  
+    &__right {
+      width: 73%;
+    }
+    &__center {
+      display: none;
+    }
+  }
+
   &__item {
     font-weight: $bold-font-weight;
     height: 100%;
@@ -87,9 +117,9 @@
   }
 
   &__hamburger {
-    border-right: 1px solid $gray-light;
+    border-left: 1px solid $gray-light;
     cursor: pointer;
-    padding: $spacer;
+    padding: $spacer 0 $spacer $spacer;
 
     &--hover {
       display: none;
