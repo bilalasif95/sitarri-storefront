@@ -20,11 +20,15 @@
     text-align: center;
   }
 
+  .statementSection{
+    color: #f34928
+  }
+  
   .emailButton {
     background-color: #f34928 !important;
     border-radius: 7px;
     width: 100%;
-    margin-top: 1rem;
+    margin: 1rem 0;
     span{
       font: 400 14.3333px Arial;
       display: flex;

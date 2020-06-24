@@ -14,7 +14,7 @@ interface ProductsFeaturedProps {
   title?: string;
 }
 
-const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
+const SpecificProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
   const [displayNewModal, setDisplayNewModal] = React.useState(false);
   const [product, setProduct] = React.useState({});
   const [show, setShow] = React.useState(true);
@@ -80,8 +80,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) => {
   );
 };
 
-ProductsFeatured.defaultProps = {
-  title: "What are you looking for?",
+SpecificProductsFeatured.defaultProps = {
+  title: "Something more specific?",
 };
 
-export default ProductsFeatured;
+export default SpecificProductsFeatured;

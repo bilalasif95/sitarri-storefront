@@ -5,7 +5,7 @@ import * as React from "react";
 // import { Link } from "react-router-dom";
 
 // import { Button, Loader, ProductsFeatured } from "../../components";
-import { ProductsFeatured } from "../../components";
+import { ProductsFeatured,SpecificProductsFeatured } from "../../components";
 // import { generateCategoryUrl } from "../../core/utils";
 
 import {
@@ -71,9 +71,7 @@ const Page: React.FC<{
         </div>
       </div> */}
       <ProductsFeatured />
-      <ProductsFeatured />
-      <ProductsFeatured />
-      <ProductsFeatured />
+      <SpecificProductsFeatured />
       {/* {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
