@@ -77,7 +77,7 @@ class Login extends React.Component<
                   /> */}
                 </>
               ) : (
-                <RegisterForm hide={hide} />
+                <RegisterForm hide={hide} menuBack={()=> null} />
               )}
             </div>
           </Online>

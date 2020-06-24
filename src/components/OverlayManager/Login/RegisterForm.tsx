@@ -1,15 +1,15 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-import FacebookLogin from "react-facebook-login";
-import GoogleLogin from "react-google-login";
-import ReactSVG from "react-svg";
+// import FacebookLogin from "react-facebook-login";
+// import GoogleLogin from "react-google-login";
+// import ReactSVG from "react-svg";
 
 import { accountConfirmUrl } from "../../../app/routes";
 
-import { useSocialAuth } from "@sdk/react";
+// import { useSocialAuth } from "@sdk/react";
 
-import { setAuthToken } from "@sdk/auth";
+// import { setAuthToken } from "@sdk/auth";
 
 import { Button, Form, TextField } from "../..";
 import { maybe } from "../../../core/utils";
@@ -18,7 +18,7 @@ import { TypedAccountRegisterMutation } from "./queries";
 
 import { AlertManager, useAlert } from "react-alert";
 
-import emailImg from "../../../images/email.svg";
+// import emailImg from "../../../images/email.svg";
 
 const showSuccessNotification = (
   data: RegisterAccount,
@@ -40,22 +40,22 @@ const showSuccessNotification = (
   }
 };
 
-const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
+const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ menuBack,hide }) => {
   const alert = useAlert();
-  const [emailClick, setEmailClick] = React.useState(false);
-  const [error, setError] = React.useState("");
-  const [socialAuth] = useSocialAuth();
-  const responseGoogle = async response => {
-    if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid:"",authType: "REGISTER" });
-      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
-        setAuthToken(authenticated.data.socialAuth.token);
-        hide();
-      }
-      else {
-        setError(authenticated.data.socialAuth.error.message)
-      }
-    }
+  // const [emailClick, setEmailClick] = React.useState(false);
+  // const [error, setError] = React.useState("");
+  // const [socialAuth] = useSocialAuth();
+  // const responseGoogle = async response => {
+  //   if (response.accessToken) {
+  //     const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid:"",authType: "REGISTER" });
+  //     if (authenticated && hide && authenticated.data.socialAuth.error === null) {
+  //       setAuthToken(authenticated.data.socialAuth.token);
+  //       hide();
+  //     }
+  //     else {
+  //       setError(authenticated.data.socialAuth.error.message)
+  //     }
+  //   }
     // else {
     //   alert.show(
     //     {
@@ -67,24 +67,24 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
     //     }
     //   );
     // }
-  };
+  // };
 
-  const onEmailClick = e => {
-    e.preventDefault();
-    setEmailClick(true);
-  }
+  // const onEmailClick = e => {
+  //   e.preventDefault();
+  //   setEmailClick(true);
+  // }
 
-  const responseFacebook = async response => {
-    if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email:  "", uid:response.id,authType: "REGISTER" });
-      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
-        setAuthToken(authenticated.data.socialAuth.token);
-        hide();
-      }
-      else {
-        setError(authenticated.data.socialAuth.error.message)
-      }
-    }
+  // const responseFacebook = async response => {
+  //   if (response.accessToken) {
+  //     const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email:  "", uid:response.id,authType: "REGISTER" });
+  //     if (authenticated && hide && authenticated.data.socialAuth.error === null) {
+  //       setAuthToken(authenticated.data.socialAuth.token);
+  //       hide();
+  //     }
+  //     else {
+  //       setError(authenticated.data.socialAuth.error.message)
+  //     }
+  //   }
     // else {
     //   alert.show(
     //     {
@@ -96,17 +96,18 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
     //     }
     //   );
     // }
-  };
+  // };
 
   return (
     <>
-    {emailClick ?
-      <>
+    {/* {emailClick ?
+      <> */}
       <TypedAccountRegisterMutation
         onCompleted={data => showSuccessNotification(data, hide, alert)}
       >
         {(registerCustomer, { loading, data }) => {
           return (
+            <>
             <Form
               errors={maybe(() => data.accountRegister.errors, [])}
               onSubmit={(event, { email, password }) => {
@@ -135,10 +136,19 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
                 </Button>
               </div>
             </Form>
+            <div className="login__content__password-reminder">
+              <p>
+                Already have an account?&nbsp;
+                <span className="u-link" onClick={()=> menuBack()}>
+                  Login
+                </span>
+              </p>
+            </div>
+            </>
           );
         }}
       </TypedAccountRegisterMutation>
-    </>
+    {/* </>
       :
       <>
       <div className="errorMessages">{error}</div>
@@ -164,7 +174,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
       <div className="line"><span>OR</span></div>
       <Button className="emailButton" onClick={onEmailClick}><ReactSVG path={emailImg} />Continue with Email</Button>
       </>
-      }
+      } */}
     </>
   );
 };
