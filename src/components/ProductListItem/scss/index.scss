@@ -4,10 +4,15 @@
   text-align: center;
 
   &__title {
-    text-transform: $product-item-title-text-transform;
     font-weight: $product-item-title-font-weight;
     margin-top: $spacer;
     text-align: left;
+    @media (max-width: $small-screen) {
+      font-size: 12px;
+      font-weight: 300;
+      line-height: normal;
+      height: 30px;
+    }
   }
 
   &__undiscounted_price {
@@ -40,7 +45,7 @@
     }
 
     @media (max-width: $small-screen) {
-      height: 210px;
+      height: 100px;
     }
   }
 }

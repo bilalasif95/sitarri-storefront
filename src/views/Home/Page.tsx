@@ -71,9 +71,6 @@ const Page: React.FC<{
         </div>
       </div> */}
       <ProductsFeatured />
-      <ProductsFeatured />
-      <ProductsFeatured />
-      <ProductsFeatured />
       {/* {categoriesExist() && (
         <div className="home-page__categories">
           <div className="container">
