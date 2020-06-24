@@ -4,8 +4,10 @@
   text-align: center;
 
   &__title {
-    font-weight: $product-item-title-font-weight;
+    font-weight: 400;
+    font-size: 16px;
     margin-top: $spacer;
+    color: #000;
     text-align: left;
     @media (max-width: $small-screen) {
       font-size: 12px;

@@ -25,7 +25,7 @@ const View: React.FC = () => {
         <div className="container">
           <div className="content">
             <div className="searchbox">
-              <h2>Find businessess and products near you</h2>
+              <h2>Find businesses and products near you</h2>
               <div className="searchfield">
                 <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
                 <span className="searchicon">

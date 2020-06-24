@@ -29,7 +29,7 @@ const SpecificProductsFeatured: React.FC<ProductsFeaturedProps> = ({ title }) =>
 
           if (products.length) {
             return (
-              <div className="products-featured">
+              <div className="s-products-featured">
                 <div className="container">
                   <h3>{title}</h3>
                   {/* <Carousel> */}

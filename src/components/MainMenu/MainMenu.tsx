@@ -26,10 +26,13 @@ import { maybe } from "../../core/utils";
 import { TypedMainMenuQuery } from "./queries";
 
 // import cartImg from "../../images/cart.svg";
+import arrowdown from "../../images/iconmonstr-arrow-64.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
+import homeicon from "../../images/homeicon.svg";
 import logoImg from "../../images/logo.jpg";
-import userImg from "../../images/user.svg";
+
+// import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
 import Search from "./search"
 
@@ -56,7 +59,7 @@ const MainMenu: React.FC = () => {
                 </div>
                 <div className="main-menu__center">
                   <Search />
-                 
+
                 </div>
 
                 <div className="main-menu__right">
@@ -66,39 +69,41 @@ const MainMenu: React.FC = () => {
                         query={{ minWidth: smallScreen }}
                         render={() => (
                           <> */}
-                            {user ? (
-                              <MenuDropdown
-                                head={
-                                  <li className="main-menu__icon main-menu__user--active">
-                                    <ReactSVG path={userImg} />
-                                  </li>
-                                }
-                                content={
-                                  <ul className="main-menu__dropdown">
-                                    <li data-testid="my_account__link">
-                                      <Link to={appPaths.accountUrl}>My Account</Link>
-                                    </li>
-                                    {/* <li data-testid="order_history__link">
-                                <Link to={appPaths.orderHistoryUrl}>
-                                  Order history
+                    {/* {user ? ( */}
+                    <MenuDropdown
+                      head={
+                        <li className="main-menu__icon main-menu__user--active">
+                          <ReactSVG path={homeicon} />
+                          <span>Partner with us</span>
+                          <ReactSVG path={arrowdown} className="ad" />
+                        </li>
+                      }
+                      content={
+                        <ul className="main-menu__dropdown">
+                          <li data-testid="my_account__link">
+                            <Link to={appPaths.accountUrl}>My Account</Link>
+                          </li>
+                          <li data-testid="order_history__link">
+                            <Link to={appPaths.orderHistoryUrl}>
+                              Order history
                                 </Link>
-                              </li>
-                              <li data-testid="address_book__link">
-                                <Link to={appPaths.addressBookUrl}>
-                                  Address book
+                          </li>
+                          <li data-testid="address_book__link">
+                            <Link to={appPaths.addressBookUrl}>
+                              Address book
                                 </Link>
-                              </li> */}
-                                    <li
-                                      onClick={handleSignOut}
-                                      data-testid="logout-link"
-                                    >
-                                      Log Out
+                          </li>
+                          <li
+                            onClick={handleSignOut}
+                            data-testid="logout-link"
+                          >
+                            Log Out
                               </li>
-                                  </ul>
-                                }
-                              />
-                            ) : (
-                                <li
+                        </ul>
+                      }
+                    />
+                    {/* // ) : ( */}
+                    {/* <li
                                   data-testid="login-btn"
                                   className="main-menu__icon"
                                   onClick={() =>
@@ -109,12 +114,12 @@ const MainMenu: React.FC = () => {
                                   }
                                 >
                                   <ReactSVG path={userImg} />
-                                </li>
-                              )}
-                          {/* </>
+                                </li> */}
+                    {/* )} */}
+                    {/* </>
                         )}
                       /> */}
-                      {/* <li
+                    {/* <li
                   className="main-menu__icon main-menu__cart"
                   onClick={() => {
                     overlayContext.show(OverlayType.cart, OverlayTheme.right);
