@@ -111,7 +111,7 @@ module.exports = ({ sourceDir, distDir }) => ({
       },
     }),
     new webpack.EnvironmentPlugin({
-      API_URI: "http://3.8.208.154:8000/graphql/",
+      API_URI: "https://backend.sitarri.rnssol.com/graphql/",
     }),
   ],
   node: {

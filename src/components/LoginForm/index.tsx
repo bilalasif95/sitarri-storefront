@@ -1,15 +1,16 @@
 import "./scss/index.scss";
-import { Link } from "react-router-dom"
 
 import * as React from "react";
 // import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
+import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { useSignIn, useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
-
+import removeImg from "../../images/pass-invisible.svg";
+import removeImgg from "../../images/pass-visible.svg";
 // import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
 
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
@@ -28,9 +29,10 @@ interface ILoginForm {
 const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
   const [signIn, { loading, error }] = useSignIn();
   const [socialAuth] = useSocialAuth();
-  const [emailClick, setEmailClick] = React.useState(false);
-  const [registerClick, setRegisterClick] = React.useState(false);
-  const [errors, setErrors] = React.useState("");
+  const [emailClick,setEmailClick] = React.useState(false);
+  const [registerClick,setRegisterClick] = React.useState(false);
+  const [errors,setErrors] = React.useState("");
+  const [passwordType, setPasswordType] = React.useState(true);
   // const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
     evt.preventDefault();
@@ -90,23 +92,32 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
 
   const menuBack = () => {
     setEmailClick(true)
-  }
+  };
+
+  const onPasswordEyeIconClick = () => {
+    if (passwordType) {
+      return setPasswordType(false);
+    }
+    setPasswordType(true);
+  };
   return (
     <div className="login-form">
       {emailClick ?
-        <>
-          <Button onClick={() => { setEmailClick(false); setRegisterClick(false) }} className="backBtn">Back</Button>
-          <Form
-            errors={maybe(() => error.extraInfo.userInputErrors, [])}
-            onSubmit={handleOnSubmit}
-          >
-            <TextField
-              name="email"
-              autoComplete="email"
-              label="Email Address"
-              type="email"
-              required
-            />
+      <>
+      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}} className="backBtn">Back</Button>
+      <Form
+        errors={maybe(() => error.extraInfo.userInputErrors, [])}
+        onSubmit={handleOnSubmit}
+      >
+        <TextField
+          name="email"
+          autoComplete="email"
+          label="Email Address"
+          type="email"
+          required
+        />
+        {passwordType ? (
+          <div className="passwordInput">
             <TextField
               name="password"
               autoComplete="password"
@@ -114,21 +125,42 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
               type="password"
               required
             />
-            <div className="login-form__button">
-              <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
-                {loading ? "Loading" : "Confirm"}
-              </Button>
-            </div>
-            <Button onClick={() => {
-              show(OverlayType.password, OverlayTheme.right);
-            }} className="forgotBtn">Forgot Password?</Button>
-
-          </Form>
-          <div className="login__content__password-reminder">
-            <p>
-              Don't have an account?&nbsp;
-          <span className="u-link" onClick={() => { setRegisterClick(true); setEmailClick(false) }}>
-                Sign up
+            <ReactSVG
+              path={removeImg}
+              className="passwordEye"
+              onClick={onPasswordEyeIconClick}
+            />
+          </div>
+        ) : (
+          <div className="passwordInput">
+            <TextField
+              name="password"
+              autoComplete="password"
+              label="Password"
+              type="text"
+              required
+            />
+            <ReactSVG
+              path={removeImgg}
+              className="passwordEye"
+              onClick={onPasswordEyeIconClick}
+            />
+          </div>
+        )}
+        <div className="login-form__button">
+          <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
+            {loading ? "Loading" : "Sign in"}
+          </Button>
+        </div>
+        <Button onClick={() => {
+          show(OverlayType.password, OverlayTheme.right);
+        }} className="forgotBtn">Forgot Password?</Button>
+      </Form>
+      <div className="login__content__password-reminder">
+        <p>
+          Don't have an account?&nbsp;
+          <span className="u-link" onClick={()=> {setRegisterClick(true);setEmailClick(false)}}>
+            Sign up
           </span>
             </p>
           </div>

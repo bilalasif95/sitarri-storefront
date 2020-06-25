@@ -11,7 +11,8 @@
   }
 
   .errorMessages {
-    color: red
+    color: red;
+    margin-bottom: 1rem;
   }
   
   &__button {
@@ -170,4 +171,20 @@
     background: #f74b2c;
   }
 
+}
+
+.passwordInput {
+  display: flex;
+
+  .passwordEye {
+    height: 46px;
+    border: 1px solid #cccccc78;
+    width: 40px;
+    cursor: pointer;
+    padding: 0.7rem 0.3rem;
+  }
+
+  .input {
+    width: 100%;
+  }
 }

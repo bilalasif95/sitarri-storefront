@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Node.js 10.0+
 - A running instance of Sitarri.
 
-  To run the storefront, you have to set the `API_URI` environment variable to point to the Sitarri GraphQL API. If you are running Sitarri locally with the default settings, set `API_URI` to: `http://3.8.208.154:8000/graphql/`.
+  To run the storefront, you have to set the `API_URI` environment variable to point to the Sitarri GraphQL API. If you are running Sitarri locally with the default settings, set `API_URI` to: `https://backend.sitarri.rnssol.com/graphql/`.
 
 ### Installing
 
