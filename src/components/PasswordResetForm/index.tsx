@@ -15,7 +15,7 @@ const PasswordResetForm: React.FC<{ hide?: () => void }> = ({ hide }) => {
   return <div className="password-reset-form">
     <p>
       Please provide us your email address so we can share you a link to reset
-      your password
+      your password.
     </p>
     <TypedPasswordResetMutation>
       {(passwordReset, { loading, data }) => {
@@ -68,8 +68,8 @@ const PasswordResetForm: React.FC<{ hide?: () => void }> = ({ hide }) => {
               required
             />
             <div className="password-reset-form__button">
-              <Button type="submit" {...(loading && { disabled: true })}>
-                {loading ? "Loading" : "Reset password"}
+              <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
+                {loading ? "Loading" : "Continue"}
               </Button>
             </div>
           </Form>

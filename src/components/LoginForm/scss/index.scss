@@ -17,25 +17,34 @@
   
   &__button {
     margin-top: $spacer * 2;
-    padding: 0 $spacer * 1.5;
+    margin-bottom: $spacer * 2;
+    padding: 0 ;
     text-align: center;
   }
 
   .statementSection{
-    color: #f34928
+    color: #fa906e
   }
   
   .emailButton {
-    background-color: #f34928 !important;
-    border-radius: 7px;
+    background-color: #f3492b !important;
+    padding: 0.5rem !important;
+    border-radius: 4px;
     width: 100%;
     margin: 1rem 0;
+    text-transform: capitalize !important;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     span{
       font: 400 14.3333px Arial;
       display: flex;
       transform: none;
       align-items: center;
+      text-transform: capitalize;
       svg {
+        margin: 0 2rem 0 0;
         path{
           fill: white
         }
@@ -44,18 +53,29 @@
   }
 
   .googleLoginButton {
-    padding: 0.9rem 3.7rem !important;
-    border-radius: 7px !important;
-    border: none !important;
+    padding: 0.5rem !important;
+    border-radius: 4px !important;
     width: 100%;
+    color: #000;
     text-transform: uppercase;
     font: 400 13.3333px Arial;
+    text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: none !important;
+    border: 1px solid #cccccc78 !important;
+    .fa{
+      font-size: 20px;
+      margin: 0 2rem 0 0;
+    }
 
     div {
       padding: 0 !important;
       border-radius: unset !important;
-      margin-left: 20px;
-      margin-right: 5px !important;
+      margin-left: 0;
+      margin-right: 2rem !important;
     }
     span {
       padding: 0 !important;
@@ -63,11 +83,20 @@
   }
 
   .kep-login-facebook {
-    padding: 0.9rem 3.7rem !important;
-    border-radius: 7px !important;
+    padding: 0.5rem !important;
+    border-radius: 4px !important;
     border: none !important;
     font: 400 13.3333px Arial;
+    text-transform: capitalize;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0 1.5rem;
+    .fa{
+      font-size: 20px;
+      margin: 0 2rem 0 0;
+    }
   }
 
   .line {
@@ -79,14 +108,69 @@
 
   .line span{
     position: absolute;
-    background: white;
+    background: #fafafa;
     top: -11px;
     padding: 0 5px;
     left: 47%;
     right: 0;
     height: 20px;
     width: 32px;
+    text-transform: lowercase;
+    text-align: center;
   }
+  .tc{
+    color: #6e6f6f;
+    font-size: 12px;
+  }
+
+  .backBtn{
+    border-radius: 4px;
+    background: #fff;
+    margin: 0 0 1rem;
+    box-shadow: none !important;
+    background: transparent;
+    width: 50px;
+    padding: 0.5rem 0;
+    span{
+      color: #414141;
+      text-transform: capitalize;
+      text-align: left;
+    }
+  }
+  .backBtn:hover{
+    background: transparent;
+  }
+
+  .forgotBtn{
+    width: 100%;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #cccccc78;
+    box-shadow: none !important;
+    span{
+      color: #414141;
+      text-transform: capitalize;
+    }
+  }
+  .forgotBtn:hover{
+    background: transparent;
+  }
+  .submitBtn{
+    width: 100%;
+    border-radius: 4px;
+    background:#f74b2c;
+    color: #fff;
+    text-transform: capitalize;
+    box-shadow: none !important;
+    span{
+      color: #fff;
+      text-transform: capitalize;
+    }
+  }
+  .submitBtn:hover{
+    background: #f74b2c;
+  }
+
 }
 
 .passwordInput {
@@ -94,7 +178,7 @@
 
   .passwordEye {
     height: 46px;
-    border: 1px solid black;
+    border: 1px solid #cccccc78;
     width: 40px;
     cursor: pointer;
     padding: 0.7rem 0.3rem;

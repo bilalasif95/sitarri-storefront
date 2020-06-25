@@ -4,9 +4,10 @@ import * as React from "react";
 // import { useAlert } from "react-alert";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
+import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { useSignIn,useSocialAuth } from "@sdk/react";
+import { useSignIn, useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
 import removeImg from "../../images/pass-invisible.svg";
 import removeImgg from "../../images/pass-visible.svg";
@@ -25,7 +26,7 @@ interface ILoginForm {
   show?: any;
 }
 
-const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
+const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
   const [signIn, { loading, error }] = useSignIn();
   const [socialAuth] = useSocialAuth();
   const [emailClick,setEmailClick] = React.useState(false);
@@ -43,7 +44,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseGoogle = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"google-oauth2",email: response.profileObj.email,uid:""});
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid: "" });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -67,7 +68,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const responseFacebook = async response => {
     if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken:response.accessToken,provider:"facebook",email: "",uid:response.id});
+      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email: "", uid: response.id });
       if (authenticated && hide && authenticated.data.socialAuth.error === null) {
         setAuthToken(authenticated.data.socialAuth.token);
         hide();
@@ -103,7 +104,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
     <div className="login-form">
       {emailClick ?
       <>
-      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}}>Back</Button>
+      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}} className="backBtn">Back</Button>
       <Form
         errors={maybe(() => error.extraInfo.userInputErrors, [])}
         onSubmit={handleOnSubmit}
@@ -146,14 +147,14 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
             />
           </div>
         )}
-        <Button onClick={() => {
-          show(OverlayType.password, OverlayTheme.right);
-        }}>Forgot Password?</Button>
         <div className="login-form__button">
-          <Button type="submit" {...(loading && { disabled: true })}>
+          <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
             {loading ? "Loading" : "Sign in"}
           </Button>
         </div>
+        <Button onClick={() => {
+          show(OverlayType.password, OverlayTheme.right);
+        }} className="forgotBtn">Forgot Password?</Button>
       </Form>
       <div className="login__content__password-reminder">
         <p>
@@ -161,46 +162,45 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
           <span className="u-link" onClick={()=> {setRegisterClick(true);setEmailClick(false)}}>
             Sign up
           </span>
-        </p>
-      </div>
-      {/* <ForgottenPassword
+            </p>
+          </div>
+          {/* <ForgottenPassword
         onClick={() => {
           show(OverlayType.password, OverlayTheme.right);
         }}
       /> */}
-      </>
-      :
-      <>
-      {registerClick ?
-        <RegisterForm menuBack={menuBack} hide={hide}/>
-      :
-      <>
-      <div className="errorMessages">{errors}</div>
-      <FacebookLogin
-        appId="1078436535883692"
-        // autoLoad={true}
-        fields="name,email,picture"
-        callback={responseFacebook}
-        textButton="Continue with Facebook"
-        // buttonText="Login"
-        icon="fab fa-facebook-square"
-      />
-      <br /><br />
-      <GoogleLogin
-        clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
-        buttonText="Continue with Google"
-        onSuccess={responseGoogle}
-        onFailure={responseGoogle}
-        className="googleLoginButton"
-        cookiePolicy={"single_host_origin"}
-      />
-      <br /><br />
-      <div className="line"><span>OR</span></div>
-      <Button className="emailButton" onClick={()=>setEmailClick(true)}><ReactSVG path={emailImg} />Continue with Email</Button>
-      <span>By continuing you agree to our <span className="statementSection">T&Cs</span> and<span className="statementSection"> privacy policy</span>.</span>
-      </>
-      }
-      </>
+        </>
+        :
+        <>
+          {registerClick ?
+            <RegisterForm menuBack={menuBack} hide={hide} />
+            :
+            <>
+              <div className="errorMessages">{errors}</div>
+              <FacebookLogin
+                appId="1078436535883692"
+                // autoLoad={true}
+                fields="name,email,picture"
+                callback={responseFacebook}
+                textButton="Continue with Facebook"
+                // buttonText="Login"
+                icon="fab fa-facebook-square"
+              />
+              <GoogleLogin
+                clientId="325319904531-ce20k86al4d3rtqhjd6heg9s551ksirg.apps.googleusercontent.com"
+                buttonText="Continue with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                className="googleLoginButton"
+                cookiePolicy={"single_host_origin"}
+              />
+              <br /><br />
+              <div className="line"><span>OR</span></div>
+              <Button className="emailButton" onClick={() => setEmailClick(true)}><ReactSVG path={emailImg} />Continue with Email</Button>
+              <p className="tc">By continuing you agree to our <Link to="" className="statementSection">T&Cs</Link> and<Link to="" className="statementSection"> Privacy Policy</Link>.</p>
+            </>
+          }
+        </>
       }
     </div>
   );

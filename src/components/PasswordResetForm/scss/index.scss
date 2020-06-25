@@ -3,10 +3,29 @@
 .password-reset-form {
   .input {
     margin: $spacer 0 $spacer * 2;
+    // border-radius: 4px;
+    // background: #fff;
+    // border: 1px solid #cccccc78;
   }
 
   &__button {
     text-align: center;
-    margin: $spacer * 2 0 $spacer * 2 $spacer * 2;
+    margin: $spacer * 2 0;
+  }
+
+  .submitBtn{
+    width: 100%;
+    border-radius: 4px;
+    background:#f74b2c;
+    color: #fff;
+    text-transform: capitalize;
+    box-shadow: none !important;
+    span{
+      color: #fff;
+      text-transform: capitalize;
+    }
+  }
+  .submitBtn:hover{
+    background: #f74b2c;
   }
 }

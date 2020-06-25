@@ -17,18 +17,18 @@
   &__field {
     display: block;
     width: 100%;
-    border-radius: 0;
+    border-radius: 4px;
     padding: 0.8rem 1rem;
     font-size: $base-font-size;
     color: $base-font-color;
-    border: 1px solid $blue;
+    border: 1px solid #cccccc78;
     outline: none;
     box-shadow: 0 0 0 1px $white;
-    background-color: transparent;
+    background-color: #fff;
 
     &:focus,
     &:not([value=""]) {
-      box-shadow: 0 0 0 1px $blue;
+      box-shadow: 0 0 0 1px #ccc;
       & + .input__label {
         background-color: $white;
         @include focusedLabel();
@@ -36,7 +36,7 @@
     }
 
     &:-webkit-autofill {
-      box-shadow: 0 0 0 1px $blue;
+      box-shadow: 0 0 0 1px #ccc;
       & + .input__label {
         @include focusedLabel();
       }
@@ -51,7 +51,7 @@
       }
       &:-webkit-autofill {
         & + .input__label {
-          background-color: $turquoise-light;
+          background-color: #fafafa;
         }
       }
     }
@@ -63,15 +63,15 @@
     }
     &:focus {
       & + .input__label {
-        color: $blue;
+        color: #414141;
       }
     }
     &:hover {
-      box-shadow: 0 0 0 1px $blue;
+      box-shadow: 0 0 0 1px #ccc;
       color: $blue;
       transition: all 0.3s ease;
       & + .input__label {
-        color: $blue;
+        color: #414141;
       }
     }
 
