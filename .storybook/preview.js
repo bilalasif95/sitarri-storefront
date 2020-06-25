@@ -14,7 +14,7 @@ const themes = {
 };
 
 withOptions({
-  name: "Saleor",
+  name: "Sitarri",
   url: "https://github.com/mirumee/saleor-storefront",
   goFullScreen: false,
   sidebarAnimations: true,

@@ -46,7 +46,7 @@ export const SOCIAL_MEDIA = [
 export const META_DEFAULTS = {
   custom: [],
   description:
-    "Open-source PWA storefront built with Saleor's e-commerce GraphQL API. Written with React and TypeScript.",
+    "Open-source PWA storefront built with Sitarri's e-commerce GraphQL API. Written with React and TypeScript.",
   image: `${window.location.origin}${require("../images/logo.svg")}`,
   title: "sitarri e-commerce",
   type: "website",

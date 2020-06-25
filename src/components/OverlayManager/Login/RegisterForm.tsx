@@ -3,7 +3,7 @@ import "./scss/index.scss";
 import * as React from "react";
 // import FacebookLogin from "react-facebook-login";
 // import GoogleLogin from "react-google-login";
-// import ReactSVG from "react-svg";
+import ReactSVG from "react-svg";
 
 import { accountConfirmUrl } from "../../../app/routes";
 
@@ -13,6 +13,8 @@ import { accountConfirmUrl } from "../../../app/routes";
 
 import { Button, Form, TextField } from "../..";
 import { maybe } from "../../../core/utils";
+import removeImg from "../../../images/pass-invisible.svg";
+import removeImgg from "../../../images/pass-visible.svg"
 import { RegisterAccount } from "./gqlTypes/RegisterAccount";
 import { TypedAccountRegisterMutation } from "./queries";
 
@@ -43,7 +45,21 @@ const showSuccessNotification = (
 const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ menuBack,hide }) => {
   const alert = useAlert();
   // const [emailClick, setEmailClick] = React.useState(false);
-  // const [error, setError] = React.useState("");
+  const [error, setError] = React.useState("");
+  const [passwordType, setPasswordType] = React.useState(true);
+  const [confirmPasswordType, setConfirmPasswordType] = React.useState(true);
+  const onPasswordEyeIconClick = () => {
+    if (passwordType) {
+      return setPasswordType(false);
+    }
+    setPasswordType(true);
+  };
+  const onConfirmPasswordEyeIconClick = () => {
+    if (confirmPasswordType) {
+      return setConfirmPasswordType(false);
+    }
+    setConfirmPasswordType(true);
+  };
   // const [socialAuth] = useSocialAuth();
   // const responseGoogle = async response => {
   //   if (response.accessToken) {
@@ -108,12 +124,18 @@ const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ men
         {(registerCustomer, { loading, data }) => {
           return (
             <>
+            <div className="errorMessages">{error}</div>
             <Form
               errors={maybe(() => data.accountRegister.errors, [])}
-              onSubmit={(event, { email, password }) => {
+              onSubmit={(event, { email, password,confirmPassword }) => {
                 event.preventDefault();
                 const redirectUrl = `${window.location.origin}${accountConfirmUrl}`;
-                registerCustomer({ variables: { email, password, redirectUrl } });
+                if(password !== confirmPassword){
+                  setError("Password doesn't match")
+                }
+                else {
+                  registerCustomer({ variables: { email, password, redirectUrl } });
+                }
               }}
             >
               <TextField
@@ -123,13 +145,68 @@ const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ men
                 type="email"
                 required
               />
-              <TextField
-                name="password"
-                autoComplete="password"
-                label="Password"
-                type="password"
-                required
-              />
+              {passwordType ? (
+                <div className="passwordInput">
+                  <TextField
+                    name="password"
+                    autoComplete="password"
+                    label="Password"
+                    type="password"
+                    required
+                  />
+                  <ReactSVG
+                    path={removeImg}
+                    className="passwordEye"
+                    onClick={onPasswordEyeIconClick}
+                  />
+                </div>
+              ) : (
+                <div className="passwordInput">
+                  <TextField
+                    name="password"
+                    autoComplete="password"
+                    label="Password"
+                    type="text"
+                    required
+                  />
+                  <ReactSVG
+                    path={removeImgg}
+                    className="passwordEye"
+                    onClick={onPasswordEyeIconClick}
+                  />
+                </div>
+              )}
+              {confirmPasswordType ? (
+                <div className="passwordInput">
+                  <TextField
+                    name="confirmPassword"
+                    autoComplete="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    required
+                  />
+                  <ReactSVG
+                    path={removeImg}
+                    className="passwordEye"
+                    onClick={onConfirmPasswordEyeIconClick}
+                  />
+                </div>
+              ) : (
+                <div className="passwordInput">
+                  <TextField
+                    name="confirmPassword"
+                    autoComplete="confirmPassword"
+                    label="Confirm Password"
+                    type="text"
+                    required
+                  />
+                  <ReactSVG
+                    path={removeImgg}
+                    className="passwordEye"
+                    onClick={onConfirmPasswordEyeIconClick}
+                  />
+                </div>
+              )}
               <div className="login__content__button">
                 <Button type="submit" {...(loading && { disabled: true })}>
                   {loading ? "Loading" : "Register"}

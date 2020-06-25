@@ -8,7 +8,8 @@ import ReactSVG from "react-svg";
 
 import { useSignIn,useSocialAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
-
+import removeImg from "../../images/pass-invisible.svg";
+import removeImgg from "../../images/pass-visible.svg";
 // import ForgottenPassword from "../OverlayManager/Login/ForgottenPassword";
 
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
@@ -30,6 +31,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
   const [emailClick,setEmailClick] = React.useState(false);
   const [registerClick,setRegisterClick] = React.useState(false);
   const [errors,setErrors] = React.useState("");
+  const [passwordType, setPasswordType] = React.useState(true);
   // const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
     evt.preventDefault();
@@ -89,7 +91,14 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
 
   const menuBack = () => {
     setEmailClick(true)
-  }
+  };
+
+  const onPasswordEyeIconClick = () => {
+    if (passwordType) {
+      return setPasswordType(false);
+    }
+    setPasswordType(true);
+  };
   return (
     <div className="login-form">
       {emailClick ?
@@ -106,13 +115,37 @@ const LoginForm: React.FC<ILoginForm> = ({ hide,show }) => {
           type="email"
           required
         />
-        <TextField
-          name="password"
-          autoComplete="password"
-          label="Password"
-          type="password"
-          required
-        />
+        {passwordType ? (
+          <div className="passwordInput">
+            <TextField
+              name="password"
+              autoComplete="password"
+              label="Password"
+              type="password"
+              required
+            />
+            <ReactSVG
+              path={removeImg}
+              className="passwordEye"
+              onClick={onPasswordEyeIconClick}
+            />
+          </div>
+        ) : (
+          <div className="passwordInput">
+            <TextField
+              name="password"
+              autoComplete="password"
+              label="Password"
+              type="text"
+              required
+            />
+            <ReactSVG
+              path={removeImgg}
+              className="passwordEye"
+              onClick={onPasswordEyeIconClick}
+            />
+          </div>
+        )}
         <Button onClick={() => {
           show(OverlayType.password, OverlayTheme.right);
         }}>Forgot Password?</Button>
