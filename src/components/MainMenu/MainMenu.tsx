@@ -69,13 +69,15 @@ const MainMenu: React.FC = () => {
                         query={{ minWidth: smallScreen }}
                         render={() => (
                           <> */}
-                    {user ? (
+                    {/* {user ? ( */}
                     <MenuDropdown
                       head={
-                        <li className="main-menu__icon main-menu__user--active">
-                          <ReactSVG path={homeicon} />
+                        <li className="main-menu__icon main-menu__user--active border">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg>
+                          {/* <ReactSVG path={homeicon} /> */}
                           <span>Partner with us</span>
-                          <ReactSVG path={arrowdown} className="ad" />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+                          {/* <ReactSVG path={arrowdown} className="ad" /> */}
                         </li>
                       }
                       content={
@@ -102,8 +104,8 @@ const MainMenu: React.FC = () => {
                         </ul>
                       }
                     />
-                    ) : (
-                    <li
+                    {/* ) : ( */}
+                    {/* <li
                                   data-testid="login-btn"
                                   className="main-menu__icon"
                                   onClick={() =>
@@ -114,8 +116,8 @@ const MainMenu: React.FC = () => {
                                   }
                                 >
                                   <ReactSVG path={userImg} />
-                                </li>
-                    )}
+                                </li> */}
+                    {/* )} */}
                     {/* </>
                         )}
                       />
