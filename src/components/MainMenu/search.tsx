@@ -43,7 +43,7 @@ const search: React.FC = (props: any) => {
 
                     else {
                         return (
-                            data.products.edges.length > 0 ? data.products.edges.map(product => (
+                            data.products && data.products.edges && data.products.edges.length > 0 ? data.products.edges.map(product => (
                                 <div className="items" onClick={() => SeeDetails(product.node.category.name)}>
                                     <p>{product.node.category.name}</p>
                                 </div>
