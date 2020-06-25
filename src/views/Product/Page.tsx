@@ -11,7 +11,7 @@ import { Breadcrumbs, ProductDescription } from "../../components";
 import { generateCategoryUrl, generateProductUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
-import OtherProducts from "./Other";
+// import OtherProducts from "./Other";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
@@ -20,15 +20,15 @@ import { ProductDescription as NewProductDescription } from "../../@next/compone
 import { structuredData } from "../../core/SEO/Product/structuredData";
 
 import ReactSVG from "react-svg";
-import phone from "../../images/iconmonstr-phone-1.svg";
-import website from "../../images/iconmonstr-globe-5.svg";
-import direction from "../../images/iconmonstr-crosshair-6.svg";
-import instagram from "../../images/iconmonstr-instagram-11.svg";
-import facebook from "../../images/iconmonstr-facebook-3.svg";
-import twitter from "../../images/iconmonstr-twitter-1.svg";
 import delivery from "../../images/iconmonstr-bicycle-4.svg";
+import direction from "../../images/iconmonstr-crosshair-6.svg";
+import facebook from "../../images/iconmonstr-facebook-3.svg";
+import website from "../../images/iconmonstr-globe-5.svg";
+import instagram from "../../images/iconmonstr-instagram-11.svg";
 import location from "../../images/iconmonstr-location-1.svg";
+import phone from "../../images/iconmonstr-phone-1.svg";
 import clock from "../../images/iconmonstr-time-2.svg";
+import twitter from "../../images/iconmonstr-twitter-1.svg";
 
 class Page extends React.PureComponent<
   {
