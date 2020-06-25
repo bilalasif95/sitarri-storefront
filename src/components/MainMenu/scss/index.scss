@@ -34,6 +34,9 @@
       justify-content: flex-end;
       align-items: center;
     }
+    @media(min-width: $medium-screen) {
+        width: 27%;
+    }
   }
 
   &__center {
@@ -41,6 +44,9 @@
     width: 67%;
     position: relative;
     padding: 0 1rem;
+    @media(min-width: $medium-screen) {
+      width: 60%;
+    }
     .searchedlist {
       max-height: 170px;
       overflow-y: auto;
@@ -229,6 +235,11 @@
     border-radius: 4px;
   }
 
+  @media (max-width: $medium-screen) {
+    .border {
+      display: none;
+    }
+  }
   &__dropdown {
     text-transform: uppercase;
     font-weight: $bold-font-weight;
