@@ -3,7 +3,7 @@ import "./scss/index.scss";
 import isEqual from "lodash/isEqual";
 import * as React from "react";
 
-import { ProductVariantPicker } from "@components/organisms";
+// import { ProductVariantPicker } from "@components/organisms";
 import {
   ProductDetails_product_pricing,
   ProductDetails_product_variants,
@@ -13,8 +13,12 @@ import { IProductVariantsAttributesSelectedValues, ITaxedMoney } from "@types";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { TaxedMoney } from "../../@next/components/containers";
-import AddToCart from "./AddToCart";
-import { QuantityTextField } from "./QuantityTextField";
+// import AddToCart from "./AddToCart";
+// import { QuantityTextField } from "./QuantityTextField";
+
+
+// import ReactSVG from "react-svg";
+// import star from "../../images/iconmonstr-star-1.svg";
 
 const LOW_STOCK_QUANTITY = 5;
 interface ProductDescriptionProps {
@@ -41,7 +45,7 @@ interface ProductDescriptionState {
 class ProductDescription extends React.Component<
   ProductDescriptionProps,
   ProductDescriptionState
-> {
+  > {
   constructor(props: ProductDescriptionProps) {
     super(props);
 
@@ -141,7 +145,7 @@ class ProductDescription extends React.Component<
 
   render() {
     const { name } = this.props;
-    const { variant, variantStock, quantity } = this.state;
+    const { variant, variantStock } = this.state;
 
     const availableQuantity = this.getAvailableQuantity();
     const isOutOfStock = !!variant && variantStock === 0;
@@ -155,21 +159,40 @@ class ProductDescription extends React.Component<
     return (
       <div className="product-description">
         <h3>{name}</h3>
-        {isOutOfStock ? (
-          this.renderErrorMessage("Out of stock")
-        ) : (
-          <h4>{this.getProductPrice()}</h4>
-        )}
+        <div className="cat-price">
+          <p>Category</p>
+          <span className="dot" />
+          {isOutOfStock ? (
+            this.renderErrorMessage("Out of stock")
+          ) : (
+              <p>{this.getProductPrice()}</p>
+            )}
+        </div>
+        <div className="likes">
+          <p className="nos">4.0</p>
+          <div className="stars">
+            {/* <ReactSVG path={star} /> */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>
+          </div>
+          <p className="tl">(600)</p>
+        </div>
+        <p className="desc">Description of the business that can be as long as it needs to be..... no truncation....</p>
+
+
         {isLowStock && this.renderErrorMessage("Low stock")}
         {isNoItemsAvailable && this.renderErrorMessage("No items available")}
-        <div className="product-description__variant-picker">
+        {/* <div className="product-description__variant-picker">
           <ProductVariantPicker
             productVariants={this.props.productVariants}
             onChange={this.onVariantPickerChange}
             selectSidebar={true}
           />
-        </div>
-        <div className="product-description__quantity-input">
+        </div> */}
+        {/* <div className="product-description__quantity-input">
           <QuantityTextField
             quantity={quantity}
             maxQuantity={availableQuantity}
@@ -177,11 +200,11 @@ class ProductDescription extends React.Component<
             onQuantityChange={this.handleQuantityChange}
             hideErrors={!variant || isOutOfStock || isNoItemsAvailable}
           />
-        </div>
-        <AddToCart
+        </div> */}
+        {/* <AddToCart
           onSubmit={this.handleSubmit}
           disabled={!this.canAddToCart()}
-        />
+        /> */}
       </div>
     );
   }

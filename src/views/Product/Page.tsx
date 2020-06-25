@@ -1,8 +1,9 @@
-import { smallScreen } from "../../globalStyles/scss/variables.scss";
+// import { smallScreen } from "../../globalStyles/scss/variables.scss";
 
 import classNames from "classnames";
 import * as React from "react";
-import Media from "react-media";
+// import Media from "react-media";
+import { Link } from "react-router-dom";
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
@@ -14,9 +15,20 @@ import OtherProducts from "./Other";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
-import { ProductGallery } from "../../@next/components/organisms/";
+// import { ProductGallery } from "../../@next/components/organisms/";
 
 import { structuredData } from "../../core/SEO/Product/structuredData";
+
+import ReactSVG from "react-svg";
+import phone from "../../images/iconmonstr-phone-1.svg";
+import website from "../../images/iconmonstr-globe-5.svg";
+import direction from "../../images/iconmonstr-crosshair-6.svg";
+import instagram from "../../images/iconmonstr-instagram-11.svg";
+import facebook from "../../images/iconmonstr-facebook-3.svg";
+import twitter from "../../images/iconmonstr-twitter-1.svg";
+import delivery from "../../images/iconmonstr-bicycle-4.svg";
+import location from "../../images/iconmonstr-location-1.svg";
+import clock from "../../images/iconmonstr-time-2.svg";
 
 class Page extends React.PureComponent<
   {
@@ -25,7 +37,7 @@ class Page extends React.PureComponent<
     items: ICheckoutModelLine[];
   },
   { variantId: string }
-> {
+  > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
 
@@ -104,6 +116,34 @@ class Page extends React.PureComponent<
         <div className="container">
           <Breadcrumbs breadcrumbs={this.populateBreadcrumbs(product)} />
         </div>
+        {/* <div className="container"> */}
+        <div className="product-page__product">
+          {/* Add script here */}
+          <script className="structured-data-list" type="application/ld+json">
+            {structuredData(product)}
+          </script>
+
+          {/*  */}
+          {/* <Media query={{ maxWidth: smallScreen }}>
+              {matches =>
+                matches ? ( */}
+
+          <GalleryCarousel images={this.getImages()} />
+
+          {/* //     ) : (
+            //       <>
+            //         <div */}
+          {/* //           className="product-page__product__gallery"
+            //           ref={this.productGallery}
+            //         >
+            //           <ProductGallery images={this.getImages()} />
+            //         </div>
+            //       </>
+            //     )
+            //   }
+            // </Media> */}
+        </div>
+        {/* </div> */}
         <div className="container">
           <div className="product-page__product">
             {/* Add script here */}
@@ -112,7 +152,7 @@ class Page extends React.PureComponent<
             </script>
 
             {/*  */}
-            <Media query={{ maxWidth: smallScreen }}>
+            {/* <Media query={{ maxWidth: smallScreen }}>
               {matches =>
                 matches ? (
                   <>
@@ -121,27 +161,86 @@ class Page extends React.PureComponent<
                       {productDescription}
                     </div>
                   </>
-                ) : (
-                  <>
-                    <div
+                ) : ( */}
+            {/* // <> */}
+            {/* <div
                       className="product-page__product__gallery"
                       ref={this.productGallery}
                     >
                       <ProductGallery images={this.getImages()} />
-                    </div>
-                    <div className="product-page__product__info">
-                      <div
-                        className={classNames(
-                          "product-page__product__info--fixed"
-                        )}
-                      >
-                        {productDescription}
-                      </div>
-                    </div>
-                  </>
+                    </div> */}
+            <div className="product-page__product__info">
+              <div
+                className={classNames(
+                  "product-page__product__info--fixed"
+                )}
+              >
+                {productDescription}
+              </div>
+              <div className="useful-links">
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={phone} />
+                  </div>
+                  <p>Phone</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={website} />
+                  </div>
+                  <p>Website</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={direction} />
+                  </div>
+                  <p>Direction</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={instagram} />
+                  </div>
+                  <p>Instagram</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={facebook} />
+                  </div>
+                  <p>Facebook</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={twitter} />
+                  </div>
+                  <p>Twitter</p>
+                </Link>
+                <Link to="#" className="item">
+                  <div className="icon">
+                    <ReactSVG path={delivery} />
+                  </div>
+                  <p>Delivery</p>
+                </Link>
+              </div>
+            </div>
+            <div className="shop-at">
+              <div className="shop-address">
+                <ReactSVG path={location} />
+                <p>Address of shop</p>
+              </div>
+              <div className="open-time">
+                <ReactSVG path={clock} />
+                <div className="timing">
+                <p>Open</p>
+                <span/>
+                <p>Close 1:00 am</p>
+                </div>
+              </div>
+            </div>
+
+            {/* </>
                 )
               }
-            </Media>
+            </Media> */}
           </div>
         </div>
         <div className="container">
@@ -152,7 +251,7 @@ class Page extends React.PureComponent<
             />
           </div>
         </div>
-        <OtherProducts products={product.category.products.edges} />
+        {/* <OtherProducts products={product.category.products.edges} /> */}
       </div>
     );
   }

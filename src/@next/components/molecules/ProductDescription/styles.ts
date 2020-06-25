@@ -28,26 +28,35 @@ export const AttributeList = styled.ul`
 
 export const Tabs = styled.div`
   display: flex;
-  flex-wrap: none;
+  flex-wrap: wrap;
   width: 100%;
-  border-bottom: 1px solid ${props => props.theme.colors.tabsBorder};
-  margin-bottom: 70px;
+  background: #fff;
+  margin: 0 0 1rem;
+  border-radius: 5px;
   overflow: hidden;
+  padding: 1rem;
+`;
+
+export const Sectitle = styled.div`
+  font-weight: 400;
+  font-size: 16px;
+  color: #111212;
+  text-align: left;
+  margin: 0 0 1.5rem; 
+  width: 100%;
 `;
 
 export const TabTitle = styled.div<{ active?: boolean }>`
   cursor: pointer;
-  min-width: 230px;
-  font-size: ${props => props.theme.typography.h3FontSize};
-  font-weight: ${props => props.theme.typography.boldFontWeight};
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 0.02em;
   color: ${props => props.active && props.theme.colors.tabTitle};
-  border-bottom-width: 4px;
-  border-bottom-style: solid;
-  border-bottom-color: ${props =>
-    props.active ? props.theme.colors.tabTitle : "transparent"};
-  padding-bottom: 25px;
-  margin-right: 60px;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  text-align: center;
+  background: ${props => props.active ? '#f74b2c' : 'none'};
+  border-radius: 5px;
 
   ${media.smallScreen`
     font-size: ${(props: any) => props.theme.typography.h4FontSize};

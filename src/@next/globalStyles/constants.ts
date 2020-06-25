@@ -54,7 +54,7 @@ export const theme = {
   secondaryOverlay: blueOverlay,
   secondaryOverlayDark: blueOverlayDark,
   success: green,
-  tabTitle: darkGreen,
+  tabTitle: white,
   tableDivider: tabelGray,
   tabsBorder: baseFontColorTransparent,
   thumbnailBorder: darkGreen,
