@@ -131,7 +131,7 @@ const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ men
                 required
               />
               <div className="login__content__button">
-                <Button type="submit" {...(loading && { disabled: true })}>
+                <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
                   {loading ? "Loading" : "Register"}
                 </Button>
               </div>
