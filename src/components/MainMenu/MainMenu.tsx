@@ -6,7 +6,7 @@ import {
 import "./scss/index.scss";
 
 // import { useCart, useSignOut, useUserDetails } from "@sdk/react";
-import { useSignOut, useUserDetails } from "@sdk/react";
+import { useSignOut } from "@sdk/react";
 
 import Media from "react-media";
 import { Link } from "react-router-dom";
@@ -28,8 +28,8 @@ import { TypedMainMenuQuery } from "./queries";
 // import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
-import homeicon from "../../images/homeicon.svg";
-import arrowdown from "../../images/iconmonstr-arrow-64.svg";
+// import homeicon from "../../images/homeicon.svg";
+// import arrowdown from "../../images/iconmonstr-arrow-64.svg";
 import logoImg from "../../images/logo.jpg";
 
 import userImg from "../../images/user.svg";
@@ -37,7 +37,7 @@ import userImg from "../../images/user.svg";
 import Search from "./search"
 
 const MainMenu: React.FC = () => {
-  const { data: user } = useUserDetails();
+  // const { data: user } = useUserDetails();
   const [signOut] = useSignOut();
   // const { items } = useCart();
 
@@ -105,7 +105,7 @@ const MainMenu: React.FC = () => {
                       }
                     />
                     {/* ) : ( */}
-                    {/* <li
+                    <li
                                   data-testid="login-btn"
                                   className="main-menu__icon"
                                   onClick={() =>
@@ -116,7 +116,7 @@ const MainMenu: React.FC = () => {
                                   }
                                 >
                                   <ReactSVG path={userImg} />
-                                </li> */}
+                                </li>
                     {/* )} */}
                     {/* </>
                         )}
@@ -148,7 +148,7 @@ const MainMenu: React.FC = () => {
                 onClick={() =>
                   overlayContext.show(OverlayType.search, OverlayTheme.right)
                 }
-              >
+              > 
                 <Media
                   query={{ minWidth: mediumScreen }}
                   render={() => <span>Search</span>}
