@@ -21,13 +21,26 @@ import { TypedHomePageQuery } from "./queries";
 
 import { TypedSearchResults } from "../../components/OverlayManager/Search/queries";
 
+import { useComponentVisible } from "@hooks"
 
 const View: React.FC = (props: any) => {
   const [search, setSearch] = React.useState(null);
+  const { ref, isComponentVisible } = useComponentVisible(true);
   const SeeDetails = (searchWord) => {
     setSearch(null)
     props.history.push(`${searchUrl}?${searchQs(searchWord.slice(0, 3))}`);
   }
+  const SetSearchEvent = (e) => {
+    setSearch(e.target.value)
+  }
+  React.useEffect(() => {
+    setTimeout(() => {
+      if (!isComponentVisible) {
+        setSearch("")
+      }
+    })
+
+  }, [isComponentVisible])
   const searchQs = (searchWord) => {
     return stringify({ q: searchWord });
   }
@@ -40,74 +53,74 @@ const View: React.FC = (props: any) => {
             <div className="searchbox">
               <h2>Find businesses and products near you</h2>
               <div className="searchfield">
-                <input type="txt" placeholder="Search.." className="form-control" onChange={(e) => setSearch(e.target.value)} />
+                <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
                   <ReactSVG path={searchicon} />
                 </span>
               </div>
-               <div className="searchedlist">
-              {search ? <TypedSearchResults
-                renderOnError
-                displayError={false}
-                errorPolicy="all"
-                variables={{ query: search }}
-              >
-                {({ data, error, loading }) => {
-                  if (loading) {
-                    return <h6>..</h6>
-                  }
-                  else {
-                    return (
-                      data.products.edges.length > 0 ? data.products.edges.map(product => (
+              <div className="searchedlist">
+                {search ? <TypedSearchResults
+                  renderOnError
+                  displayError={false}
+                  errorPolicy="all"
+                  variables={{ query: search }}
+                >
+                  {({ data, error, loading }) => {
+                    if (loading) {
+                      return <h6>..</h6>
+                    }
+                    else {
+                      return (
+                        data.products.edges.length > 0 ? data.products.edges.map(product => (
 
-                        <div className="items" onClick={() => SeeDetails(product.node.category.name)}>
-                          <p>{product.node.category.name}</p>
-                        </div>
+                          <div ref={ref} className="items" onClick={() => SeeDetails(product.node.category.name)}>
+                            <p>{product.node.category.name}</p>
+                          </div>
 
-                      )) : <div>No data found...</div>
+                        )) : <div>No data found...</div>
 
 
 
-                    )
-                  }
+                      )
+                    }
 
-                }}
-              </TypedSearchResults> : ""}
-              
-            </div>
-            </div>
-          <div className="img">
-                <img src={mainimg} alt="Main" />
+                  }}
+                </TypedSearchResults> : ""}
+
               </div>
+            </div>
+            <div className="img">
+              <img src={mainimg} alt="Main" />
+            </div>
           </div>
         </div>
-        </div>
-        <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
-          {({ data, loading }) => {
-            return (
-              <MetaWrapper
-                meta={{
-                  description: data.shop ? data.shop.description : "",
-                  title: data.shop ? data.shop.name : "",
-                }}
-              >
-                <Page
-                  SeeDetails={SeeDetails}
-                  loading={loading}
-                  backgroundImage={
-                    data.shop &&
-                    data.shop.homepageCollection &&
-                    data.shop.homepageCollection.backgroundImage
-                  }
-                  categories={data.categories}
-                  shop={data.shop}
-                />
-              </MetaWrapper>
-            );
-          }}
-        </TypedHomePageQuery>
       </div>
+      <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
+        {({ data, loading }) => {
+          return (
+            <MetaWrapper
+              meta={{
+                description: data.shop ? data.shop.description : "",
+                title: data.shop ? data.shop.name : "",
+              }}
+            >
+              <Page
+                SeeDetails={SeeDetails}
+                loading={loading}
+                backgroundImage={
+                  data.shop &&
+                  data.shop.homepageCollection &&
+                  data.shop.homepageCollection.backgroundImage
+                }
+                categories={data.categories}
+                shop={data.shop}
+              />
+            </MetaWrapper>
+          );
+        }}
+      </TypedHomePageQuery>
     </div>
+  </div>
 };
 
 export default withRouter(View);

@@ -12,19 +12,35 @@ import { TypedSearchResults } from "../OverlayManager/Search/queries";
 
 import { searchUrl } from "../../app/routes";
 
+import {useComponentVisible} from "@hooks"
+
 const search: React.FC = (props: any) => {
     const [search, setSearch] = useState(null);
-
+    const { ref, isComponentVisible } = useComponentVisible(true);
     const SeeDetails = (searchWord) => {
-        setSearch(null)
+        setSearch("")
         props.history.push(`${searchUrl}?${searchQs(searchWord.slice(0, 3))}`);
     }
     const searchQs = (searchWord) => {
         return stringify({ q: searchWord });
     }
+
+    const SetSearchEvent = (e) => {
+        setSearch(e.target.value)
+    }
+    React.useEffect(() => {
+        setTimeout(() => {
+            if (!isComponentVisible) {
+                setSearch("")
+            }
+        })
+
+    }, [isComponentVisible])
+
+
     return <>
         <div className="searchfield">
-            <input type="txt" placeholder="Search.." value={search} onChange={(e) => setSearch(e.target.value)} className="form-control" />
+            <input type="txt" placeholder="Search.." value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
             <span className="searchicon">
                 <ReactSVG path={searchicon} />
             </span>
@@ -44,9 +60,12 @@ const search: React.FC = (props: any) => {
                     else {
                         return (
                             data.products && data.products.edges && data.products.edges.length > 0 ? data.products.edges.map(product => (
-                                <div className="items" onClick={() => SeeDetails(product.node.category.name)}>
+
+                                <div ref={ref} className="items" onClick={() => SeeDetails(product.node.category.name)}>
                                     <p>{product.node.category.name}</p>
                                 </div>
+
+
                             )) : <div>No data found...</div>
 
                         )
