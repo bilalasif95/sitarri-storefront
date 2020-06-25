@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Button, Loader } from "@components/atoms";
-import { ProductTile, BusinessTile } from "@components/molecules";
+import { BusinessTile, ProductTile } from "@components/molecules";
 
 import { generateProductUrl } from "../../../../core/utils";
 
