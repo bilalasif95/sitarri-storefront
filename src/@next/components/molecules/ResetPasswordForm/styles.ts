@@ -15,6 +15,14 @@ export const Wrapper = styled.div`
 
   p {
     color: ${props => props.theme.colors.lightFont};
+    padding: 0 1rem;
+  }
+
+  @media(max-width:480px){
+    form{
+      width: 100%;
+      padding: 0 1rem;
+    }
   }
 `;
 
