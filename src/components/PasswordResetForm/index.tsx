@@ -13,7 +13,8 @@ import { passwordResetUrl } from "../../app/routes";
 const PasswordResetForm: React.FC<{ hide?: () => void }> = ({ hide }) => {
   const alert = useAlert();
   return <div className="password-reset-form">
-    <p>
+    <p>Reset your password</p>
+    <p className="reset-info">
       Please provide us your email address so we can share you a link to reset
       your password.
     </p>

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import { withRouter } from "react-router-dom";
 
-import ReactSVG from "react-svg";
+// import ReactSVG from "react-svg";
 
-import searchicon from "../../images/search.svg";
+import searchicon from "../../images/search.png";
 
 import { stringify } from "query-string";
 
@@ -42,7 +42,7 @@ const search: React.FC = (props: any) => {
         <div className="searchfield">
             <input type="txt" placeholder="Search.." value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
             <span className="searchicon">
-                <ReactSVG path={searchicon} />
+                <img src={searchicon} />
             </span>
         </div>
         <div className="searchedlist">
