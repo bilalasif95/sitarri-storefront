@@ -6,8 +6,65 @@
   width: 100%;
 
   .menu-list{
-    max-height: 100vh;
+    min-height: 100vh;
     overflow-y: scroll;
+    margin: 1rem;
+    // position: relative;
+  }
+  .regBtn{
+    background-color: #f3492b !important;
+    padding: 1rem !important;
+    border-radius: 4px;
+    text-transform: none !important;
+    display: flex;
+    margin: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 40px;
+    width: 100%;
+    span{
+      display: block;
+      text-align: center;
+      transform: none;
+      text-transform: capitalize;
+      width: 100%;
+    }
+  }
+  .bcBtn{
+    width: 100%;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #cccccc78;
+    box-shadow: none !important;
+    margin: 0 0 1rem;
+    span{
+      color: #414141;
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+  }
+
+  .loBtn{
+    min-width: 260px;
+    display: block;
+    margin: 0 auto 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    button{
+      width: 100%;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #cccccc78;
+      box-shadow: none !important;
+      span{
+        color: #e53e3b;
+        text-transform: capitalize;
+        font-weight: 400;
+      }
+    }
   }
 
   &__menu-item {
@@ -15,9 +72,22 @@
     display: grid;
     height: $item-height;
 
-   
-
-    &-link,
+    &-link{
+      align-items: center;
+      width: 100%;
+      border-radius: 4px;
+      background: #f74b2c;
+      color: #fff;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      font-weight: 400;
+      padding: 0.9rem $spacer;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: 0.3s;
+      margin:  0 0 1rem;
+    }
     &-back span {
       align-items: center;
       color: $base-font-color;
@@ -35,10 +105,10 @@
 
     &-logo {
       align-self: center;
-      padding: 0.75rem $spacer;
+      padding: 0 $spacer;
 
-      svg {
-        width: 5rem;
+      img {
+        margin: -3px 0 0;
       }
     }
 
@@ -108,6 +178,7 @@
 
     &--parent {
       color: $gray;
+      background: #fff;
 
       a {
         color: inherit;

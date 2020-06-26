@@ -11,9 +11,11 @@ import backImg from "../../images/arrow-back.svg";
 // import logoImg from "../../images/logo.svg";
 import logoImg from "../../images/logo.jpg";
 
-import { Button, OverlayContext,
+import {
+  Button, OverlayContext,
   OverlayTheme,
-  OverlayType } from "..";
+  OverlayType
+} from "..";
 
 interface NavListProps {
   items: INavItem[];
@@ -65,74 +67,81 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
   }
 
   render() {
-    const { hideOverlay,signOut,user } = this.props;
+    const { hideOverlay, signOut, user } = this.props;
     const { displayedItems, parent } = this.state;
-    
+
     return (
       <OverlayContext.Consumer>
 
-      {overlayContext => (
-      <div>
-        <ul>
-          {parent ? (
-            <li className="side-nav__menu-item side-nav__menu-item-back">
-              <span onClick={this.handleGoBack}>
-                <ReactSVG path={backImg} /> {parent.name}
-              </span>
-            </li>
-          ) : (
-              <>
-                <li className="side-nav__menu-item side-nav__menu-item--parent">
-                  <Link
-                    to={baseUrl}
-                    className="side-nav__menu-item-logo"
-                    onClick={hideOverlay}
-                  >
-                    {/* <ReactSVG path={logoImg} /> */}
-                    <img src={logoImg} />
-                  </Link>
-                  <span className="side-nav__menu-item-close" onClick={hideOverlay}>
-                    <span className="lineOne"/>
-                    <span className="lineTwo" />
+        {overlayContext => (
+          <div>
+            <ul>
+              {parent ? (
+                <li className="side-nav__menu-item side-nav__menu-item-back">
+                  <span onClick={this.handleGoBack}>
+                    <ReactSVG path={backImg} /> {parent.name}
                   </span>
                 </li>
+              ) : (
+                  <>
+                    <li className="side-nav__menu-item side-nav__menu-item--parent">
+                      <Link
+                        to={baseUrl}
+                        className="side-nav__menu-item-logo"
+                        onClick={hideOverlay}
+                      >
+                        {/* <ReactSVG path={logoImg} /> */}
+                        <img src={logoImg} />
+                      </Link>
+                      <span className="side-nav__menu-item-close" onClick={hideOverlay}>
+                        <span className="lineOne" />
+                        <span className="lineTwo" />
+                      </span>
+                    </li>
 
-              </>
-            )}
-        </ul>
-        <ul className="menu-list">
-        {user ? (
-          <li className="side-nav__menu-item">
-            <Link
-              to={baseUrl}
-              className="side-nav__menu-item-link"
-              onClick={hideOverlay}
-            >
-              Dashboard
+                  </>
+                )}
+            </ul>
+            <ul className="menu-list">
+              {user ? (
+                <li className="side-nav__menu-item">
+                  <Link
+                    to={baseUrl}
+                    className="side-nav__menu-item-link"
+                    onClick={hideOverlay}
+                  >
+                    Dashboard
               </Link>
-          </li>
-        ) : (
-          <Button onClick={() =>
-            overlayContext.show(
-              OverlayType.login,
-              OverlayTheme.right
-            )
-          }>Signin or Register</Button>
+                </li>
+              ) : (
+                  <Button onClick={() =>
+                    overlayContext.show(
+                      OverlayType.login,
+                      OverlayTheme.right
+                    )
+                  }
+                    className="regBtn"
+                  >Signin or Register</Button>
+                )}
+              <Button className="bcBtn">Business Resource Center</Button>
+              {displayedItems.map(item => (
+                <NavItem
+                  key={item.id}
+                  hideOverlay={hideOverlay}
+                  showSubItems={this.handleShowSubItems}
+                  {...item}
+                />
+              ))}
+            </ul>
+            {user && 
+            <div className="loBtn">
+            <Button onClick={signOut}>Log Out</Button>
+            </div>
+            }
+
+          </div>
         )}
-        <Button>Business Resource Center</Button>
-        {user && <Button onClick={signOut}>Log Out</Button>}
-          {displayedItems.map(item => (
-            <NavItem
-              key={item.id}
-              hideOverlay={hideOverlay}
-              showSubItems={this.handleShowSubItems}
-              {...item}
-            />
-          ))}
-        </ul>
-      </div>
-       )}
-       </OverlayContext.Consumer>
+      </OverlayContext.Consumer>
     );
   }
 }

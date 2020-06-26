@@ -70,6 +70,12 @@
         right: 0;
         top: 0.5rem;
         width: 35px;
+        svg{
+          fill: #6c6d6d;
+          path{
+            fill: #6c6d6d;
+          }
+        }
       }
       .form-control {
         width: 100%;

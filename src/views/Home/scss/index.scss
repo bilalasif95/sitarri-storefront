@@ -46,8 +46,12 @@
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          img{
+          svg{
             margin: 0 0 0 0.5rem;
+            fill: #6c6d6d;
+            path{
+              fill: #6c6d6d;
+            }
           }
           .lc{
             cursor: pointer;

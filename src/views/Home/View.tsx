@@ -8,16 +8,16 @@ import { MetaWrapper } from "../../components";
 
 import Page from "./Page";
 
-// import ReactSVG from "react-svg";
+import ReactSVG from "react-svg";
 
 import { stringify } from "query-string";
 
 import mainimg from "../../images/mainimg.jpg";
 
-// import searchicon from "../../images/search.svg";
+import searchicon from "../../images/search.svg";
 import locationicon from "../../images/location.png"
 
-import searchicon from "../../images/search.png";
+// import searchicon from "../../images/search.png";
 
 import { searchUrl } from "../../app/routes";
 
@@ -50,7 +50,7 @@ const View: React.FC = (props: any) => {
   }
   const locationPermission = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
+      navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, timeout: 25000, enableHighAccuracy: true });
     } else {
       // console.log("Geolocation is not supported by this browser.")
     }
@@ -74,8 +74,8 @@ const View: React.FC = (props: any) => {
               <div className="searchfield">
                 <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
-                  <img src={locationicon} onClick={() => locationPermission()} className="lc"/>
-                  <img src={searchicon} />
+                  <img src={locationicon} onClick={() => locationPermission()} className="lc" />
+                  <ReactSVG path={searchicon} />
                 </span>
               </div>
               <div className="searchedlist">
