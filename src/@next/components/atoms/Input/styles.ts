@@ -27,19 +27,19 @@ const getEdgeColor = (
 };
 
 export const Wrapper = styled.div<WrapperProps>`
-  display: flex;
-  // border: 1px solid ${props => getEdgeColor(props)};
-  // color: ${props => getEdgeColor(props)};
-  // outline: ${props => props.active ? `1px solid ${getEdgeColor(props)};` : "none"};
+  display: flex; 
+  border: 1px solid ${props => getEdgeColor(props)};
+  color: ${props => getEdgeColor(props)};
+  outline: ${props => props.active ? `1px solid ${getEdgeColor(props)};` : "none"};
   transition: all 0.3s ease;
 
-  // &:hover {
-  //   color: ${props => getEdgeColor(props, true)};
-  //   outline-width: ${props => (props.disabled ? 0 : 1)}px;
-  //   outline-style: solid;
-  //   border-color: ${props => getEdgeColor(props, true)};
-  //   outline-color: ${props => getEdgeColor(props, true)};
-  // }
+  &:hover {
+    color: ${props => getEdgeColor(props, true)};
+    outline-width: ${props => (props.disabled ? 0 : 1)}px;
+    outline-style: solid;
+    border-color: ${props => getEdgeColor(props, true)};
+    outline-color: ${props => getEdgeColor(props, true)};
+  }
 `;
 
 export const Content = styled.span`
@@ -52,26 +52,12 @@ export const InputWrapper = styled.div`
   width: 100%;
 `;
 
-export const Input = styled.input<WrapperProps>`
+export const Input = styled.input`
   padding: 0.8rem 1rem;
   margin: 0;
+  border: none;
   width: 100%;
   font-size: ${props => props.theme.typography.baseFontSize};
   outline: none;
-  background-color: #fff;
-  border-radius: 4px;
-
-  border: 1px solid #cccccc78;
-  color: ${props => getEdgeColor(props)};
-  // outline: ${props => props.active ? `1px solid ${getEdgeColor(props)};` : "none"};
-
-  &:hover {
-      // color: ${props => getEdgeColor(props, true)};
-      // outline-width: ${props => (props.disabled ? 0 : 1)}px;
-      // outline-style: solid;
-      // border-color: ${props => getEdgeColor(props, true)};
-      // outline-color: ${props => getEdgeColor(props, true)};
-      // border-radius: 4px;
-      box-shadow: 0 0 0 1px #ccc;
-    }
+  background-color: transparent;
 `;
