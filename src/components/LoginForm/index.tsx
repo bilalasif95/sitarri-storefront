@@ -18,6 +18,7 @@ import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
 import { setAuthToken } from "@sdk/auth";
 
 import emailImg from "../../images/email.svg";
+import backicon from "../../images/iconmonstr-arrow-72.svg";
 
 import RegisterForm from "../OverlayManager/Login/RegisterForm";
 
@@ -104,7 +105,11 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
     <div className="login-form">
       {emailClick ?
       <>
-      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}} className="backBtn">Back</Button>
+      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}} className="backBtn">
+      <ReactSVG
+              path={backicon}
+            />
+      </Button>
       <Form
         errors={maybe(() => error.extraInfo.userInputErrors, [])}
         onSubmit={handleOnSubmit}
