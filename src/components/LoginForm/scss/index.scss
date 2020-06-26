@@ -1,6 +1,13 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .login-form {
+
+  .body-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1rem;
+  }
   .input {
     margin-bottom: $spacer;
   }
@@ -28,7 +35,7 @@
   
   .emailButton {
     background-color: #f3492b !important;
-    padding: 1.1rem !important;
+    padding: 1.1666rem !important;
     border-radius: 4px;
     width: 100%;
     margin: 1rem 0;
@@ -38,6 +45,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 40px;
     span{
       font: 400 14.3333px Arial;
       display: flex;
@@ -46,6 +54,7 @@
       text-transform: capitalize;
       position: absolute;
       left: 0.3rem;
+      top: 4px;
       width: 100%;
       svg {
         margin: 0 2rem 0 0;
@@ -60,11 +69,12 @@
       font-weight: 400;
       text-align: center;
       width: 100%;
+      margin: 3px 0 0;
     }
   }
 
   .googleLoginButton {
-    padding: 0.5rem !important;
+    padding: 0.55rem 0.5rem !important;
     border-radius: 4px !important;
     width: 100%;
     color: #000;
@@ -78,6 +88,8 @@
     box-shadow: none !important;
     border: 1px solid #cccccc78 !important;
     position: relative;
+    height: 40px;
+    font-weight: 400;
     .fa{
       font-size: 20px;
       margin: 0 2rem 0 0;
@@ -88,16 +100,17 @@
       border-radius: unset !important;
       margin-right: 2rem !important;
       position: absolute;
-      top: 8px;
       left: 0.5rem;
+      top: 10px;
     }
     span {
       padding: 0 !important;
+      font-weight: 400;
     }
   }
 
   .kep-login-facebook {
-    padding: 0.5rem !important;
+    padding: 0.7rem 0.5rem !important;
     border-radius: 4px !important;
     border: none !important;
     font: 400 13.3333px Arial;
@@ -107,6 +120,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 0 2rem;
+    height: 40px;
     .fa{
       font-size: 20px;
       margin: 0 2rem 0 0;
@@ -119,7 +133,7 @@
     position: relative;
     height: 1px;
     width: 100%;
-    background: grey;
+    background: #80808059;
     margin: 0.5rem 0 1.5rem;
   }
 
@@ -143,7 +157,6 @@
   .backBtn{
     border-radius: 4px;
     background: #fff;
-    margin: 0 0 1rem;
     box-shadow: none !important;
     background: transparent;
     width: 50px;
@@ -167,6 +180,7 @@
     span{
       color: #414141;
       text-transform: capitalize;
+      font-weight: 400;
     }
   }
   .forgotBtn:hover{
@@ -182,12 +196,16 @@
     span{
       color: #fff;
       text-transform: capitalize;
+      font-weight: 400;
     }
   }
   .submitBtn:hover{
     background: #f74b2c;
   }
 
+}
+.u-link{
+  text-decoration: none;
 }
 
 .passwordInput {

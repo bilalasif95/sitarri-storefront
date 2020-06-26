@@ -48,13 +48,16 @@
     border-bottom: 1px solid $gray-light;
     display: flex;
     flex: 1;
-    font-weight: $bold-font-weight;
+    font-weight: 400;
     height: 3.6rem;
     justify-content: space-between;
-
+    background: #fff;
+    a{
+      padding: 0 $spacer;
+      display: flex;
+    }
     &-text {
       margin: 0 $spacer;
-      text-align: center;
 
       &-items {
         color: $gray;
@@ -65,11 +68,22 @@
       cursor: pointer;
       margin: 0 $spacer;
 
+      svg {
+        path{
+          fill: #f64b2c;
+        }
+        * {
+          fill: #f64b2c;
+        }
+      }
       &:hover,
       &:focus {
         svg {
+          path{
+            fill: #f64b2c;
+          }
           * {
-            fill: $turquoise;
+            fill: #f64b2c;
           }
         }
       }

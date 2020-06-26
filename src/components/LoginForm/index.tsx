@@ -30,9 +30,9 @@ interface ILoginForm {
 const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
   const [signIn, { loading, error }] = useSignIn();
   const [socialAuth] = useSocialAuth();
-  const [emailClick,setEmailClick] = React.useState(false);
-  const [registerClick,setRegisterClick] = React.useState(false);
-  const [errors,setErrors] = React.useState("");
+  const [emailClick, setEmailClick] = React.useState(false);
+  const [registerClick, setRegisterClick] = React.useState(false);
+  const [errors, setErrors] = React.useState("");
   const [passwordType, setPasswordType] = React.useState(true);
   // const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
@@ -104,68 +104,72 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
   return (
     <div className="login-form">
       {emailClick ?
-      <>
-      <Button onClick={()=>{setEmailClick(false);setRegisterClick(false)}} className="backBtn">
-      <ReactSVG
-              path={backicon}
-            />
-      </Button>
-      <Form
-        errors={maybe(() => error.extraInfo.userInputErrors, [])}
-        onSubmit={handleOnSubmit}
-      >
-        <TextField
-          name="email"
-          autoComplete="email"
-          label="Email Address"
-          type="email"
-          required
-        />
-        {passwordType ? (
-          <div className="passwordInput">
+        <>
+          <div className="body-head">
+            <p>Sign up or Log in</p>
+            <Button onClick={() => { setEmailClick(false); setRegisterClick(false) }} className="backBtn">
+              <ReactSVG
+                path={backicon}
+              />
+            </Button>
+          </div>
+
+          <Form
+            errors={maybe(() => error.extraInfo.userInputErrors, [])}
+            onSubmit={handleOnSubmit}
+          >
             <TextField
-              name="password"
-              autoComplete="password"
-              label="Password"
-              type="password"
+              name="email"
+              autoComplete="email"
+              label="Email Address"
+              type="email"
               required
             />
-            <ReactSVG
-              path={removeImg}
-              className="passwordEye"
-              onClick={onPasswordEyeIconClick}
-            />
-          </div>
-        ) : (
-          <div className="passwordInput">
-            <TextField
-              name="password"
-              autoComplete="password"
-              label="Password"
-              type="text"
-              required
-            />
-            <ReactSVG
-              path={removeImgg}
-              className="passwordEye"
-              onClick={onPasswordEyeIconClick}
-            />
-          </div>
-        )}
-        <div className="login-form__button">
-          <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
-            {loading ? "Loading" : "Sign in"}
-          </Button>
-        </div>
-        <Button onClick={() => {
-          show(OverlayType.password, OverlayTheme.right);
-        }} className="forgotBtn">Forgot Password?</Button>
-      </Form>
-      <div className="login__content__password-reminder">
-        <p>
-          Don't have an account?&nbsp;
-          <span className="u-link" onClick={()=> {setRegisterClick(true);setEmailClick(false)}}>
-            Sign up
+            {passwordType ? (
+              <div className="passwordInput">
+                <TextField
+                  name="password"
+                  autoComplete="password"
+                  label="Password"
+                  type="password"
+                  required
+                />
+                <ReactSVG
+                  path={removeImg}
+                  className="passwordEye"
+                  onClick={onPasswordEyeIconClick}
+                />
+              </div>
+            ) : (
+                <div className="passwordInput">
+                  <TextField
+                    name="password"
+                    autoComplete="password"
+                    label="Password"
+                    type="text"
+                    required
+                  />
+                  <ReactSVG
+                    path={removeImgg}
+                    className="passwordEye"
+                    onClick={onPasswordEyeIconClick}
+                  />
+                </div>
+              )}
+            <div className="login-form__button">
+              <Button type="submit" {...(loading && { disabled: true })} className="submitBtn">
+                {loading ? "Loading" : "Sign in"}
+              </Button>
+            </div>
+            <Button onClick={() => {
+              show(OverlayType.password, OverlayTheme.right);
+            }} className="forgotBtn">Forgot Password?</Button>
+          </Form>
+          <div className="login__content__password-reminder">
+            <p>
+              Don't have an account?&nbsp;
+          <span className="u-link" onClick={() => { setRegisterClick(true); setEmailClick(false) }}>
+                Sign up
           </span>
             </p>
           </div>
@@ -181,6 +185,9 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
             <RegisterForm menuBack={menuBack} hide={hide} />
             :
             <>
+              <div className="body-head">
+                <p>Sign up or Log in</p>
+              </div>
               <div className="errorMessages">{errors}</div>
               <FacebookLogin
                 appId="1078436535883692"
@@ -203,7 +210,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
               <div className="line"><span>OR</span></div>
               <Button className="emailButton" onClick={() => setEmailClick(true)}>
                 <span><ReactSVG path={emailImg} /></span>
-              <p className="ce">Continue with Email</p></Button>
+                <p className="ce">Continue with Email</p></Button>
               <p className="tc">By continuing you agree to our <Link to="" className="statementSection">T&Cs</Link> and<Link to="" className="statementSection"> Privacy Policy</Link>.</p>
             </>
           }

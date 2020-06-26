@@ -2,6 +2,7 @@ import "./scss/index.scss";
 
 import * as React from "react";
 import ReactSVG from "react-svg";
+import { Link } from "react-router-dom";
 
 import {
   LoginForm,
@@ -14,6 +15,7 @@ import {
   // OverlayType
 } from "../..";
 import RegisterForm from "./RegisterForm";
+import logoIcon from "../../../images/logo.jpg";
 
 import closeImg from "../../../images/x.svg";
 // import ForgottenPassword from "./ForgottenPassword";
@@ -45,7 +47,10 @@ class Login extends React.Component<
         <div className="login">
           <Online>
             <div className="overlay__header">
-              <p className="overlay__header-text">Sign up or Log in</p>
+            <Link to="/">
+                    <img src={logoIcon} />
+                  </Link>
+              {/* <p className="overlay__header-text">logo</p> */}
               <ReactSVG
                 path={closeImg}
                 onClick={hide}

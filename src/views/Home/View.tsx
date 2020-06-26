@@ -13,7 +13,7 @@ import ReactSVG from "react-svg";
 import { stringify } from "query-string";
 
 import mainimg from "../../images/mainimg.jpg";
-import searchicon from "../../images/search.svg";
+import searchicon from "../../images/search.png";
 
 import { searchUrl } from "../../app/routes";
 
@@ -55,7 +55,7 @@ const View: React.FC = (props: any) => {
               <div className="searchfield">
                 <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
-                  <ReactSVG path={searchicon} />
+                  <img src={searchicon} />
                 </span>
               </div>
               <div className="searchedlist">

@@ -1,6 +1,11 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .password-reset-form {
+
+.reset-info{
+  color: #6e6f6f;
+  font-size: 14px;
+}
   .input {
     margin: $spacer 0 $spacer * 2;
     // border-radius: 4px;
@@ -23,6 +28,7 @@
     span{
       color: #fff;
       text-transform: capitalize;
+      font-weight: 400;
     }
   }
   .submitBtn:hover{
