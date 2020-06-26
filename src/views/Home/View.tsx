@@ -50,7 +50,7 @@ const View: React.FC = (props: any) => {
   }
   const locationPermission = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition, showError);
+      navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, timeout: 25000, enableHighAccuracy: true });
     } else {
       // console.log("Geolocation is not supported by this browser.")
     }
@@ -74,7 +74,7 @@ const View: React.FC = (props: any) => {
               <div className="searchfield">
                 <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
-                  <img src={locationicon} onClick={() => locationPermission()} />
+                  <img src={locationicon} onClick={() => locationPermission()} className="lc" />
                   <img src={searchicon} />
                 </span>
               </div>
