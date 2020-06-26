@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
 
   h3 {
     font-weight: ${props => props.theme.typography.boldFontWeight};
-    text-transform: uppercase;
+    text-transform: capitalize;
+    margin: 0 0 1rem;
   }
 
   p {
@@ -25,6 +26,49 @@ export const InputFields = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 10.5rem;
+  margin: 0 auto ;
+  position: relative;
+
+  .passwordEye {
+    height: 49px;
+    border-left: 1px solid #cccccc78;
+    width: 40px;
+    cursor: pointer;
+    padding: 0.7rem 0.3rem;
+    position: absolute;
+    right: 0;
+}
+`;
+
+// export const PasswordInput = styled.div`
+//   position: relative;
+
+//   .passwordEye {
+//     height: 49px;
+//     border-left: 1px solid #cccccc78;
+//     width: 40px;
+//     cursor: pointer;
+//     padding: 0.7rem 0.3rem;
+//     position: absolute;
+//     right: 0;
+// }
+// `;
+
+export const Btn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 1rem auto;
+
+  button{
+    width: 100%;
+    border-radius: 4px;
+    background: #f74b2c;
+    color: #fff;
+    text-transform: capitalize;
+    box-shadow: none ;
+  }
+  button:hover{
+    background: #f74b2c;
+  }
 `;

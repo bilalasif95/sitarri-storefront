@@ -32,7 +32,16 @@
   }
   @media(max-width: $small-screen){
     .modalDiv {
-      width: 47%;
+      width: 20%;
+    }
+    .modalDiv:nth-child(even) {
+      margin: unset !important;
+    }
+    .modalDiv:nth-child(odd) {
+      margin: unset !important;
+    }
+    .modalDiv:nth-child(4) {
+      margin: 0 0 1rem 0 !important;
     }
     h3 {
       margin-top: 0 ;

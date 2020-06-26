@@ -196,7 +196,9 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
               />
               <br /><br />
               <div className="line"><span>OR</span></div>
-              <Button className="emailButton" onClick={() => setEmailClick(true)}><ReactSVG path={emailImg} />Continue with Email</Button>
+              <Button className="emailButton" onClick={() => setEmailClick(true)}>
+                <span><ReactSVG path={emailImg} /></span>
+              <p className="ce">Continue with Email</p></Button>
               <p className="tc">By continuing you agree to our <Link to="" className="statementSection">T&Cs</Link> and<Link to="" className="statementSection"> Privacy Policy</Link>.</p>
             </>
           }
