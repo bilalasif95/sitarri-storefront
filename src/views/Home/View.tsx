@@ -8,13 +8,16 @@ import { MetaWrapper } from "../../components";
 
 import Page from "./Page";
 
-import ReactSVG from "react-svg";
+// import ReactSVG from "react-svg";
 
 import { stringify } from "query-string";
 
 import mainimg from "../../images/mainimg.jpg";
-import searchicon from "../../images/search.svg";
+
+// import searchicon from "../../images/search.svg";
 import locationicon from "../../images/location.png"
+
+import searchicon from "../../images/search.png";
 
 import { searchUrl } from "../../app/routes";
 
@@ -71,8 +74,8 @@ const View: React.FC = (props: any) => {
               <div className="searchfield">
                 <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
-                <img src={locationicon} onClick={() => locationPermission()} />
-                  <ReactSVG path={searchicon} />
+                  <img src={locationicon} onClick={() => locationPermission()} />
+                  <img src={searchicon} />
                 </span>
               </div>
               <div className="searchedlist">

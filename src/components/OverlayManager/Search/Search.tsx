@@ -24,7 +24,7 @@ import NothingFound from "./NothingFound";
 import ProductItem from "./ProductItem";
 import { TypedSearchResults } from "./queries";
 
-import searchImg from "../../../images/search.svg";
+import searchImg from "../../../images/search.png";
 import closeImg from "../../../images/x.svg";
 
 interface SearchProps extends RouteComponentProps {
@@ -96,7 +96,7 @@ class Search extends React.Component<SearchProps, SearchState> {
               iconLeft={
                 <ReactSVG path={closeImg} onClick={this.props.overlay.hide} />
               }
-              iconRight={<ReactSVG path={searchImg} />}
+              iconRight={<img src={searchImg} />}
               autoFocus={true}
               placeholder="Search"
               onBlur={this.handleInputBlur}
