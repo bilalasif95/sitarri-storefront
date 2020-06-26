@@ -118,9 +118,9 @@ const MainMenu: React.FC = () => {
                         }
                         content={
                           <ul className="main-menu__dropdown">
-                            <li data-testid="my_account__link">
+                            {/* <li data-testid="my_account__link">
                               <Link to={appPaths.accountUrl}>My Account</Link>
-                            </li>
+                            </li> */}
                             <li
                               onClick={handleSignOut}
                               data-testid="logout-link"
