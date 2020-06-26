@@ -2,8 +2,8 @@
 
 .side-nav {
   $item-height: 3.7rem;
-  max-width: calc(100vw - 5rem);
-  width: 30rem;
+  // max-width: calc(100vw - 5rem);
+  width: 100%;
 
   .menu-list{
     max-height: 100vh;
@@ -14,6 +14,8 @@
     border-bottom: 1px solid $gray-light;
     display: grid;
     height: $item-height;
+
+   
 
     &-link,
     &-back span {
@@ -79,12 +81,19 @@
       display: flex;
       height: $item-height;
       justify-content: center;
-
+      position: relative;
+      .lineOne {
+        transform: rotate(45deg);
+      }
+      .lineTwo {
+        transform: rotate(-45deg);
+      }
       span {
         background-color: #ff4807;
         border-radius: 1px;
         height: 3px;
         width: 24px;
+        position: absolute;
       }
 
       &:hover {

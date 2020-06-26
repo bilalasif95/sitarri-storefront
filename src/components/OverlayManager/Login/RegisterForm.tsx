@@ -124,6 +124,7 @@ const RegisterForm: React.FC<{ menuBack: () => void,hide: () => void }> = ({ men
         {(registerCustomer, { loading, data }) => {
           return (
             <>
+            <p>Sign up</p>
             <div className="errorMessages">{error}</div>
             <Form
               errors={maybe(() => data.accountRegister.errors, [])}

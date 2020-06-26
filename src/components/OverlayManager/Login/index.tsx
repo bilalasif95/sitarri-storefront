@@ -1,6 +1,9 @@
 import "./scss/index.scss";
 
 import * as React from "react";
+
+
+
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
@@ -15,6 +18,7 @@ import {
   // OverlayTheme,
   // OverlayType
 } from "../..";
+
 import logoIcon from "../../../images/logo.jpg";
 import RegisterForm from "./RegisterForm";
 

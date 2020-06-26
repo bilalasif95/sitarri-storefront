@@ -106,7 +106,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
       {emailClick ?
         <>
           <div className="body-head">
-            <p>Sign up or Log in</p>
+            <p>Log in</p>
             <Button onClick={() => { setEmailClick(false); setRegisterClick(false) }} className="backBtn">
               <ReactSVG
                 path={backicon}

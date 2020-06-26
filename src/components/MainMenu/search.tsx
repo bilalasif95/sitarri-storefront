@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { withRouter } from "react-router-dom";
 
-import ReactSVG from "react-svg";
+// import ReactSVG from "react-svg";
 
 import searchicon from "../../images/search.png";
 
