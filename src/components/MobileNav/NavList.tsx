@@ -11,9 +11,15 @@ import backImg from "../../images/arrow-back.svg";
 // import logoImg from "../../images/logo.svg";
 import logoImg from "../../images/logo.jpg";
 
+import { Button, OverlayContext,
+  OverlayTheme,
+  OverlayType } from "..";
+
 interface NavListProps {
   items: INavItem[];
+  user: any;
   hideOverlay(): void;
+  signOut(): void;
 }
 
 interface NavListState {
@@ -59,10 +65,13 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
   }
 
   render() {
-    const { hideOverlay } = this.props;
+    const { hideOverlay,signOut,user } = this.props;
     const { displayedItems, parent } = this.state;
-
+    
     return (
+      <OverlayContext.Consumer>
+
+      {overlayContext => (
       <div>
         <ul>
           {parent ? (
@@ -92,15 +101,26 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
             )}
         </ul>
         <ul className="menu-list">
+        {user ? (
           <li className="side-nav__menu-item">
             <Link
               to={baseUrl}
               className="side-nav__menu-item-link"
               onClick={hideOverlay}
             >
-              Home
+              Dashboard
               </Link>
           </li>
+        ) : (
+          <Button onClick={() =>
+            overlayContext.show(
+              OverlayType.login,
+              OverlayTheme.right
+            )
+          }>Signin or Register</Button>
+        )}
+        <Button>Business Resource Center</Button>
+        {user && <Button onClick={signOut}>Log Out</Button>}
           {displayedItems.map(item => (
             <NavItem
               key={item.id}
@@ -111,6 +131,8 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
           ))}
         </ul>
       </div>
+       )}
+       </OverlayContext.Consumer>
     );
   }
 }

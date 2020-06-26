@@ -221,7 +221,14 @@
       transition: 0.3s;
     }
   }
-
+  @media (max-width: $small-screen) {
+    .menu-dropdown {
+      display: none;
+    }
+    .main-menu__icon {
+      display: none;
+    }
+  }
   &__user {
     &--active * {
 
