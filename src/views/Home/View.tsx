@@ -15,6 +15,7 @@ import { stringify } from "query-string";
 import mainimg from "../../images/mainimg.jpg";
 
 import searchicon from "../../images/search.svg";
+
 import locationicon from "../../images/location.png"
 
 // import searchicon from "../../images/search.png";
