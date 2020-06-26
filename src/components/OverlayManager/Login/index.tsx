@@ -1,8 +1,9 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-import ReactSVG from "react-svg";
 import { Link } from "react-router-dom";
+import ReactSVG from "react-svg";
+
 
 import {
   LoginForm,
@@ -14,8 +15,9 @@ import {
   // OverlayTheme,
   // OverlayType
 } from "../..";
-import RegisterForm from "./RegisterForm";
 import logoIcon from "../../../images/logo.jpg";
+import RegisterForm from "./RegisterForm";
+
 
 import closeImg from "../../../images/x.svg";
 // import ForgottenPassword from "./ForgottenPassword";
