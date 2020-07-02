@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
-import { Breadcrumbs, ProductDescription } from "../../components";
+// import { Breadcrumbs, ProductDescription } from "../../components";
+import { ProductDescription } from "../../components";
 import { generateCategoryUrl, generateProductUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
@@ -113,9 +114,9 @@ class Page extends React.PureComponent<
     );
     return (
       <div className="product-page">
-        <div className="container">
+        {/* <div className="container">
           <Breadcrumbs breadcrumbs={this.populateBreadcrumbs(product)} />
-        </div>
+        </div> */}
         {/* <div className="container"> */}
         <div className="product-page__product">
           {/* Add script here */}

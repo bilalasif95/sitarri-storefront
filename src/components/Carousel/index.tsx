@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselType> = ({ children, ...rest }) => {
           carousel(1)
         ) : (
           <Media query={{ maxWidth: mediumScreen }}>
-            {matches => carousel(matches ? 3 : 5)}
+            {matches => carousel(matches ? 2 : 3)}
           </Media>
         )
       }

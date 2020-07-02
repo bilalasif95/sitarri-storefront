@@ -74,8 +74,12 @@
         .catimg{
           width: 25%;
           overflow: hidden;
+          display: flex;
+          align-items: center;
+          height: 100%;
           img{
             width: 100%;
+            border-radius: 5px;
           }
         }
       }
@@ -84,6 +88,15 @@
       }
       .item:nth-child(even){
         margin: 0 0 1rem 0;
+      }
+      @media(max-width: 575px){
+        .item{
+          width: 100%;
+          padding: 0.5rem;
+        }
+        .item:nth-child(odd){
+          margin: 0 0 1rem 0;
+        }
       }
     }
 
@@ -100,9 +113,9 @@
       //   width: 30%;
       // }
 
-      // @media (max-width: $small-screen) {
-      //   width: 100%;
-      // }
+      @media (max-width: $small-screen) {
+        padding: 0.5rem;
+      }
 
       // > div {
       //   @media (min-width: $small-screen) {
@@ -125,6 +138,7 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      flex-wrap: wrap;
       width: 100%;
       border-top: 1px solid #ccc;
       padding: 1rem 0 0;
@@ -132,6 +146,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        text-align: center;
         flex-direction: column;
         margin: 0.5rem;
       }
@@ -145,6 +160,16 @@
         width: 100%;
         font-size: 14px;
         color: #1a73e4;
+      }
+      @media(max-width:424px){
+        .item{
+          width: 20%;
+        }
+      }
+      @media(max-width:385px){
+        .item{
+          width: 27%;
+        }
       }
    }
 
@@ -197,17 +222,18 @@
       width: 100%;
       padding: 0;
       box-sizing: border-box;
+      margin: 1rem 0 0;
 
-      @media (max-width: $medium-screen) {
-        width: 50%;
-      }
+      // @media (max-width: $medium-screen) {
+      //   width: 50%;
+      // }
 
-      @media (max-width: $small-screen) {
-        width: 100%;
-        padding: 0;
-        margin-bottom: $spacer * 2;
-        padding: 0;
-      }
+      // @media (max-width: $small-screen) {
+      //   width: 100%;
+      //   padding: 0;
+      //   margin-bottom: $spacer * 2;
+      //   padding: 0;
+      // }
 
       &__nav {
         li {

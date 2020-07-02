@@ -29,6 +29,7 @@ export const ProductDescription: React.FC<IProps> = ({
     <S.Wrapper>
       <S.Tabs>
         <S.Sectitle>Products</S.Sectitle>
+        <S.TabList>
         <S.TabTitle
           active={activeTab === TABS.Category1}
           onMouseEnter={evt => {
@@ -134,7 +135,7 @@ export const ProductDescription: React.FC<IProps> = ({
         >
           category 8
         </S.TabTitle>
-
+        </S.TabList>
       </S.Tabs>
       {activeTab === TABS.Category1 &&
         <div className="cat">
@@ -338,109 +339,109 @@ export const ProductDescription: React.FC<IProps> = ({
         </>
       }
       {activeTab === TABS.Category3 &&
-      <div className="cat">
-      <h3>Category 1</h3>
-      <div className="cat-list">
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
+        <div className="cat">
+          <h3>Category 1</h3>
+          <div className="cat-list">
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-      </div>
-    </div>
         // (descriptionJson ? (
         //   <RichTextContent descriptionJson={descriptionJson} />
         // ) : (
         //     <p>{description}</p>
         //   ))
-          }
+      }
       {activeTab === TABS.Category4 &&
-      <div className="cat">
-      <h3>Category 1</h3>
-      <div className="cat-list">
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
+        <div className="cat">
+          <h3>Category 1</h3>
+          <div className="cat-list">
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
+            <div className="item">
+              <div className="desc">
+                <h4>Title</h4>
+                <p className="descr">Description of the business that can be as long as it needs to be</p>
+                <p className="price">$ 4.00</p>
+              </div>
+              <div className="catimg">
+                <img src={tileimg} />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-        <div className="item">
-          <div className="desc">
-            <h4>Title</h4>
-            <p className="descr">Description of the business that can be as long as it needs to be</p>
-            <p className="price">$ 4.00</p>
-          </div>
-          <div className="catimg">
-            <img src={tileimg} />
-          </div>
-        </div>
-      </div>
-    </div>
         // (descriptionJson ? (
         //   <RichTextContent descriptionJson={descriptionJson} />
         // ) : (
         //     <p>{description}</p>
         //   ))
-          }
+      }
       {/* {activeTab === TABS.Category2 && (
         <S.AttributeList>
           {attributes &&

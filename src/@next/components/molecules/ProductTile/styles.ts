@@ -53,6 +53,21 @@ export const Link = styled.div`
   -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
 `;
+
+export const ModalLink = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  color: #000;
+  font-size: 12px;
+  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+`;
+
 export const Title = styled.h4`
   font-weight: normal;
   ${textProps}
@@ -80,10 +95,23 @@ export const Image = styled.div`
   max-width: 100%;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
   > img {
     // width:100%;
+  }
+`;
+
+export const ModalImage = styled.div`
+  width: 100%
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    border-radius: 5px;
   }
 `;
 
@@ -101,7 +129,7 @@ export const Imgbox = styled.div`
   overflow: hidden;
   img{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
 
+import { Modal } from "@components/organisms/Modal";
+
 import * as S from "./styles";
 import { IProps } from "./types";
 // import { Tile } from "../../atoms";
@@ -17,6 +19,15 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
       product.pricing.priceRange.start
       ? product.pricing.priceRange.start
       : undefined;
+
+  const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  const [show, setShow] = React.useState(true);
+  const onModalClicked = () => {
+    if (displayNewModal) {
+      return setDisplayNewModal(false);
+    }
+    setDisplayNewModal(true);
+  };
 
   return (
     <>
@@ -73,7 +84,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
 
       <S.Wrapper data-cy="product-tile">
         <S.Top>
-          <S.Image>
+          <S.Image onClick={onModalClicked}>
             {/* <img src={tileimg} /> */}
             <Thumbnail source={product} />
           </S.Image>
@@ -117,7 +128,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
             </S.Location>
           </S.Content>
         </S.Top>
-        <S.Bottom>
+        {/* <S.Bottom>
           <S.Left>
             <S.Title>{product.name}</S.Title>
             <S.Desc>{product.name}</S.Desc>
@@ -127,12 +138,43 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
           </S.Left>
           <S.Right>
             <S.Imgbox>
-              {/* <img src={stileimg} /> */}
               <Thumbnail source={product} />
             </S.Imgbox>
           </S.Right>
-        </S.Bottom>
+        </S.Bottom> */}
       </S.Wrapper>
+      {
+        displayNewModal && (
+          <Modal
+            title=""
+            hide={() => {
+              setDisplayNewModal(false);
+              setShow(false);
+            }}
+            formId="product-form"
+            disabled={false}
+            show={show}
+            submitBtnText=""
+          >
+            <S.Top>
+              <S.ModalImage>
+                {/* <img src={tileimg} /> */}
+                <Thumbnail source={product} />
+              </S.ModalImage>
+              <S.Content>
+                <S.ModalLink>
+                  <Link to="#">See Shop</Link>
+                </S.ModalLink>
+                <S.Title>{product.name}</S.Title>
+                <S.Desc>{product.name}</S.Desc>
+                <S.Price>
+                  <TaxedMoney taxedMoney={price} />
+                </S.Price>
+              </S.Content>
+            </S.Top>
+          </Modal>
+        )
+      }
     </>
   );
 };
