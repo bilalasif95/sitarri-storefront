@@ -416,6 +416,11 @@ export interface ProductDetails_product_category_products_edges_node_pricing {
   priceRange: ProductDetails_product_category_products_edges_node_pricing_priceRange | null;
 }
 
+export interface imagesArray {
+  id: string;
+  url: string;
+}
+
 export interface ProductDetails_product_category_products_edges_node {
   __typename: "Product";
   /**
@@ -423,6 +428,7 @@ export interface ProductDetails_product_category_products_edges_node {
    */
   id: string;
   name: string;
+  images: imagesArray[];
   /**
    * The main thumbnail for a product.
    */

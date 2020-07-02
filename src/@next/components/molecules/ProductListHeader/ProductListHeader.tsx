@@ -18,6 +18,52 @@ export const ProductListHeader: React.FC<IProps> = ({
 }: IProps) => {
   return (
     <S.Wrapper>
+      <S.Top>
+        <S.Element>
+          <S.Sort>
+            <DropdownSelect
+              onChange={onChange}
+              options={sortOptions}
+              value={sortOptions.find(
+                option => option.value === activeSortOption
+              )}
+            />
+          </S.Sort>
+        </S.Element>
+        <S.Element>
+          <S.Sort>
+            <DropdownSelect
+              onChange={onChange}
+              options={sortOptions}
+              value={sortOptions.find(
+                option => option.value === activeSortOption
+              )}
+            />
+          </S.Sort>
+        </S.Element>
+        <S.Element>
+          <S.Sort>
+            <DropdownSelect
+              onChange={onChange}
+              options={sortOptions}
+              value={sortOptions.find(
+                option => option.value === activeSortOption
+              )}
+            />
+          </S.Sort>
+        </S.Element>
+        <S.Element>
+          <S.Sort>
+            <DropdownSelect
+              onChange={onChange}
+              options={sortOptions}
+              value={sortOptions.find(
+                option => option.value === activeSortOption
+              )}
+            />
+          </S.Sort>
+        </S.Element>
+      </S.Top>
       <S.Bar>
         <S.LeftSide>
           <S.FiltersButton onClick={openFiltersMenu} data-cy="filters__button">

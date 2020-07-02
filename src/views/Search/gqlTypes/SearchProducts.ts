@@ -221,6 +221,11 @@ export interface SearchProducts_products_edges_node_category {
   name: string;
 }
 
+export interface imagesArray {
+  id: string;
+  url: string;
+}
+
 export interface SearchProducts_products_edges_node {
   __typename: "Product";
   /**
@@ -232,6 +237,7 @@ export interface SearchProducts_products_edges_node {
    */
   id: string;
   name: string;
+  images:  imagesArray[];
   /**
    * The main thumbnail for a product.
    */

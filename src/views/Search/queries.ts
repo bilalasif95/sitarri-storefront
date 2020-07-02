@@ -39,6 +39,10 @@ export const searchProductsQuery = gql`
             id
             name
           }
+          images {
+            id
+            url
+          }
         }
       }
       pageInfo {

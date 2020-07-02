@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import Carousel from "../../../../../src/components/Carousel";
 
+import { Slide } from 'react-slideshow-image';
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
 
@@ -30,13 +32,17 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
     }
     setDisplayNewModal(true);
   };
+
   return (
     <>
       <S.Wrapper data-cy="product-tile">
         <S.Top>
           <S.Image onClick={onModalClicked}>
             {/* <img src={tileimg} /> */}
-            <Thumbnail source={product} />
+              {product.images.map((image) => (
+                <img src={image.url}/>
+              ))}
+            {/* <Thumbnail source={product} /> */}
           </S.Image>
           <S.Content>
             <S.Link>

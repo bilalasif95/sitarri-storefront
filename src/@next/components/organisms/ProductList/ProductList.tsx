@@ -10,6 +10,7 @@ import Carousel from "../../../../../src/components/Carousel";
 
 import * as S from "./styles";
 import { IProps } from "./types";
+
 import { AllProducts } from "../../molecules/AllProducts";
 
 export const ProductList: React.FC<IProps> = ({

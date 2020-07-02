@@ -2,7 +2,7 @@ import { mount, shallow } from "enzyme";
 import "jest-styled-components";
 import React from "react";
 
-import { BusinessTile } from ".";
+import { BusinessTile } from "..";
 import { PRODUCT } from "./fixtures";
 
 describe("<BusinessTile />", () => {

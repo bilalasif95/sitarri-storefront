@@ -235,6 +235,23 @@
       //   padding: 0;
       // }
 
+      .slider-control-centerright{
+        right: 25px;
+      }
+      .slider-slide{
+        // width: 300px !important;
+        padding: 0 5px !important;
+      }
+      .slider-slide > img{
+        height: 168px;
+        border-radius: 5px;
+      }
+      .carousel__control--left {
+        margin-left: 0;
+      }
+      .carousel__control--right {
+        margin-right: 0;
+      }
       &__nav {
         li {
           display: inline-block;
