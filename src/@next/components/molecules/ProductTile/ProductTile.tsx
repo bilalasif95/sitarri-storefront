@@ -40,11 +40,8 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
       <S.Wrapper data-cy="product-tile">
         <S.Top>
           <S.Image>
-            {/* <img src={tileimg} /> */}
-
             {/* <img src={image.url}/> */}
             <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-            {/* <Thumbnail source={product} /> */}
           </S.Image>
           <S.Content>
             <S.Link>
@@ -122,8 +119,8 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
           >
             <S.Top>
               <S.ModalImage>
-                {/* <img src={tileimg} /> */}
                 <Thumbnail source={product} />
+                {/* <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>

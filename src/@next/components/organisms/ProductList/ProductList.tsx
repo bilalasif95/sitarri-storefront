@@ -20,35 +20,20 @@ export const ProductList: React.FC<IProps> = ({
   onLoadMore = () => null,
 }: IProps) => {
   return (
-    <>
-      <h4>Products</h4>
+    <S.ProductList>
+      <h3>Products</h3>
       <Carousel>
         {products.map(product => (
           <ProductTile product={product} />
         ))}
       </Carousel>
-
-      {/* <S.List>
-        {products.map(product => (
-          <Link
-            to={generateProductUrl(product.id, product.name)}
-            key={product.id}
-          >
-          <ProductTile product={product} />
-        </Link>
-        ))}
-      </S.List> */}
-
-      <h4>Business</h4>
-      {/* <S.List> */}
+      <h3>Business</h3>
       <Carousel>
         {products.map(product => (
-
           <BusinessTile product={product} />
         ))}
       </Carousel>
-      {/* </S.List> */}
-      <h4>All Results</h4>
+      <h3>All Results</h3>
       <S.List>
         {products.map(product => (
           // <Link
@@ -74,6 +59,6 @@ export const ProductList: React.FC<IProps> = ({
             )
           )}
       </S.Loader>
-    </>
+    </S.ProductList>
   );
 };

@@ -7,22 +7,17 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  padding: 1rem
+  margin: 1rem;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  
 `;
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
-  border-radius: 5px;
-  overflow: hidden;
-  // box-shadow: 0 0 8px rgba(78, 0, 79, 0.24);
 
-  // :hover {
-  //   background-color: ${props => props.theme.colors.hoverLightBackground};
-  // }
-
-  // ${media.largeScreen`
-  //   padding: 1.8rem;
-  // `}
 `;
 
 export const Bottom = styled.div`
@@ -33,7 +28,6 @@ export const Bottom = styled.div`
   justify-content: space-between;
   align-items: center;
   border-top:  1px solid #ddd;
-  // box-shadow: 0 0 8px rgba(78, 0, 79, 0.24);
 `;
 
 export const Content = styled.div`
@@ -92,7 +86,7 @@ export const Price = styled.p`
 
 export const Image = styled.div`
   width: 100%;
-  height: 160px;
+  height: 158px;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -113,7 +107,7 @@ export const Image = styled.div`
     }
     .image-gallery-slide{
       width: 75%;
-      padding:0 2px;
+      padding:0 2px 0 0;
     }
   }
 `;
