@@ -98,9 +98,24 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   > img {
     margin: 0 2px 0 0;
     max-width: 255px;
+    height: 100%;
+  }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      height: 20px;
+      width: 10px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+      padding:0 2px;
+    }
   }
 `;
 

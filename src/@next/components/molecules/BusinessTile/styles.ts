@@ -92,7 +92,7 @@ export const Price = styled.p`
 
 export const Image = styled.div`
   width: 100%;
-  height: 180px;
+  height: 160px;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -100,7 +100,21 @@ export const Image = styled.div`
   align-items: center;
   cursor: pointer;
   > img {
-    // width:100%;
+    margin: 0 2px 0 0;
+    max-width: 255px;
+    height: 100%;
+  }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      height: 20px;
+      width: 10px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+      padding:0 2px;
+    }
   }
 `;
 

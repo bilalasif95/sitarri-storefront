@@ -35,6 +35,7 @@ export const Tabs = styled.div`
   border-radius: 5px;
   overflow: hidden;
   padding: 1rem;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const TabList = styled.div`

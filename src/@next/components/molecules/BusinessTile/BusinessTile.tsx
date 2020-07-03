@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 import { TaxedMoney } from "@components/containers";
-import { Thumbnail } from "@components/molecules";
+// import { Thumbnail } from "@components/molecules";
 
 import { Modal } from "@components/organisms/Modal";
 
@@ -28,7 +29,8 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
     }
     setDisplayNewModal(true);
   };
-
+  const tempArray: any = [];
+  product.images.map((image) => tempArray.push({ original: image.url }));
   return (
     <>
       {/* <S.Wrapper data-cy="product-tile">
@@ -86,7 +88,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: IProps) => {
         <S.Top>
           <S.Image onClick={onModalClicked}>
             {/* <img src={tileimg} /> */}
-            <Thumbnail source={product} />
+            <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
           </S.Image>
           <S.Content>
             <S.Link>
