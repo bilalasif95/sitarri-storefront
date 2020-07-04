@@ -35,6 +35,15 @@ export const Tabs = styled.div`
   border-radius: 5px;
   overflow: hidden;
   padding: 1rem;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+`;
+
+export const TabList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 `;
 
 export const Sectitle = styled.div`
@@ -60,9 +69,13 @@ export const TabTitle = styled.div<{ active?: boolean }>`
 
   ${media.smallScreen`
     font-size: ${(props: any) => props.theme.typography.h4FontSize};
-    min-width: 150px;
-    margin-right: 20px;
+    min-width: 100px;
+    width: 33.33%;
+    font-size: 14px;
   `};
+  @media(max-width: 450px){
+    width: 50%;
+  }
 `;
 
 export const AttributeName = styled.span`

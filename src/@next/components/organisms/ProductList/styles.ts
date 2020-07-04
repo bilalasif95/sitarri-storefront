@@ -1,18 +1,24 @@
 import { media, styled } from "@styles";
 
+export const ProductList = styled.div`
+  margin: 0 0 1rem;
+  h3{
+    padding: 1rem 0 1rem 2rem
+  }
+`;
 export const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem;
+  grid-gap: 0;
 
   ${media.largeScreen`
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1.5rem;
+    grid-gap: ;
   `}
 
   ${media.smallScreen`
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
+    grid-gap: ;
   `}
 `;
 

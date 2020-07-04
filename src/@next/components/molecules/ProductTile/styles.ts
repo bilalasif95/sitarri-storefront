@@ -7,22 +7,19 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  padding: 1rem
+  margin: 1rem;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  &:hover {
+    background: #f4f4f4;
+  }
 `;
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
-  border-radius: 5px;
-  overflow: hidden;
-  // box-shadow: 0 0 8px rgba(78, 0, 79, 0.24);
 
-  // :hover {
-  //   background-color: ${props => props.theme.colors.hoverLightBackground};
-  // }
-
-  // ${media.largeScreen`
-  //   padding: 1.8rem;
-  // `}
 `;
 
 export const Bottom = styled.div`
@@ -33,7 +30,6 @@ export const Bottom = styled.div`
   justify-content: space-between;
   align-items: center;
   border-top:  1px solid #ddd;
-  // box-shadow: 0 0 8px rgba(78, 0, 79, 0.24);
 `;
 
 export const Content = styled.div`
@@ -53,6 +49,21 @@ export const Link = styled.div`
   -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
 `;
+
+export const ModalLink = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  color: #000;
+  font-size: 12px;
+  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+`;
+
 export const Title = styled.h4`
   font-weight: normal;
   ${textProps}
@@ -76,14 +87,41 @@ export const Price = styled.p`
 
 export const Image = styled.div`
   width: 100%;
-  height: 180px;
+  height: 158px;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  > img {
+    margin: 0 2px 0 0;
+    max-width: 255px;
+    height: 100%;
+  }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      height: 20px;
+      width: 10px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+      padding:0 2px 0 0;
+    }
+  }
+`;
+
+export const ModalImage = styled.div`
+  width: 100%
   max-width: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  > img {
-    // width:100%;
+  img{
+    border-radius: 5px;
   }
 `;
 
@@ -101,7 +139,7 @@ export const Imgbox = styled.div`
   overflow: hidden;
   img{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 

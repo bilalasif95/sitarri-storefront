@@ -11,11 +11,12 @@ export const Wrapper = styled.div`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
+  background: #fff;
+  
 `;
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
-
 
 `;
 
@@ -106,7 +107,7 @@ export const Image = styled.div`
     }
     .image-gallery-slide{
       width: 75%;
-       padding:0 2px 0 0;
+      padding:0 2px 0 0;
     }
   }
 `;
@@ -138,7 +139,7 @@ export const Imgbox = styled.div`
   overflow: hidden;
   img{
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 

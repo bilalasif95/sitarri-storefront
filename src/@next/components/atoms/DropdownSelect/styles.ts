@@ -13,7 +13,11 @@ export const SortLine = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #f3f0f0;
+  border-radius: 5px;
+
 `;
 
 export const Value = styled.div`

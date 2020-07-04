@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { Button, Loader } from "@components/atoms";
 import { BusinessTile, ProductTile } from "@components/molecules";
+import Carousel from "../../../../../src/components/Carousel";
 
-import { generateProductUrl } from "../../../../core/utils";
+// import { generateProductUrl } from "../../../../core/utils";
 
 
 import * as S from "./styles";
 import { IProps } from "./types";
+
+import { AllProducts } from "../../molecules/AllProducts";
 
 export const ProductList: React.FC<IProps> = ({
   products,
@@ -17,27 +20,28 @@ export const ProductList: React.FC<IProps> = ({
   onLoadMore = () => null,
 }: IProps) => {
   return (
-    <>
-      <h4>Products</h4>
-      <S.List>
+    <S.ProductList>
+      <h3>Products</h3>
+      <Carousel>
         {products.map(product => (
-          <Link
-            to={generateProductUrl(product.id, product.name)}
-            key={product.id}
-          >
-            <ProductTile product={product} />
-          </Link>
+          <ProductTile product={product} />
         ))}
-      </S.List>
-      <h4>Business</h4>
+      </Carousel>
+      <h3>Business</h3>
+      <Carousel>
+        {products.map(product => (
+          <BusinessTile product={product} />
+        ))}
+      </Carousel>
+      <h3>All Results</h3>
       <S.List>
         {products.map(product => (
-          <Link
-            to={generateProductUrl(product.id, product.name)}
-            key={product.id}
-          >
-            <BusinessTile product={product} />
-          </Link>
+          // <Link
+          //   to={generateProductUrl(product.id, product.name)}
+          //   key={product.id}
+          // >
+          <AllProducts product={product} />
+          // </Link>
         ))}
       </S.List>
       <S.Loader>
@@ -55,6 +59,6 @@ export const ProductList: React.FC<IProps> = ({
             )
           )}
       </S.Loader>
-    </>
+    </S.ProductList>
   );
 };

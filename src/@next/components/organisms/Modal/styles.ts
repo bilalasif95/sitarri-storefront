@@ -5,9 +5,10 @@ export const Modal = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  height: 100%
+
 `;
 
 export const Content = styled.div`
-  padding: ${({ theme: { spacing } }) =>
-    `4rem ${spacing.gutter} 1.8rem ${spacing.gutter}`};
+  padding: 1rem;
 `;

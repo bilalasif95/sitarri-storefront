@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   width: ${props => `${props.theme.iconButton.size}px`};
   height: ${props => `${props.theme.iconButton.size}px`};
-  background-color: ${props => props.theme.iconButton.backgroundColor};
+
 
   border-radius: 50%;
   border-width: 0;
@@ -21,11 +21,11 @@ export const Wrapper = styled.div`
     display: block;
     path {
       transition: 0.3s;
+      fill: ${props => props.theme.iconButton.hoverForegroundColor};
     }
   }
 
   :hover {
-    background-color: ${props => props.theme.iconButton.hoverBackgroundColor};
     svg {
       path {
         fill: ${props => props.theme.iconButton.hoverForegroundColor};

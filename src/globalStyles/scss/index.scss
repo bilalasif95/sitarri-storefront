@@ -61,6 +61,21 @@ body {
     }
   }
 
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f4f4f4;
+    width: 1px !important;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #000;
+    width: 1px !important;
+    height: 1px;
+  }
+
   table {
     width: 100%;
     margin: $spacer * 3 0;

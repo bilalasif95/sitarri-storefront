@@ -1,14 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+// import Carousel from "../../../../../src/components/Carousel";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
+// import { Slide } from 'react-slideshow-image';
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
+
+import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
 import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 // import tileimg from "../../../../images/tile.png";
 // import stileimg from "../../../../images/smalltile.png";
+
+import { generateProductUrl } from "../../../../core/utils";
 
 export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
   const price =
@@ -18,17 +25,27 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
       ? product.pricing.priceRange.start
       : undefined;
 
+  const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  const [show, setShow] = React.useState(true);
+  const onModalClicked = () => {
+    if (displayNewModal) {
+      return setDisplayNewModal(false);
+    }
+    setDisplayNewModal(true);
+  };
+  const tempArray: any = [];
+  product.images.map((image) => tempArray.push({ original: image.url }));
   return (
     <>
       <S.Wrapper data-cy="product-tile">
         <S.Top>
           <S.Image>
-            {/* <img src={tileimg} /> */}
-            <Thumbnail source={product} />
+            {/* <img src={image.url}/> */}
+            <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
           </S.Image>
           <S.Content>
             <S.Link>
-              <Link to="#">See Shop</Link>
+              <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Shop</Link>
             </S.Link>
             <S.Title>{product.name}</S.Title>
             <S.Desc>{product.name}</S.Desc>
@@ -67,12 +84,11 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
           </S.Left>
           <S.Right>
             <S.Imgbox>
-              {/* <img src={stileimg} /> */}
               <Thumbnail source={product} />
             </S.Imgbox>
           </S.Right>
         </S.Bottom>
-        <S.Bottom>
+        {/* <S.Bottom>
           <S.Left>
             <S.Title>{product.name}</S.Title>
             <S.Desc>{product.name}</S.Desc>
@@ -82,13 +98,44 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
           </S.Left>
           <S.Right>
             <S.Imgbox>
-              {/* <img src={stileimg} /> */}
+
               <Thumbnail source={product} />
             </S.Imgbox>
           </S.Right>
-        </S.Bottom>
+        </S.Bottom> */}
       </S.Wrapper>
-
+      {
+        displayNewModal && (
+          <Modal
+            title=""
+            hide={() => {
+              setDisplayNewModal(false);
+              setShow(false);
+            }}
+            formId="product-form"
+            disabled={false}
+            show={show}
+            submitBtnText=""
+          >
+            <S.Top>
+              <S.ModalImage>
+                <Thumbnail source={product} />
+                {/* <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
+              </S.ModalImage>
+              <S.Content>
+                <S.ModalLink>
+                  <Link to="#">See Shop</Link>
+                </S.ModalLink>
+                <S.Title>{product.name}</S.Title>
+                <S.Desc>{product.name}</S.Desc>
+                <S.Price>
+                  <TaxedMoney taxedMoney={price} />
+                </S.Price>
+              </S.Content>
+            </S.Top>
+          </Modal>
+        )
+      }
       {/* <S.Wrapper data-cy="product-tile">
       <S.Top>
         <S.Image>

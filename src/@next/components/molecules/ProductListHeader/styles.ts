@@ -4,10 +4,26 @@ export const Wrapper = styled.div`
   margin-bottom: 1.4rem;
 `;
 
+export const Top = styled.div`
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  @media(max-width:640px){
+    justify-content: space-between;
+  }
+  @media(max-width:424px){
+    justify-content: center;
+  }
+`;
+
 export const Bar = styled.div`
   height: 5rem;
   background-color: ${props => props.theme.tile.backgroundColor};
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
@@ -39,7 +55,18 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  padding-left: 2rem;
+  width:23%; 
+  margin: 0 0.5rem;
+  @media(max-width:850px){
+    width:30%;
+    text-align: center;
+  }
+  @media(max-width:640px){
+    width:45%;
+  }
+  @media(max-width:424px){
+    width:100%;
+  }
 `;
 
 export const Filters = styled.span`
@@ -52,7 +79,7 @@ export const Label = styled.span`
 `;
 
 export const Sort = styled.div`
-  width: 12rem;
+  width: 100%;
   display: inline-block;
 `;
 
