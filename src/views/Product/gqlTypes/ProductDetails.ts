@@ -689,54 +689,42 @@ export interface ProductDetails_product_variants {
 }
 
 export interface ProductDetails_product {
-  __typename: "Product";
+  __typename: "stores";
   /**
    * The ID of the object.
    */
+  privateMetadata: any;
+  metadata: any;
   id: string;
   name: string;
-  /**
-   * The main thumbnail for a product.
-   */
-  thumbnail: ProductDetails_product_thumbnail | null;
-  /**
-   * The main thumbnail for a product.
-   */
-  thumbnail2x: ProductDetails_product_thumbnail2x | null;
-  /**
-   * Lists the storefront product's pricing, the current price and discounts, only meant for displaying.
-   */
-  pricing: ProductDetails_product_pricing | null;
-  descriptionJson: any;
-  category: ProductDetails_product_category | null;
-  /**
-   * List of images for the product.
-   */
+  address: any;
+  storeCategory: any;
+  storeProduct: any;
+  minPrice: number;
+  maxPrice: number;
+  totalReviews: number;
+  logo: string;
+  websiteUrl: string;
+  facebookUrl: string;
+  googleMapUrl: string;
+  twitterUrl: string;
+  deliverooUrl: string;
+  uberEatsUrl: string;
+  instagramUrl: string;
+  openingHours: string;
+  closingHours: string;
   images: (ProductDetails_product_images | null)[] | null;
-  /**
-   * List of attributes assigned to this product.
-   */
-  attributes: ProductDetails_product_attributes[];
-  /**
-   * List of variants for the product.
-   */
-  variants: (ProductDetails_product_variants | null)[] | null;
-  seoDescription: string | null;
-  seoTitle: string | null;
-  /**
-   * Whether the product is in stock and visible or not.
-   */
-  isAvailable: boolean | null;
+ 
 }
 
 export interface ProductDetails {
   /**
    * Look up a product by ID.
    */
-  product: ProductDetails_product | null;
+  stores: ProductDetails_product | null;
 }
 
 export interface ProductDetailsVariables {
   id: string;
-  countryCode?: CountryCode | null;
+ 
 }

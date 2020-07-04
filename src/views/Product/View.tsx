@@ -55,27 +55,29 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     <TypedProductDetailsQuery
       loaderFull
       variables={{
-        countryCode:
-          (user?.defaultShippingAddress?.country?.code as CountryCode) || null,
-        id: getGraphqlIdFromDBId(match.params.id, "Product"),
+        id: "1223",
       }}
-      errorPolicy="all"
-      key={match.params.id}
     >
-      {({ data }) => (
-        <NetworkStatus>
+      {({ data, loading, error }) => {
+
+        console.log("dataaaaaaa", data)
+        if (loading) {
+          return <h3>loading....</h3>
+        }
+
+        return <NetworkStatus>
           {isOnline => {
-            const { product } = data;
+            const { stores } = data;
 
-            if (canDisplay(product)) {
+            // if (canDisplay(product)) {
               return (
-                <MetaWrapper meta={extractMeta(product)}>
-                  <Page product={product} add={addItem} items={items} />
-                </MetaWrapper>
+                // <MetaWrapper meta={extractMeta(product)}>
+                <Page product={stores} add={addItem} items={items} />
+                // </MetaWrapper>
               );
-            }
+            // }
 
-            if (product === null) {
+            if (stores === null) {
               return <NotFound />;
             }
 
@@ -84,7 +86,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
             }
           }}
         </NetworkStatus>
-      )}
+      }}
     </TypedProductDetailsQuery>
   );
 };
