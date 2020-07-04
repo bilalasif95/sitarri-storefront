@@ -5,6 +5,11 @@ export const ProductList = styled.div`
   h3{
     padding: 1rem 0 1rem 2rem
   }
+  ${media.smallScreen`
+  h3{
+    padding: 1rem 0;
+  }
+`}
 `;
 export const List = styled.div`
   display: grid;

@@ -231,12 +231,9 @@
       //   width: 50%;
       // }
 
-      // @media (max-width: $small-screen) {
-      //   width: 100%;
-      //   padding: 0;
-      //   margin-bottom: $spacer * 2;
-      //   padding: 0;
-      // }
+      @media (max-width: $small-screen) {
+        padding: 0.5rem;
+      }
 
       .slider-control-centerright{
         right: 25px;
@@ -249,12 +246,12 @@
         height: 168px;
         border-radius: 5px;
       }
-      .carousel__control--left {
-        margin-left: 0;
-      }
-      .carousel__control--right {
-        margin-right: 0;
-      }
+      // .carousel__control--left {
+      //   margin-left: 0;
+      // }
+      // .carousel__control--right {
+      //   margin-right: 0;
+      // }
       &__nav {
         li {
           display: inline-block;

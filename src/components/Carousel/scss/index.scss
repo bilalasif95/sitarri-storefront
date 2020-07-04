@@ -12,11 +12,11 @@
     }
 
     &--right {
-      margin-right: -1.3rem;
+      margin-right: 0;
 
-      @media (max-width: $container-width) {
-        margin-right: 0;
-      }
+      // @media (max-width: $container-width) {
+      //   margin-right: -0.5rem;
+      // }
 
       svg {
         transform: rotate(180deg);
@@ -28,11 +28,11 @@
     }
 
     &--left {
-      margin-left: -1.3rem;
+      margin-left: 0;
 
-      @media (max-width: $container-width) {
-        margin-left: 0;
-      }
+      // @media (max-width: $container-width) {
+      //   margin-left: -0.5rem;
+      // }
 
       svg {
         margin-top: 0.4rem;
@@ -40,6 +40,15 @@
           fill: #f34928
         }
       }
+    }
+  }
+
+  @media(max-width:540px){
+    &__control {
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
