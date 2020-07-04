@@ -38,11 +38,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                     {products.slice(0,4).map(({ node: product }) => (
 
                       <div className="modalDiv" 
-                      // onClick={() => {
+                      onClick={() => {
                         // setDisplayNewModal(true)
                         // setProduct(product)
-                        // SeeDetails(product.name)
-                      // }}
+                        SeeDetails(product.name)
+                      }}
                       >
                         {/* <Link
                           to={generateProductUrl(product.id, product.name)}
