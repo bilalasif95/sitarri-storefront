@@ -1,4 +1,4 @@
-import { media, styled } from "@styles";
+import { media,styled } from "@styles";
 import { css } from "styled-components";
 
 const textProps = css`
@@ -12,7 +12,9 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
-  
+  ${media.smallScreen`
+  margin: 1rem 0;
+`}
 `;
 export const Top = styled.div`
   background: #fff;
@@ -100,6 +102,9 @@ export const Image = styled.div`
   }
   .image-gallery{
     width: 100%;
+    .image-gallery-icon{
+      z-index:2;
+    }
     .image-gallery-left-nav .image-gallery-svg, 
     .image-gallery-right-nav .image-gallery-svg {
       height: 20px;
@@ -109,7 +114,15 @@ export const Image = styled.div`
       width: 75%;
       padding:0 2px 0 0;
     }
+    .image-gallery-content 
+    .image-gallery-slide
+     .image-gallery-image{
+       max-height: 100% !important;
+     }
   }
+  ${media.smallScreen`
+  height: 130px;
+`}
 `;
 
 export const ModalImage = styled.div`

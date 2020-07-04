@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
+
+import React from "react";
+import ImageGallery from 'react-image-gallery';
+import { Link } from "react-router-dom";
+
 import { TaxedMoney } from "@components/containers";
-// import { Thumbnail } from "@components/molecules";
+import { Thumbnail } from "@components/molecules";
 
 import { Modal } from "@components/organisms/Modal";
 

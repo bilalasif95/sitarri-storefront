@@ -22,13 +22,13 @@ export const ProductList: React.FC<IProps> = ({
   return (
     <S.ProductList>
       <h3>Products</h3>
-      <Carousel>
+      <Carousel productDetails={"productList"}>
         {products.map(product => (
           <ProductTile product={product} />
         ))}
       </Carousel>
       <h3>Business</h3>
-      <Carousel>
+      <Carousel productDetails={"productList"}>
         {products.map(product => (
           <BusinessTile product={product} />
         ))}

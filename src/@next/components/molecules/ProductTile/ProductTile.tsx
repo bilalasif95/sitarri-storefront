@@ -1,8 +1,11 @@
+import "react-image-gallery/styles/css/image-gallery.css";
+
 import React from "react";
 import { Link } from "react-router-dom";
 // import Carousel from "../../../../../src/components/Carousel";
+
 import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
+
 // import { Slide } from 'react-slideshow-image';
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
