@@ -1,4 +1,4 @@
-import { media, styled } from "@styles";
+import { styled } from "@styles";
 import { css } from "styled-components";
 
 const textProps = css`

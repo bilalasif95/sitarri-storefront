@@ -13,9 +13,10 @@ import arrowImg from "../../images/iconmonstr-arrow-64.svg";
 
 interface CarouselType extends CarouselProps {
   children: React.ReactNode;
+  productDetails: string;
 }
 
-const Carousel: React.FC<CarouselType> = ({ children, ...rest }) => {
+const Carousel: React.FC<CarouselType> = ({ children,productDetails, ...rest }) => {
   const settings = {
     className: "carousel",
     renderBottomCenterControls: () => null,
@@ -49,15 +50,19 @@ const Carousel: React.FC<CarouselType> = ({ children, ...rest }) => {
       {children}
     </NukaCarousel>
   );
-
   return (
     <Media query={{ maxWidth: smallScreen }}>
       {matches =>
         matches ? (
           carousel(1)
         ) : (
+          productDetails === "productList" ?
           <Media query={{ maxWidth: mediumScreen }}>
             {matches => carousel(matches ? 2 : 3)}
+          </Media>
+          :
+          <Media query={{ minWidth: mediumScreen }}>
+            {productDetails === "productDetails" ? matches =>  carousel(matches ? 5 : 3) : matches => carousel(matches ? 2 : 3)}
           </Media>
         )
       }

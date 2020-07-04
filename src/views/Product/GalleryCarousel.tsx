@@ -12,6 +12,7 @@ const GalleryCarousel: React.FC<{
 }> = ({ images }) => (
   <div className="product-page__product__gallery">
     <Carousel
+      productDetails={"productDetails"}
       // renderCenterLeftControls={() => null}
       // renderCenterRightControls={() => null}
       // renderBottomCenterControls={props => {
