@@ -9,7 +9,7 @@ import * as S from "./styles";
 describe("<ProductDescription />", () => {
   it("exists", () => {
     const wrapper = shallow(
-      <ProductDescription attributes={attributes} description={description} />
+      <ProductDescription storeCategory={attributes} />
     );
 
     expect(wrapper.exists()).toEqual(true);
@@ -17,7 +17,7 @@ describe("<ProductDescription />", () => {
 
   it("should contain and show by default product description", () => {
     const wrapper = shallow(
-      <ProductDescription attributes={attributes} description={description} />
+      <ProductDescription storeCategory={attributes}  />
     );
 
     expect(wrapper.text()).toContain(description);
@@ -25,7 +25,7 @@ describe("<ProductDescription />", () => {
 
   it("should show product attributes when clicking on attributes tab", () => {
     const wrapper = mount(
-      <ProductDescription attributes={attributes} description={description} />
+      <ProductDescription storeCategory={attributes}  />
     );
 
     wrapper

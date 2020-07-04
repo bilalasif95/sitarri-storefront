@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
-  ProductDetailsVariables,
+  // ProductDetailsVariables,
 } from "./gqlTypes/ProductDetails";
 import { VariantList, VariantListVariables } from "./gqlTypes/VariantList";
 
@@ -161,10 +161,30 @@ export const productDetailsQuery = gql`
       longitude
       latitude
     }
-      storeCategory(first:10) {
+     storeCategory(first:10) {
           edges{
             node{
               name
+              products(first:10){
+                edges{
+            node{
+             name
+              pricing{
+                priceRange{
+                  start{
+                    gross{
+                      currency
+                      amount
+                    }
+                  }
+                }
+              }
+              description
+              images{
+                url}
+            }
+          }
+              }
             }
           }
         }
@@ -214,7 +234,7 @@ export const productVariantsQuery = gql`
 
 export const TypedProductDetailsQuery = TypedQuery<
   ProductDetails,
- {}
+  {}
 >(productDetailsQuery);
 
 

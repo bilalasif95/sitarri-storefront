@@ -12,7 +12,7 @@ import PrivacyPolicy from "../../views/FooterPages/PrivacyPolicy";
 import { HomePage } from "../../views/Home";
 import { ProductPage } from "../../views/Product";
 import { SearchPage } from "../../views/Search";
-import{ BusinessDetails} from "../../views/businesDetails"
+
 
 import { CartPage, CheckoutPage, PasswordReset, ThankYouPage } from "@pages";
 
@@ -21,7 +21,6 @@ import * as paths from "./paths";
 export const Routes: React.FC = () => (
   <Switch>
     <Route exact path={paths.baseUrl} component={HomePage} />
-    <Route exact path={paths.businessDetailsUrl} component={BusinessDetails} />
     <Route path={paths.searchUrl} component={SearchPage} />
     <Route path={paths.categoryUrl} component={CategoryPage} />
     <Route path={paths.collectionUrl} component={CollectionPage} />

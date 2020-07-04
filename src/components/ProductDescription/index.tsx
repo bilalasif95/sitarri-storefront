@@ -1,43 +1,15 @@
 import "./scss/index.scss";
 
-import isEqual from "lodash/isEqual";
 import * as React from "react";
 
-// import { ProductVariantPicker } from "@components/organisms";
-import {
-  ProductDetails_product_pricing,
-  ProductDetails_product_variants,
-  ProductDetails_product_variants_pricing,
-} from "@sdk/queries/gqlTypes/ProductDetails";
-import { IProductVariantsAttributesSelectedValues, ITaxedMoney } from "@types";
 
-import { ICheckoutModelLine } from "@sdk/repository";
-import { TaxedMoney } from "../../@next/components/containers";
-// import AddToCart from "./AddToCart";
-// import { QuantityTextField } from "./QuantityTextField";
-
-
-// import ReactSVG from "react-svg";
-// import star from "../../images/iconmonstr-star-1.svg";
-
-const LOW_STOCK_QUANTITY = 5;
 interface ProductDescriptionProps {
   items: any
 }
 
-interface ProductDescriptionState {
-  quantity: number;
-  variant: string;
-  variantStock: number;
-  variantPricing: ProductDetails_product_variants_pricing;
-  variantPricingRange: {
-    min: ITaxedMoney;
-    max: ITaxedMoney;
-  };
-}
 
 class ProductDescription extends React.Component<
-  ProductDescriptionProps,
+  ProductDescriptionProps
 
   > {
   constructor(props: ProductDescriptionProps) {
@@ -51,8 +23,6 @@ class ProductDescription extends React.Component<
 
   render() {
     const { items } = this.props;
-
-    console.log("itemmmmmmmmmmmmdd", items)
     return (
       <div className="product-description">
         <h3>{items.name}</h3>

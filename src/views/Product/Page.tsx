@@ -18,7 +18,7 @@ import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
-import { structuredData } from "../../core/SEO/Product/structuredData";
+// import { structuredData } from "../../core/SEO/Product/structuredData";
 
 import ReactSVG from "react-svg";
 import delivery from "../../images/iconmonstr-bicycle-4.svg";
@@ -106,7 +106,6 @@ class Page extends React.PureComponent<
   render() {
     const { product } = this.props;
     const productInfo = product[0];
-    console.log("produceeeeeeeeee", product, "website", product[0].websiteUrl)
     const productDescription = (
       <ProductDescription
         items={productInfo}
@@ -120,11 +119,7 @@ class Page extends React.PureComponent<
           <script className="structured-data-list" type="application/ld+json">
             {/* {structuredData(product)} */}
           </script>
-
-
-
           <GalleryCarousel images={this.getImages()} />
-
 
         </div>
         {/* </div> */}
@@ -212,8 +207,7 @@ class Page extends React.PureComponent<
         <div className="container">
           <div className="product-page__product__description">
             <NewProductDescription
-              descriptionJson={product.descriptionJson}
-              attributes={product.attributes}
+              storeCategory={productInfo.storeCategory}
             />
           </div>
         </div>
