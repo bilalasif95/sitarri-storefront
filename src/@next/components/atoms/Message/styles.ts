@@ -19,6 +19,10 @@ export const Wrapper = styled.div<{ status: IProps["status"] }>`
   right: ${props => props.theme.spacing.spacer};
   border-left: 0.4rem solid;
   border-color: ${props => borderColors(props.theme)[props.status!]};
+  
+  @media(max-width: 424px){
+    width: 18rem;
+  }
 `;
 
 export const TopWrapper = styled.div`

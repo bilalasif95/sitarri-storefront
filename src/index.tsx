@@ -55,7 +55,7 @@ const startApp = async () => {
 
   const notificationOptions = {
     position: positions.BOTTOM_RIGHT,
-    timeout: 2500,
+    // timeout: 2500,
   };
 
   /**
