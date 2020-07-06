@@ -151,8 +151,10 @@ export const Right = styled.div`
 `;
 export const Imgbox = styled.div`
   overflow: hidden;
+  height: 61px;
   img{
     width: 100%;
+    height: 100%;
     border-radius: 5px;
   }
 `;

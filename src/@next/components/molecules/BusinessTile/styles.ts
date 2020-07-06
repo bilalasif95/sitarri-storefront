@@ -149,11 +149,13 @@ export const Right = styled.div`
   align-items: center;
 `;
 export const Imgbox = styled.div`
-  overflow: hidden;
-  img{
-    width: 100%;
-    border-radius: 10px;
-  }
+overflow: hidden;
+height: 61px;
+img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
 `;
 
 export const Timing = styled.div`
