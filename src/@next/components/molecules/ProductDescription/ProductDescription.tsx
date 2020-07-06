@@ -39,7 +39,7 @@ export const ProductDescription: React.FC<IProps> = ({
       <div className="cat">
         <h3>{activeTab}</h3>
         <div className="cat-list">
-          {product.edges.map((item) =>
+          {product.edges.map((item:any) =>
             <div className="item">
               <div className="desc">
                 <h4>{item.node.name}</h4>
