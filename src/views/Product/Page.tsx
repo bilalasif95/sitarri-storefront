@@ -18,7 +18,7 @@ import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
-import { structuredData } from "../../core/SEO/Product/structuredData";
+// import { structuredData } from "../../core/SEO/Product/structuredData";
 
 import ReactSVG from "react-svg";
 import delivery from "../../images/iconmonstr-bicycle-4.svg";
@@ -70,18 +70,20 @@ class Page extends React.PureComponent<
 
   getImages = () => {
     const { product } = this.props;
-    if (product.variants && this.state.variantId) {
-      const variant = product.variants
-        .filter(variant => variant.id === this.state.variantId)
-        .pop();
-      if (variant.images.length > 0) {
-        return variant.images;
-      } else {
-        return product.images;
-      }
-    } else {
-      return product.images;
-    }
+
+    // if (product.variants && this.state.variantId) {
+    //   const variant = product.variants
+    //     .filter(variant => variant.id === this.state.variantId)
+    //     .pop();
+    //   if (variant.images.length > 0) {
+    //     return variant.images;
+    //   } else {
+    //     return product.images;
+    //   }
+    // } else {
+    //   return product.images;
+    // }
+    return product[0].images && product[0].images;
   };
 
   renderImages = product => {
@@ -98,78 +100,36 @@ class Page extends React.PureComponent<
     return <CachedImage />;
   };
 
+  openTab = (url) => {
+    window.open(url);
+  }
   render() {
     const { product } = this.props;
-
+    const productInfo = product[0];
     const productDescription = (
       <ProductDescription
-        items={this.props.items}
-        productId={product.id}
-        name={product.name}
-        productVariants={product.variants}
-        pricing={product.pricing}
-        addToCart={this.props.add}
-        setVariantId={this.setVariantId}
+        items={productInfo}
       />
     );
     return (
       <div className="product-page">
-        {/* <div className="container">
-          <Breadcrumbs breadcrumbs={this.populateBreadcrumbs(product)} />
-        </div> */}
-        {/* <div className="container"> */}
+
         <div className="product-page__product">
-          {/* Add script here */}
+
           <script className="structured-data-list" type="application/ld+json">
-            {structuredData(product)}
+            {/* {structuredData(product)} */}
           </script>
-
-          {/*  */}
-          {/* <Media query={{ maxWidth: smallScreen }}>
-              {matches =>
-                matches ? ( */}
-
           <GalleryCarousel images={this.getImages()} />
 
-          {/* //     ) : (
-            //       <>
-            //         <div */}
-          {/* //           className="product-page__product__gallery"
-            //           ref={this.productGallery}
-            //         >
-            //           <ProductGallery images={this.getImages()} />
-            //         </div>
-            //       </>
-            //     )
-            //   }
-            // </Media> */}
         </div>
         {/* </div> */}
         <div className="container">
           <div className="product-page__product">
             {/* Add script here */}
             <script className="structured-data-list" type="application/ld+json">
-              {structuredData(product)}
+              {/* {structuredData(product)} */}
             </script>
 
-            {/*  */}
-            {/* <Media query={{ maxWidth: smallScreen }}>
-              {matches =>
-                matches ? (
-                  <>
-                    <GalleryCarousel images={this.getImages()} />
-                    <div className="product-page__product__info">
-                      {productDescription}
-                    </div>
-                  </>
-                ) : ( */}
-            {/* // <> */}
-            {/* <div
-                      className="product-page__product__gallery"
-                      ref={this.productGallery}
-                    >
-                      <ProductGallery images={this.getImages()} />
-                    </div> */}
             <div className="product-page__product__info">
               <div
                 className={classNames(
@@ -185,37 +145,41 @@ class Page extends React.PureComponent<
                   </div>
                   <p>Phone</p>
                 </Link>
-                <Link to="#" className="item">
+                <Link to="" className="item" onClick={() => this.openTab(productInfo.websiteUrl)}>
                   <div className="icon">
                     <ReactSVG path={website} />
                   </div>
                   <p>Website</p>
                 </Link>
-                <Link to="#" className="item">
+                <Link to="" className="item" onClick={() => this.openTab(productInfo.uberEatsUrl)}>
                   <div className="icon">
                     <ReactSVG path={direction} />
                   </div>
                   <p>Direction</p>
                 </Link>
-                <Link to="#" className="item">
+
+                <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}>
                   <div className="icon">
                     <ReactSVG path={instagram} />
                   </div>
                   <p>Instagram</p>
                 </Link>
-                <Link to="#" className="item">
+
+                <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}>
                   <div className="icon">
                     <ReactSVG path={facebook} />
                   </div>
                   <p>Facebook</p>
                 </Link>
-                <Link to="#" className="item">
+
+                <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}>
                   <div className="icon">
                     <ReactSVG path={twitter} />
                   </div>
                   <p>Twitter</p>
                 </Link>
-                <Link to="#" className="item">
+
+                <Link to="" className="item" onClick={() => this.openTab(productInfo.deliverooUrl)}>
                   <div className="icon">
                     <ReactSVG path={delivery} />
                   </div>
@@ -226,33 +190,27 @@ class Page extends React.PureComponent<
             <div className="shop-at">
               <div className="shop-address">
                 <ReactSVG path={location} />
-                <p>Address of shop</p>
+                <p>{productInfo.address.address}</p>
               </div>
               <div className="open-time">
                 <ReactSVG path={clock} />
                 <div className="timing">
-                <p>Open</p>
-                <span/>
-                <p>Close 1:00 am</p>
+                  <p>Open:{productInfo.openingHours}</p>
+                  <span />
+                  <p>Close :{productInfo.closingHours}</p>
                 </div>
               </div>
             </div>
 
-            {/* </>
-                )
-              }
-            </Media> */}
           </div>
         </div>
         <div className="container">
           <div className="product-page__product__description">
             <NewProductDescription
-              descriptionJson={product.descriptionJson}
-              attributes={product.attributes}
+              storeCategory={productInfo.storeCategory}
             />
           </div>
         </div>
-        {/* <OtherProducts products={product.category.products.edges} /> */}
       </div>
     );
   }

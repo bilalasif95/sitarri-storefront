@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
-  ProductDetailsVariables,
+  // ProductDetailsVariables,
 } from "./gqlTypes/ProductDetails";
 import { VariantList, VariantListVariables } from "./gqlTypes/VariantList";
 
@@ -107,45 +107,112 @@ export const productVariantFragment = gql`
   }
 `;
 
+// export const productDetailsQuery = gql`
+//   ${basicProductFragment}
+//   ${selectedAttributeFragment}
+//   ${productVariantFragment}
+//   ${productPricingFragment}
+//   query ProductDetails($id: ID!, $countryCode: CountryCode) {
+//     product(id: $id) {
+//       ...BasicProductFields
+//       ...ProductPricingField
+//       descriptionJson
+//       category {
+//         id
+//         name
+//         products(first: 3) {
+//           edges {
+//             node {
+//               ...BasicProductFields
+//               ...ProductPricingField
+//             }
+//           }
+//         }
+//       }
+//       images {
+//         id
+//         url
+//       }
+//       attributes {
+//         ...SelectedAttributeFields
+//       }
+//       variants {
+//         ...ProductVariantFields
+//       }
+//       seoDescription
+//       seoTitle
+//       isAvailable
+//     }
+//   }
+// `;
+
 export const productDetailsQuery = gql`
-  ${basicProductFragment}
-  ${selectedAttributeFragment}
-  ${productVariantFragment}
-  ${productPricingFragment}
-  query ProductDetails($id: ID!, $countryCode: CountryCode) {
-    product(id: $id) {
-      ...BasicProductFields
-      ...ProductPricingField
-      descriptionJson
-      category {
-        id
-        name
-        products(first: 3) {
-          edges {
-            node {
-              ...BasicProductFields
-              ...ProductPricingField
+ query {stores{
+    privateMetadata
+    metadata
+    id
+    name
+    images{url}
+    address {
+      privateMetadata
+      metadata
+      id
+      address
+      longitude
+      latitude
+    }
+     storeCategory(first:10) {
+          edges{
+            node{
+              name
+              products(first:10){
+                edges{
+            node{
+             name
+              pricing{
+                priceRange{
+                  start{
+                    gross{
+                      currency
+                      amount
+                    }
+                  }
+                }
+              }
+              description
+              images{
+                url}
+            }
+          }
+              }
             }
           }
         }
-      }
-      images {
-        id
-        url
-      }
-      attributes {
-        ...SelectedAttributeFields
-      }
-      variants {
-        ...ProductVariantFields
-      }
-      seoDescription
-      seoTitle
-      isAvailable
-    }
+        storeProduct(first:10) {
+          edges{
+            node{
+              name
+            }
+          }
+        }
+    minPrice
+    maxPrice
+    category
+    rating
+    totalReviews
+    logo
+    websiteUrl
+    facebookUrl
+    googleMapUrl
+    twitterUrl
+    deliverooUrl
+    uberEatsUrl
+    instagramUrl
+    openingHours
+    closingHours
+  }
   }
 `;
-
 // FIXME: Check how to handle pagination of `productVariants` in the UI.
 // We need allow the user view  all cart items regardless of pagination.
 export const productVariantsQuery = gql`
@@ -167,8 +234,10 @@ export const productVariantsQuery = gql`
 
 export const TypedProductDetailsQuery = TypedQuery<
   ProductDetails,
-  ProductDetailsVariables
+  {}
 >(productDetailsQuery);
+
+
 
 export const TypedProductVariantsQuery = TypedQuery<
   VariantList,
