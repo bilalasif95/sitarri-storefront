@@ -26,9 +26,13 @@ export const AllProducts: React.FC<IProps> = ({ product }: IProps) => {
   const [show, setShow] = React.useState(true);
   const onModalClicked = () => {
     if (displayNewModal) {
-      return setDisplayNewModal(false);
+        setDisplayNewModal(false)
+        setShow(false)
     }
-    setDisplayNewModal(true);
+    else {
+      setDisplayNewModal(true)
+      setShow(true)
+    }
   };
   const tempArray: any = [];
   product.images.map((image) => tempArray.push({ original: image.url }));
@@ -36,7 +40,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: IProps) => {
     <>
       <S.Wrapper data-cy="product-tile">
         <S.Top>
-          <S.Image>
+          <S.Image onClick={onModalClicked}>
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
           </S.Image>
           <S.Content>

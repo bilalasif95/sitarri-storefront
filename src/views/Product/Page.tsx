@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import * as React from "react";
 // import Media from "react-media";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
@@ -139,52 +139,66 @@ class Page extends React.PureComponent<
                 {productDescription}
               </div>
               <div className="useful-links">
-                <Link to="#" className="item">
+                {/* <Link to="#" className="item"> */}
+                <a className="item" href="" target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={phone} />
                   </div>
                   <p>Phone</p>
-                </Link>
-                <Link to="" className="item" onClick={() => this.openTab(productInfo.websiteUrl)}>
+                </a>
+                {/* </Link> */}
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.websiteUrl)}> */}
+                <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={website} />
                   </div>
                   <p>Website</p>
-                </Link>
-                <Link to="" className="item" onClick={() => this.openTab(productInfo.uberEatsUrl)}>
+                </a>
+                {/* </Link> */}
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.uberEatsUrl)}> */}
+                <a className="item" href={productInfo.uberEatsUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={direction} />
                   </div>
                   <p>Direction</p>
-                </Link>
+                </a>
+                {/* </Link> */}
 
-                <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}>
+                {/* <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}> */}
+                <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={instagram} />
                   </div>
                   <p>Instagram</p>
-                </Link>
+                </a>
+                {/* </Link> */}
 
-                <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}>
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}> */}
+                <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={facebook} />
                   </div>
                   <p>Facebook</p>
-                </Link>
+                </a>
+                {/* </Link> */}
 
-                <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}>
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}> */}
+                <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={twitter} />
                   </div>
                   <p>Twitter</p>
-                </Link>
+                </a>
+                {/* </Link> */}
 
-                <Link to="" className="item" onClick={() => this.openTab(productInfo.deliverooUrl)}>
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.deliverooUrl)}> */}
+                <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={delivery} />
                   </div>
                   <p>Delivery</p>
-                </Link>
+                </a>
+                {/* </Link> */}
               </div>
             </div>
             <div className="shop-at">

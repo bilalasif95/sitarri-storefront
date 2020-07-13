@@ -32,9 +32,13 @@ export const ProductTile: React.FC<IProps> = ({ product }: IProps) => {
   const [show, setShow] = React.useState(true);
   const onModalClicked = () => {
     if (displayNewModal) {
-      return setDisplayNewModal(false);
+        setDisplayNewModal(false)
+        setShow(false)
     }
-    setDisplayNewModal(true);
+    else {
+      setDisplayNewModal(true)
+      setShow(true)
+    }
   };
   const tempArray: any = [];
   product.images.map((image) => tempArray.push({ original: image.url }));
