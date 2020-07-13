@@ -1,10 +1,215 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .footer {
-  &__favicons {
-    border-top: 1px solid $gray-light;
+  background: #111212;
+  padding: 4rem 0;
+  margin: 2rem 0 0;
+  .footer-list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+  }
+  .footer-item:first-child {
+    width: 60%;
+  }
+  .footer-item:nth-child(2) {
+    width: 30%;
+  }
+  .footer-item {
+    width: 10%;
+    .playstoreIcons{
+      display: grid;
+      .googlePlayStoreIcon{
+        margin-bottom: 1rem;
+        @media(max-width:520px){
+          margin-right: 1rem;
+        }
+      }
+      @media(max-width:520px){
+        display: flex;
+      }
+    }
+    .whatsAppNumber{
+      margin-left: 7.5rem;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+  .socialMediaHeading {
+    margin: 0 0 1rem;
+  }
+  h4 {
+    color: white;
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+  .pages {
+    li {
+      margin: 0 1rem !important;
+    }
+  }
+.quick-links{
+  ul{
+    padding: 0;
+  }
+  svg{
+    margin: 0 0.5rem 0 0;
+  }
+  path {
+    fill: #fff !important;
+  }
+  .contactUsLinks {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    display: grid;
+    align-items: center;
+    justify-content: flex-start;
+    .contactUsLinksSpanOne {
+      font-weight: 600;
+    }
+    .contactUsLinksSpanTwo {
+      margin-bottom: 0.5rem;
+    }
+  }
+  li{
+    margin: 0 0 0.5rem;
+    display: flex;
+    cursor: pointer;
+    color: white;
+    a{
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}
+.pay-method {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  li{
+    // margin: 0 1rem 1rem 0;
+    border-radius: 3px;
+    overflow: hidden;
+    // background: #fff;
+    // width: 115px;
+    // height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // padding: 0.5rem;
+  }
+  .cash-delivery {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  img{
+    width: 70%;
+  }
+  .appsIcons{
+    width: 85%;
+  }
+}
+.social-media{
+  display: flex;
+  // margin-bottom: 1rem;
+  .androidAppStore{
+    margin-right: 0.5rem;
+  }
+  li{
+    background: #60d852;
+    margin: 0 1rem 1rem 0;
+    width: 40px;
+    height: 40px;
+    a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    img{
+      width: 20px;
+    }
+  }
+}
+.social-icon svg *{
+  fill: #fff;
+}
+
+@media(max-width:800px){
+  .footer-list {
+    flex-wrap: wrap;
+    display: block;
+  }
+  .footer-item {
+    width: 50% !important;
+  }
+}
+@media(max-width:800px){
+  .footer-item {
+    width: 100% !important;
+    margin: 0 0 2rem;
+  }
+  .footer-item:last-child {
+    margin: 0;
+  }
+}
+  &__favicons {
+    border-top: 1px solid #aeafaf;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 2rem 0 0;
+    .dynamicPages {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .poweredBy {
+      padding: 0;
+    }
+    ul {
+      // padding: 1.5rem 0 0;
+      display: flex;
+    }
+    p {
+      padding: 1.5rem 0 0;
+      color: white;
+      float: right;
+      font-size: 14px;
+      font-weight: 500;
+      a {
+        font-weight: 600;
+      }
+    }
+    // @media(max-width:480px){
+    //   p{
+    //     width: 100%;
+    //     text-align: center;
+    //   }
+    // }
+    @media(max-width:800px){
+      display: block;
+      text-align: left;
+      .dynamicPages {
+        display: block;
+        justify-content: flex-start;
+        ul {
+          display: block;
+          li {
+            margin: 0 0 0.5rem !important;
+          }
+        }
+      }
+      p {
+        float: left;
+      }
+    }
   }
 
   &__menu {

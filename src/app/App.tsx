@@ -2,8 +2,7 @@ import "../globalStyles/scss/index.scss";
 
 import React from "react";
 
-// import { Footer, MainMenu, MetaConsumer, OverlayManager } from "../components";
-import { MainMenu, MetaConsumer, OverlayManager } from "../components";
+import { Footer, MainMenu, MetaConsumer, OverlayManager } from "../components";
 import { Routes } from "./routes";
 
 const App: React.FC = () => {
@@ -14,7 +13,7 @@ const App: React.FC = () => {
         <MainMenu />
       </header>
       <Routes />
-      {/* <Footer /> */}
+      <Footer />
       <OverlayManager />
     </>
   );
