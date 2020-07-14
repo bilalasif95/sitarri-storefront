@@ -30,7 +30,7 @@ import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 // import homeicon from "../../images/homeicon.svg";
 // import arrowdown from "../../images/iconmonstr-arrow-64.svg";
-import logoImg from "../../images/logo.jpg";
+import logoImg from "../../images/Sitarri.svg";
 
 import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
@@ -54,7 +54,7 @@ const MainMenu: React.FC = () => {
               <div className="main-menu">
                 <div className="main-menu__left">
                   <Link to={appPaths.baseUrl}>
-                    <img src={logoImg} />
+                    <ReactSVG path={logoImg} />
                   </Link>
                 </div>
                 <div className="main-menu__center">

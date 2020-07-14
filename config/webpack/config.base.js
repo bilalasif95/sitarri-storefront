@@ -99,7 +99,7 @@ module.exports = ({ sourceDir, distDir }) => ({
     }),
     // PWA plugins
     new WebappWebpackPlugin({
-      logo: `${sourceDir}/images/favicon.png`,
+      logo: `${sourceDir}/images/favicon.svg`,
       prefix: "images/favicons/",
       favicons: {
         appName: "Sitarri",
