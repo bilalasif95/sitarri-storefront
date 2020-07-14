@@ -44,7 +44,9 @@
 
   &__content {
     grid-column-end: span 2;
-
+     .Draftail-Toolbar{
+    display: none;
+}
     h1,
     h2,
     h3 {
