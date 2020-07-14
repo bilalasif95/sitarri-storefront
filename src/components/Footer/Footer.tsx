@@ -2,6 +2,7 @@ import "./scss/index.scss";
 
 import * as React from "react";
 import { Link } from "react-router-dom";
+import ReactSVG from "react-svg";
 
 import { NavLink,OverlayContext,OverlayTheme,
   OverlayType,SocialMediaIcon } from "..";
@@ -12,7 +13,7 @@ import { TypedSecondaryMenuQuery } from "./queries";
 
 import * as appPaths from "../../app/routes";
 
-import logoImg from "../../images/logo.jpg";
+import logoImg from "../../images/SitarriWhiteLogo.svg";
 
 const Footer: React.FC = () => (
   <OverlayContext.Consumer>
@@ -24,7 +25,7 @@ const Footer: React.FC = () => (
                 <div className="footer-item">
                   <div>
                     <Link to={appPaths.baseUrl}>
-                      <img src={logoImg} />
+                      <ReactSVG path={logoImg} />
                     </Link>
                   </div>
                 </div>
