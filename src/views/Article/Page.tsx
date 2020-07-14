@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import * as React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { RichTextContent } from "@components/atoms";
-import { Breadcrumb, Breadcrumbs } from "../../components";
+// import { Breadcrumb, Breadcrumbs } from "../../components";
+import { Breadcrumb } from "../../components";
 
 interface PageNavigationElement {
   active: boolean;
@@ -18,6 +19,7 @@ interface PageProps {
   page: {
     contentJson: any;
     title: string;
+    seoDescription: string;
   };
 }
 export const Page: React.FC<PageProps> = ({
@@ -27,31 +29,33 @@ export const Page: React.FC<PageProps> = ({
   page,
 }) => (
   <div className="article-page">
-    <div
+    {/* <div
       className="article-page__header"
       style={headerImage ? { backgroundImage: `url(${headerImage})` } : null}
     >
       <span className="article-page__header__title">
         <h1>{page.title}</h1>
       </span>
-    </div>
+    </div> */}
     <div className="container">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      {/* <Breadcrumbs breadcrumbs={breadcrumbs} /> */}
       <div className="article-page__container">
         <div className="article-page__navigation">
           <ul>
-            {navigation.map(menuElement => (
+            {/* {navigation.map(menuElement => ( */}
               <li
                 className={classNames({
                   ["article-page__navigation-element"]: true,
-                  ["article-page__navigation-element--active"]:
-                    menuElement.active,
+                  // ["article-page__navigation-element--active"]:
+                  //   menuElement.active,
                 })}
-                key={menuElement.url}
+                // key={menuElement.url}
               >
-                <Link to={menuElement.url}>{menuElement.label}</Link>
+                {/* <Link to={menuElement.url}>{menuElement.label}</Link> */}
+                {page.title}
               </li>
-            ))}
+              <li>{page.seoDescription}</li>
+            {/* ))} */}
           </ul>
         </div>
         <div className="article-page__content">
