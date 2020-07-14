@@ -94,11 +94,17 @@ export interface SearchResults_products {
   pageInfo: SearchResults_products_pageInfo;
 }
 
+export interface SearchResult {
+  products: [{ name: string }];
+  categories: [{ name: string }];
+  stores: [{ name: string }]
+}
 export interface SearchResults {
   /**
    * List of the shop's products.
    */
   products: SearchResults_products | null;
+  search: SearchResult
 }
 
 export interface SearchResultsVariables {
