@@ -12,14 +12,15 @@ import { TypedSearchResults } from "../OverlayManager/Search/queries";
 
 import { searchUrl } from "../../app/routes";
 
-import {useComponentVisible} from "@hooks"
+import { useComponentVisible } from "@hooks"
 
 const search: React.FC = (props: any) => {
     const [search, setSearch] = useState(null);
     const { ref, isComponentVisible } = useComponentVisible(true);
     const SeeDetails = (searchWord) => {
         setSearch("")
-        props.history.push(`${searchUrl}?${searchQs(searchWord.slice(0, 3))}`);
+        // slice(0, 3)
+        props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
     }
     const searchQs = (searchWord) => {
         return stringify({ q: searchWord });
@@ -58,17 +59,45 @@ const search: React.FC = (props: any) => {
                     }
 
                     else {
-                        return (
-                            data.products && data.products.edges && data.products.edges.length > 0 ? data.products.edges.map(product => (
 
-                                <div ref={ref} className="items" onClick={() => SeeDetails(product.node.category.name)}>
-                                    <p>{product.node.category.name}</p>
+                        if (data.search && data.search.products.length > 0 || data.search.categories.length > 0 || data.search.stores.length > 0) {
+                            return (
+
+                                <div>
+
+
+                                    {data.search.products.map(product => (
+
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(product.name)}>
+                                            <p>{product.name}</p>
+                                        </div>
+
+                                    ))}
+                                    {data.search.categories.map(cat => (
+
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(cat.name)}>
+                                            <p>{cat.name}</p>
+                                        </div>
+
+                                    ))}
+                                    {data.search.stores.map(store => (
+
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(store.name)}>
+                                            <p>{store.name}</p>
+                                        </div>
+
+                                    ))}
                                 </div>
+                            )
 
+                        }
+                        else {
+                            return (
+                                <div>No data found...</div>
+                            )
 
-                            )) : <div>No data found...</div>
+                        }
 
-                        )
                     }
 
                 }}
