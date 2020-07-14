@@ -71,7 +71,8 @@
   &__menu-item {
     border-bottom: 1px solid $gray-light;
     display: grid;
-    height: $item-height;
+    // height: $item-height;
+    height: 4.6rem;
 
     &-link{
       align-items: center;
@@ -150,8 +151,9 @@
     &-close {
       align-items: center;
       display: flex;
-      height: $item-height;
-      justify-content: center;
+      height: 4.6rem;
+      // height: $item-height;
+      // justify-content: center;
       position: relative;
       .lineOne {
         transform: rotate(45deg);

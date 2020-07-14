@@ -15,7 +15,7 @@ import {
   PasswordResetForm
 } from "../..";
 
-import logoIcon from "../../../images/logo.jpg";
+import logoIcon from "../../../images/Sitarri.svg";
 
 import closeImg from "../../../images/x.svg";
 
@@ -27,7 +27,8 @@ const Password: React.FC<{ overlay: OverlayContextInterface }> = ({
         <Online>
           <div className="overlay__header">
             <Link to="/">
-              <img src={logoIcon} />
+              <ReactSVG path={logoIcon} />
+              {/* <img src={logoIcon} /> */}
             </Link>
             {/* <p className="overlay__header-text">logo</p> */}
             <ReactSVG

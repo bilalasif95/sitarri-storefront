@@ -19,7 +19,7 @@
   position: relative;
 
   &__left {
-    width: 23%;
+    // width: 23%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -100,9 +100,9 @@
   }
 
   @media(max-width: 992px){
-    &__left {
-      width: 140px
-    }
+    // &__left {
+    //   width: 140px
+    // }
   
     &__right {
       width: 15%;

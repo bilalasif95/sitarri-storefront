@@ -11,8 +11,6 @@ import { Modal } from "@components/organisms/Modal";
 import * as S from "./styles";
 import { IProps } from "./types";
 // import { Tile } from "../../atoms";
-// import tileimg from "../../../../images/tile.png";
-// import stileimg from "../../../../images/smalltile.png";
 
 export const AllProducts: React.FC<IProps> = ({ product }: IProps) => {
   const price =

@@ -19,7 +19,7 @@ import {
   // OverlayType
 } from "../..";
 
-import logoIcon from "../../../images/logo.jpg";
+import logoIcon from "../../../images/Sitarri.svg";
 import RegisterForm from "./RegisterForm";
 
 
@@ -53,9 +53,12 @@ class Login extends React.Component<
         <div className="login">
           <Online>
             <div className="overlay__header">
-            <Link to="/">
-                    <img src={logoIcon} />
-                  </Link>
+              <Link to="/">
+                <ReactSVG
+                  path={logoIcon}
+                />
+                {/* <img src={logoIcon} /> */}
+              </Link>
               {/* <p className="overlay__header-text">logo</p> */}
               <ReactSVG
                 path={closeImg}
