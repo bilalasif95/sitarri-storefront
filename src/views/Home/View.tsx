@@ -92,12 +92,12 @@ const View: React.FC = (props: any) => {
                     }
                     else {
 
+                   
+
                       if (data.search && data.search.products.length > 0 || data.search.categories.length > 0 || data.search.stores.length > 0) {
                         return (
 
                           <div>
-
-
                             {data.search.products.map(product => (
 
                               <div ref={ref} className="items" onClick={() => SeeDetails(product.name)}>

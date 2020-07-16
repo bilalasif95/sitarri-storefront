@@ -1,4 +1,4 @@
-import { media,styled } from "@styles";
+import { media, styled } from "@styles";
 import { css } from "styled-components";
 
 const textProps = css`
@@ -207,7 +207,9 @@ align-items: center;
 margin: 0 3px;
 svg{
   margin: 0 1px;
-  fill: #ff4b13;
+  path{
+fill:  #ff4b13 !important;
+  }
 }
 svg:last-child{
   fill: #ffede7;
