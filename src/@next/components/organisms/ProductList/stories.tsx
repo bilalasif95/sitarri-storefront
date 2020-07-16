@@ -11,6 +11,7 @@ storiesOf("@components/organisms/ProductList", module)
     <BrowserRouter>
       <ProductList
         products={PRODUCTS}
+        stores={[]}
         canLoadMore={true}
         loading={false}
         onLoadMore={() => null}

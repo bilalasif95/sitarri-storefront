@@ -7,6 +7,65 @@ import {
   SearchProductsVariables,
 } from "./gqlTypes/SearchProducts";
 
+// export const searchProductsQuery = gql`
+//   ${productPricingFragment}
+//   query SearchProducts(
+//     $query: String!
+//     $attributes: [AttributeInput]
+//     $pageSize: Int
+//     $sortBy: ProductOrder
+//     $after: String
+//   ) {
+//     products(
+//       filter: { search: $query, attributes: $attributes }
+//       first: $pageSize
+//       sortBy: $sortBy
+//       after: $after
+//     ) {
+//       totalCount
+//       edges {
+//         node {
+//           ...ProductPricingField
+//           id
+//           name
+//           thumbnail {
+//             url
+//             alt
+//           }
+//           thumbnail2x: thumbnail(size: 510) {
+//             url
+//           }
+//           category {
+//             id
+//             name
+//           }
+//           images {
+//             id
+//             url
+//           }
+//         }
+//       }
+//       pageInfo {
+//         endCursor
+//         hasNextPage
+//       }
+//     }
+//     attributes(first: 100) {
+//       edges {
+//         node {
+//           id
+//           name
+//           slug
+//           values {
+//             id
+//             name
+//             slug
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 export const searchProductsQuery = gql`
   ${productPricingFragment}
   query SearchProducts(
@@ -16,6 +75,7 @@ export const searchProductsQuery = gql`
     $sortBy: ProductOrder
     $after: String
   ) {
+    search(query: $query) {
     products(
       filter: { search: $query, attributes: $attributes }
       first: $pageSize
@@ -28,9 +88,25 @@ export const searchProductsQuery = gql`
           ...ProductPricingField
           id
           name
+          images{
+            url
+          }
+          description
+          descriptionJson
           thumbnail {
             url
             alt
+          }
+          store{
+            name
+            totalReviews
+            distance(longitude: 30.5, latitude: 20.4)
+            rating
+            images{
+              url
+            }
+            openingHours
+            closingHours
           }
           thumbnail2x: thumbnail(size: 510) {
             url
@@ -39,9 +115,10 @@ export const searchProductsQuery = gql`
             id
             name
           }
-          images {
+          variants{
             id
-            url
+            name
+            stockQuantity
           }
         }
       }
@@ -50,6 +127,45 @@ export const searchProductsQuery = gql`
         hasNextPage
       }
     }
+    categories(first: $pageSize) {
+      edges {
+        node {
+          name
+        }
+      }
+    }
+    stores(first: $pageSize) {
+      edges {
+        node {
+          name
+          address{
+            address
+          }
+          description
+            totalReviews
+            distance(longitude: 30.5, latitude: 20.4)
+            rating
+            images{
+              url
+            }
+          openingHours
+            closingHours
+          storeProduct(first: $pageSize, filter: { search: $query }) {
+             edges {
+              node {
+                name
+          descriptionJson
+          images{
+            url
+          }
+                ...ProductPricingField
+              }
+            }
+          }
+        }
+      }
+    }
+  }
     attributes(first: 100) {
       edges {
         node {
@@ -66,7 +182,6 @@ export const searchProductsQuery = gql`
     }
   }
 `;
-
 export const TypedSearchProductsQuery = TypedQuery<
   SearchProducts,
   SearchProductsVariables

@@ -136,12 +136,15 @@ export const View: React.FC<ViewProps> = ({ match }) => {
           loaderFull
         >
           {({ loading, data, loadMore }) => {
+          
             const canDisplayFilters = maybe(
               () => !!data.attributes.edges && !!data.products.edges,
-              false
+              true
             );
 
             if (canDisplayFilters) {
+ 
+            
               const handleLoadMore = () =>
                 loadMore(
                   (prev, next) => ({
@@ -169,7 +172,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                   search={search}
                   activeSortOption={filters.sortBy}
                   filters={filters}
-                  products={data.products}
+                  products={data.search.products}
+                  stores={data.search.stores}
                   onAttributeFiltersChange={onFiltersChange}
                   onLoadMore={handleLoadMore}
                   activeFilters={

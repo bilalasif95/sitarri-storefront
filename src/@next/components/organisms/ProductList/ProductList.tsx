@@ -15,33 +15,31 @@ import { AllProducts } from "../../molecules/AllProducts";
 
 export const ProductList: React.FC<IProps> = ({
   products,
+  stores,
   canLoadMore = false,
   loading = false,
   onLoadMore = () => null,
 }: IProps) => {
+
+
   return (
     <S.ProductList>
-      <h3>Products</h3>
+      <h3>{products.length > 0 ? "Products" : ""}</h3>
       <Carousel productDetails={"productList"}>
         {products.map(product => (
           <ProductTile product={product} />
         ))}
       </Carousel>
-      <h3>Business</h3>
+      <h3>{stores.length > 0 ? "Business" : ""}</h3>
       <Carousel productDetails={"productList"}>
-        {products.map(product => (
+        {stores.map(product => (
           <BusinessTile product={product} />
         ))}
       </Carousel>
-      <h3>All Results</h3>
+      <h3>{stores.length > 0 ? "All Results" : ""}</h3>
       <S.List>
-        {products.map(product => (
-          // <Link
-          //   to={generateProductUrl(product.id, product.name)}
-          //   key={product.id}
-          // >
+        {stores.map(product => (
           <AllProducts product={product} />
-          // </Link>
         ))}
       </S.List>
       <S.Loader>

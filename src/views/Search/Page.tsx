@@ -18,7 +18,7 @@ interface SortItem {
   value?: string;
 }
 
-interface SortOptions extends Array<SortItem> {}
+interface SortOptions extends Array<SortItem> { }
 
 interface PageProps {
   activeFilters: number;
@@ -33,6 +33,7 @@ interface PageProps {
     updateType?: "replace" | "replaceIn" | "push" | "pushIn"
   ) => void;
   products: SearchProducts_products;
+  stores: any;
   sortOptions: SortOptions;
   clearFilters: () => void;
   onLoadMore: () => void;
@@ -51,6 +52,7 @@ const Page: React.FC<PageProps> = ({
   clearFilters,
   onLoadMore,
   products,
+  stores,
   filters,
   onOrder,
   sortOptions,
@@ -131,6 +133,7 @@ const Page: React.FC<PageProps> = ({
         {canDisplayProducts && (
           <ProductList
             products={products.edges.map(edge => edge.node)}
+            stores={stores.edges.map(edge => edge.node)}
             canLoadMore={hasNextPage}
             loading={displayLoader}
             onLoadMore={onLoadMore}

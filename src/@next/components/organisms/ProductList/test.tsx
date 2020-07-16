@@ -12,6 +12,7 @@ describe("<ProductList />", () => {
       <BrowserRouter>
         <ProductList
           products={PRODUCTS}
+          stores={[]}
           canLoadMore={true}
           loading={false}
           onLoadMore={jest.fn()}
@@ -25,6 +26,7 @@ describe("<ProductList />", () => {
     const wrapper = mount(
       <BrowserRouter>
         <ProductList
+          stores={[]}
           products={PRODUCTS}
           canLoadMore={true}
           loading={true}
@@ -41,6 +43,7 @@ describe("<ProductList />", () => {
     const wrapper = mount(
       <BrowserRouter>
         <ProductList
+          stores={[]}
           products={PRODUCTS}
           canLoadMore={true}
           loading={false}

@@ -448,6 +448,7 @@ export interface ProductDetails_product_category_products_edges {
   /**
    * The item at the end of the edge.
    */
+   stores:any
   node: ProductDetails_product_category_products_edges_node;
 }
 

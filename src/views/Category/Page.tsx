@@ -33,6 +33,7 @@ interface PageProps {
   filters: IFilters;
   hasNextPage: boolean;
   products: Category_products;
+  stores:any;
   sortOptions: SortOptions;
   clearFilters: () => void;
   onLoadMore: () => void;
@@ -107,6 +108,7 @@ const Page: React.FC<PageProps> = ({
         {canDisplayProducts && (
           <ProductList
             products={products.edges.map(edge => edge.node)}
+            stores={[]}
             canLoadMore={hasNextPage}
             loading={displayLoader}
             onLoadMore={onLoadMore}

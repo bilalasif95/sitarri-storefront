@@ -340,6 +340,7 @@ export interface SearchProducts {
    * List of the shop's attributes.
    */
   attributes: SearchProducts_attributes | null;
+  search:any;
 }
 
 export interface SearchProductsVariables {

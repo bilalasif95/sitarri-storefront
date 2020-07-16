@@ -173,6 +173,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     sortOptions={sortOptions}
                     activeSortOption={filters.sortBy}
                     filters={filters}
+                    stores={[]}
                     products={data.products}
                     onAttributeFiltersChange={onFiltersChange}
                     onLoadMore={handleLoadMore}
