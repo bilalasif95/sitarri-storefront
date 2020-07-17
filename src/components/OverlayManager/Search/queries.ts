@@ -39,14 +39,29 @@ import {
 const searchResultsQuery = gql`
 query SearchResults($query: String!){
   search(query:$query){
-    products{
-      name
+    products (first:100){
+     edges{
+        node{
+          name
+          store{
+            name
+          }
+        }
+      }
     }
-    categories{
-      name
+    categories(first:100){
+     edges{
+        node{
+          name
+        }
+      }
     }
-    stores{
-      name
+    stores(first:100){
+     edges{
+        node{
+          name
+        }
+      }
     }
   }
 }`;

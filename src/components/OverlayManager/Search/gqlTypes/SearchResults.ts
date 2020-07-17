@@ -95,9 +95,9 @@ export interface SearchResults_products {
 }
 
 export interface SearchResult {
-  products: [{ name: string }];
-  categories: [{ name: string }];
-  stores: [{ name: string }]
+  products: { edges: [{ name: string }] };
+  categories: { edges: [{ name: string }] };
+  stores: { edges: [{ name: string }] }
 }
 export interface SearchResults {
   /**

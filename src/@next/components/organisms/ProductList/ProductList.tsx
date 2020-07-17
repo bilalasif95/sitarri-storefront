@@ -24,19 +24,24 @@ export const ProductList: React.FC<IProps> = ({
 
   return (
     <S.ProductList>
-      <h3>{products.length > 0 ? "Products" : ""}</h3>
-      <Carousel productDetails={"productList"}>
-        {products.map(product => (
-          <ProductTile product={product} />
-        ))}
-      </Carousel>
-      <h3>{stores.length > 0 ? "Business" : ""}</h3>
-      <Carousel productDetails={"productList"}>
-        {stores.map(product => (
-          <BusinessTile product={product} />
-        ))}
-      </Carousel>
-      <h3>{stores.length > 0 ? "All Results" : ""}</h3>
+      {products.length > 0 ?
+        <div>
+          <h3> Products</h3>
+          <Carousel productDetails={"productList"}>
+            {products.map(product => (
+              <ProductTile product={product} />
+            ))}
+          </Carousel></div> : <div></div>}
+      {stores.length > 0 ?
+        <div>
+          <h3> "Business</h3>
+          <Carousel productDetails={"productList"}>
+            {stores.map(product => (
+              <BusinessTile product={product} />
+            ))}
+          </Carousel>
+        </div> : ""}
+      < h3 > {stores.length > 0 ? "All Results" : ""}</h3>
       <S.List>
         {stores.map(product => (
           <AllProducts product={product} />
@@ -57,6 +62,6 @@ export const ProductList: React.FC<IProps> = ({
             )
           )}
       </S.Loader>
-    </S.ProductList>
+    </S.ProductList >
   );
 };

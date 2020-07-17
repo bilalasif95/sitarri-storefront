@@ -60,33 +60,33 @@ const search: React.FC = (props: any) => {
 
                     else {
 
-                        if (data.search && data.search.products.length > 0 || data.search.categories.length > 0 || data.search.stores.length > 0) {
+                        if (data.search && data.search.products.edges.length > 0 || data.search.categories.edges.length > 0 || data.search.stores.edges.length > 0) {
                             return (
 
                                 <div>
 
+                                    {data.search.stores.edges.map((store: any) => (
 
-                                    {data.search.products.map(product => (
-
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(product.name)}>
-                                            <p>{product.name}</p>
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(store.node.name)}>
+                                            <p>{store.node.name}</p>
                                         </div>
 
                                     ))}
-                                    {data.search.categories.map(cat => (
+                                    {data.search.products.edges.map((product: any) => (
 
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(cat.name)}>
-                                            <p>{cat.name}</p>
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(product.node.name)}>
+                                            <p>{product.node.name}</p>
                                         </div>
 
                                     ))}
-                                    {data.search.stores.map(store => (
+                                    {data.search.categories.edges.map((cat: any) => (
 
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(store.name)}>
-                                            <p>{store.name}</p>
+                                        <div ref={ref} className="items" onClick={() => SeeDetails(cat.node.name)}>
+                                            <p>{cat.node.name}</p>
                                         </div>
 
                                     ))}
+
                                 </div>
                             )
 
@@ -97,8 +97,9 @@ const search: React.FC = (props: any) => {
                             )
 
                         }
-
                     }
+
+
 
                 }}
             </TypedSearchResults> : ""}
