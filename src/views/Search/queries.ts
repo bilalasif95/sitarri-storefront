@@ -98,6 +98,7 @@ export const searchProductsQuery = gql`
             alt
           }
           store{
+            id
             name
             totalReviews
             distance(longitude: 30.5, latitude: 20.4)
@@ -138,6 +139,7 @@ export const searchProductsQuery = gql`
       edges {
         node {
           name
+         id
           address{
             address
           }

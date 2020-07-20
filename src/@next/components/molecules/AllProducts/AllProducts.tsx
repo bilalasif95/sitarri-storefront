@@ -15,6 +15,8 @@ import { IProps } from "./types";
 
 import Rating from 'react-rating';
 
+import { generateProductUrl } from "../../../../core/utils";
+
 export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => {
   const price =
     product.pricing &&
@@ -46,9 +48,10 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image onClick={onModalClicked}>
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
           </S.Image>
+            <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
           <S.Content>
             <S.Link>
-              <Link to="#">See Products</Link>
+              <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Products</Link>
             </S.Link>
             <S.Title>{product.name}</S.Title>
             <S.Desc>{product.description}</S.Desc>
@@ -57,13 +60,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
             </S.Price>
             <S.Likes>
               <S.Nos>{product.rating}</S.Nos>
-              {/*
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" /></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" /></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" /></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" /></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" /></svg>
-              </S.Stars> */}
+             
               <S.Stars>
 
 
@@ -98,10 +95,11 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
               </S.Miles>
             </S.Location>
           </S.Content>
+         </Link>
         </S.Top>
         {
 
-          product.storeProduct.edges.map((item: any) => {
+          product.storeProduct.edges.slice(0,2).map((item: any) => {
 
             const price =
               item.node.pricing &&

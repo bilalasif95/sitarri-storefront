@@ -7,7 +7,7 @@ import { useCart } from "@sdk/react";
 // MetaWrapper
 import { NotFound, OfflinePlaceholder } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
-// import { getGraphqlIdFromDBId, maybe } from "../../core/utils";
+import { getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import Page from "./Page";
 import { TypedProductDetailsQuery } from "./queries";
@@ -22,12 +22,12 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     <TypedProductDetailsQuery
       loaderFull
       variables={{
-        id: "1223",
+        id: getGraphqlIdFromDBId(match.params.id, "Product"),
       }}
     >
       {({ data, loading }) => {
 
-      
+
         if (loading) {
           return <h3>loading....</h3>
         }
@@ -36,13 +36,13 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
           {isOnline => {
             const { stores } = data;
 
-           
+
             return (
               // <MetaWrapper meta={extractMeta(product)}>
               <Page product={stores} add={addItem} items={items} />
               // </MetaWrapper>
             );
-         
+
 
             if (stores === null) {
               return <NotFound />;

@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 
-import { Button, Loader } from "@components/atoms";
+// import { Button, Loader } from "@components/atoms";
 import { BusinessTile, ProductTile } from "@components/molecules";
 import Carousel from "../../../../../src/components/Carousel";
 
@@ -34,7 +34,7 @@ export const ProductList: React.FC<IProps> = ({
           </Carousel></div> : <div></div>}
       {stores.length > 0 ?
         <div>
-          <h3> "Business</h3>
+          <h3>Business</h3>
           <Carousel productDetails={"productList"}>
             {stores.map(product => (
               <BusinessTile product={product} />
@@ -47,7 +47,7 @@ export const ProductList: React.FC<IProps> = ({
           <AllProducts product={product} />
         ))}
       </S.List>
-      <S.Loader>
+      {/* <S.Loader>
         {loading ? (
           <Loader />
         ) : (
@@ -61,7 +61,7 @@ export const ProductList: React.FC<IProps> = ({
               </Button>
             )
           )}
-      </S.Loader>
+      </S.Loader> */}
     </S.ProductList >
   );
 };

@@ -32,6 +32,18 @@ export const getDBIdFromGraphqlId = (
   return parseInt(arr![2], 10);
 };
 
+export const shopGetDBIdFromGraphqlId = (
+  graphqlId: string,
+  schema?: string
+): number => {
+  // This is temporary solution, we will use slugs in the future
+  const rawId = Base64.decode(graphqlId);
+  const regexp = /(\w+):(\d+)/;
+  const arr = regexp.exec(rawId);
+ 
+   return parseInt(arr![2], 10);
+};
+
 export const getGraphqlIdFromDBId = (id: string, schema: string): string =>
   // This is temporary solution, we will use slugs in the future
   Base64.encode(`${schema}:${id}`);
@@ -52,7 +64,7 @@ export const priceToString = (
 };
 
 export const generateProductUrl = (id: string, name: string) =>
-  `/product/${slugify(name)}/${getDBIdFromGraphqlId(id, "Product")}/`;
+  `/product/${slugify(name)}/${shopGetDBIdFromGraphqlId(id, "Product")}/`;
 
 export const generateCategoryUrl = (id: string, name: string) =>
   `/category/${slugify(name)}/${getDBIdFromGraphqlId(id, "Category")}/`;
