@@ -19,7 +19,7 @@ import {
   // OverlayType
 } from "../..";
 
-import logoIcon from "../../../images/Sitarri.svg";
+import logoIcon from "../../../images/sittari.svg";
 import RegisterForm from "./RegisterForm";
 
 

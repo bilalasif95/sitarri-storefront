@@ -15,7 +15,7 @@ import {
   PasswordResetForm
 } from "../..";
 
-import logoIcon from "../../../images/Sitarri.svg";
+import logoIcon from "../../../images/sittari.svg";
 
 import closeImg from "../../../images/x.svg";
 

@@ -6,14 +6,14 @@ import {
 import "./scss/index.scss";
 
 // import { useCart, useSignOut, useUserDetails } from "@sdk/react";
-import { useSignOut,useUserDetails } from "@sdk/react";
+// import { useSignOut,useUserDetails } from "@sdk/react";
 
 import Media from "react-media";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import {
-  MenuDropdown,
+  // MenuDropdown,
   Offline,
   // Online,
   OverlayContext,
@@ -30,20 +30,20 @@ import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 // import homeicon from "../../images/homeicon.svg";
 // import arrowdown from "../../images/iconmonstr-arrow-64.svg";
-import logoImg from "../../images/Sitarri.svg";
+import logoImg from "../../images/sittari.svg";
 
-import userImg from "../../images/user.svg";
+// import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
 import Search from "./search"
 
 const MainMenu: React.FC = () => {
-  const { data: user } = useUserDetails();
-  const [signOut] = useSignOut();
+  // const { data: user } = useUserDetails();
+  // const [signOut] = useSignOut();
   // const { items } = useCart();
 
-  const handleSignOut = () => {
-    signOut();
-  };
+  // const handleSignOut = () => {
+  //   signOut();
+  // };
   return (
     <OverlayContext.Consumer>
 
@@ -70,7 +70,7 @@ const MainMenu: React.FC = () => {
                         render={() => (
                           <> */}
                     {/* {user ? ( */}
-                      <li className="main-menu__icon main-menu__user--active border">
+                      <li className="main-menu__icon main-menu__user--active border" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg>
                         <span>Partner with us</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
@@ -109,7 +109,7 @@ const MainMenu: React.FC = () => {
                         </ul>
                       }
                     /> */}
-                    {user ? (
+                    {/* {user ? (
                       <MenuDropdown
                         head={
                           <li className="main-menu__icon main-menu__user--active">
@@ -118,9 +118,9 @@ const MainMenu: React.FC = () => {
                         }
                         content={
                           <ul className="main-menu__dropdown">
-                            {/* <li data-testid="my_account__link">
+                            <li data-testid="my_account__link">
                               <Link to={appPaths.accountUrl}>My Account</Link>
-                            </li> */}
+                            </li>
                             <li
                               onClick={handleSignOut}
                               data-testid="logout-link"
@@ -143,7 +143,7 @@ const MainMenu: React.FC = () => {
                     >
                       <ReactSVG path={userImg} />
                     </li>
-                    )}
+                    )} */}
                     {/* </>
                         )}
                       /> */}
