@@ -2,9 +2,10 @@ import gql from "graphql-tag";
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
-  // ProductDetailsVariables,
+   ProductDetailsVariables,
 } from "./gqlTypes/ProductDetails";
 import { VariantList, VariantListVariables } from "./gqlTypes/VariantList";
+
 
 export const priceFragment = gql`
   fragment Price on TaxedMoney {
@@ -147,7 +148,9 @@ export const productVariantFragment = gql`
 // `;
 
 export const productDetailsQuery = gql`
- query {stores{
+ query($id:ID!){
+   
+   store(id:$id){
     privateMetadata
     metadata
     id
@@ -234,7 +237,7 @@ export const productVariantsQuery = gql`
 
 export const TypedProductDetailsQuery = TypedQuery<
   ProductDetails,
-  {}
+  ProductDetailsVariables
 >(productDetailsQuery);
 
 

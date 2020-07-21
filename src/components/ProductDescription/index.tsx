@@ -27,7 +27,7 @@ class ProductDescription extends React.Component<
       <div className="product-description">
         <h3>{items.name}</h3>
         <div className="cat-price">
-          <p>Category{items.category}</p>
+          <p>{items.category}</p>
           <span className="dot" />
 
         </div>

@@ -64,7 +64,7 @@ export const priceToString = (
 };
 
 export const generateProductUrl = (id: string, name: string) =>
-  `/product/${slugify(name)}/${shopGetDBIdFromGraphqlId(id, "Product")}/`;
+  `/product/${slugify(name)}/${getDBIdFromGraphqlId(id, "Store")}/`;
 
 export const generateCategoryUrl = (id: string, name: string) =>
   `/category/${slugify(name)}/${getDBIdFromGraphqlId(id, "Category")}/`;

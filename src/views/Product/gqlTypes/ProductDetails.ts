@@ -448,7 +448,7 @@ export interface ProductDetails_product_category_products_edges {
   /**
    * The item at the end of the edge.
    */
-   stores:any
+  stores: any
   node: ProductDetails_product_category_products_edges_node;
 }
 
@@ -715,7 +715,7 @@ export interface ProductDetails_product {
   openingHours: string;
   closingHours: string;
   images: (ProductDetails_product_images | null)[] | null;
- 
+
 }
 
 export interface ProductDetails {
@@ -723,9 +723,10 @@ export interface ProductDetails {
    * Look up a product by ID.
    */
   stores: ProductDetails_product | null;
+  store: ProductDetails_product | null;
 }
 
 export interface ProductDetailsVariables {
   id: string;
- 
+
 }

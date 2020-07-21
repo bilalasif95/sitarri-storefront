@@ -83,7 +83,8 @@ class Page extends React.PureComponent<
     // } else {
     //   return product.images;
     // }
-    return product[0].images && product[0].images;
+  
+    return product.images && product.images;
   };
 
   renderImages = product => {
@@ -105,7 +106,7 @@ class Page extends React.PureComponent<
   }
   render() {
     const { product } = this.props;
-    const productInfo = product[0];
+    const productInfo = product;
     const productDescription = (
       <ProductDescription
         items={productInfo}

@@ -22,7 +22,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     <TypedProductDetailsQuery
       loaderFull
       variables={{
-        id: getGraphqlIdFromDBId(match.params.id, "Product"),
+        id: getGraphqlIdFromDBId(match.params.id, "Store"),
       }}
     >
       {({ data, loading }) => {
@@ -34,17 +34,18 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
 
         return <NetworkStatus>
           {isOnline => {
-            const { stores } = data;
+
+            const { store } = data;
 
 
             return (
               // <MetaWrapper meta={extractMeta(product)}>
-              <Page product={stores} add={addItem} items={items} />
+              <Page product={store} add={addItem} items={items} />
               // </MetaWrapper>
             );
 
 
-            if (stores === null) {
+            if (store === null) {
               return <NotFound />;
             }
 
