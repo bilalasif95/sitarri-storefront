@@ -8,4 +8,6 @@ export interface IProps {
   canLoadMore?: boolean;
   loading?: boolean;
   onLoadMore?: () => void;
+  activeSortTypeBase?: any;
+  
 }

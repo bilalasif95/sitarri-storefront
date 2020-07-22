@@ -66,6 +66,12 @@ import {
 //     }
 //   }
 // `;
+// location: {
+//           latitude: 20.3
+//           longitude: 30.4
+//           distance: { value: 50, symbol: KILOMETER }
+//         },
+//  businessCategory: "Cloth" 
 export const searchProductsQuery = gql`
   ${productPricingFragment}
   query SearchProducts(
@@ -74,10 +80,16 @@ export const searchProductsQuery = gql`
     $pageSize: Int
     $sortBy: ProductOrder
     $after: String
+    $Price:PriceRangeInput
+    $businessCategory:String
   ) {
     search(query: $query) {
     products(
-      filter: { search: $query, attributes: $attributes }
+      filter: { search: $query, attributes: $attributes, 
+       businessCategory: $businessCategory 
+        price:$Price,
+       
+        }
       first: $pageSize
       sortBy: $sortBy
       after: $after

@@ -60,7 +60,7 @@ const search: React.FC = (props: any) => {
 
                     else {
 
-                        if (data.search && data.search.products.edges.length > 0 || data.search.categories.edges.length > 0 || data.search.stores.edges.length > 0) {
+                        if (data.search && data.search.products.edges.length > 0 || data.search && data.search.categories.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
                             return (
 
                                 <div>

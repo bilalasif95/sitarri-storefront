@@ -40,7 +40,15 @@ export const FilterQuerySet = {
 };
 
 export const View: React.FC<ViewProps> = ({ match }) => {
-  const [sort, setSort] = useQueryParam("sortBy", StringParam);
+  const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 10 } });
+  const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "hardware", value: "hardware" });
+  const [sortTypeBase, setSortTypeBase] = React.useState({ label: "only stores", value: "stores" });
+  const [sortDistanceBase, setSortDistanceBase] = React.useState({
+    label: "0-100",
+    value: { value: 100, symbol: "M" },
+  });
+
+  const [sort] = useQueryParam("sortBy", StringParam);
   const [search, setSearch] = useQueryParam("q", StringParam);
   const [attributeFilters, setAttributeFilters] = useQueryParam(
     "filters",
@@ -91,9 +99,22 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     attributes: filters.attributes
       ? convertToAttributeScalar(filters.attributes)
       : {},
+    businessCategory: sortBusinessBase.value,
     id: getGraphqlIdFromDBId(match.params.id, "Category"),
+    location: {
+      distance: sortDistanceBase.value,
+      latitude: 20.3,
+      longitude: 30.4,
+
+    },
+
+    Price: sortPriceBase.value,
+
     query: search || null,
     sortBy: convertSortByFromString(filters.sortBy),
+
+
+
   };
 
   const sortOptions = [
@@ -135,29 +156,19 @@ export const View: React.FC<ViewProps> = ({ match }) => {
           errorPolicy="all"
           loaderFull
         >
-          {({ loading, data, loadMore }) => {
-           
-        
+          {({ loading, data, loadMore, refetch }) => {
+
+
             const canDisplayFilters = maybe(
               () => !!data.attributes.edges && !!data.products.edges,
               true
             );
 
             if (canDisplayFilters) {
- 
-            
-              const handleLoadMore = () =>
-                loadMore(
-                  (prev, next) => ({
-                    ...prev,
-                    products: {
-                      ...prev.products,
-                      edges: [...prev.products.edges, ...next.products.edges],
-                      pageInfo: next.products.pageInfo,
-                    },
-                  }),
-                  { after: data.products.pageInfo.endCursor }
-                );
+
+              const CallApi = () => {
+                refetch()
+              }
 
               return (
                 <Page
@@ -171,19 +182,37 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                   sortOptions={sortOptions}
                   setSearch={setSearch}
                   search={search}
-                  activeSortOption={filters.sortBy}
+                  activeSortOption={sortPriceBase.label}
+                  activeSortBusinessType={sortBusinessBase}
+                  activeSortTypeBase={sortTypeBase}
+                  acitveSortDistanceBase={sortDistanceBase.label}
                   filters={filters}
                   products={data.search.products}
                   stores={data.search.stores}
                   onAttributeFiltersChange={onFiltersChange}
-                  onLoadMore={handleLoadMore}
+
                   activeFilters={
                     filters!.attributes
                       ? Object.keys(filters!.attributes).length
                       : 0
                   }
-                  onOrder={value => {
-                    setSort(value.value);
+                  onOrder={(value, type) => {
+
+                    if (type === "PriceBase") {
+                      setSortPriceBase(value)
+                      CallApi()
+                    }
+                    else if (type === "BusinessBase") {
+                      CallApi()
+                      setSortBusinessBase(value)
+                    }
+                    else if (type === "showType") {
+                      setSortTypeBase(value)
+                    }
+                    else if (type === "DistanceBase") {
+                      CallApi()
+                      setSortDistanceBase(value)
+                    }
                   }}
                 />
               );

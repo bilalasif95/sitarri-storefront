@@ -21,6 +21,9 @@ interface SortItem {
 interface SortOptions extends Array<SortItem> { }
 
 interface PageProps {
+  activeSortBusinessType:any;
+  activeSortTypeBase:any;
+  acitveSortDistanceBase:any;
   activeFilters: number;
   attributes: IFilterAttributes[];
   activeSortOption: string;
@@ -44,6 +47,9 @@ interface PageProps {
 const Page: React.FC<PageProps> = ({
   activeFilters,
   activeSortOption,
+  activeSortBusinessType,
+  activeSortTypeBase,
+  acitveSortDistanceBase,
   attributes,
   search,
   setSearch,
@@ -87,30 +93,7 @@ const Page: React.FC<PageProps> = ({
 
   return (
     <div className="category">
-      {/* <div className="search-page">
-        <div className="search-page__header">
-          <div className="search-page__header__input container">
-            <DebounceChange
-              debounce={evt =>
-                setSearch((evt.target.value as string).toLowerCase())
-              }
-              value={search}
-              time={500}
-            >
-              {({ change, value }) => {
-                return (
-                  <TextField
-                    autoFocus
-                    label="Search term:"
-                    onChange={change}
-                    value={value}
-                  />
-                );
-              }}
-            </DebounceChange>
-          </div>
-        </div>
-      </div> */}
+
       <div className="container">
         <FilterSidebar
           show={showFilters}
@@ -121,6 +104,9 @@ const Page: React.FC<PageProps> = ({
         />
         <ProductListHeader
           activeSortOption={activeSortOption}
+          activeSortBusinessType={activeSortBusinessType}
+          activeSortTypeBase={activeSortTypeBase}
+          acitveSortDistanceBase={acitveSortDistanceBase}
           openFiltersMenu={() => setShowFilters(true)}
           numberOfProducts={products ? products.totalCount : 0}
           activeFilters={activeFilters}
@@ -132,6 +118,7 @@ const Page: React.FC<PageProps> = ({
         />
         {canDisplayProducts && (
           <ProductList
+            activeSortTypeBase={activeSortTypeBase}
             products={products.edges.map(edge => edge.node)}
             stores={stores.edges.map(edge => edge.node)}
             canLoadMore={hasNextPage}

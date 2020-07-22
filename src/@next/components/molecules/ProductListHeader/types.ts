@@ -10,7 +10,7 @@ interface ActiveFiltersAttribute {
 }
 
 export interface IProps {
-  activeSortOption?: string;
+  // activeSortOption?: string;
   activeFilters: number;
   activeFiltersAttributes: ActiveFiltersAttribute[];
   numberOfProducts: number;
@@ -19,4 +19,8 @@ export interface IProps {
   onCloseFilterAttribute: (attributeSlug: string, valueSlug: string) => void;
   openFiltersMenu: () => void;
   clearFilters: () => void;
+  activeSortOption ?:any;
+  activeSortBusinessType:any;
+  activeSortTypeBase:any;
+  acitveSortDistanceBase:any;
 }

@@ -14,6 +14,7 @@ import { IProps } from "./types";
 import { AllProducts } from "../../molecules/AllProducts";
 
 export const ProductList: React.FC<IProps> = ({
+  activeSortTypeBase,
   products,
   stores,
   canLoadMore = false,
@@ -21,18 +22,18 @@ export const ProductList: React.FC<IProps> = ({
   onLoadMore = () => null,
 }: IProps) => {
 
-
   return (
     <S.ProductList>
-      {products.length > 0 ?
+     {/* first condation for filter */}
+      {activeSortTypeBase.value === "products" ? products.length > 0 ?
         <div>
           <h3> Products</h3>
           <Carousel productDetails={"productList"}>
             {products.map(product => (
               <ProductTile product={product} />
             ))}
-          </Carousel></div> : <div></div>}
-      {stores.length > 0 ?
+          </Carousel></div> : <div></div> : <div></div>}
+      {activeSortTypeBase.value === "stores" ? stores.length > 0 ?
         <div>
           <h3>Business</h3>
           <Carousel productDetails={"productList"}>
@@ -40,7 +41,7 @@ export const ProductList: React.FC<IProps> = ({
               <BusinessTile product={product} />
             ))}
           </Carousel>
-        </div> : ""}
+        </div> : "":""}
       < h3 > {stores.length > 0 ? "All Results" : ""}</h3>
       <S.List>
         {stores.map(product => (

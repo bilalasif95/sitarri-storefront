@@ -11,6 +11,7 @@ import * as S from "./styles";
 import { IProps } from "./types";
 
 export const DropdownSelect: React.FC<IProps> = ({
+  type,
   options,
   name,
   value,
@@ -49,7 +50,7 @@ export const DropdownSelect: React.FC<IProps> = ({
         value={value}
         onChange={value => {
           setMenuIsOpen(false);
-          onChange(value);
+          onChange(value,type);
         }}
         name={name}
         menuIsOpen={menuIsOpen}
