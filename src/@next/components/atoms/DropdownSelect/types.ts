@@ -4,4 +4,5 @@ export interface IProps {
   options: any;
   name?: any;
   type?: string;
+  sortBy?: string
 }

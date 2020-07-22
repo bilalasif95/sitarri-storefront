@@ -1,6 +1,6 @@
 import React from "react";
 
-import {  DropdownSelect } from "@components/atoms";
+import { DropdownSelect } from "@components/atoms";
 
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -35,19 +35,19 @@ const sortOptionsByPrice = [
 const sortOptionsByDistance = [
   {
     label: "0-100",
-    value: {value:100, symbol:"M" },
+    value: { value: 100, symbol: "M" },
   },
   {
     label: "<500m",
-    value: {value:500, symbol:"M" },
+    value: { value: 500, symbol: "M" },
   },
   {
     label: "<1km",
-   value: {value:1, symbol:"Km" },
+    value: { value: 1, symbol: "Km" },
   },
   {
     label: "<5km",
-    value: {value:5, symbol:"Km" },
+    value: { value: 5, symbol: "Km" },
   },
 
 ];
@@ -83,13 +83,13 @@ const sortOptionsByType = [
 
 ];
 export const ProductListHeader: React.FC<IProps> = ({
- 
+
   activeSortOption,
   activeSortBusinessType,
   activeSortTypeBase,
   acitveSortDistanceBase,
   onChange,
- 
+
 }: IProps) => {
 
 
@@ -100,6 +100,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
+              sortBy="Price"
               type="PriceBase"
               onChange={onChange}
               options={sortOptionsByPrice}
@@ -112,7 +113,8 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-             type="BusinessBase"
+              sortBy="category"
+              type="BusinessBase"
               onChange={onChange}
               options={sortOptionsByBusiness}
               value={sortOptionsByBusiness.find(
@@ -124,6 +126,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
+              sortBy="location"
               type="DistanceBase"
               onChange={onChange}
               options={sortOptionsByDistance}
@@ -136,6 +139,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
+              sortBy="type"
               type="showType"
               onChange={onChange}
               options={sortOptionsByType}
@@ -146,7 +150,7 @@ export const ProductListHeader: React.FC<IProps> = ({
           </S.Sort>
         </S.Element>
       </S.Top>
-     
+
     </S.Wrapper>
   );
 };

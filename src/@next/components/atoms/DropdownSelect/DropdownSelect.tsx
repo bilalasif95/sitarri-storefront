@@ -11,6 +11,7 @@ import * as S from "./styles";
 import { IProps } from "./types";
 
 export const DropdownSelect: React.FC<IProps> = ({
+  sortBy,
   type,
   options,
   name,
@@ -28,7 +29,7 @@ export const DropdownSelect: React.FC<IProps> = ({
         data-cy="dropdown-select-input"
         onClick={() => setMenuIsOpen(!menuIsOpen)}
       >
-        <Label>Sort by:</Label>
+        <Label>Sort by {sortBy}</Label>
         <S.Value>{` ${value ? value.label : ""}`}</S.Value>
         <S.Indicator rotate={String(menuIsOpen)}>
           <Icon name="select_arrow" size={10} />
