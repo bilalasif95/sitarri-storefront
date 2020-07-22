@@ -25,7 +25,7 @@ export const ProductList: React.FC<IProps> = ({
   return (
     <S.ProductList>
      {/* first condation for filter */}
-      {activeSortTypeBase.value === "products" ? products.length > 0 ?
+      {activeSortTypeBase.value === "products" || activeSortTypeBase.value === "" ? products.length > 0 ?
         <div>
           <h3> Products</h3>
           <Carousel productDetails={"productList"}>
@@ -33,7 +33,7 @@ export const ProductList: React.FC<IProps> = ({
               <ProductTile product={product} />
             ))}
           </Carousel></div> : <div></div> : <div></div>}
-      {activeSortTypeBase.value === "stores" ? stores.length > 0 ?
+      {activeSortTypeBase.value === "stores" || activeSortTypeBase.value === "" ? stores.length > 0 ?
         <div>
           <h3>Business</h3>
           <Carousel productDetails={"productList"}>

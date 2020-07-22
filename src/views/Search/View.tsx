@@ -16,16 +16,33 @@ type ViewProps = RouteComponentProps<{
 }>;
 
 export const View: React.FC<ViewProps> = ({ match }) => {
-  const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 10 } });
-  const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "hardware", value: "hardware" });
-  const [sortTypeBase, setSortTypeBase] = React.useState({ label: "only stores", value: "stores" });
+  const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 0 } });
+  const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "", value: "" });
+  const [sortTypeBase, setSortTypeBase] = React.useState({ label: "", value: "" });
   const [sortDistanceBase, setSortDistanceBase] = React.useState({
-    label: "0-100",
-    value: { value: 100, symbol: "M" },
+    label: "",
+    value: { value: 0, symbol: "" },
   });
 
   const [sort] = useQueryParam("sortBy", StringParam);
+  const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
   const [search, setSearch] = useQueryParam("q", StringParam);
+
+  const getCurrentLocation = () => {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude })
+      },
+      (error) => {
+        setLocation({ latitude: 0, longitude: 0 })
+      },
+      {
+
+        enableHighAccuracy: true,
+        maximumAge: 250,
+      }
+    );
+  }
 
   const variables = {
 
@@ -33,8 +50,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     id: getGraphqlIdFromDBId(match.params.id, "Category"),
     location: {
       distance: sortDistanceBase.value,
-      latitude: 20.3,
-      longitude: 30.4,
+      latitude: location.latitude,
+      longitude: location.longitude,
 
     },
 
@@ -73,7 +90,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 acitveSortDistanceBase={sortDistanceBase.label}
                 products={data.search.products}
                 stores={data.search.stores}
-                onOrder={(value,type) => {
+                onOrder={(value, type) => {
 
                   if (type === "PriceBase") {
                     setSortPriceBase(value)
@@ -88,7 +105,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     setSortTypeBase(value)
                   }
                   else if (type === "DistanceBase") {
-
+                    getCurrentLocation()
                     setSortDistanceBase(value)
                     CallApi()
                   }
