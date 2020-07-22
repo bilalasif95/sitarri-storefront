@@ -4,9 +4,8 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { NavLink,OverlayContext,OverlayTheme,
-  OverlayType,SocialMediaIcon } from "..";
-import { SOCIAL_MEDIA } from "../../core/config";
+import { NavLink,OverlayContext,SocialMediaIcon } from "..";
+import { ADMIN_PANEL_LINK,SOCIAL_MEDIA } from "../../core/config";
 // import Nav from "./Nav";
 
 import { TypedSecondaryMenuQuery } from "./queries";
@@ -33,7 +32,7 @@ const Footer: React.FC = () => (
                   <div>
                     <h4>About Us</h4>
                     <ul className="quick-links">
-                      <li>Add Your Business</li>
+                      <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Add Your Business</li>
                       <li>Business Resource Center</li>
                       <li>Contact Us</li>
                     </ul>
@@ -42,18 +41,8 @@ const Footer: React.FC = () => (
                 <div className="footer-item">
                   <h4>Get Help</h4>
                   <ul className="quick-links">
-                    <li onClick={() =>
-                                overlayContext.show(
-                                  OverlayType.register,
-                                  OverlayTheme.right
-                                )
-                              }>Sign Up</li>
-                    <li onClick={() =>
-                                overlayContext.show(
-                                  OverlayType.login,
-                                  OverlayTheme.right
-                                )
-                              }>Sign In</li>
+                    <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign Up</li>
+                    <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign In</li>
                   </ul>
                 </div>
               </div>

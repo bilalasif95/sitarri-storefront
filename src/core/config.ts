@@ -3,6 +3,7 @@ import { generatePageUrl } from "./utils";
 export const BASE_URL = "/";
 export const PRODUCTS_PER_PAGE = 6;
 export const SUPPORT_EMAIL = "support@example.com";
+export const ADMIN_PANEL_LINK = "http://3.8.208.154:9000/";
 export const PROVIDERS = {
   BRAINTREE: {
     label: "Braintree",

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { baseUrl } from "../../app/routes";
+import { ADMIN_PANEL_LINK } from "../../core/config";
 import NavItem, { INavItem } from "./NavItem";
 
 import backImg from "../../images/arrow-back.svg";
@@ -124,7 +125,8 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
                     className="regBtn"
                   >Signin or Register</Button>
                 )} */}
-              <Button className="bcBtn" onClick={() => window.open("http://3.8.208.154:9000/")}>Business Resource Center</Button>
+              <Button className="regBtn" onClick={() => window.open(ADMIN_PANEL_LINK)}>Partner With Us</Button>
+              <Button className="bcBtn">Business Resource Center</Button>
               {displayedItems.map(item => (
                 <NavItem
                   key={item.id}
