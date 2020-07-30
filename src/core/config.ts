@@ -3,7 +3,7 @@ import { generatePageUrl } from "./utils";
 export const BASE_URL = "/";
 export const PRODUCTS_PER_PAGE = 6;
 export const SUPPORT_EMAIL = "support@example.com";
-export const ADMIN_PANEL_LINK = "http://3.8.208.154:9000/";
+export const ADMIN_PANEL_LINK = "https://dashboard.sitarri.com/";
 export const PROVIDERS = {
   BRAINTREE: {
     label: "Braintree",
@@ -25,12 +25,12 @@ export const STATIC_PAGES = [
 export const SOCIAL_MEDIA = [
   {
     ariaLabel: "instagram",
-    href: "https://www.instagram.com/mirumeelabs/",
+    href: "https://www.instagram.com",
     path: require("../images/instagram-icon.svg"),
   },
   {
     ariaLabel: "facebook",
-    href: "https://www.facebook.com/mirumeelabs/",
+    href: "https://www.facebook.com",
     path: require("../images/facebook-icon.svg"),
   },
   // {
