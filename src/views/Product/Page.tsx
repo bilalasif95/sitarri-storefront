@@ -83,7 +83,7 @@ class Page extends React.PureComponent<
     // } else {
     //   return product.images;
     // }
-  
+
     return product.images && product.images;
   };
 
@@ -120,7 +120,7 @@ class Page extends React.PureComponent<
           <script className="structured-data-list" type="application/ld+json">
             {/* {structuredData(product)} */}
           </script>
-          <GalleryCarousel images={this.getImages()} />
+          {productInfo.images.length > 1 && <GalleryCarousel images={this.getImages()} />}
 
         </div>
         {/* </div> */}
@@ -205,7 +205,7 @@ class Page extends React.PureComponent<
             <div className="shop-at">
               <div className="shop-address">
                 <ReactSVG path={location} />
-                <p>{productInfo.address.address}</p>
+                <p>{productInfo.address && productInfo.address.address}</p>
               </div>
               <div className="open-time">
                 <ReactSVG path={clock} />
@@ -219,13 +219,15 @@ class Page extends React.PureComponent<
 
           </div>
         </div>
-        <div className="container">
-          <div className="product-page__product__description">
-            <NewProductDescription
-              storeCategory={productInfo.storeCategory}
-            />
+        {productInfo.storeCategory.edges.length !== 0 &&
+          <div className="container">
+            <div className="product-page__product__description">
+              <NewProductDescription
+                storeCategory={productInfo.storeCategory}
+              />
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   }

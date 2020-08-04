@@ -90,7 +90,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
                 <S.Miles>
                   <S.Distance>{product.distance}</S.Distance>
                   <S.Address>
-                    {product.address.address}
+                    {product.address && product.address.address}
                   </S.Address>
                 </S.Miles>
               </S.Location>
@@ -119,7 +119,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
-                  <Link to="#">See Shop</Link>
+                  <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
                 <S.Desc>{product.name}</S.Desc>

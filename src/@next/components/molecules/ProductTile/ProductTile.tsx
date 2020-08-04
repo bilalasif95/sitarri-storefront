@@ -10,6 +10,8 @@ import ImageGallery from 'react-image-gallery';
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
 
+import noPhotoImg from "../../../../images/no-photo.svg";
+
 import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
@@ -99,7 +101,8 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             </S.Left>
             <S.Right>
               <S.Imgbox>
-                <Thumbnail source={product.store.images[0].url} />
+                {product.store.images && product.store.images[0] ? <Thumbnail source={product.store.images && product.store.images[0] && product.store.images[0].url} />
+                : <img src={noPhotoImg} />}
               </S.Imgbox>
             </S.Right>
           </S.Bottom>
@@ -126,7 +129,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
-                  <Link to="#">See Shop</Link>
+                  <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
                 <S.Desc>{product.name}</S.Desc>

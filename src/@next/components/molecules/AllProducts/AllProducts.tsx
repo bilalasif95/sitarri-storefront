@@ -6,7 +6,11 @@ import { Thumbnail } from "@components/molecules";
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
+import { RichTextContent } from "@components/atoms";
+
 import { Modal } from "@components/organisms/Modal";
+
+import noPhotoImg from "../../../../images/no-photo.svg";
 
 import * as S from "./styles";
 
@@ -90,7 +94,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
               <S.Miles>
                 <S.Distance>{product.distance}</S.Distance>
                 <S.Address>
-                  {product.address.address}
+                  {product.address && product.address.address}
                 </S.Address>
               </S.Miles>
             </S.Location>
@@ -112,14 +116,15 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
               <S.Bottom>
                 <S.Left>
                   <S.Title>{item.node.name}</S.Title>
-                  <S.Desc>{item.node.descriptionJson}</S.Desc>
+                  <S.Desc><RichTextContent descriptionJson={item.node.descriptionJson} /></S.Desc>
                   <S.Price>
                     <TaxedMoney taxedMoney={price} />
                   </S.Price>
                 </S.Left>
                 <S.Right>
                   <S.Imgbox>
-                    <Thumbnail source={product.images[0].url} />
+                    {product.images && product.images[0] ? <Thumbnail source={product.images[0].url} />
+                    : <img src={noPhotoImg} />}
                   </S.Imgbox>
                 </S.Right>
               </S.Bottom>
@@ -152,7 +157,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
-                  <Link to="#">See Shop</Link>
+                  <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
                 <S.Desc>{product.name}</S.Desc>
