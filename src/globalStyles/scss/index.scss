@@ -65,14 +65,16 @@ body {
   ::-webkit-scrollbar {
     width: 4px;
   }
-  &::-webkit-scrollbar-track {
-    background: #f4f4f4;
+  ::-webkit-scrollbar-track {
+    background: #ddd;
+    
+    ;
     width: 1px !important;
     height: 1px;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background: #000;
+  ::-webkit-scrollbar-thumb {
+    background: #f3492b;
     width: 1px !important;
     height: 1px;
   }
