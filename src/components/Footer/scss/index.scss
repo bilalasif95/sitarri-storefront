@@ -8,27 +8,32 @@
     display: flex;
     justify-content: space-between;
   }
+  .sideRight {
+    width: 385px;
+    display: flex;
+    justify-content: space-between;
+  }
   .footer-item:first-child {
     width: 60%;
   }
-  .footer-item:nth-child(2) {
-    width: 30%;
-  }
-  .footer-item {
-    width: 10%;
-    .playstoreIcons{
+  // .footer-item:nth-child(2) {
+  //   width: 40%;
+  // }
+  .footer-item:last-child {
+    width: 40%;
+    .playstoreIcons {
       display: grid;
-      .googlePlayStoreIcon{
+      .googlePlayStoreIcon {
         margin-bottom: 1rem;
-        @media(max-width:520px){
+        @media (max-width: 520px) {
           margin-right: 1rem;
         }
       }
-      @media(max-width:520px){
+      @media (max-width: 520px) {
         display: flex;
       }
     }
-    .whatsAppNumber{
+    .whatsAppNumber {
       margin-left: 7.5rem;
       color: white;
       font-weight: 600;
@@ -50,116 +55,139 @@
       margin: 0 1rem !important;
     }
   }
-.quick-links{
-  ul{
-    padding: 0;
-  }
-  svg{
-    margin: 0 0.5rem 0 0;
-  }
-  path {
-    fill: #fff !important;
-  }
-  .contactUsLinks {
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    display: grid;
-    align-items: center;
-    justify-content: flex-start;
-    .contactUsLinksSpanOne {
-      font-weight: 600;
+  .quick-links {
+    ul {
+      padding: 0;
     }
-    .contactUsLinksSpanTwo {
-      margin-bottom: 0.5rem;
+    svg {
+      margin: 0 0.5rem 0 0;
     }
-  }
-  li{
-    margin: 0 0 0.5rem;
-    display: flex;
-    cursor: pointer;
-    color: white;
-    a{
+    path {
+      fill: #fff !important;
+    }
+    .contactUsLinks {
       color: white;
       font-size: 15px;
       font-weight: 500;
+      display: grid;
+      align-items: center;
+      justify-content: flex-start;
+      .contactUsLinksSpanOne {
+        font-weight: 600;
+      }
+      .contactUsLinksSpanTwo {
+        margin-bottom: 0.5rem;
+      }
+    }
+    li {
+      margin: 0 0 0.5rem;
+      display: flex;
+      cursor: pointer;
+      color: white;
+      a {
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    }
+  }
+  .pay-method {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    li {
+      // margin: 0 1rem 1rem 0;
+      border-radius: 3px;
+      overflow: hidden;
+      // background: #fff;
+      // width: 115px;
+      // height: 60px;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      // padding: 0.5rem;
+    }
+    .cash-delivery {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    img {
+      width: 70%;
+    }
+    .appsIcons {
+      width: 85%;
     }
   }
-}
-.pay-method {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  li{
-    // margin: 0 1rem 1rem 0;
-    border-radius: 3px;
-    overflow: hidden;
-    // background: #fff;
-    // width: 115px;
-    // height: 60px;
+  .social-media {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    // padding: 0.5rem;
-  }
-  .cash-delivery {
-    font-size: 14px;
-    font-weight: 600;
-  }
-  img{
-    width: 70%;
-  }
-  .appsIcons{
-    width: 85%;
-  }
-}
-.social-media{
-  display: flex;
-  // margin-bottom: 1rem;
-  .androidAppStore{
-    margin-right: 0.5rem;
-  }
-  li{
-    background: #60d852;
-    margin: 0 1rem 1rem 0;
-    width: 40px;
-    height: 40px;
-    a{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
+    // margin-bottom: 1rem;
+    .androidAppStore {
+      margin-right: 0.5rem;
     }
-    img{
-      width: 20px;
+    li {
+      background: #60d852;
+      margin: 0 1rem 1rem 0;
+      width: 40px;
+      height: 40px;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      img {
+        width: 20px;
+      }
     }
   }
-}
-.social-icon svg *{
-  fill: #fff;
-}
+  .social-icon svg * {
+    fill: #fff;
+  }
 
-@media(max-width:800px){
-  .footer-list {
-    flex-wrap: wrap;
-    display: block;
+  @media (max-width: 768px) {
+    .footer-list {
+      flex-wrap: wrap;
+      display: block;
+    }
+    .footer-item {
+      width: 50% !important;
+    }
   }
-  .footer-item {
-    width: 50% !important;
+  @media (max-width: 768px) {
+    .sideLeft {
+      margin: 0 0 1rem;
+    }
+    .sideRight {
+      width: 100%;
+    }
+    .footer-item {
+      width: 50% !important;
+      margin: 0 0 2rem;
+    }
+    .footer-item:last-child {
+      margin: 0;
+    }
   }
-}
-@media(max-width:800px){
-  .footer-item {
-    width: 100% !important;
-    margin: 0 0 2rem;
+
+  @media (max-width: 640px) {
+    .sideLeft {
+      margin: 0 0 1rem;
+    }
+    .sideRight {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .footer-item {
+      width: 100% !important;
+      margin: 0 0 2rem;
+    }
+    .footer-item:last-child {
+      margin: 0;
+    }
   }
-  .footer-item:last-child {
-    margin: 0;
-  }
-}
   &__favicons {
     border-top: 1px solid #aeafaf;
     display: flex;
@@ -193,7 +221,7 @@
     //     text-align: center;
     //   }
     // }
-    @media(max-width:800px){
+    @media (max-width: 640px) {
       display: block;
       text-align: left;
       .dynamicPages {

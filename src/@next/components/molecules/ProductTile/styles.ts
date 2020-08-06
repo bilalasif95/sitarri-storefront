@@ -22,7 +22,6 @@ export const Wrapper = styled.div`
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
-
 `;
 
 export const Bottom = styled.div`
@@ -65,6 +64,9 @@ export const ModalLink = styled.div`
   -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
   -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
   box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  @media(max-width: 480px) {
+    top: -1rem;
+  }
 `;
 
 export const Title = styled.h4`
@@ -72,6 +74,8 @@ export const Title = styled.h4`
   ${textProps}
   margin: 0 0 0.3rem;
   color: #111212;
+  min-height: 44px;
+  max-width: 320px;
 `;
 
 export const Desc = styled.p`
