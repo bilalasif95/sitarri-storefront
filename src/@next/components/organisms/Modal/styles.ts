@@ -11,4 +11,7 @@ export const Modal = styled.div`
 
 export const Content = styled.div`
   padding: 1rem;
+  @media(max-width: 480px) {
+    padding: 0.5rem 0;
+  }
 `;

@@ -21,13 +21,14 @@ const Footer: React.FC = () => (
           <div className="footer" id="footer">
             <div className="container">
               <div className="footer-list">
-                <div className="footer-item">
+                <div className="sideLeft">
                   <div>
                     <Link to={appPaths.baseUrl}>
                       <ReactSVG path={logoImg} />
                     </Link>
                   </div>
                 </div>
+                <div className="sideRight">
                 <div className="footer-item">
                   <div>
                     <h4>About Us</h4>
@@ -44,6 +45,7 @@ const Footer: React.FC = () => (
                     <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign Up</li>
                     <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign In</li>
                   </ul>
+                </div>
                 </div>
               </div>
               <div className="footer__favicons">
