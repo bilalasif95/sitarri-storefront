@@ -3,7 +3,7 @@
 
 .home-page {
   .main-section{
-    background: #ff4a13;
+    background: #f34928;
     position: relative;
     padding: 2rem 0;
     .content{
@@ -26,6 +26,7 @@
         overflow-y: auto;
         background: #fff;
         padding: 0 1rem;
+        margin-top: -4px;
         position: absolute;
         width: 100%;
         .items {

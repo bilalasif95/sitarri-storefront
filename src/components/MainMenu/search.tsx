@@ -41,7 +41,7 @@ const search: React.FC = (props: any) => {
 
     return <>
         <div className="searchfield">
-            <input type="txt" placeholder="Search.." value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
+            <input type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
             <span className="searchicon">
                 <ReactSVG path={searchicon} />
             </span>
@@ -55,7 +55,7 @@ const search: React.FC = (props: any) => {
             >
                 {({ data, error, loading }) => {
                     if (loading) {
-                        return <h6>Searching..</h6>
+                        return <h6></h6>
                     }
 
                     else {
@@ -93,7 +93,7 @@ const search: React.FC = (props: any) => {
                         }
                         else {
                             return (
-                                <div>No data found...</div>
+                                <div></div>
                             )
 
                         }
