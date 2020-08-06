@@ -55,7 +55,7 @@ const search: React.FC = (props: any) => {
             >
                 {({ data, error, loading }) => {
                     if (loading) {
-                        return <h6>Searching..</h6>
+                        return <div className="textAlign">Searching..</div>
                     }
 
                     else {
@@ -93,7 +93,7 @@ const search: React.FC = (props: any) => {
                         }
                         else {
                             return (
-                                <div>No data found...</div>
+                                <div className="textAlign">No data found...</div>
                             )
 
                         }

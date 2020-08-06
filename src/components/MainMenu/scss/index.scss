@@ -50,17 +50,32 @@
       width: 60%;
     }
     .searchedlist {
-      max-height: 170px;
+      max-height: 185px;
       overflow-y: auto;
       background: #fff;
-      padding: 0 1rem;
       position: absolute;
       width: 95%;
       z-index: 1;
+      .textAlign {
+        padding: 1rem;
+        text-align: center;
+      }
       .items {
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        width: 100%;
         p {
           cursor: pointer;
+          line-height: 36px;
+          padding: 0 1rem;
         }
+      }
+      .items:hover {
+        background: #fafafa;
+      }
+      .items:last-child {
+        border-bottom: 1px solid #ddd;
       }
     }
 
