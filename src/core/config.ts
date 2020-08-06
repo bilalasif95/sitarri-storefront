@@ -25,12 +25,12 @@ export const STATIC_PAGES = [
 export const SOCIAL_MEDIA = [
   {
     ariaLabel: "instagram",
-    href: "https://www.instagram.com",
+    href: "https://www.instagram.com/sitarri.uk/",
     path: require("../images/instagram-icon.svg"),
   },
   {
     ariaLabel: "facebook",
-    href: "https://www.facebook.com",
+    href: "https://www.facebook.com/Sitarri-111202150595144/",
     path: require("../images/facebook-icon.svg"),
   },
   // {
