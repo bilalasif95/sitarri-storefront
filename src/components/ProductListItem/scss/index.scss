@@ -41,14 +41,14 @@
   &__image {
     background-color: $turquoise-light;
     display: flex;
-    height: 260px;
+    height: 220px;
     justify-content: center;
     border-radius: 5px;
     overflow: hidden;
     border: 1px solid #f4f4f4;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
     img {
-      // object-fit: contain;
+      object-fit: contain;
       width: 100%;
     }
     @media (max-width: $medium-screen) {
