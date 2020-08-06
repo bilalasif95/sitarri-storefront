@@ -73,7 +73,7 @@ const View: React.FC = (props: any) => {
             <div className="searchbox">
               <h2>Find businesses and products near you</h2>
               <div className="searchfield">
-                <input type="txt" placeholder="Search.." value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
+                <input type="txt" placeholder="Search" value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
                   <img src={locationicon} onClick={() => locationPermission()} className="lc" />
                   {/* <ReactSVG path={searchicon} /> */}
@@ -90,7 +90,7 @@ const View: React.FC = (props: any) => {
                 >
                   {({ data, error, loading }) => {
                     if (loading) {
-                      return <div className="textAlign">Searching..</div>
+                      return <h6></h6>
                     }
                     else {
 
@@ -128,7 +128,7 @@ const View: React.FC = (props: any) => {
                       }
                       else {
                         return (
-                          <div className="textAlign">No data found...</div>
+                          <div></div>
                         )
 
                       }

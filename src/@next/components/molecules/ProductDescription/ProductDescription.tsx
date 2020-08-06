@@ -47,7 +47,7 @@ export const ProductDescription: React.FC<IProps> = ({
                 <p className="price">${item && item.node.pricing.priceRange.start.gross.amount}</p>
               </div>
               <div className="catimg">
-                <img src={item.node.images[0].url} />
+                <img src={item.node.images && item.node.images[0] && item.node.images[0].url} />
               </div>
             </div>
           )}
