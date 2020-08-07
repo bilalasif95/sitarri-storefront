@@ -21,7 +21,7 @@
     display: inline-block;
     // max-width: 255px;
     text-decoration: none;
-    width: 40%;
+    width: 39%;
     cursor: pointer;
   }
   .modalDiv:nth-child(even) {
@@ -29,6 +29,11 @@
   }
   .modalDiv:nth-child(odd) {
     margin: 0 1rem 3rem 0 !important;
+  }
+  @media (max-width:768px) {
+    .modalDiv {
+      width: 48%;
+    }
   }
   @media(max-width: $small-screen){
     .modalDiv {
