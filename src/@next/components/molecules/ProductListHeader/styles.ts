@@ -15,7 +15,7 @@ export const Top = styled.div`
   padding: 1rem 0;
   flex-wrap: wrap;
   @media(max-width:768px){
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 1rem 0 0;
   }
 `;
@@ -66,18 +66,9 @@ export const Element = styled.span`
   @media(max-width:768px){
     width:30%;
     margin: 0;
-    :first-child {
-      margin: 0 0.5rem 0 0;
-    }
-    :last-child {
-      display: none;
-    }
   }
   @media(max-width:480px){
-    width:45%;
-    :nth-child(3){
-    display: none;
-    }
+    width:47%;
   }
 `;
 

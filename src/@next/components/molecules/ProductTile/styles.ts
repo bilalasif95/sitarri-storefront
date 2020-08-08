@@ -22,6 +22,9 @@ export const Wrapper = styled.div`
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
+  @media(max-width: 480px) {
+    padding: 0 1rem;  
+  }
 `;
 
 export const Bottom = styled.div`
@@ -75,7 +78,11 @@ export const Title = styled.h4`
   margin: 0 0 0.3rem;
   color: #111212;
   min-height: 44px;
-  max-width: 320px;
+  max-height: 44px;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Desc = styled.p`
@@ -101,10 +108,18 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  background: #f1f5f5;
   > img {
     margin: 0 2px 0 0;
     max-width: 255px;
     height: 100%;
+  }
+  .noImg {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    height: auto;
   }
   .image-gallery{
     width: 100%;
