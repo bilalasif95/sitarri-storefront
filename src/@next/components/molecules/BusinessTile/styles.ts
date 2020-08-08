@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
+  min-height: 300px;
   ${media.smallScreen`
   margin: 1rem 0;
 `}
@@ -251,7 +252,3 @@ export const Address = styled.p`
   color: #666;
   text-align: left;
 `;
-
-
-
-
