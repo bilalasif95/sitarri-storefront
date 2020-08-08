@@ -30,7 +30,7 @@ import location from "../../images/iconmonstr-location-1.svg";
 import phone from "../../images/iconmonstr-phone-1.svg";
 import clock from "../../images/iconmonstr-time-2.svg";
 import twitter from "../../images/iconmonstr-twitter-1.svg";
-
+// import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: ProductDetails_product;
@@ -123,7 +123,6 @@ class Page extends React.PureComponent<
           {productInfo.images.length > 1 && <GalleryCarousel images={this.getImages()} />}
 
         </div>
-        {/* </div> */}
         <div className="container">
           <div className="product-page__product">
             {/* Add script here */}
@@ -140,92 +139,97 @@ class Page extends React.PureComponent<
                 {productDescription}
               </div>
               <div className="useful-links">
-                {/* <Link to="#" className="item"> */}
                 {productInfo.phone !== "" &&
-                <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={phone} />
-                  </div>
-                  <p>Phone</p>
-                </a>}
-                {/* </Link> */}
-                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.websiteUrl)}> */}
+                  <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={phone} />
+                    </div>
+                    <p>Phone</p>
+                  </a>}
                 {productInfo.websiteUrl !== "" &&
-                <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={website} />
-                  </div>
-                  <p>Website</p>
-                </a>}
-                {/* </Link> */}
-                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.uberEatsUrl)}> */}
+                  <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={website} />
+                    </div>
+                    <p>Website</p>
+                  </a>}
                 {productInfo.address &&
-                <a className="item" href={`http://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={direction} />
-                  </div>
-                  <p>Direction</p>
-                </a>}
-                {/* </Link> */}
-
-                {/* <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}> */}
+                  <a className="item" href={`http://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={direction} />
+                    </div>
+                    <p>Direction</p>
+                  </a>}
                 {productInfo.instagramUrl !== "" &&
-                <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={instagram} />
-                  </div>
-                  <p>Instagram</p>
-                </a>}
-                {/* </Link> */}
-
-                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}> */}
+                  <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={instagram} />
+                    </div>
+                    <p>Instagram</p>
+                  </a>}
                 {productInfo.facebookUrl !== "" &&
-                <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={facebook} />
-                  </div>
-                  <p>Facebook</p>
-                </a>}
-                {/* </Link> */}
-
-                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}> */}
+                  <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={facebook} />
+                    </div>
+                    <p>Facebook</p>
+                  </a>}
                 {productInfo.twitterUrl !== "" &&
-                <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={twitter} />
-                  </div>
-                  <p>Twitter</p>
-                </a>}
-                {/* </Link> */}
-
-                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.deliverooUrl)}> */}
+                  <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={twitter} />
+                    </div>
+                    <p>Twitter</p>
+                  </a>}
                 {productInfo.deliverooUrl !== "" &&
-                <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="icon">
-                    <ReactSVG path={delivery} />
-                  </div>
-                  <p>Delivery</p>
-                </a>}
-                {/* </Link> */}
+                  <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={delivery} />
+                    </div>
+                    <p>Delivery</p>
+                  </a>}
               </div>
             </div>
             <div className="shop-at">
-              {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) && 
-              <div className="shop-address">
-                <ReactSVG path={location} />
-                <p>{productInfo.address && productInfo.address.streetAddress+" , "+productInfo.address.city}</p>
-              </div>}
-              {productInfo.openingHours !== "" && productInfo.closingHours !== "" && 
-              <div className="open-time">
-                <ReactSVG path={clock} />
-                <div className="timing">
-                  <p>Open:{productInfo.openingHours}</p>
-                  <span />
-                  <p>Close :{productInfo.closingHours}</p>
-                </div>
-              </div>}
+              {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+                <div className="shop-address">
+                  <ReactSVG path={location} />
+                  <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+                </div>}
+              {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
+                <div className="open-time">
+                  <ReactSVG path={clock} />
+                  <div className="timing">
+                    <p>Open: {productInfo.openingHours}</p>
+                    <span />
+                    <p>Close: {productInfo.closingHours}</p>
+                  </div>
+                </div>}
             </div>
-
+            {productInfo.instagramUrl !== "" || productInfo.facebookUrl !== "" || productInfo.twitterUrl !== "" &&
+              <div className="useful-links-res">
+                {productInfo.instagramUrl !== "" &&
+                  <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={instagram} />
+                    </div>
+                    <p>Instagram</p>
+                  </a>}
+                {productInfo.facebookUrl !== "" &&
+                  <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={facebook} />
+                    </div>
+                    <p>Facebook</p>
+                  </a>}
+                {productInfo.twitterUrl !== "" &&
+                  <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="icon">
+                      <ReactSVG path={twitter} />
+                    </div>
+                    <p>Twitter</p>
+                  </a>}
+              </div>}
           </div>
         </div>
         {productInfo.storeCategory.edges.length !== 0 &&
