@@ -121,7 +121,7 @@ class Page extends React.PureComponent<
             {/* {structuredData(product)} */}
           </script>
           {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
-          : <div>No photo available</div>}
+          : <div className="noPicText">No photo available</div>}
 
         </div>
         <div className="container">

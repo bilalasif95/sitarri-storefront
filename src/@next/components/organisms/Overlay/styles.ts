@@ -55,8 +55,7 @@ export const Lightbox = styled.div<IStyleProps>`
   position: relative;
   width: ${({ position, theme: { modal } }) =>
     lightboxHeight(modal.modalWidth)[position]};
-  min-height: 100vh;
-  // min-height: ${props => props.theme.modal.modalMinHeight}px;
+  min-height: ${props => props.theme.modal.modalMinHeight}px;
   height: ${({ position }) => lightboxWidth[position]};
   background-color: ${props => props.theme.colors.white};
   ${({ open, position }) => {
@@ -69,6 +68,9 @@ export const Lightbox = styled.div<IStyleProps>`
       `;
     }
   }}
+  @media(max-width: 540px) {
+    min-height: 100vh;
+  }
 `;
 Lightbox.displayName = "S.Lightbox";
 

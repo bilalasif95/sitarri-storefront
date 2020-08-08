@@ -95,10 +95,18 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  background: #f1f5f5;
   > img {
     margin: 0 2px 0 0;
     max-width: 255px;
     height: 100%;
+  }
+  .noImg {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    height: auto;
   }
   .image-gallery{
     width: 100%;

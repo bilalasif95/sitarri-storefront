@@ -53,7 +53,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
             <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-              : <img src={noPhotoImg} />}
+              : <img src={noPhotoImg} className="noImg" />}
             </S.Image>
           <S.Content>
             <S.Link>

@@ -51,7 +51,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
             {/* <img src={tileimg} /> */}
             {tempArray.length > 0 ?
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-              : <img src={noPhotoImg} />}
+              : <img src={noPhotoImg} className="noImg" />}
             </S.Image>
           <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
             <S.Content>

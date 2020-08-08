@@ -52,7 +52,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image onClick={onModalClicked}>
           {tempArray.length > 0 ?
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-            : <img src={noPhotoImg} />}
+            : <img src={noPhotoImg} className="noImg" />}
             </S.Image>
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
           <S.Content>
