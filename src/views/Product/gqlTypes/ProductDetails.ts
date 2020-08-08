@@ -705,6 +705,7 @@ export interface ProductDetails_product {
   maxPrice: number;
   totalReviews: number;
   logo: string;
+  phone: string;
   websiteUrl: string;
   facebookUrl: string;
   googleMapUrl: string;

@@ -55,10 +55,7 @@ class ProductDescription extends React.Component<
           </div>
           <p className="tl">{items.totalReviews}</p>
         </div>
-        <p className="desc">Description of the business that can be as long as it needs to be..... no truncation....</p>
-
-
-
+        {items.description !== "" && <p className="desc">{items.description}</p>}
       </div>
     );
   }

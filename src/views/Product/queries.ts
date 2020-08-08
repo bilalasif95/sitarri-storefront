@@ -155,12 +155,14 @@ export const productDetailsQuery = gql`
     metadata
     id
     name
+    description
     images{url}
     address {
       privateMetadata
       metadata
       id
-      address
+      streetAddress
+      city
       longitude
       latitude
     }
@@ -205,6 +207,7 @@ export const productDetailsQuery = gql`
     totalReviews
     logo
     websiteUrl
+    phone
     facebookUrl
     googleMapUrl
     twitterUrl

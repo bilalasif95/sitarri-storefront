@@ -141,72 +141,81 @@ class Page extends React.PureComponent<
               </div>
               <div className="useful-links">
                 {/* <Link to="#" className="item"> */}
-                <a className="item" href="" target="_blank" rel="noopener noreferrer">
+                {productInfo.phone !== "" &&
+                <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={phone} />
                   </div>
                   <p>Phone</p>
-                </a>
+                </a>}
                 {/* </Link> */}
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.websiteUrl)}> */}
+                {productInfo.websiteUrl !== "" &&
                 <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={website} />
                   </div>
                   <p>Website</p>
-                </a>
+                </a>}
                 {/* </Link> */}
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.uberEatsUrl)}> */}
-                <a className="item" href={productInfo.uberEatsUrl} target="_blank" rel="noopener noreferrer">
+                {productInfo.address &&
+                <a className="item" href={`http://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={direction} />
                   </div>
                   <p>Direction</p>
-                </a>
+                </a>}
                 {/* </Link> */}
 
                 {/* <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}> */}
+                {productInfo.instagramUrl !== "" &&
                 <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={instagram} />
                   </div>
                   <p>Instagram</p>
-                </a>
+                </a>}
                 {/* </Link> */}
 
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}> */}
+                {productInfo.facebookUrl !== "" &&
                 <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={facebook} />
                   </div>
                   <p>Facebook</p>
-                </a>
+                </a>}
                 {/* </Link> */}
 
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}> */}
+                {productInfo.twitterUrl !== "" &&
                 <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={twitter} />
                   </div>
                   <p>Twitter</p>
-                </a>
+                </a>}
                 {/* </Link> */}
 
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.deliverooUrl)}> */}
+                {productInfo.deliverooUrl !== "" &&
                 <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={delivery} />
                   </div>
                   <p>Delivery</p>
-                </a>
+                </a>}
                 {/* </Link> */}
               </div>
             </div>
             <div className="shop-at">
+              {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) && 
               <div className="shop-address">
                 <ReactSVG path={location} />
-                <p>{productInfo.address && productInfo.address.address}</p>
-              </div>
+                <p>{productInfo.address && productInfo.address.streetAddress+" , "+productInfo.address.city}</p>
+              </div>}
+              {productInfo.openingHours !== "" && productInfo.closingHours !== "" && 
               <div className="open-time">
                 <ReactSVG path={clock} />
                 <div className="timing">
@@ -214,7 +223,7 @@ class Page extends React.PureComponent<
                   <span />
                   <p>Close :{productInfo.closingHours}</p>
                 </div>
-              </div>
+              </div>}
             </div>
 
           </div>
