@@ -139,18 +139,19 @@ export const ModalImage = styled.div`
 
 
 export const Left = styled.div`
-  width: 80%;
+  width: 75%;
+  padding-right: 10px;
 `;
 
 export const Right = styled.div`
-  width: 20%;
+  width: 25%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 export const Imgbox = styled.div`
 overflow: hidden;
-height: 61px;
+max-height: 100px;
 img{
   width: 100%;
   height: 100%;

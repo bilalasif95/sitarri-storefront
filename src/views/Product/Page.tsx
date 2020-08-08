@@ -30,7 +30,7 @@ import location from "../../images/iconmonstr-location-1.svg";
 import phone from "../../images/iconmonstr-phone-1.svg";
 import clock from "../../images/iconmonstr-time-2.svg";
 import twitter from "../../images/iconmonstr-twitter-1.svg";
-
+import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: ProductDetails_product;
@@ -166,7 +166,7 @@ class Page extends React.PureComponent<
                 {/* </Link> */}
 
                 {/* <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}> */}
-                <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={instagram} />
                   </div>
@@ -175,7 +175,7 @@ class Page extends React.PureComponent<
                 {/* </Link> */}
 
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}> */}
-                <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={facebook} />
                   </div>
@@ -184,7 +184,7 @@ class Page extends React.PureComponent<
                 {/* </Link> */}
 
                 {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}> */}
-                <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={twitter} />
                   </div>
@@ -216,7 +216,41 @@ class Page extends React.PureComponent<
                 </div>
               </div>
             </div>
+            <div className="useful-links-res">
 
+                {/* <Link to="#" className="item" onClick={() => this.openTab(productInfo.instagramUrl)}> */}
+                <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={instagram} />
+                  </div>
+                  <p>Instagram</p>
+                </a>
+                {/* </Link> */}
+
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.facebookUrl)}> */}
+                <a className="item" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={facebook} />
+                  </div>
+                  <p>Facebook</p>
+                </a>
+                {/* </Link> */}
+
+                {/* <Link to="" className="item" onClick={() => this.openTab(productInfo.twitterUrl)}> */}
+                <a className="item" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={twitter} />
+                  </div>
+                  <p>Twitter</p>
+                </a>
+                <a className="item" href="#" target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={youtube} />
+                  </div>
+                  <p>Youtube</p>
+                </a>
+                {/* </Link> */}
+              </div>
           </div>
         </div>
         {productInfo.storeCategory.edges.length !== 0 &&

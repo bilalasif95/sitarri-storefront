@@ -150,7 +150,6 @@ export const ProductListHeader: React.FC<IProps> = ({
           </S.Sort>
         </S.Element>
       </S.Top>
-
     </S.Wrapper>
   );
 };

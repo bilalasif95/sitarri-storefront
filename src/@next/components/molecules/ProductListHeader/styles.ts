@@ -2,21 +2,21 @@ import { styled } from "@styles";
 
 export const Wrapper = styled.div`
   margin-bottom: 1.4rem;
+  @media(max-width:640px){
+    margin-bottom: 0;
+  }
 `;
 
 export const Top = styled.div`
-  margin-bottom: 1.4rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   padding: 1rem 0;
   flex-wrap: wrap;
-  @media(max-width:640px){
-    justify-content: space-between;
-  }
-  @media(max-width:424px){
-    justify-content: center;
+  @media(max-width:768px){
+    justify-content: flex-start;
+    padding: 1rem 0 0;
   }
 `;
 
@@ -24,12 +24,11 @@ export const Bar = styled.div`
   height: 5rem;
   background-color: ${props => props.theme.tile.backgroundColor};
   display: none;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 2rem;
   font-size: ${props => props.theme.typography.smallFontSize};
   margin-top: 1rem;
-  margin-bottom: 1.4rem;
 `;
 
 export const LeftSide = styled.div`
@@ -55,17 +54,30 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:23%; 
-  margin: 0 0.5rem;
-  @media(max-width:850px){
+  width:12%; 
+  margin: 0 0.7rem;
+  path {
+    fill: #f3492b;
+  }
+  @media(max-width:1024px){
+    width:17%;
+    margin: 0 5px;
+  }
+  @media(max-width:768px){
     width:30%;
-    text-align: center;
+    margin: 0;
+    :first-child {
+      margin: 0 0.5rem 0 0;
+    }
+    :last-child {
+      display: none;
+    }
   }
-  @media(max-width:640px){
+  @media(max-width:480px){
     width:45%;
-  }
-  @media(max-width:424px){
-    width:100%;
+    :nth-child(3){
+    display: none;
+    }
   }
 `;
 

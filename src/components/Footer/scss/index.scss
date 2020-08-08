@@ -45,9 +45,9 @@
   }
   h4 {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0 0 1rem;
   }
   .pages {
@@ -84,10 +84,11 @@
       display: flex;
       cursor: pointer;
       color: white;
+      font-size: 14px;
       a {
         color: white;
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         display: flex;
         align-items: center;
         justify-content: flex-start;
