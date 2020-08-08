@@ -50,8 +50,10 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
       <S.Wrapper data-cy="product-tile">
         <S.Top>
           <S.Image onClick={onModalClicked}>
+          {tempArray.length > 0 ?
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-          </S.Image>
+            : <img src={noPhotoImg} />}
+            </S.Image>
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
           <S.Content>
             <S.Link>

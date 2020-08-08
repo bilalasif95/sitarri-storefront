@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
 
+import noPhotoImg from "../../../../images/no-photo.svg";
+
 import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
@@ -47,8 +49,10 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
         <S.Top>
           <S.Image onClick={onModalClicked}>
             {/* <img src={tileimg} /> */}
+            {tempArray.length > 0 ?
             <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-          </S.Image>
+              : <img src={noPhotoImg} />}
+            </S.Image>
           <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
             <S.Content>
               <S.Link>

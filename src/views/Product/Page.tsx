@@ -120,7 +120,8 @@ class Page extends React.PureComponent<
           <script className="structured-data-list" type="application/ld+json">
             {/* {structuredData(product)} */}
           </script>
-          {productInfo.images.length > 1 && <GalleryCarousel images={this.getImages()} />}
+          {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
+          : <div>No photo available</div>}
 
         </div>
         <div className="container">
@@ -190,23 +191,24 @@ class Page extends React.PureComponent<
                   </a>}
               </div>
             </div>
-            <div className="shop-at">
-              {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
-                <div className="shop-address">
-                  <ReactSVG path={location} />
-                  <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
-                </div>}
-              {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
-                <div className="open-time">
-                  <ReactSVG path={clock} />
-                  <div className="timing">
-                    <p>Open: {productInfo.openingHours}</p>
-                    <span />
-                    <p>Close: {productInfo.closingHours}</p>
-                  </div>
-                </div>}
-            </div>
-            {productInfo.instagramUrl !== "" || productInfo.facebookUrl !== "" || productInfo.twitterUrl !== "" &&
+            {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
+              <div className="shop-at">
+                {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+                  <div className="shop-address">
+                    <ReactSVG path={location} />
+                    <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+                  </div>}
+                {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
+                  <div className="open-time">
+                    <ReactSVG path={clock} />
+                    <div className="timing">
+                      <p>Open: {productInfo.openingHours}</p>
+                      <span />
+                      <p>Close: {productInfo.closingHours}</p>
+                    </div>
+                  </div>}
+              </div>}
+            {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
               <div className="useful-links-res">
                 {productInfo.instagramUrl !== "" &&
                   <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">

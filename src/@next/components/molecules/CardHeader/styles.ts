@@ -5,10 +5,11 @@ export const Header = styled.div<{ divider: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${props => `1.1rem ${props.theme.spacing.gutter}`};
-  ${({ divider, theme }) =>
-    divider && `border-bottom: 1px solid ${theme.colors.light};`}
+  padding: 0.5rem 1rem;
 `;
+// padding: ${props => `1.1rem ${props.theme.spacing.gutter}`};
+// ${({ divider, theme }) =>
+//     divider && `border-bottom: 1px solid ${theme.colors.light};`}
 
 export const Title = styled.h4<{ size: TitleSize }>`
   font-size: ${({ size, theme: { typography } }) =>
