@@ -93,6 +93,8 @@ color: #777878;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 `;
 
 export const Price = styled.p`

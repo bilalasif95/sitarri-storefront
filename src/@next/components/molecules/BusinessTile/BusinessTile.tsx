@@ -128,7 +128,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
                   <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
-                <S.Desc>{product.name}</S.Desc>
+                <S.Desc>{product.description}</S.Desc>
                 <S.Price>
                   <TaxedMoney taxedMoney={price} />
                 </S.Price>

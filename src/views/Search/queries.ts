@@ -97,12 +97,12 @@ export const searchProductsQuery = gql`
       totalCount
       edges {
         node {
-          ...ProductPricingField
           id
           name
           images{
             url
           }
+          ...ProductPricingField
           description
           descriptionJson
           thumbnail {
