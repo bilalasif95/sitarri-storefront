@@ -79,6 +79,8 @@ font-size: 12px;
 text-align: left;
 color: #777878;
 line-height: normal;
+max-height: 34px;
+overflow: hidden;
 `;
 
 export const Price = styled.p`
