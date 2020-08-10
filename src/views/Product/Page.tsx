@@ -191,7 +191,7 @@ class Page extends React.PureComponent<
                   </a>}
               </div>
             </div>
-            {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
+            {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
               <div className="shop-at">
                 {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
                   <div className="shop-address">
@@ -207,7 +207,15 @@ class Page extends React.PureComponent<
                       <p>Close: {productInfo.closingHours}</p>
                     </div>
                   </div>}
-              </div>}
+              </div>
+            : <>
+            {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+              <div className="shop-at">
+              <div className="shop-address">
+                <ReactSVG path={location} />
+                <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+              </div></div>}</>
+            }
             {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
               <div className="useful-links-res">
                 {productInfo.instagramUrl !== "" &&

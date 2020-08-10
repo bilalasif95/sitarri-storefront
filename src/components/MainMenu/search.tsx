@@ -17,18 +17,47 @@ import { useComponentVisible } from "@hooks"
 const search: React.FC = (props: any) => {
     const [search, setSearch] = useState(null);
     const { ref, isComponentVisible } = useComponentVisible(true);
+    const [latitude, setLatitude] = React.useState(0)
+    const [longitude, setLongitude] = React.useState(0)
     const SeeDetails = (searchWord) => {
         setSearch("")
         // slice(0, 3)
         props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
     }
     const searchQs = (searchWord) => {
-        return stringify({ q: searchWord });
+        return stringify({ q: searchWord,lat: latitude,long: longitude });
     }
 
     const SetSearchEvent = (e) => {
         setSearch(e.target.value)
     }
+
+    const getCurrentLocation = () => {
+        navigator.geolocation.watchPosition(
+          (position) => {
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
+          },
+          (error) => {
+            setLatitude(0)
+            setLongitude(0)
+          },
+          {
+    
+            enableHighAccuracy: true,
+            maximumAge: 250,
+          }
+        );
+      }
+    
+      React.useEffect(()=>{
+        getCurrentLocation()
+      },[latitude,longitude])
+    
+      React.useEffect(()=>{
+        getCurrentLocation()
+      },[])
+
     React.useEffect(() => {
         setTimeout(() => {
             if (!isComponentVisible) {

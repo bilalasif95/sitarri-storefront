@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { BASE_URL } from "../../core/config";
 import Button from "../Button";
 
-import PageNotImage from "../../images/404Page.jpg"
+import PageNotImage from "../../images/404Image.svg";
 
 interface NotFoundProps {
   message?: string;

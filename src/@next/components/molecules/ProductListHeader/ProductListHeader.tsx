@@ -7,7 +7,11 @@ import { IProps } from "./types";
 
 const sortOptionsByPrice = [
   {
-    label: "0 – 10",
+    label: "Clear...",
+    value: null,
+  },
+  {
+    label: "0-10",
     value: { gte: 0, lte: 10 },
   },
   {
@@ -34,6 +38,10 @@ const sortOptionsByPrice = [
 ];
 const sortOptionsByDistance = [
   {
+    label: "Clear...",
+    value: null,
+  },
+  {
     label: "0-100",
     value: { value: 100, symbol: "M" },
   },
@@ -53,30 +61,38 @@ const sortOptionsByDistance = [
 ];
 const sortOptionsByBusiness = [
   {
-    label: "café,",
-    value: "café,",
+    label: "Clear...",
+    value: null,
   },
   {
-    label: "restaurant",
-    value: "restaurant,",
+    label: "Cafe",
+    value: "cafe",
   },
   {
-    label: "grocery",
+    label: "Restaurant",
+    value: "restaurant",
+  },
+  {
+    label: "Grocery",
     value: "grocery",
   },
   {
-    label: "hardware",
+    label: "Hardware",
     value: "hardware",
   },
 
 ];
 const sortOptionsByType = [
   {
-    label: "only products",
+    label: "Clear...",
+    value: null,
+  },
+  {
+    label: "Only Products",
     value: "products",
   },
   {
-    label: "only stores",
+    label: "Only Stores",
     value: "stores",
   },
 
@@ -105,7 +121,7 @@ export const ProductListHeader: React.FC<IProps> = ({
               onChange={onChange}
               options={sortOptionsByPrice}
               value={sortOptionsByPrice.find(
-                option => option.value === activeSortOption
+                option => option.label === activeSortOption
               )}
             />
           </S.Sort>
@@ -113,12 +129,12 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="category"
+              sortBy="Category"
               type="BusinessBase"
               onChange={onChange}
               options={sortOptionsByBusiness}
               value={sortOptionsByBusiness.find(
-                option => option.value === activeSortBusinessType
+                option => option.label === activeSortBusinessType
               )}
             />
           </S.Sort>
@@ -126,12 +142,12 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="location"
+              sortBy="Location"
               type="DistanceBase"
               onChange={onChange}
               options={sortOptionsByDistance}
               value={sortOptionsByDistance.find(
-                option => option.value === acitveSortDistanceBase
+                option => option.label === acitveSortDistanceBase
               )}
             />
           </S.Sort>
@@ -139,12 +155,12 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="type"
+              sortBy="Type"
               type="showType"
               onChange={onChange}
               options={sortOptionsByType}
               value={sortOptionsByType.find(
-                option => option.value === activeSortTypeBase
+                option => option.label === activeSortTypeBase
               )}
             />
           </S.Sort>

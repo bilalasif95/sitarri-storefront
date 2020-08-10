@@ -31,13 +31,48 @@ import { useComponentVisible } from "@hooks"
 const View: React.FC = (props: any) => {
   const [search, setSearch] = React.useState(null);
   const { ref, isComponentVisible } = useComponentVisible(true);
+  const [latitude, setLatitude] = React.useState(0)
+  const [longitude, setLongitude] = React.useState(0)
   const SeeDetails = (searchWord) => {
-    setSearch(null)
+    setSearch("")
     props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
   }
   const SetSearchEvent = (e) => {
     setSearch(e.target.value)
   }
+
+  const searchQs = (searchWord) => {
+    return stringify({ q: searchWord,lat: latitude === 0 ? JSON.parse(window.localStorage.getItem("lat")) : latitude,long: longitude === 0 ? JSON.parse(window.localStorage.getItem("long")) : longitude });
+  }
+
+  const getCurrentLocation = () => {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        setLatitude(position.coords.latitude)
+        window.localStorage.setItem("lat",JSON.stringify(position.coords.latitude))
+        setLongitude(position.coords.longitude)
+        window.localStorage.setItem("long",JSON.stringify(position.coords.longitude))
+      },
+      (error) => {
+        setLatitude(0)
+        setLongitude(0)
+      },
+      {
+
+        enableHighAccuracy: true,
+        maximumAge: 250,
+      }
+    );
+  }
+
+  React.useEffect(()=>{
+    getCurrentLocation()
+  },[latitude,longitude])
+
+  React.useEffect(()=>{
+    getCurrentLocation()
+  },[])
+  
   React.useEffect(() => {
     setTimeout(() => {
       if (!isComponentVisible) {
@@ -46,9 +81,6 @@ const View: React.FC = (props: any) => {
     })
 
   }, [isComponentVisible])
-  const searchQs = (searchWord) => {
-    return stringify({ q: searchWord });
-  }
   const locationPermission = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition, showError, { maximumAge: 600000, timeout: 25000, enableHighAccuracy: true });

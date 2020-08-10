@@ -1,7 +1,7 @@
 import React from "react";
 import {
   mediumScreen,
-  // smallScreen,
+  smallScreen,
 } from "../../globalStyles/scss/variables.scss";
 import "./scss/index.scss";
 
@@ -14,7 +14,7 @@ import ReactSVG from "react-svg";
 
 import {
   // MenuDropdown,
-  Offline,
+  // Offline,
   // Online,
   OverlayContext,
   OverlayTheme,
@@ -45,6 +45,7 @@ const MainMenu: React.FC = () => {
   // const handleSignOut = () => {
   //   signOut();
   // };
+
   return (
     <OverlayContext.Consumer>
 
@@ -53,16 +54,36 @@ const MainMenu: React.FC = () => {
           <nav id="header">
             <div className="container">
               <div className="main-menu">
+                {window.innerWidth <= 540 ?
+                <Media query={{
+                  maxWidth: smallScreen,
+                }}>
+                {window.location.hash === "#/" ?
                 <div className="main-menu__left">
                   <Link to={appPaths.baseUrl}>
                     <ReactSVG path={logoImg} />
                   </Link>
                 </div>
+                : ""}
+                </Media>
+                : <div className="main-menu__left">
+                <Link to={appPaths.baseUrl}>
+                  <ReactSVG path={logoImg} />
+                </Link>
+              </div>}
+              {window.innerWidth <= 540 ?
+                <Media query={{
+                  maxWidth: smallScreen,
+                }}>
+                {window.location.hash !== "#/" ?
                 <div className="main-menu__center">
                   <Search />
-
                 </div>
-
+                : <div className="main-menu__center"></div>}
+                </Media>
+                : <div className="main-menu__center">
+                <Search />
+              </div>}
                 <div className="main-menu__right">
                   <ul>
                     {/* <Online>
@@ -162,14 +183,14 @@ const MainMenu: React.FC = () => {
                   ) : null}
                 </li> */}
                     {/* </Online> */}
-                    <Offline>
+                    {/* <Offline>
                       <li className="main-menu__offline">
                         <Media
                           query={{ minWidth: mediumScreen }}
                           render={() => <span>Offline</span>}
                         />
                       </li>
-                    </Offline>
+                    </Offline> */}
                     {/* <li
                 className="main-menu__search"
                 onClick={() =>

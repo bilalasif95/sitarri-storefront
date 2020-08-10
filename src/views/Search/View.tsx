@@ -25,6 +25,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
   });
 
   const [sort] = useQueryParam("sortBy", StringParam);
+  const [lat] = useQueryParam("lat", StringParam);
+  const [long] = useQueryParam("long", StringParam);
   const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
   const [search, setSearch] = useQueryParam("q", StringParam);
 
@@ -45,23 +47,21 @@ export const View: React.FC<ViewProps> = ({ match }) => {
   }
 
   const variables = {
-
     businessCategory: sortBusinessBase.value,
     id: getGraphqlIdFromDBId(match.params.id, "Category"),
+    latitude: lat,
     location: {
       distance: sortDistanceBase.value,
       latitude: location.latitude,
       longitude: location.longitude,
-
     },
-
-    Price: sortPriceBase.value,
-
+    longitude: long,
     pageSize: PRODUCTS_PER_PAGE,
 
+    Price: sortPriceBase.value,
+    
     query: search || null,
     sortBy: convertSortByFromString(sort),
-
   };
 
 
@@ -85,8 +85,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 setSearch={setSearch}
                 search={search}
                 activeSortOption={sortPriceBase.label}
-                activeSortBusinessType={sortBusinessBase}
-                activeSortTypeBase={sortTypeBase}
+                activeSortBusinessType={sortBusinessBase.label}
+                activeSortTypeBase={sortTypeBase.label}
                 acitveSortDistanceBase={sortDistanceBase.label}
                 products={data.search.products}
                 stores={data.search.stores}

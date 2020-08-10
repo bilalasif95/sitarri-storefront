@@ -80,6 +80,8 @@ export const searchProductsQuery = gql`
     $pageSize: Int
     $sortBy: ProductOrder
     $after: String
+    $longitude: Float
+    $latitude: Float
     $Price:PriceRangeInput
     $businessCategory:String
   ) {
@@ -97,12 +99,12 @@ export const searchProductsQuery = gql`
       totalCount
       edges {
         node {
+          ...ProductPricingField
           id
           name
           images{
             url
           }
-          ...ProductPricingField
           description
           descriptionJson
           thumbnail {
@@ -113,7 +115,7 @@ export const searchProductsQuery = gql`
             id
             name
             totalReviews
-            distance(longitude: 30.5, latitude: 20.4)
+            distance(longitude: $longitude, latitude: $latitude)
             rating
             images{
               url
@@ -153,11 +155,12 @@ export const searchProductsQuery = gql`
           name
          id
           address{
+            id
             address
           }
           description
             totalReviews
-            distance(longitude: 30.5, latitude: 20.4)
+            distance(longitude: $longitude, latitude: $latitude)
             rating
             images{
               url

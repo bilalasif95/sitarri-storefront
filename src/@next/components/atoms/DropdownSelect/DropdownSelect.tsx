@@ -29,8 +29,8 @@ export const DropdownSelect: React.FC<IProps> = ({
         data-cy="dropdown-select-input"
         onClick={() => setMenuIsOpen(!menuIsOpen)}
       >
-        <Label>Sort by {sortBy}</Label>
-        <S.Value>{` ${value ? value.label : ""}`}</S.Value>
+        <Label>{value && value.label === "Clear..." || value === undefined ?  `Sort by ${sortBy}:` : value && value.label}</Label>
+        {/* <S.Value>{` ${value ? value.label : ""}`}</S.Value> */}
         <S.Indicator rotate={String(menuIsOpen)}>
           <Icon name="select_arrow" size={10} />
         </S.Indicator>
