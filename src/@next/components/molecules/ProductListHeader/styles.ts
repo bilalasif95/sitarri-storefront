@@ -54,7 +54,7 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:12%; 
+  width:13%; 
   margin: 0 0.7rem;
   path {
     fill: #f3492b;
