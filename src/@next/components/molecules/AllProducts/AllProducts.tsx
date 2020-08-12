@@ -42,17 +42,18 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
     }
   };
   const tempArray: any = [];
-  product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
+  product.images.map((image: any) => tempArray.push({ original: image.url }));
+  // product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
 
   return (
     <>
 
       <S.Wrapper data-cy="product-tile">
         <S.Top>
-          <S.Image onClick={onModalClicked}>
+          <S.Image>
           {tempArray.length > 0 ?
-            <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-            : <img src={noPhotoImg} className="noImg" />}
+            <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+            : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
             </S.Image>
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
           <S.Content>
@@ -158,8 +159,12 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
           >
             <S.Top>
               <S.ModalImage>
-                {product.logo ? <img width="100%" src={product.logo} />
-                : <img src={noPhotoImg} />}
+              {tempArray.length > 0 ?
+              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+              : <img src={noPhotoImg} className="noImg" />}
+                {/* <Thumbnail source={product} /> */}
+                {/* {product.logo ? <img width="100%" src={product.logo} />
+                : <img src={noPhotoImg} />} */}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>

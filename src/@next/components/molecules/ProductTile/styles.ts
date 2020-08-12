@@ -22,9 +22,9 @@ export const Wrapper = styled.div`
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
-  @media(max-width: 480px) {
-    padding: 0 1rem;  
-  }
+  // @media(max-width: 480px) {
+  //   padding: 0 1rem;  
+  // }
 `;
 
 export const Bottom = styled.div`
@@ -159,6 +159,26 @@ export const ModalImage = styled.div`
   align-items: center;
   img{
     border-radius: 5px;
+  }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-icon{
+      z-index:2;
+    }
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      // height: 20px;
+      width: 20px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+      padding:0 2px 0 0;
+    }
+    .image-gallery-content 
+    .image-gallery-slide
+     .image-gallery-image{
+       max-height: 100% !important;
+     }
   }
 `;
 

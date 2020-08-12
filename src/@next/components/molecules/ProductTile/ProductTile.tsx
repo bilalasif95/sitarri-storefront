@@ -50,11 +50,11 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
     <>
       <S.Wrapper data-cy="product-tile">
         <S.Top>
-          <S.Image onClick={onModalClicked}>
+          <S.Image>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-            <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-              : <img src={noPhotoImg} className="noImg" />}
+            <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+              : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
             </S.Image>
           <S.Content>
             <S.Link>
@@ -132,8 +132,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               {tempArray.length > 0 ?
                 <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
                 : <img src={noPhotoImg} className="noImg" />}
-                {/* <Thumbnail source={product} /> */}
-                {/* <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
+              {/* <Thumbnail source={product} /> */}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>

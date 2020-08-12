@@ -66,7 +66,7 @@ const Footer: React.FC = () => (
                       }}
                     </TypedSecondaryMenuQuery>
                   </ul>
-                  <p>© 2020 Sitari Technologies Inc.</p>
+                  <p>© 2020 Sitarri Technologies Inc.</p>
                 </div>
               </div>
             </div>

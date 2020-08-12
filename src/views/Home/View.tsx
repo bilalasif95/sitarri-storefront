@@ -56,6 +56,8 @@ const View: React.FC = (props: any) => {
       (error) => {
         setLatitude(0)
         setLongitude(0)
+        window.localStorage.setItem("lat",JSON.stringify(0))
+        window.localStorage.setItem("long",JSON.stringify(0))
       },
       {
 

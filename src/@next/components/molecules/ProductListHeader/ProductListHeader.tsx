@@ -11,27 +11,27 @@ const sortOptionsByPrice = [
     value: null,
   },
   {
-    label: "0-10",
+    label: "£0-10",
     value: { gte: 0, lte: 10 },
   },
   {
-    label: "11-20",
+    label: "£11-20",
     value: { gte: 11, lte: 20 },
   },
   {
-    label: "20-30",
+    label: "£20-30",
     value: { gte: 20, lte: 30 },
   },
   {
-    label: "30-40",
+    label: "£30-40",
     value: { gte: 30, lte: 40 },
   },
   {
-    label: "40-50",
+    label: "£40-50",
     value: { gte: 40, lte: 50 },
   },
   {
-    label: "50+",
+    label: "£50+",
     value: { gte: 50, lte: 50 },
   },
 
@@ -42,7 +42,7 @@ const sortOptionsByDistance = [
     value: null,
   },
   {
-    label: "0-100",
+    label: "0-100m",
     value: { value: 100, symbol: "M" },
   },
   {
@@ -57,7 +57,14 @@ const sortOptionsByDistance = [
     label: "<5km",
     value: { value: 5, symbol: "Km" },
   },
-
+  {
+    label: "<10km",
+    value: { value: 10, symbol: "Km" },
+  },
+  {
+    label: ">10km",
+    value: { value: 0, symbol: "Km" },
+  },
 ];
 const sortOptionsByBusiness = [
   {

@@ -149,6 +149,26 @@ export const ModalImage = styled.div`
   img{
     border-radius: 5px;
   }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-icon{
+      z-index:2;
+    }
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      // height: 20px;
+      width: 20px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+       padding:0 2px 0 0;
+    }
+    .image-gallery-content 
+    .image-gallery-slide
+     .image-gallery-image{
+       max-height: 100% !important;
+     }
+  }
 `;
 
 

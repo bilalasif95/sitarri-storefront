@@ -3,18 +3,18 @@ import * as React from "react";
 import { CachedImage } from "@components/molecules";
 
 import  Carousel  from "../../../src/components/Carousel";
-// import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
+import { ProductDetails_product_images } from "./gqlTypes/ProductDetails";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
 const GalleryCarousel: React.FC<{
-  images: any;
+  images: ProductDetails_product_images[];
 }> = ({ images }) => (
   <div className="product-page__product__gallery">
     <Carousel
       productDetails={"productDetails"}
-      renderCenterLeftControls={() => null}
-      renderCenterRightControls={() => null}
+      // renderCenterLeftControls={() => null}
+      // renderCenterRightControls={() => null}
       // renderBottomCenterControls={props => {
       //   const indexes = [];
 
@@ -37,11 +37,11 @@ const GalleryCarousel: React.FC<{
       //   );
       // }}
     >
-      {/* {images.map(image => ( */}
-        <CachedImage url={images || noPhotoImg}>
+      {images.map(image => (
+        <CachedImage url={image.url || noPhotoImg} key={image.id}>
           <img src={noPhotoImg} />
         </CachedImage>
-      {/* ))} */}
+      ))} 
     </Carousel>
   </div>
 );
