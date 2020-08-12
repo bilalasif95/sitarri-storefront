@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { TaxedMoney } from "@components/containers";
-import { Thumbnail } from "@components/molecules";
+// import { Thumbnail } from "@components/molecules";
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -42,7 +42,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
     }
   };
   const tempArray: any = [];
-  product.images.map((image: any) => tempArray.push({ original: image.url }));
+  product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
 
   return (
     <>
@@ -128,7 +128,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
                 </S.Left>
                 <S.Right>
                   <S.Imgbox>
-                    {product.images && product.images[0] ? <Thumbnail source={product.images[0].url} />
+                    {item.node.images && item.node.images[0] ? <img src={item.node.images[0].url} />
                     : <img src={noPhotoImg} />}
                   </S.Imgbox>
                 </S.Right>
@@ -158,7 +158,8 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
           >
             <S.Top>
               <S.ModalImage>
-                <Thumbnail source={product} />
+                {product.logo ? <img width="100%" src={product.logo} />
+                : <img src={noPhotoImg} />}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>

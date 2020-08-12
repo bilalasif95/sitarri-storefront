@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import { Link } from "react-router-dom";
 
 import { TaxedMoney } from "@components/containers";
-import { Thumbnail } from "@components/molecules";
+// import { Thumbnail } from "@components/molecules";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
@@ -40,7 +40,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
     }
   };
   const tempArray: any = [];
-  product.images.map((image: any) => tempArray.push({ original: image.url }));
+  product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
 
   return (
     <>
@@ -121,7 +121,8 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
             <S.Top>
               <S.ModalImage>
                 {/* <img src={tileimg} /> */}
-                <Thumbnail source={product} />
+                {product.logo ? <img width="100%" src={product.logo} />
+                : <img src={noPhotoImg} />}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>

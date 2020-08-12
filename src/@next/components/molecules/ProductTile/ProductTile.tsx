@@ -8,7 +8,7 @@ import ImageGallery from 'react-image-gallery';
 
 // import { Slide } from 'react-slideshow-image';
 import { TaxedMoney } from "@components/containers";
-import { Thumbnail } from "@components/molecules";
+// import { Thumbnail } from "@components/molecules";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
@@ -45,14 +45,15 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
 
   const tempArray: any = [];
   product.images.map((image: any) => tempArray.push({ original: image.url }));
+
   return (
     <>
       <S.Wrapper data-cy="product-tile">
         <S.Top>
-          <S.Image>
+          <S.Image onClick={onModalClicked}>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-            <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+            <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
               : <img src={noPhotoImg} className="noImg" />}
             </S.Image>
           <S.Content>
@@ -105,7 +106,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             </S.Left>
             <S.Right>
               <S.Imgbox>
-                {product.store.images && product.store.images[0] ? <Thumbnail source={product.store.images && product.store.images[0] && product.store.images[0].url} />
+                {product.store.logo && product.store.logo ? <img src={product.store.logo} />
                 : <img src={noPhotoImg} />}
               </S.Imgbox>
             </S.Right>
@@ -128,7 +129,10 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           >
             <S.Top>
               <S.ModalImage>
-                <Thumbnail source={product} />
+              {tempArray.length > 0 ?
+                <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+                : <img src={noPhotoImg} className="noImg" />}
+                {/* <Thumbnail source={product} /> */}
                 {/* <ImageGallery  onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
               </S.ModalImage>
               <S.Content>

@@ -84,19 +84,27 @@ class Page extends React.PureComponent<
     //   return product.images;
     // }
 
-    return product.images && product.images;
+    // return product.images && product.images;
+    return product.logo && product.logo;
   };
 
   renderImages = product => {
     const images = this.getImages();
-    if (images && images.length) {
-      return images.map(image => (
-        <a href={image.url} target="_blank">
-          <CachedImage url={image.url} key={image.id}>
+    // if (images && images.length) {
+    //   return images.map(image => (
+    //     <a href={image.url} target="_blank">
+    //       <CachedImage url={image.url} key={image.id}>
+    //         <Thumbnail source={product} />
+    //       </CachedImage>
+    //     </a>
+    //   ));
+    // }
+     if (images && images) {
+      return <a href={images} target="_blank">
+          <CachedImage url={images}>
             <Thumbnail source={product} />
           </CachedImage>
         </a>
-      ));
     }
     return <CachedImage />;
   };
@@ -120,7 +128,8 @@ class Page extends React.PureComponent<
           <script className="structured-data-list" type="application/ld+json">
             {/* {structuredData(product)} */}
           </script>
-          {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
+          {/* {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} /> */}
+          {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
           : <div className="noPicText">No photo available</div>}
 
         </div>
