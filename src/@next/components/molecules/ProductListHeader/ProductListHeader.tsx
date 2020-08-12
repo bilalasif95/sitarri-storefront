@@ -43,27 +43,27 @@ const sortOptionsByDistance = [
   },
   {
     label: "0-100m",
-    value: { value: 100, symbol: "M" },
+    value: { value: 100, symbol: "METER" },
   },
   {
     label: "<500m",
-    value: { value: 500, symbol: "M" },
+    value: { value: 500, symbol: "METER" },
   },
   {
     label: "<1km",
-    value: { value: 1, symbol: "Km" },
+    value: { value: 1, symbol: "KILOMETER" },
   },
   {
     label: "<5km",
-    value: { value: 5, symbol: "Km" },
+    value: { value: 5, symbol: "KILOMETER" },
   },
   {
     label: "<10km",
-    value: { value: 10, symbol: "Km" },
+    value: { value: 10, symbol: "KILOMETER" },
   },
   {
     label: ">10km",
-    value: { value: 0, symbol: "Km" },
+    value: { value: 0, symbol: "KILOMETER" },
   },
 ];
 const sortOptionsByBusiness = [

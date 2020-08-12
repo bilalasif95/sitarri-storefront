@@ -24,7 +24,7 @@ export const ProductList: React.FC<IProps> = ({
 
   return (
     <>
-      {(products.length > 0 || stores.length > 0) ?
+      {(products.length > 0 || stores && stores.length > 0) ?
         <S.ProductList>
           {/* first condation for filter */}
           {activeSortTypeBase === "Only Products" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? products.length > 0 ?
@@ -39,16 +39,16 @@ export const ProductList: React.FC<IProps> = ({
             <div>
               <h3>Business</h3>
               <Carousel productDetails={"productList"}>
-                {stores.map(product => (
+                {stores && stores.map(product => (
                   <BusinessTile product={product} />
                 ))}
               </Carousel>
             </div> : "" : ""}
           {(activeSortTypeBase === "" || activeSortTypeBase === "Clear...") &&
             <>
-              < h3 > {stores.length > 0 ? "All Results" : ""}</h3>
+              < h3 > {stores && stores.length > 0 ? "All Results" : ""}</h3>
               <S.List>
-                {stores.map(product => (
+                {stores && stores.map(product => (
                   <AllProducts product={product} />
                 ))}
               </S.List>

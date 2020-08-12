@@ -78,7 +78,7 @@ const Page: React.FC<PageProps> = ({
           <ProductList
             activeSortTypeBase={activeSortTypeBase}
             products={products.edges.map(edge => edge.node)}
-            stores={stores.edges.map(edge => edge.node)}
+            stores={stores && stores.edges.map(edge => edge.node)}
             loading={displayLoader}
           />
         )}

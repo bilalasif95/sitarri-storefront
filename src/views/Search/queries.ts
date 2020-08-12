@@ -84,13 +84,14 @@ export const searchProductsQuery = gql`
     $latitude: Float
     $Price:PriceRangeInput
     $businessCategory:String
+    $location: LocationFilterInput
   ) {
     search(query: $query) {
     products(
       filter: { search: $query, attributes: $attributes, 
-       businessCategory: $businessCategory 
+       businessCategory: $businessCategory ,
         price:$Price,
-       
+        location: $location
         }
       first: $pageSize
       sortBy: $sortBy
@@ -150,7 +151,7 @@ export const searchProductsQuery = gql`
         }
       }
     }
-    stores(first: $pageSize) {
+    stores(filter: {location: $location} first: $pageSize ) {
       edges {
         node {
           name

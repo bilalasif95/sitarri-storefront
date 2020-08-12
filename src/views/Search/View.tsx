@@ -21,30 +21,30 @@ export const View: React.FC<ViewProps> = ({ match }) => {
   const [sortTypeBase, setSortTypeBase] = React.useState({ label: "", value: "" });
   const [sortDistanceBase, setSortDistanceBase] = React.useState({
     label: "",
-    value: { value: 0, symbol: "" },
+    value: { value: -1, symbol: "KILOMETER" },
   });
 
   const [sort] = useQueryParam("sortBy", StringParam);
   const [lat] = useQueryParam("lat", StringParam);
   const [long] = useQueryParam("long", StringParam);
-  const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
+  // const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
   const [search, setSearch] = useQueryParam("q", StringParam);
 
-  const getCurrentLocation = () => {
-    navigator.geolocation.watchPosition(
-      (position) => {
-        setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude })
-      },
-      (error) => {
-        setLocation({ latitude: 0, longitude: 0 })
-      },
-      {
+  // const getCurrentLocation = () => {
+  //   navigator.geolocation.watchPosition(
+  //     (position) => {
+  //       setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude })
+  //     },
+  //     (error) => {
+  //       setLocation({ latitude: 0, longitude: 0 })
+  //     },
+  //     {
 
-        enableHighAccuracy: true,
-        maximumAge: 250,
-      }
-    );
-  }
+  //       enableHighAccuracy: true,
+  //       maximumAge: 250,
+  //     }
+  //   );
+  // }
 
   const variables = {
     businessCategory: sortBusinessBase.value,
@@ -52,8 +52,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     latitude: lat,
     location: {
       distance: sortDistanceBase.value,
-      latitude: location.latitude,
-      longitude: location.longitude,
+      latitude: lat,
+      longitude: long,
     },
     longitude: long,
     pageSize: PRODUCTS_PER_PAGE,
@@ -105,7 +105,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     setSortTypeBase(value)
                   }
                   else if (type === "DistanceBase") {
-                    getCurrentLocation()
+                    // getCurrentLocation()
                     setSortDistanceBase(value)
                     CallApi()
                   }
