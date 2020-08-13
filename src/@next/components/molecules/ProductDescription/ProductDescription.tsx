@@ -1,7 +1,9 @@
 import React from "react";
 
-// import { RichTextContent } from "@components/atoms";
+import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
+
+import noPhotoImg from "../../../../images/no-photo.svg";
 
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -45,12 +47,13 @@ export const ProductDescription: React.FC<IProps> = ({
             <div className="item">
               <div className="desc">
                 <h4>{item.node.name}</h4>
-                <p className="descr">{item && item.node.description}</p>
+                <p className="descr"><RichTextContent descriptionJson={item && item.node.descriptionJson} /></p>
                 <p className="price"><TaxedMoney taxedMoney={item && item.node.pricing && item.node.pricing.priceRange && item.node.pricing.priceRange.start ? item.node.pricing.priceRange.start: undefined} /></p>
                 {/* <p className="price">${item && item.node.pricing.priceRange.start.gross.amount}</p> */}
               </div>
               <div className="catimg">
-                <img src={item.node.images && item.node.images[0] && item.node.images[0].url} />
+                {item.node.images.length !== 0 ? <img src={item.node.images && item.node.images[0] && item.node.images[0].url} />
+                : <img src={noPhotoImg} />}
               </div>
             </div>
           )}

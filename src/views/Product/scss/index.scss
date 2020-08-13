@@ -74,6 +74,13 @@
           text-align: left;
           color: #777878;
           line-height: normal;
+          div {
+            p {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
         }
         .price {
           font-size: 12px;
@@ -85,11 +92,12 @@
           padding: 0 0.5rem 0 0;
         }
         .catimg {
-          width: 25%;
+          width: 80px;
           overflow: hidden;
           display: flex;
           align-items: center;
-          height: 100%;
+          height: 80px;
+          border-radius: 5px;
           img {
             width: 100%;
             border-radius: 5px;
