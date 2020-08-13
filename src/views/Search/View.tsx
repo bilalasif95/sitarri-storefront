@@ -51,7 +51,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     id: getGraphqlIdFromDBId(match.params.id, "Category"),
     latitude: lat,
     location: {
-      distance: sortDistanceBase.value,
+      distance: sortDistanceBase.value ? sortDistanceBase.value : { value: -1, symbol: "KILOMETER" },
       latitude: lat,
       longitude: long,
     },
