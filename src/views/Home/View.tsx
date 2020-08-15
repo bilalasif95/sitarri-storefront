@@ -111,7 +111,7 @@ const View: React.FC = (props: any) => {
                 <span className="searchicon">
                   <img src={locationicon} onClick={() => locationPermission()} className="lc" />
                   {/* <ReactSVG path={searchicon} /> */}
-                  <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{
+                  <svg xmlns="https://www.w3.org/2000/svg" onClick={()=>{
                 if(search !== null && search !== ""){
                     return props.history.push(`${searchUrl}?${searchQs(search)}`)
                 }
