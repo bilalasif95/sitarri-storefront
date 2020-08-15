@@ -88,7 +88,7 @@ export const Items = styled.div`
   margin: 0 auto;
 
   span {
-    background-color: ${props => props.theme.colors.secondary};
+    background-color: #f34928;
     width: 1rem;
     height: 1rem;
     border-radius: 1rem;

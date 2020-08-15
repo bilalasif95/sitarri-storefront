@@ -82,6 +82,13 @@ max-height: 34px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
+div {
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
 `;
 
 export const Price = styled.p`

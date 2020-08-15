@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 
-// import { Button, Loader } from "@components/atoms";
+import { Loader } from "@components/atoms";
 import { BusinessTile, ProductTile } from "@components/molecules";
 import Carousel from "../../../../../src/components/Carousel";
 
@@ -18,11 +18,13 @@ export const ProductList: React.FC<IProps> = ({
   products,
   stores,
   canLoadMore = false,
-  loading = false,
+  loading,
   onLoadMore = () => null,
 }: IProps) => {
 
   return (
+    <>
+    {!loading ?
     <>
       {(products.length > 0 || stores && stores.length > 0) ?
         <S.ProductList>
@@ -71,6 +73,8 @@ export const ProductList: React.FC<IProps> = ({
       </S.Loader> */}
         </S.ProductList >
         : <S.NoResult>No result found...</S.NoResult>}
+        </>
+        : <Loader />}
     </>
   );
 };

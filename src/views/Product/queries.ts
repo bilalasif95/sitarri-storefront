@@ -172,6 +172,7 @@ export const productDetailsQuery = gql`
               products(first:100){
                 edges{
             node{
+              id
              name
               pricing{
                 priceRange{

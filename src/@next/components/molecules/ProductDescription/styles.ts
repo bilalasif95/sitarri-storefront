@@ -1,4 +1,11 @@
 import { media, styled } from "@styles";
+import { css } from "styled-components";
+
+const textProps = css`
+  font-size: ${props => props.theme.typography.baseFontSize};
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+`;
 
 export const Wrapper = styled.div``;
 
@@ -36,6 +43,95 @@ export const Tabs = styled.div`
   overflow: hidden;
   padding: 1rem;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+`;
+
+export const Top = styled.div`
+  background: #fff;
+  transition: 0.3s;
+
+`;
+
+export const ModalImage = styled.div`
+  width: 100%
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    border-radius: 5px;
+  }
+  .image-gallery{
+    width: 100%;
+    .image-gallery-icon{
+      z-index:2;
+    }
+    .image-gallery-left-nav .image-gallery-svg, 
+    .image-gallery-right-nav .image-gallery-svg {
+      // height: 20px;
+      width: 20px;
+    }
+    .image-gallery-slide{
+      width: 75%;
+      padding:0 2px 0 0;
+    }
+    .image-gallery-content 
+    .image-gallery-slide
+     .image-gallery-image{
+       max-height: 100% !important;
+     }
+  }
+`;
+
+export const Content = styled.div`
+  padding: 1rem;
+  position: relative;
+`;
+
+export const ModalLink = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  color: #000;
+  font-size: 12px;
+  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+`;
+
+export const Title = styled.h4`
+  font-weight: normal;
+  ${textProps}
+  margin: 0 0 0.3rem;
+  color: #111212;
+`;
+
+export const Desc = styled.p`
+font-weight: normal;
+font-size: 12px;
+text-align: left;
+color: #777878;
+line-height: normal;
+max-height: 34px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+div {
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+`;
+
+export const Price = styled.p`
+  font-size: 12px
+  color: #ff7f56;
+  text-align: left;
 `;
 
 export const TabList = styled.div`
