@@ -2,6 +2,8 @@ import React from "react";
 
 import { DropdownSelect } from "@components/atoms";
 
+import { BusinessesQuery } from "./queries";
+
 import * as S from "./styles";
 import { IProps } from "./types";
 
@@ -66,29 +68,29 @@ const sortOptionsByDistance = [
     value: { value: 0, symbol: "KILOMETER" },
   },
 ];
-const sortOptionsByBusiness = [
-  {
-    label: "Clear...",
-    value: null,
-  },
-  {
-    label: "Cafe",
-    value: "cafe",
-  },
-  {
-    label: "Restaurant",
-    value: "restaurant",
-  },
-  {
-    label: "Grocery",
-    value: "grocery",
-  },
-  {
-    label: "Hardware",
-    value: "hardware",
-  },
+// const sortOptionsByBusiness = [
+//   {
+//     label: "Clear...",
+//     value: null,
+//   },
+//   {
+//     label: "Cafe",
+//     value: "cafe",
+//   },
+//   {
+//     label: "Restaurant",
+//     value: "restaurant",
+//   },
+//   {
+//     label: "Grocery",
+//     value: "grocery",
+//   },
+//   {
+//     label: "Hardware",
+//     value: "hardware",
+//   },
 
-];
+// ];
 const sortOptionsByType = [
   {
     label: "Clear...",
@@ -135,15 +137,20 @@ export const ProductListHeader: React.FC<IProps> = ({
         </S.Element>
         <S.Element>
           <S.Sort>
-            <DropdownSelect
-              sortBy="Category"
-              type="BusinessBase"
-              onChange={onChange}
-              options={sortOptionsByBusiness}
-              value={sortOptionsByBusiness.find(
-                option => option.label === activeSortBusinessType
-              )}
-            />
+            <BusinessesQuery>
+            {({ data }) => {
+              return(
+                <DropdownSelect
+                  sortBy="Category"
+                  type="BusinessBase"
+                  onChange={onChange}
+                  options={data && data.storesCategories}
+                  value={data && data.storesCategories.find(
+                    option => option.label === activeSortBusinessType
+                  )}
+                />
+              )}}
+            </BusinessesQuery>
           </S.Sort>
         </S.Element>
         <S.Element>
