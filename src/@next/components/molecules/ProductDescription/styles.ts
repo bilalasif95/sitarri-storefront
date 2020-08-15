@@ -46,6 +46,21 @@ export const TabList = styled.div`
   width: 100%;
 `;
 
+export const TabsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  button {
+    display: flex;
+    align-items: center;
+    color: #f2492b;
+    svg {
+      margin-left: 5px;
+    }
+  }
+`;
+
 export const Sectitle = styled.div`
   font-weight: 400;
   font-size: 16px;
@@ -60,12 +75,16 @@ export const TabTitle = styled.div<{ active?: boolean }>`
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.02em;
-  color: ${props => props.active && props.theme.colors.tabTitle};
+  color: ${props => props.active ? props.theme.colors.tabTitle:"#f34928"};
   padding: 0.5rem 1rem;
   text-transform: capitalize;
   text-align: center;
-  background: ${props => props.active ? '#f74b2c' : 'none'};
+  background: ${props => props.active ? '#f34928' : 'none'};
   border-radius: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 120px;
+
 
   ${media.smallScreen`
     font-size: ${(props: any) => props.theme.typography.h4FontSize};
