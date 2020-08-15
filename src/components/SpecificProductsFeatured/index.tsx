@@ -35,7 +35,7 @@ const SpecificProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,
                   <h3>{title}</h3>
                   {/* <Carousel> */}
                   <div className="pro-list">
-                    {products.slice(0,4).map(({ node: product }) => (
+                    {products.slice(4,8).map(({ node: product }) => (
 
                       <div className="modalDiv" 
                       onClick={() => {
