@@ -2,6 +2,7 @@ import "./scss/index.scss";
 
 import * as React from "react";
 import { Link } from "react-router-dom";
+import ReactSVG from "react-svg";
 import { BASE_URL } from "../../core/config";
 import Button from "../Button";
 
@@ -14,7 +15,10 @@ interface NotFoundProps {
 const NotFound: React.FC<NotFoundProps> = () => (
   <div className="not-found-page">
     <h2 className="not-found-page__header">
-      <img src={PageNotImage} alt="Page not found"/>
+      <ReactSVG
+        path={PageNotImage}
+      />
+      {/* <img src={PageNotImage} alt="Page not found" /> */}
     </h2>
     <div className="not-found-page__ruler" />
     <div className="not-found-page__message">
