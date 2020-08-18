@@ -70,7 +70,7 @@ const search: React.FC = (props: any) => {
 
     return <>
         <div className="searchfield">
-            <input type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
+            <input ref={ref} type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
             <span className="searchicon" onClick={()=>{
                 if(search !== null && search !== ""){
                     return props.history.push(`${searchUrl}?${searchQs(search)}`)
@@ -105,21 +105,21 @@ const search: React.FC = (props: any) => {
 
                                     {data.search.stores.edges.map((store: any) => (
 
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(store.node.name)}>
+                                        <div className="items" onClick={() => SeeDetails(store.node.name)}>
                                             <p>{store.node.name}</p>
                                         </div>
 
                                     ))}
                                     {data.search.products.edges.map((product: any) => (
 
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(product.node.name)}>
+                                        <div className="items" onClick={() => SeeDetails(product.node.name)}>
                                             <p>{product.node.name}</p>
                                         </div>
 
                                     ))}
                                     {data.search.categories.edges.map((cat: any) => (
 
-                                        <div ref={ref} className="items" onClick={() => SeeDetails(cat.node.name)}>
+                                        <div className="items" onClick={() => SeeDetails(cat.node.name)}>
                                             <p>{cat.node.name}</p>
                                         </div>
 

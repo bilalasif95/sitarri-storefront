@@ -24,39 +24,39 @@ export const ProductList: React.FC<IProps> = ({
 
   return (
     <>
-    {!loading ?
-    <>
-      {(products.length > 0 || stores && stores.length > 0) ?
-        <S.ProductList>
-          {/* first condation for filter */}
-          {activeSortTypeBase === "Only Products" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? products.length > 0 ?
-            <div>
-              <h3>Products</h3>
-              <Carousel productDetails={"productList"}>
-                {products.map(product => (
-                  <ProductTile product={product} />
-                ))}
-              </Carousel></div> : <div></div> : <div></div>}
-          {activeSortTypeBase === "Only Stores" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? stores.length > 0 ?
-            <div>
-              <h3>Business</h3>
-              <Carousel productDetails={"productList"}>
-                {stores && stores.map(product => (
-                  <BusinessTile product={product} />
-                ))}
-              </Carousel>
-            </div> : "" : ""}
-          {(activeSortTypeBase === "" || activeSortTypeBase === "Clear...") &&
-            <>
-              < h3 > {stores && stores.length > 0 ? "All Results" : ""}</h3>
-              <S.List>
-                {stores && stores.map(product => (
-                  <AllProducts product={product} />
-                ))}
-              </S.List>
-            </>
-          }
-          {/* <S.Loader>
+      {!loading ?
+        <>
+          {(products.length > 0 || stores && stores.length > 0) ?
+            <S.ProductList>
+              {/* first condition for filter */}
+              {activeSortTypeBase === "Only Products" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? products.length > 0 ?
+                <div>
+                  <h3>Products</h3>
+                  <Carousel dragging={false} productDetails={"productList"}>
+                    {products.map(product => (
+                      <ProductTile product={product} />
+                    ))}
+                  </Carousel></div> : <div></div> : <div></div>}
+              {activeSortTypeBase === "Only Stores" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? stores.length > 0 ?
+                <div>
+                  <h3>Business</h3>
+                  <Carousel dragging={false} productDetails={"productList"}>
+                    {stores && stores.map(product => (
+                      <BusinessTile product={product} />
+                    ))}
+                  </Carousel>
+                </div> : "" : ""}
+              {(activeSortTypeBase === "" || activeSortTypeBase === "Clear...") &&
+                <>
+                  < h3 > {stores && stores.length > 0 ? "All Results" : ""}</h3>
+                  <S.List>
+                    {stores && stores.map(product => (
+                      <AllProducts product={product} />
+                    ))}
+                  </S.List>
+                </>
+              }
+              {/* <S.Loader>
         {loading ? (
           <Loader />
         ) : (
@@ -71,8 +71,8 @@ export const ProductList: React.FC<IProps> = ({
             )
           )}
       </S.Loader> */}
-        </S.ProductList >
-        : <S.NoResult>No result found...</S.NoResult>}
+            </S.ProductList >
+            : <S.NoResult>No result found...</S.NoResult>}
         </>
         : <Loader />}
     </>

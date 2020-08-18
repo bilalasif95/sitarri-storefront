@@ -107,7 +107,7 @@ const View: React.FC = (props: any) => {
             <div className="searchbox">
               <h2>Find businesses and products near you</h2>
               <div className="searchfield">
-                <input type="txt" placeholder="Search" value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
+                <input ref={ref} type="txt" placeholder="Search" value={search} className="form-control" onChange={(e) => SetSearchEvent(e)} />
                 <span className="searchicon">
                   <img src={locationicon} onClick={() => locationPermission()} className="lc" />
                   {/* <ReactSVG path={searchicon} /> */}
@@ -143,21 +143,21 @@ const View: React.FC = (props: any) => {
 
                             {data.search.stores.edges.map((store:any) => (
 
-                              <div ref={ref} className="items" onClick={() => SeeDetails(store.node.name)}>
+                              <div className="items" onClick={() => SeeDetails(store.node.name)}>
                                 <p>{store.node.name}</p>
                               </div>
 
                             ))}
                             {data.search.products.edges.map((product:any) => (
 
-                              <div ref={ref} className="items" onClick={() => SeeDetails(product.node.name)}>
+                              <div className="items" onClick={() => SeeDetails(product.node.name)}>
                                 <p>{product.node.name}</p>
                               </div>
 
                             ))}
                             {data.search.categories.edges.map((cat:any) => (
 
-                              <div ref={ref} className="items" onClick={() => SeeDetails(cat.node.name)}>
+                              <div className="items" onClick={() => SeeDetails(cat.node.name)}>
                                 <p>{cat.node.name}</p>
                               </div>
 
