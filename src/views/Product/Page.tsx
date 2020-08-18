@@ -120,6 +120,23 @@ class Page extends React.PureComponent<
         items={productInfo}
       />
     );
+    const today = new Date();
+    const start = new Date();
+    const end = new Date();
+    const [openTime,openFormat] = productInfo.openingHours.split(" ")
+    const openHoursMinutes = openTime.split(":")
+    const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0])+12 : Number(openHoursMinutes[0])
+    const openMinutes = Number(openHoursMinutes[1])
+    
+    const [closingTime,closingFormat] = productInfo.closingHours.split(" ")
+    const closingHoursMinutes = closingTime.split(":")
+    const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0])+12 : Number(closingHoursMinutes[0])
+    const closingMinutes = Number(closingHoursMinutes[1])
+    start.setHours(openHours);
+    start.setMinutes(openMinutes);
+    end.setHours(closingHours);
+    end.setMinutes(closingMinutes);
+
     return (
       <div className="product-page">
 
@@ -210,11 +227,18 @@ class Page extends React.PureComponent<
                 {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
                   <div className="open-time">
                     <ReactSVG path={clock} />
-                    <div className="timing">
-                      <p>Open: {productInfo.openingHours}</p>
-                      <span />
-                      <p>Close: {productInfo.closingHours}</p>
-                    </div>
+                    {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
+                      <div className="timing">
+                        <p style={{color: "green"}}>Open</p>
+                        <span />
+                        <p>Closes {productInfo.closingHours}</p>
+                      </div>
+                      : 
+                      <div className="timing">
+                        <p style={{color: "red"}}>Closed</p>
+                        <span />
+                        <p>Opens {productInfo.openingHours}</p>
+                      </div>}
                   </div>}
               </div>
             : <>

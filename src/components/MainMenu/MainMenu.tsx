@@ -26,13 +26,13 @@ import { maybe } from "../../core/utils";
 // import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
 
+import backIcon from "../../images/Back_arrow.svg";
 // import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";
 // import homeicon from "../../images/homeicon.svg";
 // import arrowdown from "../../images/iconmonstr-arrow-64.svg";
 import logoImg from "../../images/sittari.svg";
-
 // import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
 import Search from "./search"
@@ -45,7 +45,6 @@ const MainMenu: React.FC = () => {
   // const handleSignOut = () => {
   //   signOut();
   // };
-
   return (
     <OverlayContext.Consumer>
 
@@ -55,35 +54,39 @@ const MainMenu: React.FC = () => {
             <div className="container">
               <div className="main-menu">
                 {window.innerWidth <= 540 ?
-                <Media query={{
-                  maxWidth: smallScreen,
-                }}>
-                {window.location.hash === "#/" ?
-                <div className="main-menu__left">
-                  <Link to={appPaths.baseUrl}>
-                    <ReactSVG path={logoImg} />
-                  </Link>
-                </div>
-                : ""}
-                </Media>
-                : <div className="main-menu__left">
-                <Link to={appPaths.baseUrl}>
-                  <ReactSVG path={logoImg} />
-                </Link>
-              </div>}
-              {window.innerWidth <= 540 ?
-                <Media query={{
-                  maxWidth: smallScreen,
-                }}>
-                {window.location.hash !== "#/" ?
-                <div className="main-menu__center">
-                  <Search />
-                </div>
-                : <div className="main-menu__center"></div>}
-                </Media>
-                : <div className="main-menu__center">
-                <Search />
-              </div>}
+                  <Media query={{
+                    maxWidth: smallScreen,
+                  }}>
+                    {window.location.hash === "#/" ?
+                      <div className="main-menu__left">
+                        <Link to={appPaths.baseUrl}>
+                          <ReactSVG path={logoImg} />
+                        </Link>
+                      </div>
+                      :
+                      window.location.hash.includes("#/product/") ?
+                        <div className="main-menu__backIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                        : ""
+                    }
+                  </Media>
+                  : <div className="main-menu__left">
+                    <Link to={appPaths.baseUrl}>
+                      <ReactSVG path={logoImg} />
+                    </Link>
+                  </div>}
+                {window.innerWidth <= 540 ?
+                  <Media query={{
+                    maxWidth: smallScreen,
+                  }}>
+                    {window.location.hash !== "#/" ?
+                      <div className="main-menu__center">
+                        <Search />
+                      </div>
+                      : <div className="main-menu__center"></div>}
+                  </Media>
+                  : <div className="main-menu__center">
+                    <Search />
+                  </div>}
                 <div className="main-menu__right">
                   <ul>
                     {/* <Online>
@@ -92,27 +95,27 @@ const MainMenu: React.FC = () => {
                         render={() => (
                           <> */}
                     {/* {user ? ( */}
-                      <li className="main-menu__icon main-menu__user--active border" onClick={() => window.open(ADMIN_PANEL_LINK)}>
-                        <svg xmlns="https://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg>
-                        <span>Partner with us</span>
-                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
-                      </li>
+                    <li className="main-menu__icon main-menu__user--active border" onClick={() => window.open(ADMIN_PANEL_LINK)}>
+                      <svg xmlns="https://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" /></svg>
+                      <span>Partner with us</span>
+                      <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
+                    </li>
                     {/* <MenuDropdown
                       head={
                         <li className="main-menu__icon main-menu__user--active border">
                           <svg xmlns="https://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z"/></svg> */}
-                          {/* <ReactSVG path={homeicon} /> */}
-                          {/* <span>Partner with us</span>
+                    {/* <ReactSVG path={homeicon} /> */}
+                    {/* <span>Partner with us</span>
                           <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg> */}
-                          {/* <ReactSVG path={arrowdown} className="ad" /> */}
-                        {/* </li>
+                    {/* <ReactSVG path={arrowdown} className="ad" /> */}
+                    {/* </li>
                       }
                       content={
                         <ul className="main-menu__dropdown">
                           <li data-testid="my_account__link">
                             <Link to={appPaths.accountUrl}>My Account</Link>
                           </li> */}
-                          {/* <li data-testid="order_history__link">
+                    {/* <li data-testid="order_history__link">
                             <Link to={appPaths.orderHistoryUrl}>
                               Order history
                                 </Link>
@@ -122,7 +125,7 @@ const MainMenu: React.FC = () => {
                               Address book
                                 </Link>
                           </li> */}
-                          {/* <li
+                    {/* <li
                             onClick={handleSignOut}
                             data-testid="logout-link"
                           >
@@ -209,6 +212,7 @@ const MainMenu: React.FC = () => {
                       const items = maybe(() => data.shop.navigation.main.items, []);
                       return (
                         <ul>
+                          {!window.location.hash.includes("#/product/") ?
                           <Media
                             query={{ maxWidth: mediumScreen }}
                             render={() => (
@@ -232,7 +236,7 @@ const MainMenu: React.FC = () => {
                                 />
                               </li>
                             )}
-                          />
+                          /> : ""}
                           {/* <Media
                       query={{ minWidth: mediumScreen }}
                       render={() =>

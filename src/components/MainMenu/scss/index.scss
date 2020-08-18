@@ -25,6 +25,17 @@
     justify-content: flex-start;
   }
 
+  &__backIcon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    svg {
+      path:last-child {
+        fill: #f34928
+      }
+    }
+  }
+
   &__right {
     // width: 20%;
     display: flex;

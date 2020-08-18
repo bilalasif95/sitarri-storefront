@@ -72,7 +72,7 @@ export const ModalImage = styled.div`
       width: 20px;
     }
     .image-gallery-slide{
-      width: 75%;
+      // width: 75%;
       padding:0 2px 0 0;
     }
     .image-gallery-content 

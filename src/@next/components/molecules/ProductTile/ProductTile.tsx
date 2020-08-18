@@ -46,6 +46,23 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
   const tempArray: any = [];
   product.images.map((image: any) => tempArray.push({ original: image.url }));
 
+  const today = new Date();
+  const start = new Date();
+  const end = new Date();
+  const [openTime, openFormat] = product.store.openingHours.split(" ")
+  const openHoursMinutes = openTime.split(":")
+  const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0]) + 12 : Number(openHoursMinutes[0])
+  const openMinutes = Number(openHoursMinutes[1])
+
+  const [closingTime, closingFormat] = product.store.closingHours.split(" ")
+  const closingHoursMinutes = closingTime.split(":")
+  const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0]) + 12 : Number(closingHoursMinutes[0])
+  const closingMinutes = Number(closingHoursMinutes[1])
+  start.setHours(openHours);
+  start.setMinutes(openMinutes);
+  end.setHours(closingHours);
+  end.setMinutes(closingMinutes);
+
   return (
     <>
       <S.Wrapper data-cy="product-tile">
@@ -53,9 +70,9 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-            <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
               : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
-            </S.Image>
+          </S.Image>
           <S.Content>
             <S.Link>
               <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
@@ -73,13 +90,26 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             <S.Left>
               <S.Title>{product.store.name}</S.Title>
               {product.store.openingHours !== "" && product.store.closingHours !== "" &&
-              <S.Timing>
-                <S.Open>Open: {product.store.openingHours}</S.Open>
-                <S.Close>
-                  <span />
-              Close: {product.store.closingHours}
-                </S.Close>
-              </S.Timing>}
+                <>
+                  {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
+                    <S.Timing>
+                      <S.Open style={{ color: "green" }}>Open </S.Open>
+                      <S.Close>
+                        <span />
+              Closes {product.store.closingHours}
+                      </S.Close>
+                    </S.Timing>
+                    :
+                    <S.Timing>
+                      <S.Open style={{ color: "red" }}>Closed </S.Open>
+                      <S.Close>
+                        <span />
+              Opens {product.store.openingHours}
+                      </S.Close>
+                    </S.Timing>
+                  }
+                </>
+              }
               <S.Likes>
                 <S.Nos>{product.store.rating}</S.Nos>
 
@@ -99,15 +129,15 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               </S.Close>
               </S.Likes>
               {product.store.distance &&
-              <S.Location>
-                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                <S.Miles>{product.store.distance}</S.Miles>
-              </S.Location>}
+                <S.Location>
+                  <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                  <S.Miles>{product.store.distance}</S.Miles>
+                </S.Location>}
             </S.Left>
             <S.Right>
               <S.Imgbox>
                 {product.store.logo && product.store.logo ? <img src={product.store.logo} />
-                : <img src={noPhotoImg} />}
+                  : <img src={noPhotoImg} />}
               </S.Imgbox>
             </S.Right>
           </S.Bottom>
@@ -129,10 +159,10 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           >
             <S.Top>
               <S.ModalImage>
-              {tempArray.length > 0 ?
-                <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-                : <img src={noPhotoImg} className="noImg" />}
-              {/* <Thumbnail source={product} /> */}
+                {tempArray.length > 0 ?
+                  <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+                  : <img src={noPhotoImg} className="noImg" />}
+                {/* <Thumbnail source={product} /> */}
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
