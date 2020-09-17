@@ -21,16 +21,16 @@ const sortOptionsByPrice = [
     value: { gte: 11, lte: 20 },
   },
   {
-    label: "£20-30",
-    value: { gte: 20, lte: 30 },
+    label: "£21-30",
+    value: { gte: 21, lte: 30 },
   },
   {
-    label: "£30-40",
-    value: { gte: 30, lte: 40 },
+    label: "£31-40",
+    value: { gte: 31, lte: 40 },
   },
   {
-    label: "£40-50",
-    value: { gte: 40, lte: 50 },
+    label: "£41-50",
+    value: { gte: 41, lte: 50 },
   },
   {
     label: "£50+",
@@ -44,7 +44,7 @@ const sortOptionsByDistance = [
     value: null,
   },
   {
-    label: "0-100m",
+    label: "<100m",
     value: { value: 100, symbol: "METER" },
   },
   {
