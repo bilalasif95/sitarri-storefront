@@ -11,13 +11,13 @@ export const Wrapper = styled.div`
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
-  min-height: 416px;
+  min-height: 360px;
   background: #fff;
   &:hover {
     background: #fff;
   }
   ${media.smallScreen`
-  margin: 1rem 0;
+  margin: 1rem 3px;
 `}
 `;
 export const Top = styled.div`
@@ -34,8 +34,13 @@ export const Bottom = styled.div`
   background: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   align-items: center;
   border-top:  1px solid #ddd;
+  @media(max-width: 767px) {
+    padding: 20px 10px 20px 10px;
+    align-items: flex-end;
+  }
 `;
 
 export const Content = styled.div`
@@ -74,21 +79,40 @@ export const ModalLink = styled.div`
 `;
 
 export const Title = styled.h4`
-  font-weight: normal;
+  font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
   color: #111212;
-  min-height: 44px;
-  max-height: 44px;
+  margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 14px;
+  @media(max-width: 767px){
+    font-size: 13px;
+  }
+`;
+export const StoreTitle = styled.h4`
+  font-weight: 700;
+  ${textProps}
+  margin: 0 0 0.3rem;
+  color: #111212;
+  margin-bottom: 10px;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  @media(max-width: 767px){
+    font-size: 13px;
+    margin-bottom: 0px;
+  }
 `;
 
 export const Desc = styled.p`
 font-weight: normal;
-font-size: 12px;
+font-size: 14px;
 text-align: left;
 color: #777878;
 line-height: normal;
@@ -96,12 +120,16 @@ max-height: 34px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
+margin-bottom: 10px;
+@media(max-width: 767px){
+  font-size: 12px;
+}
 `;
 
 export const Price = styled.p`
-  font-size: 12px
-  color: #ff7f56;
+  font-size: 12px;
   text-align: left;
+  color: #40464A;
 `;
 
 export const Image = styled.div`
@@ -137,7 +165,7 @@ export const Image = styled.div`
       width: 10px;
     }
     .image-gallery-slide{
-      width: 75%;
+      width: 100%;
       padding:0 2px 0 0;
     }
     .image-gallery-content 
@@ -150,7 +178,6 @@ export const Image = styled.div`
   height: 130px;
 `}
 `;
-
 export const ModalImage = styled.div`
   width: 100%
   max-width: 100%;
@@ -172,7 +199,7 @@ export const ModalImage = styled.div`
       width: 20px;
     }
     .image-gallery-slide{
-      // width: 75%;
+      width: 100%;
       padding:0 2px 0 0;
     }
     .image-gallery-content 
@@ -184,22 +211,35 @@ export const ModalImage = styled.div`
 `;
 
 export const Left = styled.div`
-  width: 80%;
+  width: 60%;
+  padding: 0px 10px;
+  @media (max-width: 767px){
+    width: 67%;
+    margin-top: 5px;
+  }
 `;
 
 export const Right = styled.div`
-  width: 20%;
+  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media(max-width:767px){
+    width: 17%;
+    margin-top: 5px;
+  }
 `;
 export const Imgbox = styled.div`
   overflow: hidden;
-  height: 61px;
+  height: 51px;
+  border-radius: 100px;
   img{
     width: 100%;
     height: 100%;
     border-radius: 5px;
+  }
+  @media(max-width: 767px){
+    height: 45px;
   }
 `;
 
@@ -210,26 +250,40 @@ align-items: center;
 `;
 
 export const Open = styled.p`
-  font-size: 12px
+  font-size: 10px
   color: #1fa300;
   text-align: left;
-  margin: 0 0.5rem 0 0;
+  margin: 0 0.3rem 0 0;
 `;
 
 export const Close = styled.p`
-  font-size: 12px
+  font-size: 10px
   color: #666;
   text-align: left;
   display: flex;
   align-items: center;
   span{
-    width:2px;
+    width: 2px;
     height: 2px;
     display: block;
     background: #666;
-    margin: 0 0.5rem 0 0;
+    margin: 0 0.3rem 0 0rem;
+  }
+  @media (max-width: 767px){
+    // font-size: 12px
   }
 `;
+
+export const CardDetails = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+  @media(max-width: 767px){
+    margin-bottom: 0px;
+  }
+`;
+
 
 export const Likes = styled.div`
 display: flex;
@@ -238,10 +292,17 @@ align-items: center;
 `;
 
 export const Nos = styled.p`
-  font-size: 12px
-  color: #ff4b13;
+  font-size: 16px
+  color: #000;
+  font-weight: 600;
   text-align: left;
-  margin: 0 0.5rem 0 0;
+  // margin: 0 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+  @media (max-width: 767px){
+    font-size: 12px
+   }
+  
 `;
 
 export const Stars = styled.div`
@@ -262,26 +323,49 @@ svg:last-child{
 
 export const Location = styled.div`
 display: flex;
-justify-content: flex-start;
+justify-content: center;
 align-items: center;
+background: #FDECD1;
+border-radius: 3px;
+// padding: 1px 5px;
+width: 70%;
+margin-left: auto;
 svg{
   margin: 0 0.5rem 0 0;
-  fill: #000;
+  fill: #F39721;
+  width: 10px;
+
 }
 `;
 
+export const star = styled.p`
+  margin: 0px 10px;
+  svg{
+    path{
+      fill: #FBCE2E;
+    }
+  }
+`;
+
 export const Miles = styled.p`
-font-size: 12px
-color: #666;
+font-size: 10px
+color: #F39721;
 text-align: left;
-margin: 0 1rem 0 0;
+// margin: 0 1rem 0 0;
 `;
 
 export const Distance = styled.p`
-  font-size: 12px
-  color: #666;
+  font-size: 10px
+  color: #F39721;
   text-align: left;
-  margin: 0 1rem 0 0;
+  // margin: 0 1rem 0 0;
+`;
+export const Dist = styled.p`
+ width: 34%;
+ @media (max-width: 767px){
+  width: 36%;
+ }
+
 `;
 
 export const Address = styled.p`

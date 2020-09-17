@@ -4,8 +4,10 @@ import { Route, Switch } from "react-router-dom";
 import { CheckoutLogin, NotFound } from "../../components";
 import UserAccount, * as accountPaths from "../../userAccount/routes";
 import { OrderDetails } from "../../userAccount/views";
+import businessResourceCenter from "../../views/FooterPages/businessResourceCenter";
 import { Account, AccountConfirm } from "../../views/Account";
 import { ArticlePage } from "../../views/Article";
+import ContactUs from "../../views/FooterPages/ContactUs";
 import { CategoryPage } from "../../views/Category";
 import { CollectionPage } from "../../views/Collection";
 import PrivacyPolicy from "../../views/FooterPages/PrivacyPolicy";
@@ -39,6 +41,8 @@ export const Routes: React.FC = () => (
     <Route path={paths.checkoutUrl} component={CheckoutPage} />
     <Route path={paths.orderFinalizedUrl} component={ThankYouPage} />
     <Route path={paths.privacyPolicyUrl} component={PrivacyPolicy} />
+    <Route path={paths.contactUsUrl} component={ContactUs} />
+    <Route path={paths.businessResourceCenterUrl} component={businessResourceCenter} />
     <Route component={NotFound} />
   </Switch>
 );

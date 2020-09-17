@@ -17,3 +17,5 @@ export const passwordResetUrl = `${baseUrl}reset-password/`;
 export const checkoutUrl = `${baseUrl}checkout/`;
 export const orderFinalizedUrl = `${baseUrl}order-finalized/`;
 export const privacyPolicyUrl = `${baseUrl}privacy/`;
+export const contactUsUrl = `${baseUrl}contactUs/`;
+export const businessResourceCenterUrl = `${baseUrl}businessResourceCenter/`;

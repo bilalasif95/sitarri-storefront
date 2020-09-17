@@ -2,18 +2,21 @@
 
 .side-nav {
   $item-height: 3.55rem;
-  // max-width: calc(100vw - 5rem);
-  width: 100%;
-  background-color: #fafafa;
+  width: 30%;
+    background-color: #fafafa;
+    transition: 0.5s linear;
+    right: 0 !important;
+    position: absolute;
 
   .menu-list{
     min-height: 100vh;
+    padding: 0px 25px 0px 10px;
     // overflow-y: scroll;
-    margin: 1rem;
+    // margin: 1rem;
     // position: relative;
   }
   .regBtn{
-    background-color: #f3492b !important;
+    background-color: #092540 !important;
     padding: 1rem !important;
     border-radius: 4px;
     text-transform: none !important;
@@ -30,6 +33,7 @@
       transform: none;
       text-transform: capitalize;
       width: 100%;
+      font-size: 15px !important;
     }
   }
   .bcBtn{
@@ -185,5 +189,15 @@
         color: inherit;
       }
     }
+  }
+  @media (max-width:768px){
+    width: 100%;
+  }
+  .menu-list{
+    min-height: 100vh;
+    padding: 0px 10px 0px 10px;
+    // overflow-y: scroll;
+    // margin: 1rem;
+    // position: relative;
   }
 }

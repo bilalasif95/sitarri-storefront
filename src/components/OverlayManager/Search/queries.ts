@@ -37,7 +37,7 @@ import {
 //   }
 // `;
 const searchResultsQuery = gql`
-query SearchResults($query: String!){
+query SearchResults($query: String!, $longitude: Float, $latitude: Float){
   search(query:$query){
     products (first:100){
      edges{
@@ -45,6 +45,11 @@ query SearchResults($query: String!){
           name
           store{
             name
+            distance(longitude: $longitude, latitude: $latitude)
+            address {
+              streetAddress
+              city
+            }
           }
         }
       }
@@ -60,6 +65,11 @@ query SearchResults($query: String!){
      edges{
         node{
           name
+          distance(longitude: $longitude, latitude: $latitude)
+            address {
+              streetAddress
+              city
+            }
         }
       }
     }

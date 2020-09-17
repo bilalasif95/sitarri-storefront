@@ -34,8 +34,8 @@ const Footer: React.FC = () => (
                     <h4>About Us</h4>
                     <ul className="quick-links">
                       <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Add Your Business</li>
-                      <li>Business Resource Center</li>
-                      <li>Contact Us</li>
+                      <Link to={appPaths.businessResourceCenterUrl}><li>Business Resource Center</li></Link>
+                      <Link to={appPaths.contactUsUrl}><li>Contact Us</li></Link>
                     </ul>
                   </div>
                 </div>

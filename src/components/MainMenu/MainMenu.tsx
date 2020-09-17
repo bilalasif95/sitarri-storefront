@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  mediumScreen,
+  // mediumScreen,
   smallScreen,
 } from "../../globalStyles/scss/variables.scss";
 import "./scss/index.scss";
@@ -21,7 +21,7 @@ import {
   OverlayType,
 } from "..";
 import * as appPaths from "../../app/routes";
-import { ADMIN_PANEL_LINK } from "../../core/config";
+// import { ADMIN_PANEL_LINK } from "../../core/config";
 import { maybe } from "../../core/utils";
 // import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
@@ -35,7 +35,7 @@ import hamburgerImg from "../../images/hamburger.svg";
 import logoImg from "../../images/sittari.svg";
 // import userImg from "../../images/user.svg";
 // import searchImg from "../../images/search.svg";
-import Search from "./search"
+import Search from "./desktopSearch"
 
 const MainMenu: React.FC = () => {
   // const { data: user } = useUserDetails();
@@ -50,7 +50,8 @@ const MainMenu: React.FC = () => {
 
       {overlayContext => (
         <>
-          <nav id="header">
+          {!window.location.hash.includes("#/product/") ?
+            <nav id="header">
             <div className="container">
               <div className="main-menu">
                 {window.innerWidth <= 540 ?
@@ -63,10 +64,10 @@ const MainMenu: React.FC = () => {
                           <ReactSVG path={logoImg} />
                         </Link>
                       </div>
-                      :
-                      window.location.hash.includes("#/product/") ?
-                        <div className="main-menu__backIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
-                        : ""
+                      : ""
+                      // window.location.hash.includes("#/product/") ?
+                      //   <div className="main-menu__backIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                      //   : ""
                     }
                   </Media>
                   : <div className="main-menu__left">
@@ -95,11 +96,11 @@ const MainMenu: React.FC = () => {
                         render={() => (
                           <> */}
                     {/* {user ? ( */}
-                    <li className="main-menu__icon main-menu__user--active border" onClick={() => window.open(ADMIN_PANEL_LINK)}>
+                    {/* <li className="main-menu__icon main-menu__user--active border" onClick={() => window.open(ADMIN_PANEL_LINK)}>
                       <svg xmlns="https://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" /></svg>
                       <span>Partner with us</span>
                       <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
-                    </li>
+                    </li> */}
                     {/* <MenuDropdown
                       head={
                         <li className="main-menu__icon main-menu__user--active border">
@@ -213,9 +214,9 @@ const MainMenu: React.FC = () => {
                       return (
                         <ul>
                           {!window.location.hash.includes("#/product/") ?
-                          <Media
-                            query={{ maxWidth: mediumScreen }}
-                            render={() => (
+                          // <Media
+                          //   query={{ maxWidth: mediumScreen }}
+                          //   render={() => (
                               <li
                                 className="main-menu__hamburger"
                                 onClick={() =>
@@ -235,8 +236,9 @@ const MainMenu: React.FC = () => {
                                   className={"main-menu__hamburger--hover"}
                                 />
                               </li>
-                            )}
-                          /> : ""}
+                          //   )}
+                          // /> 
+                          : ""}
                           {/* <Media
                       query={{ minWidth: mediumScreen }}
                       render={() =>
@@ -314,6 +316,7 @@ const MainMenu: React.FC = () => {
               </div>
             </div>
           </nav>
+          : ""}
         </>
       )}
     </OverlayContext.Consumer>

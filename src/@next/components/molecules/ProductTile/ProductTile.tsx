@@ -20,7 +20,7 @@ import { IProps } from "./types";
 
 import { generateProductUrl } from "../../../../core/utils";
 
-import Rating from 'react-rating';
+// import Rating from 'react-rating';
 
 export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => {
   const price =
@@ -74,11 +74,11 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
           </S.Image>
           <S.Content>
-            <S.Link>
+            {/* <S.Link>
               <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
-            </S.Link>
+            </S.Link> */}
             <S.Title>{product.name}</S.Title>
-            <S.Desc>{product.description}</S.Desc>
+            <S.Desc>{product.description}Our regular two-patty burger with two slices of melted american cheese added.</S.Desc>
             <S.Price>
               <TaxedMoney taxedMoney={price} />
             </S.Price>
@@ -87,10 +87,19 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
         <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>
           <S.Bottom>
 
+            <S.Right>
+              <S.Imgbox>
+                {product.store.logo && product.store.logo ? <img src={product.store.logo} />
+                  : <img src={noPhotoImg} />}
+              </S.Imgbox>
+            </S.Right>
+
+
             <S.Left>
-              <S.Title>{product.store.name}</S.Title>
+
               {product.store.openingHours !== "" && product.store.closingHours !== "" &&
                 <>
+                  <S.StoreTitle>{product.store.name}</S.StoreTitle>
                   {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
                     <S.Timing>
                       <S.Open style={{ color: "green" }}>Open </S.Open>
@@ -111,9 +120,9 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                 </>
               }
               <S.Likes>
-                <S.Nos>{product.store.rating}</S.Nos>
+                {/* <S.Nos>{product.store.rating}</S.Nos> */}
 
-                <S.Stars>
+                {/* <S.Stars>
                   <Rating
                     placeholderRating={product.store.rating}
                     readonly
@@ -123,23 +132,34 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                     }
                     fullSymbol={<svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>}
                   />
-                </S.Stars>
-                <S.Close>
+                </S.Stars> */}
+                {/* <S.Close>
                   ( {product.store.totalReviews})
-              </S.Close>
+              </S.Close> */}
               </S.Likes>
+             
+            </S.Left>
+
+            <S.Dist>
+            <S.CardDetails>
+              <S.Nos>{product.store.rating}
+              {product.store.rating ===0? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></S.star>}
+              <S.Close>
+                  ({product.store.totalReviews})
+            </S.Close>
+              </S.Nos>
+              </S.CardDetails>
+
               {product.store.distance &&
                 <S.Location>
                   <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
                   <S.Miles>{product.store.distance}</S.Miles>
                 </S.Location>}
-            </S.Left>
-            <S.Right>
-              <S.Imgbox>
-                {product.store.logo && product.store.logo ? <img src={product.store.logo} />
-                  : <img src={noPhotoImg} />}
-              </S.Imgbox>
-            </S.Right>
+
+            </S.Dist>
+
+
+
           </S.Bottom>
         </Link>
 

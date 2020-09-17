@@ -9,6 +9,10 @@ import { IProps } from "./types";
 
 const sortOptionsByPrice = [
   {
+    label: "Filters",
+    value: null,
+  },
+  {
     label: "Clear...",
     value: null,
   },
@@ -39,6 +43,10 @@ const sortOptionsByPrice = [
 
 ];
 const sortOptionsByDistance = [
+  {
+    label: "Sort by",
+    value: null,
+  },
   {
     label: "Clear...",
     value: null,
@@ -93,15 +101,19 @@ const sortOptionsByDistance = [
 // ];
 const sortOptionsByType = [
   {
-    label: "Clear...",
+    label: "Results",
     value: null,
   },
   {
-    label: "Only Products",
+    label: "All",
+    value: null,
+  },
+  {
+    label: "Products",
     value: "products",
   },
   {
-    label: "Only Stores",
+    label: "Shops",
     value: "stores",
   },
 
@@ -125,7 +137,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="Price"
+              sortBy="Filters"
               type="PriceBase"
               onChange={onChange}
               options={sortOptionsByPrice}
@@ -135,13 +147,13 @@ export const ProductListHeader: React.FC<IProps> = ({
             />
           </S.Sort>
         </S.Element>
-        <S.Element>
+        {/* <S.Element>
           <S.Sort>
             <BusinessesQuery>
             {({ data }) => {
               return(
                 <DropdownSelect
-                  sortBy="Category"
+                  sortBy="Sort by"
                   type="BusinessBase"
                   onChange={onChange}
                   options={data && data.storesCategories}
@@ -152,7 +164,7 @@ export const ProductListHeader: React.FC<IProps> = ({
               )}}
             </BusinessesQuery>
           </S.Sort>
-        </S.Element>
+        </S.Element> */}
         <S.Element>
           <S.Sort>
             <DropdownSelect
@@ -169,7 +181,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="Type"
+              sortBy="Results:"
               type="showType"
               onChange={onChange}
               options={sortOptionsByType}

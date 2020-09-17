@@ -88,8 +88,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 activeSortBusinessType={sortBusinessBase.label}
                 activeSortTypeBase={sortTypeBase.label}
                 acitveSortDistanceBase={sortDistanceBase.label}
-                products={data.search.products}
-                stores={data.search.stores}
+                products={data.search && data.search.products}
+                stores={data.search && data.search.stores}
                 onOrder={(value, type) => {
 
                   if (type === "PriceBase") {

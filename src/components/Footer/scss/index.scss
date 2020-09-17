@@ -1,9 +1,9 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .footer {
-  background: #111212;
-  padding: 4rem 0;
-  margin: 2rem 0 0;
+  background: #111212 !important;
+  padding: 4rem 10px;
+  // margin: 2rem 0 0;
   .footer-list {
     display: flex;
     justify-content: space-between;

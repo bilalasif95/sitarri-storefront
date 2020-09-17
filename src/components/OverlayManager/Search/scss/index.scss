@@ -118,3 +118,159 @@ $drawer-width: 25rem;
     }
   }
 }
+
+
+.MobileSearchBar .overlay__right{
+  background-color: rgb(252,252,253) !important;
+  height: 100vh !important;
+  width: 100vw;
+}
+.MobileSearchBar .overlay__right input{
+  height: 45px;
+  width: 95%;
+  margin: 0px auto;
+  display: table;
+  margin-top: 20px;
+  position: relative;
+  background-color: #F5F5F5;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 0px 3px 40px;
+}
+.MobileSearchBar .overlay__right input:focus{
+  border: none;
+  outline: none;
+}
+.MobileSearchBar .overlay__right input::placeholder{
+  color: #99A9B3;
+}
+.MobileSearchBar .overlay__right .searchicon{
+  position: absolute;
+  top: 33px;
+  right: 20px;
+  svg{
+    width: 14px;
+    path{
+      fill: #000
+    }
+  }
+}
+.MobileSearchBar .searchedlist{
+  width: 95%;
+  display: block;
+  margin: 0px auto;
+   .items{
+  border-bottom: 1px solid #FAFAFA;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .ShopAddress{
+  p{
+    font-size: 12px;
+    color: #000;
+  }
+}
+}
+}
+.MobileSearchBar {
+  .SearchLocation{
+    display: flex;
+    align-items: center;
+    background: #FDECD1;
+    border-radius: 3px;
+    padding: 0px 2px;
+    width: 28%;
+    justify-content: center;
+    svg{
+      width: 10px;
+      margin-right: 3px;
+      path{
+        fill: #F39721;
+      }
+    }
+    div{
+    p{
+      font-size: 10px !important;
+      color: #F39721 !important;
+    }
+  }
+  }
+  .ShopAddress{
+    width: 72%;
+    >p{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 150px;
+        word-wrap: break-word;
+    }
+    .shop-address{
+      p{
+        color: #B9C4CC !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 70%;
+        word-wrap: break-word;
+      }
+    }
+  }
+  .SearchDropdown{
+    background-color: #fff;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+  .NoResults{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    li:first-child{
+      margin-right: 10px;
+      span{
+        height: 25px;
+        width: 25px;
+        background-color: #F8D4D5;
+        line-height: 0;
+        display: inline-block;
+        line-height: 31px;
+        text-align: center;
+        border-radius: 50px;
+      }
+    svg{
+      width: 12px;
+      path{
+        fill: #ED6E70;
+      }
+    }
+  }
+  li:last-child{
+    font-size: 14px;
+    span{
+      font-weight: 700;
+    }
+    li{
+      font-size: 12px;
+      color: #B9C4CC;
+    }
+  }
+  }
+  .loaderIcon{
+    position: absolute;
+    top: 34px;
+    left: 20px;
+  }
+  .BackArrow{
+    position: absolute;
+    top: 35px;
+    left: 15px;
+  }
+  .CloseIcon{
+    position: absolute;
+    top: 37px;
+    right: 20px;  
+      path{
+        fill: #40464A;
+      }
+  }
+}
