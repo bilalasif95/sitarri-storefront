@@ -2,12 +2,96 @@
 
 .product-description {
   margin: 0 0 2rem;
-  h3 {
-    font-weight: 400;
+  .ProductRating{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .Nos{
+      display: flex;
+      font-weight: 700;
+      .star{
+        margin: 0px 10px;
+        svg{
+          path{
+            fill: #FBCE2E;
+          }
+        }
+      }
+      .Close{
+        color: #8799A9 !important;
+        font-weight: normal;
+      }
+    }
+  }
+  .CategoryPrice{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+    .LocationDistance{
+      display: flex;
+      align-items: center;
+      background: #FDECD1;
+      border-radius: 3px;
+      padding: 0px 2px;
+      svg{
+        margin: 0 0.5rem 0 0;
+        path{
+          fill: #F39721;      
+      }
+      }
+      .Location{
+        font-size: 10px;
+        color: #F39721;
+      }
+    }
+  }
+  .Tags{
+    display: flex;
+    margin-top: 10px;
+    .SubTags{
+    margin-right: 10px;
+    font-size: 10px;
+    background-color: #F7F7F8;
+    border-radius: 3px;
+    padding: 0px 4px;
+    color: #9EAEB8;
+    }
+  }
+  .desc{
+    width: 50%;
+    margin-top: 10px;
+  }
+  .Instore{
+    display: flex;
+    align-items: center;
+    background: #F6FCF7;
+    border-radius: 3px;
+    padding: 0px 2px;
+    width: 5%;
+    justify-content: center;
+    svg{
+      margin-right: 8px;
+      path{
+        fill: #68C965;
+      }
+    }
+    span{
+      font-size: 10px;
+      color: #68C965;;
+    }
+  }
+  .CategoryTitle{
+    font-weight: 600;
     font-size: 16px;
     color: #000;
     text-align: left;
+    margin: 10px 0px 8px;
+    font-size: 20px;
+
   }
+  
   .cat-price {
     display: flex;
     justify-content: flex-start;
@@ -17,7 +101,7 @@
       height: 2px;
       display: block;
       background: #666;
-      margin: 0 0.5rem;
+      margin: 0 0.3rem 0 0rem;
     }
 
   p {

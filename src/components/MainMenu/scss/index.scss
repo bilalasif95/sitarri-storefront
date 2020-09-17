@@ -19,7 +19,7 @@
   position: relative;
 
   &__left {
-    width: 13%;
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -48,24 +48,130 @@
       align-items: center;
     }
     @media (min-width: $medium-screen) {
-      width: 27%;
+      width: 7%;
     }
   }
 
   &__center {
     align-self: center;
-    width: 67%;
+    width: 80%;
     position: relative;
     padding: 0 1rem;
     @media (min-width: $medium-screen) {
-      width: 60%;
+      width: 80%;
+      padding: 0 2rem;
+    }
+    .SearchLocation{
+      display: flex;
+      align-items: center;
+      background: #FDECD1;
+      border-radius: 3px;
+      padding: 0px 2px;
+      width: 10%;
+      height: 26px;
+      justify-content: center;
+      svg{
+        width: 10px;
+        margin-right: 3px;
+        path{
+          fill: #F39721;
+        }
+      }
+      div{
+      p{
+        font-size: 10px !important;
+        color: #F39721 !important;
+      }
+    }
+    }
+    .ShopAddress{
+      width: 90%;
+      >p{
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 150px;
+          word-wrap: break-word;
+      }
+      .shop-address{
+        p{
+          color: #B9C4CC !important;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width: 70%;
+          word-wrap: break-word;
+        }
+      }
+    }
+    .SearchDropdown{
+      background-color: #fff;
+      overflow-y: scroll;
+      max-height: 300px;
+      border-bottom: 1px solid #ddd;
+    }
+    .NoResults{
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      padding: 0px 10px;
+      li:first-child{
+        margin-right: 10px;
+        span{
+          height: 25px;
+          width: 25px;
+          background-color: #F8D4D5;
+          line-height: 0;
+          display: inline-block;
+          line-height: 31px;
+          text-align: center;
+          border-radius: 50px;
+        }
+      svg{
+        width: 12px;
+        path{
+          fill: #ED6E70;
+        }
+      }
+    }
+    li:last-child{
+      font-size: 14px;
+      span{
+        font-weight: 700;
+      }
+      li{
+        font-size: 12px;
+        color: #B9C4CC;
+      }
+    }
+    }
+    .loaderIcon{
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      z-index: 999999;
+    }
+    // .BackArrow{
+    //   position: absolute;
+    //   top: 35px;
+    //   left: 15px;
+    // }
+    .CloseIcon{
+      position: absolute;
+      cursor: pointer;
+      top: 12px;
+      right: -32px;  
+        path{
+          fill: #40464A;
+        }
     }
     .searchedlist {
+      // padding: 0px 0px 0px 16px;
       max-height: 185px;
-      overflow-y: auto;
+      // overflow-y: auto;
       background: #fff;
       position: absolute;
-      width: 95%;
+      width: 92.7%;
       z-index: 1;
       margin-top: -4px;
       .textAlign {
@@ -77,10 +183,13 @@
         border-left: 1px solid #ddd;
         border-right: 1px solid #ddd;
         width: 100%;
+        display: flex;
+        padding: 5px 10px;
+        cursor: pointer;
         p {
           cursor: pointer;
-          line-height: 36px;
-          padding: 0 1rem;
+          line-height: 23px;
+          font-size: 13px;
         }
       }
       .items:hover {
@@ -185,13 +294,13 @@
     }
 
     &:hover {
-      .main-menu__hamburger--icon {
-        display: none;
-      }
+      // .main-menu__hamburger--icon {
+      //   display: none;
+      // }
 
-      .main-menu__hamburger--hover {
-        display: block;
-      }
+      // .main-menu__hamburger--hover {
+      //   display: block;
+      // }
     }
 
     svg {

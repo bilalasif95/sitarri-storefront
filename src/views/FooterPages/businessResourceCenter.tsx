@@ -1,0 +1,192 @@
+import "./scss/index.scss";
+
+import * as React from "react";
+import ReactSVG from "react-svg";
+
+import ManImg from "../../images/food.png";
+import Phone from "../../images/phone.png";
+import Card from "../../images/Card.png";
+import Speaker from "../../images/Speaker.png";
+import Free from "../../images/Free.png";
+import Check from "../../images/Check.png";
+import Signup from "../../images/Signup.png";
+import Setup from "../../images/Setup.png";
+import Discover from "../../images/Discover.png";
+// import Next from "../../images/next.svg";
+
+const ContactUs: React.FC = () => (
+   <div className="homePage">
+      <div className="Businessbg">
+      <div className="container">
+         <div className="addBusiness">
+            <div className="BusinessContent">
+               <div className="BusinessText">
+                  <h3>Get Discovered by your ideal customers</h3>
+                  <p>Thousands of businesses of all sizes-from loacal stores to large enterprises-use Sitarri platform to get discovered by new customers and keep them coming back.</p>
+
+                  <div className="BusinessForm">
+                     <div className="BusinessBtns">
+                        <a className="SignupBtn" href="">Sign Up 
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                           <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
+                              <g id="Group_8" data-name="Group 8">
+                                 <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#fff"/>
+                              </g>
+                           </g>
+                        </svg>
+
+                        </a>
+                        <a className="SigninBtn" href="">Sign In
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                           <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
+                              <g id="Group_8" data-name="Group 8">
+                                 <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#092540"/>
+                              </g>
+                           </g>
+                        </svg>
+
+                        </a>
+                     </div>
+                  </div>
+
+               </div>
+
+               
+
+            </div>
+
+            <div className="SideBox">
+               <div className="SideBoxContent">
+               <img className="mobile" src={Phone} />
+               <img className="food" src={ManImg} />
+               </div>
+            </div>
+         </div>
+
+
+   
+
+
+      </div>
+      </div>
+
+      {/* join-sitarri */}
+      <div className="joinSitarri">
+         <div className="container">
+         <p className="FormQuestion">Unified Marketing Platform</p>
+         <h3 className="JoinTitle">Why join Sitarri?</h3>
+         <div className="JoinContent">
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Increase Sales</h4>
+            <img src={Card} />
+            <p>Keep Your Business busy</p>
+            <p className="joinBoxestext">Join a well-oiled marketing machine and watch the order come in through your door and online.</p>
+         </div>
+
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Reach More Customers</h4>
+            <img src={Speaker} />
+            <p>Meet them and keep them</p>
+            <p className="joinBoxestext">Attract new local customers and keep them coming back for more.</p>
+         </div>
+
+
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Pay Nothing</h4>
+            <img src={Free} />
+            <p>Free forever</p>
+            <p className="joinBoxestext">Make the most of Sitarri as your free marketing tool.</p>
+         </div>
+         </div>
+
+
+         </div>
+      </div>
+
+
+   {/* join-sitarri */}
+
+   {/* Become-partner */}
+      <div className="partner">
+         <div className="container">
+         <div className="partnerContent">
+         <p className="FormQuestion">Unified Marketing Platform</p>
+         <h3 className="partnerTitle">Become a Sitarri Partner Today</h3>
+         <p className="partnerheading">Connect your POS or Upload your products and be live on Sitarri in just 1 day.</p>
+         <ul className="partnerList">
+            <li><img src={Check} />Stand out on to customers with a free Sitarri profile.</li>
+            <li><img src={Check} /><img />Keep customers up-to-date, with accurate products, opening times, prices and photos.</li>
+            <li><img src={Check} /><img />Al you business information in one place.Link your Sitarri profile to your,social media accounts,website,delivery partner pages and Google account.</li>
+            <li><img src={Check} /><img />Anyone can use Sitarri free of charge Really, we mean it.</li>
+         </ul>
+         </div>
+         </div>
+      </div>
+   {/* Become-partner */}
+
+   {/* join-sitarri */}
+   <div className="joinSitarri">
+         <div className="container">
+         <p className="FormQuestion">Designed For Businesses</p>
+         <h3 className="JoinTitle">How does Sitarri work?</h3>
+         <p className="ProfileText">Set up your Sitarri Profile in Three easy steps.</p>
+         <div className="WorkContent">
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Sign Up</h4>
+            <img src={Signup} />
+            <p className="joinBoxestext">Partner with Sitarri and tell us about your business</p>
+         </div>
+
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Set Up</h4>
+            <img src={Setup} />
+            <p className="joinBoxestext">Connect your POS system or upload your products.</p>
+         </div>
+
+
+         <div className="joinBoxes">
+            <h4 className="boxHeading">Get Discovered</h4>
+            <img src={Discover} />
+            <p className="joinBoxestext">Go live and get discovered by customers.</p>
+         </div>
+         </div>
+
+
+
+
+       {/* Contact-US */}
+   <div className="Contactus">
+      <div className="ContactusText">
+         <h3 className="ContactusTitle">Become a Sitarri Partner Today</h3>
+      </div>
+      <div className="Contactusbtn">
+         <a className="Contactbtn" href="#">Contact Us 
+         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+            <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
+               <g id="Group_8" data-name="Group 8">
+                  <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#fff"/>
+               </g>
+            </g>
+         </svg>
+
+         </a>
+      </div>
+   </div>
+   {/* Contact-US */}
+         </div>
+
+      </div>
+
+
+   {/* join-sitarri */}
+
+  
+
+
+
+   </div>
+);
+
+export default ContactUs;

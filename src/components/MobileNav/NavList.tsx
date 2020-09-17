@@ -125,8 +125,8 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
                     className="regBtn"
                   >Signin or Register</Button>
                 )} */}
-              <Button className="regBtn" onClick={() => window.open(ADMIN_PANEL_LINK)}>Partner With Us</Button>
-              <Button className="bcBtn">Business Resource Center</Button>
+              <Button className="regBtn" onClick={() => window.open(ADMIN_PANEL_LINK)}>Sitarri for Business</Button>
+              {/* <Button className="bcBtn">Business Resource Center</Button> */}
               {displayedItems.map(item => (
                 <NavItem
                   key={item.id}

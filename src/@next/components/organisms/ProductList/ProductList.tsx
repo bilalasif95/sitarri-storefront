@@ -1,7 +1,7 @@
 import React from "react";
 // import { Link } from "react-router-dom";
 
-import { Loader } from "@components/atoms";
+// import { Loader } from "@components/atoms";
 import { BusinessTile, ProductTile } from "@components/molecules";
 import Carousel from "../../../../../src/components/Carousel";
 
@@ -29,25 +29,40 @@ export const ProductList: React.FC<IProps> = ({
           {(products.length > 0 || stores && stores.length > 0) ?
             <S.ProductList>
               {/* first condition for filter */}
-              {activeSortTypeBase === "Only Products" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? products.length > 0 ?
+              {activeSortTypeBase === "Shops" || activeSortTypeBase === "" || activeSortTypeBase === "All" ? stores.length > 0 ?
                 <div>
-                  <h3>Products</h3>
-                  <Carousel dragging={false} productDetails={"productList"}>
-                    {products.map(product => (
-                      <ProductTile product={product} />
-                    ))}
-                  </Carousel></div> : <div></div> : <div></div>}
-              {activeSortTypeBase === "Only Stores" || activeSortTypeBase === "" || activeSortTypeBase === "Clear..." ? stores.length > 0 ?
-                <div>
-                  <h3>Business</h3>
-                  <Carousel dragging={false} productDetails={"productList"}>
+                  <S.Shops>
+                  <h3>Shops</h3>
+                  <S.Slider>
+                  <Carousel productDetails={"productList"}>
+                    
                     {stores && stores.map(product => (
                       <BusinessTile product={product} />
                     ))}
+                    
                   </Carousel>
+                  </S.Slider>
+                  </S.Shops>
                 </div> : "" : ""}
+
+              {activeSortTypeBase === "Products" || activeSortTypeBase === "" || activeSortTypeBase === "All" ? products.length > 0 ?
+                <div>
+                  <S.Shops>
+                  <h3>Products</h3>
+                  <S.Slider>
+                  <Carousel productDetails={"productList"}>
+                    {products.map(product => (
+                      <ProductTile product={product} />
+                    ))}
+                  </Carousel>
+                  </S.Slider>
+                  </S.Shops>
+                  </div> : <div></div> : <div></div>}
+              
               {(activeSortTypeBase === "" || activeSortTypeBase === "Clear...") &&
+              <S.Shops>
                 <>
+                
                   < h3 > {stores && stores.length > 0 ? "All Results" : ""}</h3>
                   <S.List>
                     {stores && stores.map(product => (
@@ -55,6 +70,7 @@ export const ProductList: React.FC<IProps> = ({
                     ))}
                   </S.List>
                 </>
+                </S.Shops>
               }
               {/* <S.Loader>
         {loading ? (
@@ -74,7 +90,139 @@ export const ProductList: React.FC<IProps> = ({
             </S.ProductList >
             : <S.NoResult>No result found...</S.NoResult>}
         </>
-        : <Loader />}
+        : 
+        <>
+        {/* <Loader /> */}
+        <div className="Loadingskeleton">
+                  <div className="Selectboxes">
+
+
+                 {/* skeleton-cards */}
+                  <S.Skeletoncards>
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+
+                  </S.Skeletoncards>
+                  {/* skeleton-cards */}
+
+
+                  {/* skeleton-cards */}
+                  <div className="Skeletoncards">
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+                    <div className="SkeletonCardsCont">
+                      <div className="CardsTitle">
+                      </div>
+
+                      <div className="SkeletonCardsbody">
+
+                      </div>
+
+                      {/* skeletonbar */}
+                    <div className="SkeletonCardsbar">
+                    </div>
+                    {/* skeletonbar */}
+
+                    <div className="SkeletonCardtext">
+
+                    </div>
+                    </div>
+
+
+                  </div>
+                  {/* skeleton-cards */}
+
+
+                  </div>
+                </div>
+        </>
+        }
     </>
   );
 };

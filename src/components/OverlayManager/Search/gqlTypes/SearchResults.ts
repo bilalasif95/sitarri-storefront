@@ -109,4 +109,6 @@ export interface SearchResults {
 
 export interface SearchResultsVariables {
   query: string;
+  latitude: any;
+  longitude: any;
 }

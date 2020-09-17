@@ -20,11 +20,11 @@ const optionStyle = (customTheme: any) => ({
       ...provided,
       alignItems: "center",
       backgroundColor: state.isSelected
-        ? customTheme.colors.primaryLight
-        : state.isFocused
+      //   // ? customTheme.colors.primaryLight
+      //   // : state.isFocused
         ? customTheme.colors.primaryTransparent
         : "white",
-      color: state.isDisabled
+        color: state.isDisabled
         ? customTheme.colors.lightFont
         : customTheme.colors.dark,
       display: "flex",
@@ -32,7 +32,9 @@ const optionStyle = (customTheme: any) => ({
       margin: "0 auto",
       minHeight: "34px",
       verticalAlign: "middle",
-      width: "95%",
+      width: "100%",
+      background: "#fff",
+      border: "none",
     };
   },
 });

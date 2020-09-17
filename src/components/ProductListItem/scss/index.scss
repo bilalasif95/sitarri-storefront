@@ -5,10 +5,10 @@
 
   &__title {
     font-weight: 400;
-    font-size: 16px;
-    margin: $spacer 0 0 $spacer;
+    font-size: 12px;
+    margin: $spacer 0 0 0;
     color: #000;
-    text-align: left;
+    text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -44,14 +44,14 @@
   &__image {
     background-color: $turquoise-light;
     display: flex;
-    height: 220px;
+    height: 100px;
     justify-content: center;
     border-radius: 5px;
     overflow: hidden;
     border: 1px solid #f4f4f4;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
     img {
-      object-fit: contain;
+      // object-fit: contain;
       width: 100%;
     }
     // @media (max-width: $medium-screen) {

@@ -2,15 +2,15 @@
 @import "../../../globalStyles/scss/animations";
 
 .overlay {
-  background-color: rgba(199, 207, 207, 0.8);
-  // background: #fafafa;
+  background-color: #00000040;
   height: 100%;
   min-height: 100vh;
-  position: fixed;
+  position: absolute;
   top: 0;
-  transition: 300ms;
+  transition: 0.3s linear;
   width: 100%;
   z-index: 2;
+  right: 0;
 
   &--search,
   &--main-menu-nav {

@@ -11,6 +11,7 @@ const GalleryCarousel: React.FC<{
   images: ProductDetails_product_images[];
 }> = ({ images }) => (
   <div className="product-page__product__gallery">
+    <div className="container">
     <Carousel
       productDetails={"productDetails"}
       // renderCenterLeftControls={() => null}
@@ -43,6 +44,7 @@ const GalleryCarousel: React.FC<{
         </CachedImage>
       ))} 
     </Carousel>
+    </div>
   </div>
 );
 

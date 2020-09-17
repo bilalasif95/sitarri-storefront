@@ -21,15 +21,18 @@ import { ProductDescription as NewProductDescription } from "../../@next/compone
 // import { structuredData } from "../../core/SEO/Product/structuredData";
 
 import ReactSVG from "react-svg";
-import delivery from "../../images/iconmonstr-bicycle-4.svg";
+import delivery from "../../images/scooter.svg";
 import direction from "../../images/iconmonstr-crosshair-6.svg";
-import facebook from "../../images/iconmonstr-facebook-3.svg";
+import facebook from "../../images/facebook.svg";
 import website from "../../images/iconmonstr-globe-5.svg";
-import instagram from "../../images/iconmonstr-instagram-11.svg";
+import instagram from "../../images/instagram.svg";
 import location from "../../images/iconmonstr-location-1.svg";
 import phone from "../../images/iconmonstr-phone-1.svg";
 import clock from "../../images/iconmonstr-time-2.svg";
-import twitter from "../../images/iconmonstr-twitter-1.svg";
+import twitter from "../../images/twitter.svg";
+import backIcon from "../../images/back.svg";
+import Search from "../../images/search.svg";
+
 // import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
@@ -123,14 +126,14 @@ class Page extends React.PureComponent<
     const today = new Date();
     const start = new Date();
     const end = new Date();
-    const [openTime,openFormat] = productInfo.openingHours.split(" ")
+    const [openTime, openFormat] = productInfo.openingHours.split(" ")
     const openHoursMinutes = openTime.split(":")
-    const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0])+12 : Number(openHoursMinutes[0])
+    const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0]) + 12 : Number(openHoursMinutes[0])
     const openMinutes = Number(openHoursMinutes[1])
-    
-    const [closingTime,closingFormat] = productInfo.closingHours.split(" ")
+
+    const [closingTime, closingFormat] = productInfo.closingHours.split(" ")
     const closingHoursMinutes = closingTime.split(":")
-    const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0])+12 : Number(closingHoursMinutes[0])
+    const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0]) + 12 : Number(closingHoursMinutes[0])
     const closingMinutes = Number(closingHoursMinutes[1])
     start.setHours(openHours);
     start.setMinutes(openMinutes);
@@ -139,18 +142,62 @@ class Page extends React.PureComponent<
 
     return (
       <div className="product-page">
-
-        <div className="product-page__product">
-
-          <script className="structured-data-list" type="application/ld+json">
-            {/* {structuredData(product)} */}
-          </script>
-          {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
-          // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-          : <div className="noPicText">No photo available</div>}
-
-        </div>
         <div className="container">
+          <div className="product-page__product">
+
+            <div className="SkeletonHeader">
+              <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+
+              <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
+            </div>
+
+            <script className="structured-data-list" type="application/ld+json">
+              {/* {structuredData(product)} */}
+            </script>
+            {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
+              // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
+              : <div className="noPicText">No photo available</div>}
+
+          </div>
+        </div>
+
+
+        {/* icons */}
+        <div className="container">
+          <div className="SocialContent">
+            <div className="brand">
+
+            </div>
+            <div className="SocialIcons">
+              {/* {productInfo.instagramUrl !== "" && */}
+              <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <ReactSVG path={instagram} />
+                </div>
+              </a>
+              {/* }
+                {productInfo.facebookUrl !== "" && */}
+              <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <ReactSVG path={facebook} />
+                </div>
+              </a>
+              {/* }
+                {productInfo.twitterUrl !== "" && */}
+              <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                <div className="icon">
+                  <ReactSVG path={twitter} />
+                </div>
+              </a>
+              {/* } */}
+            </div>
+          </div>
+        </div>
+        {/* icons */}
+
+
+        <div className="container">
+
           <div className="product-page__product">
             {/* Add script here */}
             <script className="structured-data-list" type="application/ld+json">
@@ -173,48 +220,33 @@ class Page extends React.PureComponent<
                     </div>
                     <p>Phone</p>
                   </a>}
-                {productInfo.websiteUrl !== "" &&
-                  <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={website} />
-                    </div>
-                    <p>Website</p>
-                  </a>}
-                {productInfo.address &&
-                  <a className="item" href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={direction} />
-                    </div>
-                    <p>Direction</p>
-                  </a>}
-                {productInfo.instagramUrl !== "" &&
-                  <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={instagram} />
-                    </div>
-                    <p>Instagram</p>
-                  </a>}
-                {productInfo.facebookUrl !== "" &&
-                  <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={facebook} />
-                    </div>
-                    <p>Facebook</p>
-                  </a>}
-                {productInfo.twitterUrl !== "" &&
-                  <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={twitter} />
-                    </div>
-                    <p>Twitter</p>
-                  </a>}
-                {productInfo.deliverooUrl !== "" &&
-                  <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={delivery} />
-                    </div>
-                    <p>Delivery</p>
-                  </a>}
+                {/* {productInfo.websiteUrl !== "" && */}
+                <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={website} />
+                  </div>
+                  <p>Website</p>
+                </a>
+                {/* } */}
+                {/* {productInfo.address && */}
+                <a className="item"
+                  // href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                  target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={direction} />
+                  </div>
+                  <p>Direction</p>
+                </a>
+                {/* } */}
+
+                {/* {productInfo.deliverooUrl !== "" && */}
+                <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
+                  <div className="icon">
+                    <ReactSVG path={delivery} />
+                  </div>
+                  <p>Delivery</p>
+                </a>
+                {/* } */}
               </div>
             </div>
             {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
@@ -229,25 +261,25 @@ class Page extends React.PureComponent<
                     <ReactSVG path={clock} />
                     {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
                       <div className="timing">
-                        <p style={{color: "green"}}>Open</p>
+                        <p style={{ color: "green" }}>Open</p>
                         <span />
                         <p>Closes {productInfo.closingHours}</p>
                       </div>
-                      : 
+                      :
                       <div className="timing">
-                        <p style={{color: "red"}}>Closed</p>
+                        <p style={{ color: "red" }}>Closed</p>
                         <span />
                         <p>Opens {productInfo.openingHours}</p>
                       </div>}
                   </div>}
               </div>
-            : <>
-            {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
-              <div className="shop-at">
-              <div className="shop-address">
-                <ReactSVG path={location} />
-                <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
-              </div></div>}</>
+              : <>
+                {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+                  <div className="shop-at">
+                    <div className="shop-address">
+                      <ReactSVG path={location} />
+                      <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+                    </div></div>}</>
             }
             {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
               <div className="useful-links-res">
@@ -279,6 +311,7 @@ class Page extends React.PureComponent<
           <div className="container">
             <div className="product-page__product__description">
               <NewProductDescription
+              categoryName={productInfo.name}
                 storeCategory={productInfo.storeCategory}
               />
             </div>

@@ -1,31 +1,32 @@
 import "./scss/index.scss";
 
-import classNames from "classnames";
+// import classNames from "classnames";
 import { stringify } from "query-string";
 import * as React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import ReactSVG from "react-svg";
+// import ReactSVG from "react-svg";
 
 import {
-  Button,
-  Loader,
-  OfflinePlaceholder,
+  // Button,
+  // Loader,
+  // OfflinePlaceholder,
   Overlay,
   OverlayContextInterface,
   OverlayType,
 } from "../..";
 import { searchUrl } from "../../../app/routes";
 import { maybe } from "../../../core/utils";
-import { DebouncedTextField } from "../../Debounce";
-import { Error } from "../../Error";
-import NetworkStatus from "../../NetworkStatus";
+// import { DebouncedTextField } from "../../Debounce";
+// import { Error } from "../../Error";
+// import NetworkStatus from "../../NetworkStatus";
 import { SearchResults } from "./gqlTypes/SearchResults";
-import NothingFound from "./NothingFound";
-import ProductItem from "./ProductItem";
-import { TypedSearchResults } from "./queries";
+// import NothingFound from "./NothingFound";
+// import ProductItem from "./ProductItem";
+// import { TypedSearchResults } from "./queries";
 
-import searchImg from "../../../images/search.png";
-import closeImg from "../../../images/x.svg";
+// import searchImg from "../../../images/search.png";
+// import closeImg from "../../../images/x.svg";
+import SearchComponent from "../../MainMenu/search";
 
 interface SearchProps extends RouteComponentProps {
   overlay: OverlayContextInterface;
@@ -81,10 +82,12 @@ class Search extends React.Component<SearchProps, SearchState> {
 
   render() {
     return (
-      <Overlay context={this.props.overlay} className="overlay--no-background">
-        <form
+      <Overlay context={this.props.overlay} className="overlay--no-background MobileSearchBar">
+
+        <SearchComponent />
+        {/* <form
           className={classNames("search", {
-            "search--has-results": this.hasSearchPhrase,
+            "ssearch--has-result": this.hasSearchPhrase,
           })}
           onClick={e => e.stopPropagation()}
           onSubmit={this.handleSubmit}
@@ -163,7 +166,7 @@ class Search extends React.Component<SearchProps, SearchState> {
               }}
             </NetworkStatus>
           </div>
-        </form>
+        </form> */}
       </Overlay>
     );
   }

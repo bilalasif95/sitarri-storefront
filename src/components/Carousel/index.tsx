@@ -53,16 +53,17 @@ const Carousel: React.FC<CarouselType> = ({ children,productDetails, ...rest }) 
   return (
     <Media query={{ maxWidth: smallScreen }}>
       {matches =>
-        matches ? (
-          carousel(1)
+        matches ? 
+        productDetails === "categoryList" ? carousel(3.5) : (
+          carousel(1.04)
         ) : (
           productDetails === "productList" ?
           <Media query={{ maxWidth: mediumScreen }}>
-            {matches => carousel(matches ? 2 : 3)}
+            {matches => carousel(matches ? 2 : 2.5)}
           </Media>
           :
           <Media query={{ minWidth: mediumScreen }}>
-            {productDetails === "productDetails" ? matches =>  carousel(matches ? 5 : 3) : matches => carousel(matches ? 2 : 3)}
+            {productDetails === "productDetails" ? matches =>  carousel(matches ? 2.5 : 2.5) : productDetails === "categoryList" ? matches => carousel(matches ? 9.5 : 4) : matches => carousel(matches ? 2 : 3)}
           </Media>
         )
       }

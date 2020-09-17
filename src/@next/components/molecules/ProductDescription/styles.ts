@@ -33,7 +33,7 @@ export const AttributeList = styled.ul`
   }
 `;
 
-export const Tabs = styled.div`
+export const Tabs = styled.div<{isSticky: any}>`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -41,10 +41,25 @@ export const Tabs = styled.div`
   margin: 0 0 1rem;
   border-radius: 5px;
   overflow: hidden;
-  padding: 1rem;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
+  
 `;
-
+export const fixed = styled.div<{isSticky: any}>`
+@media(max-width: 767px){
+  position: ${props => props.isSticky ? 'sticky' : 'initial'};
+  top: ${props => props.isSticky ? '0' : ''};
+  .SkeletonHeader{
+    position: initial;
+    background: #fff;
+    padding: 15px 10px;
+    div{
+      font-weight: 700;
+    }
+  }
+  }
+  
+`;
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
@@ -130,16 +145,23 @@ div {
 
 export const Price = styled.p`
   font-size: 12px
-  color: #ff7f56;
+  color: #40464A;
   text-align: left;
 `;
 
 export const TabList = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  width: 85%;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+}
+@media(max-width: 767px){
+  width: 80%
+}
 `;
 
 export const TabsContainer = styled.div`
@@ -147,12 +169,26 @@ export const TabsContainer = styled.div`
   justify-content: space-between;
   align-items: baseline;
   width: 100%;
+  padding-right: 1rem;
   button {
     display: flex;
     align-items: center;
-    color: #f2492b;
+    color: #000;
     svg {
       margin-left: 5px;
+      width: 9px;
+      path{
+        fill: #000;
+      }
+    }
+  }
+  @media(max-width: 767px){
+    button{
+    background: #fff !important;
+    border-radius: 3px;
+    box-shadow: -5px 0px 9px #bbb9b8d1;
+    padding: 12px 5px;
+   
     }
   }
 `;
@@ -168,25 +204,25 @@ export const Sectitle = styled.div`
 
 export const TabTitle = styled.div<{ active?: boolean }>`
   cursor: pointer;
+  color: #A1AFBB;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.02em;
-  color: ${props => props.active ? props.theme.colors.tabTitle:"#f34928"};
   padding: 0.5rem 1rem;
   text-transform: capitalize;
   text-align: center;
-  background: ${props => props.active ? '#f34928' : 'none'};
-  border-radius: 5px;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  // text-overflow: ellipsis;
   max-width: 120px;
+  border-bottom: ${props => props.active ? '1px solid #F4B49F' : 'none'};
+  color: ${props => props.active ? "#1F3950" : "#A1AFBB"};
+  font-size: 12px;
 
 
   ${media.smallScreen`
     font-size: ${(props: any) => props.theme.typography.h4FontSize};
     min-width: 100px;
     width: 33.33%;
-    font-size: 14px;
+    font-size: 12px;
   `};
   @media(max-width: 450px){
     width: 50%;

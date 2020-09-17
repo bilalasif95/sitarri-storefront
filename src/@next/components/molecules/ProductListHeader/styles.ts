@@ -13,10 +13,14 @@ export const Top = styled.div`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
-  flex-wrap: wrap;
   @media(max-width:768px){
     justify-content: space-between;
     padding: 1rem 0 0;
+    overflow-x: scroll;
+    display: flex;
+    ::-webkit-scrollbar{
+      display: none;
+    }
   }
 `;
 
@@ -54,11 +58,8 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:13%; 
+  width:16%; 
   margin: 0 0.7rem;
-  path {
-    fill: #f3492b;
-  }
   @media(max-width:1024px){
     width:17%;
     margin: 0 5px;
@@ -68,7 +69,7 @@ export const Element = styled.span`
     margin: 0;
   }
   @media(max-width:480px){
-    width:47%;
+    width:55%;
   }
 `;
 
