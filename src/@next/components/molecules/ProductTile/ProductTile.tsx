@@ -18,7 +18,7 @@ import * as S from "./styles";
 import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 
-import { generateProductUrl } from "../../../../core/utils";
+import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
 
 // import Rating from 'react-rating';
 
@@ -49,20 +49,21 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
   const today = new Date();
   const start = new Date();
   const end = new Date();
-  const [openTime, openFormat] = product.store.openingHours.split(" ")
-  const openHoursMinutes = openTime.split(":")
-  const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0]) + 12 : Number(openHoursMinutes[0])
-  const openMinutes = Number(openHoursMinutes[1])
+  if (product.store) {
+    const [openTime, openFormat] = product.store.openingHours.split(" ")
+    const openHoursMinutes = openTime.split(":")
+    const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0]) + 12 : Number(openHoursMinutes[0])
+    const openMinutes = Number(openHoursMinutes[1])
 
-  const [closingTime, closingFormat] = product.store.closingHours.split(" ")
-  const closingHoursMinutes = closingTime.split(":")
-  const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0]) + 12 : Number(closingHoursMinutes[0])
-  const closingMinutes = Number(closingHoursMinutes[1])
-  start.setHours(openHours);
-  start.setMinutes(openMinutes);
-  end.setHours(closingHours);
-  end.setMinutes(closingMinutes);
-
+    const [closingTime, closingFormat] = product.store.closingHours.split(" ")
+    const closingHoursMinutes = closingTime.split(":")
+    const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0]) + 12 : Number(closingHoursMinutes[0])
+    const closingMinutes = Number(closingHoursMinutes[1])
+    start.setHours(openHours);
+    start.setMinutes(openMinutes);
+    end.setHours(closingHours);
+    end.setMinutes(closingMinutes);
+  }
   return (
     <>
       <S.Wrapper data-cy="product-tile">
@@ -74,17 +75,18 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
           </S.Image>
           <S.Content>
-            {/* <S.Link>
-              <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
-            </S.Link> */}
-            <S.Title>{product.name}</S.Title>
-            <S.Desc>{product.description}Our regular two-patty burger with two slices of melted american cheese added.</S.Desc>
-            <S.Price>
-              <TaxedMoney taxedMoney={price} />
-            </S.Price>
+            {/* <S.Link> */}
+            <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
+              {/* </S.Link> */}
+              <S.Title>{product.name}</S.Title>
+              <S.Desc>{product.description}Our regular two-patty burger with two slices of melted american cheese added.</S.Desc>
+              <S.Price>
+                <TaxedMoney taxedMoney={price} />
+              </S.Price>
+            </Link>
           </S.Content>
         </S.Top>
-        <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>
+        {product.store && <Link to={generateShopUrl(product.store.id, product.store.name)} key={product.store.id}>
           <S.Bottom>
 
             <S.Right>
@@ -159,7 +161,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                   ( {product.store.totalReviews})
               </S.Close> */}
               </S.Likes>
-             
+
             </S.Left>
 
             {/* <S.Dist>
@@ -172,7 +174,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
 
 
           </S.Bottom>
-        </Link>
+        </Link>}
 
       </S.Wrapper>
       {
@@ -197,7 +199,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
-                  <Link to={generateProductUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
+                  <Link to={generateShopUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
                 <S.Desc>{product.description}</S.Desc>

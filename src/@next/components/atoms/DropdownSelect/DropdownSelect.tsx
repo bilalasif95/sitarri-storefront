@@ -5,7 +5,9 @@ import { ThemeContext } from "styled-components";
 import { Label } from "../Label";
 import { Select } from "../Select";
 // import ReactSVG from "react-svg";
+
 import { useHandlerWhenClickedOutside } from "../../../hooks";
+
 import { Icon } from "../Icon";
 import * as S from "./styles";
 import { IProps } from "./types";

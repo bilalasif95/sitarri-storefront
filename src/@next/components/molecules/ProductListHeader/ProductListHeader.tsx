@@ -2,7 +2,7 @@ import React from "react";
 
 import { DropdownSelect } from "@components/atoms";
 
-import { BusinessesQuery } from "./queries";
+// import { BusinessesQuery } from "./queries";
 
 import * as S from "./styles";
 import { IProps } from "./types";

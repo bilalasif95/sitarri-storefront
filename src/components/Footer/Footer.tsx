@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { NavLink,OverlayContext,SocialMediaIcon } from "..";
-import { ADMIN_PANEL_LINK,SOCIAL_MEDIA } from "../../core/config";
+// import { ADMIN_PANEL_LINK,SOCIAL_MEDIA } from "../../core/config";
+import { SOCIAL_MEDIA } from "../../core/config";
 // import Nav from "./Nav";
 
 import { TypedSecondaryMenuQuery } from "./queries";
@@ -33,19 +34,19 @@ const Footer: React.FC = () => (
                   <div>
                     <h4>About Us</h4>
                     <ul className="quick-links">
-                      <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Add Your Business</li>
+                      {/* <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Add Your Business</li> */}
                       <Link to={appPaths.businessResourceCenterUrl}><li>Business Resource Center</li></Link>
                       <Link to={appPaths.contactUsUrl}><li>Contact Us</li></Link>
                     </ul>
                   </div>
                 </div>
-                <div className="footer-item">
+                {/* <div className="footer-item">
                   <h4>Get Help</h4>
                   <ul className="quick-links">
                     <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign Up</li>
                     <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Sign In</li>
                   </ul>
-                </div>
+                </div> */}
                 </div>
               </div>
               <div className="footer__favicons">

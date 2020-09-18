@@ -1,17 +1,20 @@
 import "./scss/index.scss";
 
 import * as React from "react";
-import ReactSVG from "react-svg";
+import { Link } from "react-router-dom";
+// import ReactSVG from "react-svg";
 
-import ManImg from "../../images/food.png";
-import Phone from "../../images/phone.png";
+import * as appPaths from "../../app/routes";
+
 import Card from "../../images/Card.png";
-import Speaker from "../../images/Speaker.png";
-import Free from "../../images/Free.png";
 import Check from "../../images/Check.png";
-import Signup from "../../images/Signup.png";
-import Setup from "../../images/Setup.png";
 import Discover from "../../images/Discover.png";
+import ManImg from "../../images/food.png";
+import Free from "../../images/Free.png";
+import Phone from "../../images/phone.png";
+import Setup from "../../images/Setup.png";
+import Signup from "../../images/Signup.png";
+import Speaker from "../../images/Speaker.png";
 // import Next from "../../images/next.svg";
 
 const ContactUs: React.FC = () => (
@@ -162,7 +165,7 @@ const ContactUs: React.FC = () => (
          <h3 className="ContactusTitle">Become a Sitarri Partner Today</h3>
       </div>
       <div className="Contactusbtn">
-         <a className="Contactbtn" href="#">Contact Us 
+         <Link className="Contactbtn" to={appPaths.contactUsUrl}>Contact Us
          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
             <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
                <g id="Group_8" data-name="Group 8">
@@ -171,7 +174,7 @@ const ContactUs: React.FC = () => (
             </g>
          </svg>
 
-         </a>
+         </Link>
       </div>
    </div>
    {/* Contact-US */}

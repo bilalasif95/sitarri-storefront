@@ -19,6 +19,7 @@ const optionStyle = (customTheme: any) => ({
     return {
       ...provided,
       alignItems: "center",
+      background: "#fff",
       backgroundColor: state.isSelected
       //   // ? customTheme.colors.primaryLight
       //   // : state.isFocused
@@ -27,14 +28,14 @@ const optionStyle = (customTheme: any) => ({
         color: state.isDisabled
         ? customTheme.colors.lightFont
         : customTheme.colors.dark,
+
+      border: "none",
       display: "flex",
       fontWeight: state.isSelected && customTheme.typography.boldFontWeight,
       margin: "0 auto",
       minHeight: "34px",
       verticalAlign: "middle",
       width: "100%",
-      background: "#fff",
-      border: "none",
     };
   },
 });

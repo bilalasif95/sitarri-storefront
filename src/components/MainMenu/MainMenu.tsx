@@ -26,7 +26,7 @@ import { maybe } from "../../core/utils";
 // import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
 
-import backIcon from "../../images/Back_arrow.svg";
+// import backIcon from "../../images/Back_arrow.svg";
 // import cartImg from "../../images/cart.svg";
 import hamburgerHoverImg from "../../images/hamburger-hover.svg";
 import hamburgerImg from "../../images/hamburger.svg";

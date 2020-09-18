@@ -9,12 +9,13 @@ import ImageGallery from 'react-image-gallery';
 
 import { Modal } from "@components/organisms/Modal";
 
+import backIcon from "../../../../images/back.svg";
 import noPhotoImg from "../../../../images/no-photo.svg";
+import Search from "../../../../images/search.svg";
 
 import * as S from "./styles";
 import { IProps } from "./types";
-import backIcon from "../../../../images/back.svg";
-import Search from "../../../../images/search.svg";
+
 import {
   // MenuDropdown,
   // Offline,
