@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 245" width="640" height="245">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M0 -414L640 -414L640 618L0 618Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #0a2540 } 
+		.shp1 { opacity: 0.82;fill: #ffa600 } 
+		.shp2 { opacity: 0.776;fill: #fbc73c } 
+	</style>
+	<g id="Sitarri for business - Web" clip-path="url(#cp1)">
+		<g id="Group 10318">
+			<g id="Group 10317">
+				<path id="Path 9591" class="shp0" d="M0.33 70.67L640.33 0.67L640.33 175L0.33 245L0.33 70.67Z" />
+				<path id="Path 9595" class="shp1" d="M475.83 191.93L639.33 174.12L639.33 196.86L475.83 214.67L475.83 191.93Z" />
+				<path id="Path 9594" class="shp2" d="M519.16 204.65L588 197.12L588 215.88L519.16 223.41L519.16 204.65Z" />
+			</g>
+		</g>
+	</g>
+</svg>

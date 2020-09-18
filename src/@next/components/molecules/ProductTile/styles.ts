@@ -211,12 +211,12 @@ export const ModalImage = styled.div`
 `;
 
 export const Left = styled.div`
-  width: 60%;
+  width: 85%;
   padding: 0px 10px;
-  @media (max-width: 767px){
-    width: 67%;
-    margin-top: 5px;
-  }
+  // @media (max-width: 767px){
+  //   width: 67%;
+  //   margin-top: 5px;
+  // }
 `;
 
 export const Right = styled.div`
@@ -328,7 +328,7 @@ align-items: center;
 background: #FDECD1;
 border-radius: 3px;
 // padding: 1px 5px;
-width: 70%;
+// width: 70%;
 margin-left: auto;
 svg{
   margin: 0 0.5rem 0 0;
@@ -360,20 +360,27 @@ export const Distance = styled.p`
   text-align: left;
   // margin: 0 1rem 0 0;
 `;
-export const Dist = styled.p`
- width: 34%;
- @media (max-width: 767px){
-  width: 36%;
- }
+// export const Dist = styled.p`
+//  width: 34%;
+//  @media (max-width: 767px){
+//   width: 36%;
+//  }
 
-`;
+// `;
 
 export const Address = styled.p`
   font-size: 12px
   color: #666;
   text-align: left;
 `;
-
+export const CardTitle = styled.div`
+display: flex;
+justify-content: space-between;
+`;
+export const CardTime = styled.div`
+display: flex;
+justify-content: space-between;
+`;
 
 
 

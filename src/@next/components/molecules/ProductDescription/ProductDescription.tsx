@@ -91,9 +91,7 @@ export const ProductDescription: React.FC<IProps> = ({
     };
   }, []);
 
-  return (
-    <>
-      <OverlayContext.Consumer>
+  return <OverlayContext.Consumer>
 
         {overlayContext => (
           <>
@@ -104,8 +102,9 @@ export const ProductDescription: React.FC<IProps> = ({
                   <div className="SkeletonHeader">
                     <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
                     <div>{categoryName}</div>
-                    <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() =>
-                      overlayContext.show(OverlayType.search, OverlayTheme.right)} /></div>
+                    <div className="SkeletonbackIcon" onClick={() =>
+            overlayContext.show(OverlayType.search, OverlayTheme.right)
+          }><ReactSVG path={Search}  /></div>
                   </div>
                 </div>}
                 <S.Tabs isSticky={isSticky} >
@@ -194,6 +193,4 @@ export const ProductDescription: React.FC<IProps> = ({
         )}
 
      </OverlayContext.Consumer>
-    </>
-  )
 };

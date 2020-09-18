@@ -17,6 +17,7 @@ export const SortLine = styled.div<{sortby: any}>`
   background: ${props => props.sortby === "Results:" ? "#F6FCF7" : "#fff"};
   border: 1px solid ${props => props.sortby === "Results:" ? "#69CD74" : "#f3f0f0"};
   border-radius: 50px;
+  cursor: pointer;
   span{
     color: ${props => props.sortby === "Results:" ? "#69CD74" : "#7d7d7d"}
     

@@ -144,9 +144,9 @@
       }
     }
   }
-  .social-icon svg * {
-    fill: #fff;
-  }
+  // .social-icon svg * {
+  //   fill: #fff;
+  // }
 
   @media (max-width: 768px) {
     .footer-list {
@@ -207,7 +207,7 @@
       display: flex;
     }
     p {
-      padding: 1.5rem 0 0;
+      padding: 1.2rem 0 0;
       color: white;
       float: right;
       font-size: 14px;

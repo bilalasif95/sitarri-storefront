@@ -50,7 +50,7 @@ const MainMenu: React.FC = () => {
 
       {overlayContext => (
         <>
-          {!window.location.hash.includes("#/product/") ?
+          {window.innerWidth >= 540 || !window.location.hash.includes("#/product/") || !window.location.hash.includes("#/shop/") ?
             <nav id="header">
             <div className="container">
               <div className="main-menu">
@@ -213,7 +213,7 @@ const MainMenu: React.FC = () => {
                       const items = maybe(() => data.shop.navigation.main.items, []);
                       return (
                         <ul>
-                          {!window.location.hash.includes("#/product/") ?
+                          {window.innerWidth >= 540 || !window.location.hash.includes("#/product/") || !window.location.hash.includes("#/shop/") ?
                           // <Media
                           //   query={{ maxWidth: mediumScreen }}
                           //   render={() => (

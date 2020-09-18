@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 175" width="640" height="175">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M0 -26L640 -26L640 1006L0 1006Z" />
+		</clipPath>
+		<radialGradient id="grd1" gradientUnits="userSpaceOnUse"  cx="-268.564" cy="492.261" r="747.027">
+			<stop offset="0" stop-color="#ffa600"  />
+			<stop offset="1" stop-color="#fbc73c"  />
+		</radialGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: url(#grd1) } 
+	</style>
+	<g id="Sitarri for business - Web" clip-path="url(#cp1)">
+		<path id="Path 9531" class="shp0" d="M-0.67 0L639.33 0L639.33 92.75C639.33 92.75 648.01 132.19 524.82 145.33C401.63 158.48 252.19 181.42 127.86 172.51C3.53 163.61 -0.67 110.67 -0.67 110.67L-0.67 0Z" />
+	</g>
+</svg>

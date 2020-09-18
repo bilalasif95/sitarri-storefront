@@ -19,7 +19,14 @@ import { ProductDescription as NewProductDescription } from "../../@next/compone
 // import { ProductGallery } from "../../@next/components/organisms/";
 
 // import { structuredData } from "../../core/SEO/Product/structuredData";
-
+import {
+  // MenuDropdown,
+  // Offline,
+  // Online,
+  OverlayContext,
+  OverlayTheme,
+  OverlayType,
+} from "../../components";
 import ReactSVG from "react-svg";
 import delivery from "../../images/scooter.svg";
 import direction from "../../images/iconmonstr-crosshair-6.svg";
@@ -140,15 +147,19 @@ class Page extends React.PureComponent<
     end.setHours(closingHours);
     end.setMinutes(closingMinutes);
 
-    return (
+    return <OverlayContext.Consumer>
+      {overlayContext => (
+          <>
       <div className="product-page">
         <div className="container">
           <div className="product-page__product">
 
             <div className="SkeletonHeader">
-              <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+              <div className="SkeletonbackIcon"onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
 
-              <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
+              <div className="SkeletonbackIcon" onClick={() =>
+            overlayContext.show(OverlayType.search, OverlayTheme.right)
+          }><ReactSVG path={Search} /></div>
             </div>
 
             <script className="structured-data-list" type="application/ld+json">
@@ -318,8 +329,10 @@ class Page extends React.PureComponent<
           </div>
         }
       </div>
-    );
+      </>
+    )
   }
-}
+  </OverlayContext.Consumer>
+}}
 
 export default Page;
