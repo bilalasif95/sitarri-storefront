@@ -729,6 +729,5 @@ export interface ProductDetails {
 
 export interface ProductDetailsVariables {
   id: string;
-  lat: any;
-  long: any;
+
 }

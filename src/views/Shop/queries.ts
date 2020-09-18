@@ -148,7 +148,7 @@ export const productVariantFragment = gql`
 // `;
 
 export const productDetailsQuery = gql`
- query($id:ID!,$longitude: Float, $latitude: Float){
+ query($id:ID!){
    store(id:$id){
     privateMetadata
     metadata
@@ -156,7 +156,6 @@ export const productDetailsQuery = gql`
     name
     description
     images{url}
-    distance(longitude: $longitude, latitude: $latitude)
     address {
       privateMetadata
       metadata

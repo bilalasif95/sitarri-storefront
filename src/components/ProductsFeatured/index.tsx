@@ -285,7 +285,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                 <div className="shopsCarousel">
                   <div className="Carouseltitle">
                   <h3>Popular Shops</h3>
-                  <p><span onClick={onShowProductResultsClick}>123</span> results <img src={Next} alt="next" /></p>
+                  <p><span onClick={onShowProductResultsClick}>123 results </span><img src={Next} alt="next" /></p>
                   </div>
                 < div className="hrBorder"></div>
                   {/* <Carousel> */}
@@ -516,7 +516,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                 <div className="shopsCarousel">
                 <div className="Carouseltitle">
                   <h3>Popular Products</h3>
-                  <p><span onClick={onShowAllResultsClick}>123</span> results <img src={Next} alt="next" /></p>
+                  <p><span onClick={onShowAllResultsClick}>123 results </span><img src={Next} alt="next" /></p>
                   </div>
                 <div className="hrBorder"></div>
                   {/* <Carousel> */}

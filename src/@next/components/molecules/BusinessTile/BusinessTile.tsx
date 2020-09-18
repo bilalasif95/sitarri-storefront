@@ -17,7 +17,7 @@ import { IProps } from "./types";
 // import Rating from 'react-rating';
 // import { Tile } from "../../atoms";
 
-import { generateProductUrl } from "../../../../core/utils";
+import { generateShopUrl } from "../../../../core/utils";
 
 export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) => {
   const price =
@@ -59,7 +59,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
   start.setMinutes(openMinutes);
   end.setHours(closingHours);
   end.setMinutes(closingMinutes);
-  
+
   return (
     <>
 
@@ -67,12 +67,12 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
         <S.Top>
           <S.Brand>
 
-                {/* <img src={tileimg} /> */}
-                {/* {tempArray.length > 0 ? */}
-                {/* <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
-              {/* :  */}
-              <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />
-              {/* } */}
+            {/* <img src={tileimg} /> */}
+            {/* {tempArray.length > 0 ? */}
+            {/* <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
+            {/* :  */}
+            <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />
+            {/* } */}
 
           </S.Brand>
           <S.Image>
@@ -81,35 +81,35 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
               <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
               : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
           </S.Image>
-          <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
+          <Link to={generateShopUrl(product.id, product.name)} key={product.id}>
             <S.Content>
               {/* <S.Link>
                 <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Products</Link>
               </S.Link> */}
-              
+
               <S.CardDetails>
-              <S.Title>{product.name}</S.Title>
-              <S.Nos>{product.rating}
-              {product.rating ===0? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></S.star>}
-              <S.Close>
-                  ({product.totalReviews})
+                <S.Title>{product.name}</S.Title>
+                <S.Nos>{product.rating}
+                  {product.rating === 0 ? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></S.star>}
+                  <S.Close>
+                    ({product.totalReviews})
             </S.Close>
-              </S.Nos>
+                </S.Nos>
               </S.CardDetails>
 
 
               <S.CardDetails>
-              <S.Desc>{product.description}</S.Desc>
-              {product.distance &&
-                <S.Location>
-                  <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                  <S.Miles>
-                    <S.Distance>{product.distance}</S.Distance>
-                    {/* <S.Address>
+                <S.Desc>{product.description}</S.Desc>
+                {product.distance &&
+                  <S.Location>
+                    <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                    <S.Miles>
+                      <S.Distance>{product.distance}</S.Distance>
+                      {/* <S.Address>
                     {product.address && product.address.address}
                   </S.Address> */}
-                  </S.Miles>
-                </S.Location>}
+                    </S.Miles>
+                  </S.Location>}
               </S.CardDetails>
 
               {product.openingHours !== "" && product.closingHours !== "" &&
@@ -139,7 +139,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
                 <TaxedMoney taxedMoney={price} />
               </S.Price> */}
               <S.Likes>
-                
+
 
                 {/* <S.Stars>
                   <Rating
@@ -152,15 +152,15 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
                     fullSymbol={<svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg>}
                   />
                 </S.Stars> */}
-                
+
               </S.Likes>
-              
+
               <S.Tags>
                 <S.Subtag>Mexican</S.Subtag>
                 <S.Subtag>Taco</S.Subtag>
                 <S.Subtag>Tequila</S.Subtag>
               </S.Tags>
-              
+
             </S.Content>
           </Link>
         </S.Top>
@@ -190,7 +190,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
               </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
-                  <Link to={generateProductUrl(product.id, product.name)} key={product.id}>See Shop</Link>
+                  <Link to={generateShopUrl(product.id, product.name)} key={product.id}>See Shop</Link>
                 </S.ModalLink>
                 <S.Title>{product.name}</S.Title>
                 <S.Desc>{product.description}</S.Desc>

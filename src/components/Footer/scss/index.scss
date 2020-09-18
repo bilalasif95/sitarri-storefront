@@ -9,18 +9,18 @@
     justify-content: space-between;
   }
   .sideRight {
-    width: 385px;
+    // width: 385px;
     display: flex;
     justify-content: space-between;
   }
-  .footer-item:first-child {
-    width: 60%;
-  }
+  // .footer-item:first-child {
+  //   width: 60%;
+  // }
   // .footer-item:nth-child(2) {
   //   width: 40%;
   // }
   .footer-item:last-child {
-    width: 40%;
+    // width: 40%;
     .playstoreIcons {
       display: grid;
       .googlePlayStoreIcon {

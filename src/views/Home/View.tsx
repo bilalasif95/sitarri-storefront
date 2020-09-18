@@ -4,8 +4,6 @@ import * as React from "react";
 
 import { withRouter } from "react-router-dom";
 
-import { MetaWrapper } from "../../components";
-
 import Page from "./Page";
 
 // import ReactSVG from "react-svg";
@@ -30,6 +28,7 @@ import {
   // MenuDropdown,
   // Offline,
   // Online,
+  MetaWrapper,
   OverlayContext,
   OverlayTheme,
   OverlayType,

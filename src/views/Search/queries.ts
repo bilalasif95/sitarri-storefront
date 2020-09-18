@@ -173,6 +173,7 @@ export const searchProductsQuery = gql`
           storeProduct(first: $pageSize, filter: { search: $query }) {
              edges {
               node {
+                id
                 name
           descriptionJson
           images{

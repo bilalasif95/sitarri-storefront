@@ -4,6 +4,7 @@ export const searchUrl = `${baseUrl}search/`;
 export const businessDetailsUrl = `${baseUrl}busines/`;
 export const categoryUrl = `${baseUrl}category/${slugUrl}`;
 export const collectionUrl = `${baseUrl}collection/${slugUrl}`;
+export const shopUrl = `${baseUrl}shop/${slugUrl}`;
 export const productUrl = `${baseUrl}product/${slugUrl}`;
 export const cartUrl = `${baseUrl}cart/:token?/`;
 export const checkoutLoginUrl = `${baseUrl}login/`;

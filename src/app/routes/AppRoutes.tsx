@@ -4,17 +4,17 @@ import { Route, Switch } from "react-router-dom";
 import { CheckoutLogin, NotFound } from "../../components";
 import UserAccount, * as accountPaths from "../../userAccount/routes";
 import { OrderDetails } from "../../userAccount/views";
-import businessResourceCenter from "../../views/FooterPages/businessResourceCenter";
 import { Account, AccountConfirm } from "../../views/Account";
 import { ArticlePage } from "../../views/Article";
-import ContactUs from "../../views/FooterPages/ContactUs";
 import { CategoryPage } from "../../views/Category";
 import { CollectionPage } from "../../views/Collection";
+import businessResourceCenter from "../../views/FooterPages/businessResourceCenter";
+import ContactUs from "../../views/FooterPages/ContactUs";
 import PrivacyPolicy from "../../views/FooterPages/PrivacyPolicy";
 import { HomePage } from "../../views/Home";
 import { ProductPage } from "../../views/Product";
 import { SearchPage } from "../../views/Search";
-
+import { ShopPage } from "../../views/Shop";
 
 import { CartPage, CheckoutPage, PasswordReset, ThankYouPage } from "@pages";
 
@@ -26,6 +26,7 @@ export const Routes: React.FC = () => (
     <Route path={paths.searchUrl} component={SearchPage} />
     <Route path={paths.categoryUrl} component={CategoryPage} />
     <Route path={paths.collectionUrl} component={CollectionPage} />
+    <Route path={paths.shopUrl} component={ShopPage} />
     <Route path={paths.productUrl} component={ProductPage} />
     <Route path={paths.cartUrl} component={CartPage} />
     <Route path={paths.checkoutLoginUrl} component={CheckoutLogin} />
