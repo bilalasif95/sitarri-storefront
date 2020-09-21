@@ -1,7 +1,7 @@
 import { styled } from "@styles";
 
 export const Wrapper = styled.div`
-  margin-bottom: 0.7rem;
+  // margin-bottom: 0.7rem;
   .css-kj6f9i-menu{
     .css-11unzgr{
       .css-qtgvzc-option:active{

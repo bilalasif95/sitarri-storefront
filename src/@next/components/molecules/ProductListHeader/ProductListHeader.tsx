@@ -168,7 +168,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort>
             <DropdownSelect
-              sortBy="Location"
+              sortBy="Sort by"
               type="DistanceBase"
               onChange={onChange}
               options={sortOptionsByDistance}

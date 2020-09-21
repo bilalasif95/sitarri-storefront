@@ -167,7 +167,7 @@ export const TabList = styled.div`
 export const TabsContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
   padding-right: 1rem;
   button {

@@ -18,7 +18,7 @@ type ViewProps = RouteComponentProps<{
 export const View: React.FC<ViewProps> = ({ match }) => {
   const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 0 } });
   const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "", value: "" });
-  const [sortTypeBase, setSortTypeBase] = React.useState({ label: "", value: "" });
+  const [sortTypeBase, setSortTypeBase] = React.useState({ label: "All", value: null });
   const [sortDistanceBase, setSortDistanceBase] = React.useState({
     label: "",
     value: { value: -1, symbol: "KILOMETER" },
