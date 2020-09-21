@@ -197,6 +197,7 @@ export const productDetailsQuery = gql`
           edges{
             node{
               name
+              id
             }
           }
         }

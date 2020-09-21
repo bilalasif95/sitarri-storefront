@@ -10,9 +10,9 @@ import { CachedImage, Thumbnail } from "@components/molecules";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
-import { generateCategoryUrl, generateShopUrl } from "../../core/utils";
+// import { generateCategoryUrl, generateProductUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
-import { ProductDetails_product } from "./gqlTypes/ProductDetails";
+// import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 // import OtherProducts from "./Other";
 
 import { ICheckoutModelLine } from "@sdk/repository";
@@ -36,7 +36,7 @@ import Search from "../../images/search.svg";
 // import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
-    product: ProductDetails_product;
+    product: any;
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
@@ -57,19 +57,19 @@ class Page extends React.PureComponent<
   };
 
   get showCarousel() {
-    return this.props.product.images.length > 1;
+    return this.props.product.product.images.length > 0;
   }
 
-  populateBreadcrumbs = product => [
-    {
-      link: generateCategoryUrl(product.category.id, product.category.name),
-      value: product.category.name,
-    },
-    {
-      link: generateShopUrl(product.id, product.name),
-      value: product.name,
-    },
-  ];
+  // populateBreadcrumbs = product => [
+  //   {
+  //     link: generateCategoryUrl(product.category.id, product.category.name),
+  //     value: product.category.name,
+  //   },
+  //   {
+  //     link: generateProductUrl(product.id, product.name),
+  //     value: product.name,
+  //   },
+  // ];
 
   getImages = () => {
     const { product } = this.props;
@@ -87,7 +87,7 @@ class Page extends React.PureComponent<
     //   return product.images;
     // }
 
-    return product.images && product.images;
+    return product.product.images && product.product.images;
     // return product.logo && product.logo;
   };
 
@@ -117,7 +117,8 @@ class Page extends React.PureComponent<
   }
   render() {
     const { product } = this.props;
-    const productInfo = product;
+    const productInfo = product.product;
+  
     // const productDescription = (
     //   <ProductDescription
     //     items={productInfo}
@@ -142,62 +143,63 @@ class Page extends React.PureComponent<
 
     return <OverlayContext.Consumer>
       {overlayContext => (
-          <>
-      <div className="product-page">
-        <div className="container">
-          <div className="product-page__product">
+        <>
+          <div className="product-page">
+            <div className="container">
+              <div className="product-page__product">
 
-            <div className="SkeletonHeader">
-              <div className="SkeletonbackIcon"onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                <div className="SkeletonHeader">
+                  <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
 
-              <div className="SkeletonbackIcon" onClick={() =>
-            overlayContext.show(OverlayType.search, OverlayTheme.right)
-          }><ReactSVG path={Search} /></div>
-            </div>
+                  <div className="SkeletonbackIcon" onClick={() =>
+                    overlayContext.show(OverlayType.search, OverlayTheme.right)
+                  }><ReactSVG path={Search} /></div>
+                </div>
 
-            <script className="structured-data-list" type="application/ld+json">
-              {/* {structuredData(product)} */}
-            </script>
-            {productInfo && productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
-              // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-              : <div className="noPicText">No photo available</div>}
+                <script className="structured-data-list" type="application/ld+json">
+                  {/* {structuredData(product)} */}
+                </script>
+                {productInfo && productInfo.images.length > 0 ? <GalleryCarousel images={this.getImages()} />
+                  // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
+                  : <div className="noPicText">No photo available</div>}
 
-          </div>
-        </div>
-
-        <div className="container">
-
-          <div className="product-page__product">
-            {/* Add script here */}
-            <script className="structured-data-list" type="application/ld+json">
-              {/* {structuredData(product)} */}
-            </script>
-
-            <div className="product-page__product__info">
-              <div
-                className={classNames(
-                  "product-page__product__info--fixed"
-                )}
-              >
               </div>
             </div>
-          </div>
-        </div>
-        {productInfo && productInfo.storeCategory.edges.length !== 0 &&
-          <div className="container">
-            <div className="product-page__product__description">
-              <NewProductDescription
-                categoryName={productInfo.name}
-                storeCategory={productInfo.storeCategory}
-              />
+
+            <div className="container">
+
+              <div className="product-page__product">
+                {/* Add script here */}
+                <script className="structured-data-list" type="application/ld+json">
+                  {/* {structuredData(product)} */}
+                </script>
+
+                <div className="product-page__product__info">
+                  <div
+                    className={classNames(
+                      "product-page__product__info--fixed"
+                    )}
+                  >
+                  </div>
+                </div>
+              </div>
             </div>
+            {productInfo && productInfo.store && productInfo.store.storeCategory.edges.length !== 0 &&
+              <div className="container">
+                <div className="product-page__product__description">
+                  <NewProductDescription
+                    categoryName={productInfo.name}
+                    storeCategory={productInfo.store.storeCategory}
+                  />
+                </div>
+              </div>
+            }
           </div>
-        }
-      </div>
-      </>
-    )
+        </>
+      )
+      }
+    </OverlayContext.Consumer>
   }
-  </OverlayContext.Consumer>
-}}
+}
 
 export default Page;

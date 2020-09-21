@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
-   ProductDetailsVariables,
+  ProductDetailsVariables,
 } from "./gqlTypes/ProductDetails";
 import { VariantList, VariantListVariables } from "./gqlTypes/VariantList";
 
@@ -148,77 +148,66 @@ export const productVariantFragment = gql`
 // `;
 
 export const productDetailsQuery = gql`
- query($id:ID!,$longitude: Float, $latitude: Float){
-   store(id:$id){
-    privateMetadata
-    metadata
-    id
+query($id: ID!, $longitude: Float, $latitude: Float) {
+  product(id: $id) {
     name
-    description
-    images{url}
-    distance(longitude: $longitude, latitude: $latitude)
-    address {
-      privateMetadata
-      metadata
+    descriptionJson
+    images {
       id
-      streetAddress
-      city
-      longitude
-      latitude
+      alt
+      url
     }
-     storeCategory(first:100) {
-          edges{
-            node{
-              name
-              products(first:100){
-                edges{
-            node{
-              id
-             name
-              pricing{
-                priceRange{
-                  start{
-                    gross{
-                      currency
-                      amount
+    pricing {
+      priceRange {
+        start {
+          gross {
+            currency
+            amount
+          }
+        }
+      }
+    }
+    store {
+      id
+      name
+      logo
+      openingHours
+      closingHours
+      rating
+      totalReviews
+      distance(longitude: $longitude, latitude: $latitude)
+      storeCategory(first: 100) {
+        edges {
+          node {
+            name
+            products(first: 100) {
+              edges {
+                node {
+                  id
+                  name
+                  pricing {
+                    priceRange {
+                      start {
+                        gross {
+                          currency
+                          amount
+                        }
+                      }
                     }
+                  }
+                  descriptionJson
+                  images {
+                    url
                   }
                 }
               }
-              descriptionJson
-              images{
-                url}
-            }
-          }
-              }
             }
           }
         }
-        storeProduct(first:100) {
-          edges{
-            node{
-              name
-            }
-          }
-        }
-    minPrice
-    maxPrice
-    category
-    rating
-    totalReviews
-    logo
-    websiteUrl
-    phone
-    facebookUrl
-    googleMapUrl
-    twitterUrl
-    deliverooUrl
-    uberEatsUrl
-    instagramUrl
-    openingHours
-    closingHours
+      }
+    }
   }
-  }
+}
 `;
 // FIXME: Check how to handle pagination of `productVariants` in the UI.
 // We need allow the user view  all cart items regardless of pagination.
