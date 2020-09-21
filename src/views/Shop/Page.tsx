@@ -4,6 +4,7 @@ import classNames from "classnames";
 import * as React from "react";
 // import Media from "react-media";
 // import { Link } from "react-router-dom";
+import ImageGallery from 'react-image-gallery';
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
@@ -31,6 +32,7 @@ import clock from "../../images/iconmonstr-time-2.svg";
 import instagram from "../../images/instagram.svg";
 import delivery from "../../images/scooter.svg";
 import Search from "../../images/search.svg";
+import Share from "../../images/share.svg";
 import twitter from "../../images/twitter.svg";
 
 import {
@@ -49,7 +51,7 @@ class Page extends React.PureComponent<
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { variantId: string }
+  { seeMore: boolean; variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -57,6 +59,7 @@ class Page extends React.PureComponent<
   constructor(props) {
     super(props);
     this.state = {
+      seeMore: false,
       variantId: "",
     };
   }
@@ -100,6 +103,8 @@ class Page extends React.PureComponent<
     // return product.logo && product.logo;
   };
 
+  
+
   renderImages = product => {
     const images = this.getImages();
     if (images && images.length) {
@@ -132,6 +137,10 @@ class Page extends React.PureComponent<
         items={productInfo}
       />
     );
+    
+    const tempArray: any = [];
+    productInfo.images.map((image: any) => tempArray.push({ original: image.url }));
+
     const today = new Date();
     const start = new Date();
     const end = new Date();
@@ -148,6 +157,10 @@ class Page extends React.PureComponent<
     start.setMinutes(openMinutes);
     end.setHours(closingHours);
     end.setMinutes(closingMinutes);
+
+    const seeMoreCat = () => {
+      this.setState({ seeMore: !this.state.seeMore });
+    }
 
     return <OverlayContext.Consumer>
       {overlayContext => (
@@ -167,8 +180,14 @@ class Page extends React.PureComponent<
             <script className="structured-data-list" type="application/ld+json">
               {/* {structuredData(product)} */}
             </script>
-            {productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
+            {productInfo.images.length > 1 ? 
+            <>
+            {window.innerWidth >= 540 ?
+            <GalleryCarousel images={this.getImages()} />
               // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
+              : <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+            }
+            </>
               : <div className="noPicText">No photo available</div>}
 
           </div>
@@ -182,6 +201,13 @@ class Page extends React.PureComponent<
 
             </div>
             <div className="SocialIcons">
+
+           
+                  <div className="icon ShareIcon">
+                    <ReactSVG path={Share} />
+                  </div>
+
+
               {/* {productInfo.instagramUrl !== "" && */}
                 <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
@@ -291,7 +317,39 @@ class Page extends React.PureComponent<
                         <span />
                         <p>Opens {productInfo.openingHours}</p>
                       </div>}
+
+                      <div className="TimeDropDown">
+                      <button onClick={() => seeMoreCat()}>
+         {this.state.seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="#000" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
+                        : <svg xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="#000" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
+                      } </button> 
+                        </div>
+
                   </div>}
+                  {this.state.seeMore &&
+                  <div className="WeekDays">
+                    <div className="Days">
+                    <p>Monday</p>
+                    <p>Tuesday</p>
+                    <p>Wednesday</p>
+                    <p>Thursday</p>
+                    <p>Friday</p>
+                    <p>Saturday</p>
+                    <p>Sunday</p>
+                    </div>
+                    <div className="Time">
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+                    <p><span>11:00 am </span> - <span>1:00am</span></p>
+
+                    </div>
+                  </div>
+
+                  }
               </div>
               : <>
                 {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
