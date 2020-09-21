@@ -2,6 +2,9 @@
 
 .product-page {
   background-color: #fafafa;
+  .container{
+    padding: 0;
+  }
 
   .breadcrumbs {
     background-color: $white;
@@ -306,14 +309,14 @@
       width: 100%;
       padding: 0;
       box-sizing: border-box;
-      margin: 1rem 0 0;
+      // margin: 1rem 0 0;
 
       // @media (max-width: $medium-screen) {
       //   width: 50%;
       // }
 
       @media (max-width: $small-screen) {
-        padding: 0.5rem;
+        // padding: 0.5rem;
       }
 
       .slider-control-centerright {
@@ -488,13 +491,10 @@
 }
 .SkeletonCardsbar{
   height: 25px;
-  width: 70%;
+  width: 20%;
   background-color: #EEF2F5;
   border-radius: 10px;
   margin-top: 20px;
-}
-.SkeletonHeader{
-  display: none;
 }
 @keyframes load {
   from {
@@ -521,7 +521,7 @@
   .SkeletonCardsCont{
     width: 88%;
     .SkeletonCardsbar{
-      width: 100%;
+      width: 98%;
     }
     .SkeletonCardtext{
       width: 90%;
@@ -535,6 +535,11 @@
   }
 }
 // Skeleton
+@media(min-width: 768px){
+  .SkeletonHeader{
+    display: none !important;
+  }
+}
 @media (max-width: 767px){
   .ProductSkeleton{
     .ProductSkeletonBox{
@@ -616,4 +621,48 @@
   .product-page__product .useful-links .item:after{
     display: none;
   }
+}
+.SkeletonHeader{
+  position: absolute;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0px 10px;
+  margin: 0px auto;
+  // z-index: 9999;
+  .SkeletonbackIcon{
+    background-color: #9D9FA1;
+    height: 30px;
+    border-radius: 50px;
+    width: 30px;
+    padding: 7px 7px;
+    svg{
+      margin: 0px auto;
+      display: block;
+      path{
+        fill: #fff;
+      }
+    }
+  }
+}
+.ReservationBtn{
+  display: none;
+}
+@media (max-width:540px){
+  .ReservationBtn{
+    display: block;
+    background-color: #FFECD1;
+    border: 1px solid #FFA943;
+    border-radius: 50px;
+    padding: 5px 0px;
+    text-align: center;
+    color: #FFA943;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .info {
+    margin-bottom: 0px;
+}
 }

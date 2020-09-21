@@ -17,6 +17,7 @@ import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
+import noPhotoImg from "../../images/no-photo.svg";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
 // import { structuredData } from "../../core/SEO/Product/structuredData";
@@ -142,62 +143,156 @@ class Page extends React.PureComponent<
 
     return <OverlayContext.Consumer>
       {overlayContext => (
-          <>
-      <div className="product-page">
-        <div className="container">
-          <div className="product-page__product">
+        <>
+          <div className="product-page">
+            <div className="container">
+              <div className="product-page__product">
 
-            <div className="SkeletonHeader">
-              <div className="SkeletonbackIcon"onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                <div className="SkeletonHeader">
+                  <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
 
-              <div className="SkeletonbackIcon" onClick={() =>
-            overlayContext.show(OverlayType.search, OverlayTheme.right)
-          }><ReactSVG path={Search} /></div>
-            </div>
+                  <div className="SkeletonbackIcon" onClick={() =>
+                    overlayContext.show(OverlayType.search, OverlayTheme.right)
+                  }><ReactSVG path={Search} /></div>
+                </div>
 
-            <script className="structured-data-list" type="application/ld+json">
-              {/* {structuredData(product)} */}
-            </script>
-            {productInfo && productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
-              // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-              : <div className="noPicText">No photo available</div>}
+                <script className="structured-data-list" type="application/ld+json">
+                  {/* {structuredData(product)} */}
+                </script>
+                {productInfo && productInfo.images.length > 1 ? <GalleryCarousel images={this.getImages()} />
+                  // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
+                  : <div className="noPicText">No photo available</div>}
 
-          </div>
-        </div>
-
-        <div className="container">
-
-          <div className="product-page__product">
-            {/* Add script here */}
-            <script className="structured-data-list" type="application/ld+json">
-              {/* {structuredData(product)} */}
-            </script>
-
-            <div className="product-page__product__info">
-              <div
-                className={classNames(
-                  "product-page__product__info--fixed"
-                )}
-              >
               </div>
             </div>
-          </div>
-        </div>
-        {productInfo && productInfo.storeCategory.edges.length !== 0 &&
-          <div className="container">
-            <div className="product-page__product__description">
-              <NewProductDescription
-                categoryName={productInfo.name}
-                storeCategory={productInfo.storeCategory}
-              />
+
+            <div className="container">
+
+              <div className="product-page__product">
+                {/* Add script here */}
+                <script className="structured-data-list" type="application/ld+json">
+                  {/* {structuredData(product)} */}
+                </script>
+
+                <div className="product-page__product__info">
+                  <div
+                    className={classNames(
+                      "product-page__product__info--fixed"
+                    )}
+                  >
+
+                    <div className="desc">
+                      <h4>Product_1_1</h4>
+                      <p className="descr">
+                        <div className="EmptySpace">
+                        fsdgfsdgvsfd
+                        </div>
+                      </p>
+                      <p className="price"><span>£101.00</span>
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Bottom */}
+            <div className="container">
+
+              <div className="Bottom">
+                <div className="Right">
+                  <div className="Imgbox">
+                    {/* {product.store.logo
+                    && product.store.logo ? <img src={product.store.logo} />
+                      : */}
+                    <img src={noPhotoImg} />
+                    {/* } */}
+                  </div>
+                </div>
+
+                <div className="Left">
+
+                  {/* {product.store.openingHours !== "" && product.store.closingHours !== "" && */}
+                  <>
+                    <div className="CardTitle">
+                      <div className="StoreTitle">
+                        {/* {product.store.name} */}
+                              Amazon
+                              </div>
+                      <div className="CardDetails">
+                        <div className="Nos">10
+                                {/* {product.store.rating === 0 ?  */}
+                          <div className="Star" ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></div>
+                          {/* : <div className="Star"><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></div>} */}
+                          <div className="Close">
+
+                            {/* ({product.store.totalReviews}) */}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div className="CardTime">
+
+                      {/* {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ? */}
+                      <div className="Timing">
+                        <div className="Open" style={{ color: "green" }}>Open </div>
+                        <div className="Close">
+                          <span />
+Closes
+{/* {product.store.closingHours} */}
+                        </div>
+                      </div>
+                      {/* : */}
+                      {/* <div className="Timing">
+                                <div className="Open" style={{ color: "red" }}>Closed </div>
+                                <div className="Close">
+                                  <span />
+Opens */}
+                      {/* {product.store.openingHours} */}
+                      {/* </div>
+                              </div> */}
+                      {/* } */}
+
+                      {/* {product.store.distance && */}
+                      <div className="Location">
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                        <div className="Miles">
+                          {/* {product.store.distance} */}
+                        </div>
+                      </div>
+                      {/* } */}
+
+                    </div>
+                  </>
+                  {/* } */}
+                  {/* <S.Likes>
+                       
+                      </S.Likes> */}
+
+                </div>
+              </div>
+            </div>
+            {/* Bottom */}
+
+            {productInfo && productInfo.storeCategory.edges.length !== 0 &&
+              <div className="container">
+                <div className="product-page__product__description">
+                  <NewProductDescription
+                    categoryName={productInfo.name}
+                    storeCategory={productInfo.storeCategory}
+                  />
+                </div>
+              </div>
+            }
           </div>
-        }
-      </div>
-      </>
-    )
+        </>
+      )
+      }
+    </OverlayContext.Consumer>
   }
-  </OverlayContext.Consumer>
-}}
+}
 
 export default Page;

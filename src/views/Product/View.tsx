@@ -87,42 +87,6 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                     </div> */}
                     </div>
 
-                    <div className="SkeletonCardsCont">
-                      {/* <div className="CardsTitle">
-                      </div> */}
-
-                      <div className="SkeletonCardsbody">
-
-                      </div>
-
-                      {/* skeletonbar */}
-                      {/* <div className="SkeletonCardsbar">
-                    </div> */}
-                      {/* skeletonbar */}
-
-                      {/* <div className="SkeletonCardtext">
-
-                    </div> */}
-                    </div>
-
-                    <div className="SkeletonCardsCont">
-                      {/* <div className="CardsTitle">
-                      </div> */}
-
-                      <div className="SkeletonCardsbody">
-
-                      </div>
-
-                      {/* skeletonbar */}
-                      {/* <div className="SkeletonCardsbar">
-                    </div> */}
-                      {/* skeletonbar */}
-
-                      {/* <div className="SkeletonCardtext">
-
-                    </div> */}
-                    </div>
-
 
                   </div>
                   {/* skeleton-cards */}
