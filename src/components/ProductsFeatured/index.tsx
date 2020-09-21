@@ -311,8 +311,18 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          description: "Mexican Resturant . ££",
                          distance: "5 mi",
                          id: "U3RvcmU6Njg=",
-                         images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         images: [{
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                        },
+                        {
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                        },{
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                        }],
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -343,8 +353,18 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          description: "Burger Resturant . ££",
                          distance: "5.9 mi",
                          id: "U3RvcmU6Njg=",
-                         images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         images: [{
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                        },
+                        {
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                        },{
+                          id: "",
+                          url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                        }],
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Five Guys",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -376,7 +396,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -408,7 +428,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -438,7 +458,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -457,7 +477,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -476,7 +496,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -497,7 +517,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                          distance: "52 mi",
                          id: "U3RvcmU6Njg=",
                          images: [],
-                         logo: "https://backend.sitarri.rnssol.com/media/store/404Page.jpg",
+                         logo: "http://backend.sitarri.rnssol.com/media/store/404Page.jpg",
                          name: "Taqueria",
                          openingHours: "09:00 AM",
                          rating: 0,
@@ -544,14 +564,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -633,7 +653,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -645,11 +665,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />                          
                         {/* <ProductListItem product={product} /> */}
                         {/* </Link> */}
@@ -676,14 +696,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -765,7 +785,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -777,11 +797,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />                          
                         {/* <ProductListItem product={product} /> */}
                         {/* </Link> */}
@@ -808,14 +828,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -897,7 +917,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -909,11 +929,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />                          
                         {/* <ProductListItem product={product} /> */}
                         {/* </Link> */}
@@ -940,14 +960,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1029,7 +1049,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1041,11 +1061,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />                          
                         {/* <ProductListItem product={product} /> */}
                         {/* </Link> */}
@@ -1066,14 +1086,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1155,7 +1175,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1167,11 +1187,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1183,14 +1203,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1272,7 +1292,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1284,11 +1304,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1300,14 +1320,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1389,7 +1409,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1401,11 +1421,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1417,14 +1437,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1506,7 +1526,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1518,11 +1538,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1534,14 +1554,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1623,7 +1643,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1635,11 +1655,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1651,14 +1671,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1740,7 +1760,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1752,11 +1772,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1768,14 +1788,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1857,7 +1877,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1869,11 +1889,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
 <ProductTile product={{
@@ -1885,14 +1905,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           id: "UHJvZHVjdDozMQ==",
                           images: [{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-1-beige.jpeg",
                           },
                           {
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           },{
                             id: "",
-                            url: "https://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/products/7133996-2_RBEiIzF.jpeg",
                           }],
                           name: "ASOS DESIGN festival pork pie hat in beige straw with band",
                           pricing: {
@@ -1974,7 +1994,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                             images: [
                               {
                                 __typename: "StoreImage",
-                                url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                url: "http://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                               },
                             ],
                             logo: null,
@@ -1986,11 +2006,11 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails,title })
                           thumbnail: {
                             __typename: "Image",
                             alt: "",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-255x255-70.jpeg",
                           },
                           thumbnail2x: {
                             __typename: "Image",
-                            url: "https://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
+                            url: "http://backend.sitarri.rnssol.com/media/__sized__/products/7133996-1-beige-thumbnail-510x510-70.jpeg"},
                           }} />        
 
                           

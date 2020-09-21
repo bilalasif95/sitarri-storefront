@@ -193,6 +193,7 @@ export const ModalImage = styled.div`
     .image-gallery-icon{
       z-index:2;
     }
+    
     .image-gallery-left-nav .image-gallery-svg, 
     .image-gallery-right-nav .image-gallery-svg {
       // height: 20px;
