@@ -154,14 +154,14 @@ export const TabList = styled.div`
   // flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  width: 85%;
+  // width: 85%;
   overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
 }
-@media(max-width: 767px){
-  width: 80%
-}
+// @media(max-width: 767px){
+//   width: 80%
+// }
 `;
 
 export const TabsContainer = styled.div`
@@ -182,15 +182,15 @@ export const TabsContainer = styled.div`
       }
     }
   }
-  @media(max-width: 767px){
+  // @media(max-width: 767px){
     button{
     background: #fff !important;
     border-radius: 3px;
     box-shadow: -5px 0px 9px #bbb9b8d1;
     padding: 12px 5px;
    
-    }
-  }
+  //   }
+  // }
 `;
 
 export const Sectitle = styled.div`

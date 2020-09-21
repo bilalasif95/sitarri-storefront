@@ -8,7 +8,7 @@ import * as React from "react";
 import { CachedImage, Thumbnail } from "@components/molecules";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
-import { ProductDescription } from "../../components";
+// import { ProductDescription } from "../../components";
 import { generateCategoryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
@@ -32,6 +32,16 @@ import instagram from "../../images/instagram.svg";
 import delivery from "../../images/scooter.svg";
 import Search from "../../images/search.svg";
 import twitter from "../../images/twitter.svg";
+
+import {
+  // MenuDropdown,
+  // Offline,
+  // Online,
+  OverlayContext,
+  OverlayTheme,
+  OverlayType,
+  ProductDescription,
+} from "../../components";
 
 // import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
@@ -140,15 +150,19 @@ class Page extends React.PureComponent<
     end.setHours(closingHours);
     end.setMinutes(closingMinutes);
 
-    return (
+    return <OverlayContext.Consumer>
+      {overlayContext => (
+        <>
       <div className="product-page">
         <div className="container">
           <div className="product-page__product">
 
             <div className="SkeletonHeader">
-              <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+            <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
 
-              <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
+            <div className="SkeletonbackIcon" onClick={() =>
+                        overlayContext.show(OverlayType.search, OverlayTheme.right)
+                      }><ReactSVG path={Search} /></div>
             </div>
 
             <script className="structured-data-list" type="application/ld+json">
@@ -165,31 +179,34 @@ class Page extends React.PureComponent<
         {/* icons */}
         <div className="container">
           <div className="SocialContent">
-            <div className="brand">
-
+            
+              <div className="shopBrand">
+              {productInfo.logo ?
+                <img src={productInfo.logo} />
+                : "" }
             </div>
             <div className="SocialIcons">
-              {productInfo.instagramUrl !== "" &&
+              {/* {productInfo.instagramUrl !== "" && */}
                 <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={instagram} />
                   </div>
                 </a>
-              }
-              {productInfo.facebookUrl !== "" &&
+              {/* } */}
+              {/* {productInfo.facebookUrl !== "" && */}
                 <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={facebook} />
                   </div>
                 </a>
-              }
-              {productInfo.twitterUrl !== "" &&
+              {/* } */}
+              {/* {productInfo.twitterUrl !== "" && */}
                 <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
                   <div className="icon">
                     <ReactSVG path={twitter} />
                   </div>
                 </a>
-              }
+              {/* } */}
             </div>
           </div>
         </div>
@@ -238,6 +255,13 @@ class Page extends React.PureComponent<
                     <p>Direction</p>
                   </a>
                 }
+
+
+                <div className=" container">
+                <div className="Resevations">
+                  <a className="ReservationBtn" href="#">Make a reservation</a>
+                </div>
+                </div>
 
                 {productInfo.deliverooUrl !== "" &&
                   <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
@@ -318,7 +342,10 @@ class Page extends React.PureComponent<
           </div>
         }
       </div>
-    );
+    </>
+      )
+      }
+    </OverlayContext.Consumer>
   }
 }
 

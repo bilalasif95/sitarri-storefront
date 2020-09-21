@@ -306,7 +306,7 @@
       width: 100%;
       padding: 0;
       box-sizing: border-box;
-      margin: 1rem 0 0;
+      // margin: 1rem 0 0;
 
       // @media (max-width: $medium-screen) {
       //   width: 50%;
@@ -470,7 +470,7 @@
   border-radius: 10px;
 }
 .SkeletonCardsCont{
-  width: 33%;
+  width: 100% !important;
 }
 .SkeletonCardsbody{
   width: 99%;
@@ -488,7 +488,7 @@
 }
 .SkeletonCardsbar{
   height: 25px;
-  width: 70%;
+  width: 20%;
   background-color: #EEF2F5;
   border-radius: 10px;
   margin-top: 20px;
@@ -521,7 +521,7 @@
   .SkeletonCardsCont{
     width: 88%;
     .SkeletonCardsbar{
-      width: 100%;
+      width: 98%;
     }
     .SkeletonCardtext{
       width: 90%;
@@ -572,6 +572,7 @@
     width: 100%;
     padding: 0px 10px;
     margin: 0px auto;
+    // z-index: 9999;
     .SkeletonbackIcon{
       background-color: #9D9FA1;
       height: 30px;
@@ -616,4 +617,150 @@
   .product-page__product .useful-links .item:after{
     display: none;
   }
+}
+.CardTitle{
+  display: flex;
+  justify-content: space-between;
+}
+.Left{
+  width: 95%;
+  padding: 0px 10px;
+}
+.StoreTitle{
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+  color: #111212;
+  margin-bottom: 10px;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.CardDetails{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.Nos{
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+  // margin: 0 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+}
+.Close{
+  font-size: 10px;
+  color: #666;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  span{
+    width: 2px;
+    height: 2px;
+    display: block;
+    background: #666;
+    margin: 0 0.3rem 0 0rem;
+  }
+}
+.Star{
+  display: flex;
+justify-content: flex-start;
+align-items: center;
+margin: 0 3px;
+svg{
+  margin: 0 1px;
+  path{
+fill:  #FBCE2E !important;
+  }
+}
+svg:last-child{
+  fill: #ffede7;
+}
+}
+.CardTime{
+  display: flex;
+  justify-content: space-between;
+}
+.Timing{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.Open{
+  font-size: 10px;
+  color: #1fa300;
+  text-align: left;
+  margin: 0 0.3rem 0 0;
+}
+.Location{
+  display: flex;
+justify-content: center;
+align-items: center;
+background: #FDECD1;
+border-radius: 3px;
+// padding: 1px 5px;
+// width: 70%;
+margin-left: auto;
+svg{
+  margin: 0 0.5rem 0 0;
+  fill: #F39721;
+  width: 10px;
+
+}
+}
+.Right{
+  width: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Imgbox{
+  overflow: hidden;
+  height: 51px;
+  border-radius: 100px;
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+}
+.Bottom{
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-items: center;
+  background-color: #fff;
+}
+.desc {
+  width: 100%;
+  padding: 0 0.5rem 0 0;
+  h4 {
+    font-weight: 600;
+    font-size: 14px;
+    color: #4F5559;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.descr {
+  font-weight: normal;
+  font-size: 12px;
+  text-align: left;
+  color: #777878;
+  line-height: normal;
+  margin-right: 5px;
+}
+.EmptySpace {
+  min-height: 20px;
+}
+}
+.price {
+  font-size: 12px;
+  color: #6F7477;
+  text-align: left;
 }

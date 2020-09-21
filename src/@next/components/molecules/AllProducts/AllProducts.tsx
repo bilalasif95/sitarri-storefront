@@ -69,7 +69,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
         <S.Top>
           <S.Image>
             {tempArray.length > 0 ?
-              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
+              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>

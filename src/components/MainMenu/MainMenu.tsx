@@ -45,12 +45,13 @@ const MainMenu: React.FC = () => {
   // const handleSignOut = () => {
   //   signOut();
   // };
+
   return (
     <OverlayContext.Consumer>
 
       {overlayContext => (
         <>
-          {window.innerWidth >= 540 || !window.location.hash.includes("#/product/") || !window.location.hash.includes("#/shop/") ?
+          {(window.innerWidth >= 540 || (!window.location.hash.includes("/product/") && !window.location.hash.includes("/shop/"))) ?
             <nav id="header">
             <div className="container">
               <div className="main-menu">

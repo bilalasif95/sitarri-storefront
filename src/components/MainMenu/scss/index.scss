@@ -67,7 +67,7 @@
       background: #FDECD1;
       border-radius: 3px;
       padding: 0px 2px;
-      width: 10%;
+      width: 35%;
       height: 26px;
       justify-content: center;
       svg{
@@ -85,7 +85,7 @@
     }
     }
     .ShopAddress{
-      width: 90%;
+      width: 65%;
       >p{
           overflow: hidden;
           white-space: nowrap;
@@ -159,8 +159,8 @@
     .CloseIcon{
       position: absolute;
       cursor: pointer;
-      top: 12px;
-      right: -32px;  
+      top: 14px;
+      right: -16px;  
         path{
           fill: #40464A;
         }

@@ -125,10 +125,20 @@ export const ProductDescription: React.FC<IProps> = ({
                     </S.TabTitle>
                   )}
                 </S.TabList>
-                {storeCategory.edges.length > 8 ? <button onClick={() => seeMoreCat()}>More
+                {window.innerWidth > 540 ?
+                storeCategory.edges.length > 11 ? 
+                <button onClick={() => seeMoreCat()}>
+                  More
          {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
                     : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
-                  } </button> : ""}
+                  } </button> : "" : 
+                  storeCategory.edges.length > 3 ? 
+                <button onClick={() => seeMoreCat()}>
+                  More
+         {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
+                    : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
+                  } </button> : ""
+                  }
 
               </S.TabsContainer>
             </S.Tabs>
