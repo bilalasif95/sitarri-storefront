@@ -672,6 +672,11 @@
 @media (max-width:540px){
   .image-gallery-bullets{
     z-index: inherit;
+      .image-gallery-bullet{
+        &:hover{
+          background-color: #fff;
+        }
+      }
   }
   .image-gallery-slide .image-gallery-image{
     height: 214px;

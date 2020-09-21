@@ -35,19 +35,17 @@ export const Top = styled.div`
   position: relative;
 `;
 export const Brand = styled.div`
+  position: absolute;
+  background: #fff;
+  top: 95px;
   height: 50px;
   width: 50px;
-  position: absolute;
+  border-radius: 60px;
+  left: 12px;
+  border: 1px solid #B2BEC7;
+  overflow: hidden;
   > img {
-    background: #fff;
-    top: 95px;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    border-radius: 60px;
-    left: 12px;
-    border: 1px solid #B2BEC7;
-    overflow: hidden;
+    
   }
   @media(max-width: 767px){
     top: 70px;
