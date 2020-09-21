@@ -67,7 +67,7 @@
       background: #FDECD1;
       border-radius: 3px;
       padding: 0px 2px;
-      width: 35%;
+      width: 12%;
       height: 26px;
       justify-content: center;
       svg{
@@ -85,7 +85,7 @@
     }
     }
     .ShopAddress{
-      width: 65%;
+      width: 88%;
       >p{
           overflow: hidden;
           white-space: nowrap;
@@ -186,6 +186,7 @@
         display: flex;
         padding: 5px 10px;
         cursor: pointer;
+        justify-content: space-between;
         p {
           cursor: pointer;
           line-height: 23px;
@@ -544,4 +545,12 @@
       }
     }
   }
+}
+@media(max-width: 540px){
+  .SearchLocation {
+    width: 35% !important;
+}
+.ShopAddress{
+  width: 65% !important;
+}
 }

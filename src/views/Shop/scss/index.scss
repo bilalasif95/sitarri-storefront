@@ -18,7 +18,7 @@
 
     @media (max-width: $small-screen) {
       display: block;
-      margin-bottom: $spacer;
+      // margin-bottom: $spacer;
     }
 
 
@@ -261,7 +261,7 @@
     .shop-at {
       width: 100%;
       background: #fff;
-      padding: 1rem;
+      // padding: 1rem;
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
@@ -285,6 +285,10 @@
           display: flex;
           justify-content: flex-start;
           align-items: center;
+        }
+        .TimeDropDown{
+          margin-left: 5px;
+          display: none;
         }
         span {
           width: 2px;
@@ -550,6 +554,9 @@
   .SkeletonHeader{
     display: none !important;
   }
+  .ShareIcon{
+    display: none;
+  }
 }
 @media (max-width: 767px){
   .ProductSkeleton{
@@ -588,6 +595,7 @@
     width: 100%;
     padding: 0px 10px;
     margin: 0px auto;
+    z-index: 2;
     .SkeletonbackIcon{
       background-color: #9D9FA1;
       height: 30px;
@@ -604,7 +612,7 @@
     }
   }
   .brand{
-    top: -42px;
+    top: -30px;
   }
   .product-description{ 
   .Instore {
@@ -662,6 +670,17 @@
   display: none;
 }
 @media (max-width:540px){
+  .image-gallery-bullets{
+    z-index: inherit;
+  }
+  .image-gallery-slide .image-gallery-image{
+    height: 214px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .TimeDropDown{
+    display: block !important;
+  }
   .ReservationBtn{
     display: block;
     background-color: #FFECD1;
@@ -676,4 +695,16 @@
   .info {
     margin-bottom: 0px;
 }
+}
+.WeekDays{
+  background-color: #F5F5F5;
+  padding: 10px 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .Days, .Time{
+    p{
+      margin: 0px 0px 10px 0px;
+    }
+  }
 }

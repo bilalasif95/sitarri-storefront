@@ -15,7 +15,7 @@
 
     @media (max-width: $small-screen) {
       display: block;
-      margin-bottom: $spacer;
+      // margin-bottom: $spacer;
     }
 
 
@@ -258,7 +258,7 @@
     .shop-at {
       width: 100%;
       background: #fff;
-      padding: 1rem;
+      // padding: 1rem;
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
@@ -271,6 +271,7 @@
         align-items: center;
         width: 100%;
         margin: 0 0 1.5rem;
+        padding: 0.5rem;
       }
       .open-time {
         display: flex;
@@ -278,6 +279,7 @@
         align-items: center;
         width: 100%;
         margin: 0;
+        padding: 0.5rem;
         .timing {
           display: flex;
           justify-content: flex-start;
