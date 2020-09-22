@@ -46,6 +46,7 @@ export const Tabs = styled.div<{isSticky: any}>`
   
 `;
 export const fixed = styled.div<{isSticky: any}>`
+position: relative;
 @media(max-width: 767px){
   position: ${props => props.isSticky ? 'sticky' : 'initial'};
   top: ${props => props.isSticky ? '0' : ''};
@@ -55,6 +56,7 @@ export const fixed = styled.div<{isSticky: any}>`
     padding: 15px 10px;
     div{
       font-weight: 700;
+      text-align: center;
     }
   }
   }
@@ -170,6 +172,15 @@ export const TabsContainer = styled.div`
   align-items: center;
   width: 100%;
   padding-right: 1rem;
+  .css-1pcexqc-container{
+    position: initial;
+    .css-kj6f9i-menu{
+      width: inherit;
+    }
+    .sc-csuQGl{
+      position: initial;
+    }
+  }
   button {
     display: flex;
     align-items: center;
@@ -183,6 +194,18 @@ export const TabsContainer = styled.div`
     }
   }
   // @media(max-width: 767px){
+    .css-1pcexqc-container{
+     
+      .css-kj6f9i-menu{
+        
+        @media(max-width: 767px){
+          width: 100% !important;
+        }
+      }
+      .sc-csuQGl{
+        position: initial;
+      }
+    }
     button{
     background: #fff !important;
     border-radius: 3px;

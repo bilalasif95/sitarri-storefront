@@ -1,0 +1,218 @@
+@import "../../../globalStyles/scss/variables.scss";
+
+body{
+  background-color: #fafafa !important;
+}
+// .container{
+//   margin: 0px auto !important;
+// }
+#root{
+  display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.header{
+  padding: 0px 4px;
+.Galleryheader{
+  background-color: #fff;
+  text-align: center;
+  padding: 10px 0px;
+  margin-top: 8px;
+  position: relative;
+  .galleryBackIcon{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    background-color: #9D9FA1;
+    height: 30px;
+    border-radius: 50px;
+    width: 30px;
+    padding: 7px 7px;
+    cursor: pointer;
+    svg{
+      path{
+        fill: #fff;
+      }
+    }
+  }
+  h3{
+    color: #000;
+    font-size: 16px;
+  }
+}
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  // padding: 0 4px;
+  margin-bottom: 50px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.galleryCards{
+  display: flex;
+  justify-content: space-between;
+  .SkeletonCardsbody{
+    width: 49.5%;
+    height: 250px;
+  }
+}
+// Skeleton
+.GallerySkeleton{
+.Loadingskeleton{
+  padding: 3rem 0rem 1rem;
+}
+.Skeletonbar{
+  height: 20px;
+  width: 18%;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+  margin: 27px 0 55px;
+}
+.Topboxes{
+  display: flex;
+  width: 100%;
+}
+.TopSkeletonboxes{
+  margin-right: 20px;
+}
+.Skeletonbox{
+  padding: 45px 10px;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+}
+.SkeletonTitle{
+  height: 10px;
+  width: 93px;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.Skeletonbar, .Skeletonbox, .SkeletonTitle, .CardsTitle, .SkeletonCardsbody, .SkeletonCardtext, .SkeletonCardsbar, .ProductSkeletonBox{
+  position: relative;
+  overflow: hidden;
+}
+.Skeletonbar::before, .Skeletonbox::before, .SkeletonTitle::before, .CardsTitle::before, .SkeletonCardsbody::before, .SkeletonCardtext::before, .SkeletonCardsbar::before, .ProductSkeletonBox::before{
+  content: '';
+  display: block;
+  position: absolute;
+  left: -150px;
+  top: 0;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(to right, transparent 0%, #e5e9ec 50%, transparent 100%);
+  animation: load 1.4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+.Skeletoncards{
+  margin-top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.CardsTitle{
+  height: 20px;
+  width: 35%;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+}
+.SkeletonCardsCont{
+  width: 33%;
+}
+.SkeletonCardsbody{
+  width: 99%;
+  height: 190px;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+.SkeletonCardtext{
+  height: 13px;
+  width: 110px;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.SkeletonCardsbar{
+  height: 25px;
+  width: 20%;
+  background-color: #EEF2F5;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+}
+@keyframes load {
+  from {
+      left: -150px;
+  }
+  to   {
+      left: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+@media(max-width: 540px){
+  .row{
+    margin-top: 4px;
+  }
+  .header{
+    padding: 0px;
+  }
+  .photoGallery{
+    margin-top: 0px !important;
+  }
+  .galleryBackIcon{
+    display: none;
+  }
+  .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 50%;
+    max-width: 50%;
+    padding: 0 2px;
+  }
+  .column img {
+    margin-top: 4px;
+  }
+  .GallerySkeleton{
+  .SkeletonCardsbody{
+    width: 97%;
+    height: 95px !important;
+    margin-top: 10px;
+  }
+  .SkeletonCardsCont{
+    display: block;
+  }
+  .Skeletoncards>div:nth-child(n+2) {
+    display: block; 
+  } 
+}
+  .mt-0{
+    margin-top: 0px !important;
+  }
+}

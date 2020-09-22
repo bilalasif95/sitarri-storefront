@@ -3,14 +3,15 @@
 import classNames from "classnames";
 import * as React from "react";
 // import Media from "react-media";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import ImageGallery from 'react-image-gallery';
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
-import { generateCategoryUrl, generateShopUrl } from "../../core/utils";
+import { generateCategoryUrl, generatePhotoGalleryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 // import OtherProducts from "./Other";
@@ -18,7 +19,6 @@ import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
 // import { ProductGallery } from "../../@next/components/organisms/";
-
 // import { structuredData } from "../../core/SEO/Product/structuredData";
 
 import ReactSVG from "react-svg";
@@ -184,9 +184,9 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <GalleryCarousel images={this.getImages()} />
+                      <Link to={generatePhotoGalleryUrl(productInfo.id)}><GalleryCarousel images={this.getImages()} /></Link>
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-                      : <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+                      : <Link to={generatePhotoGalleryUrl(productInfo.id)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
                   : <div className="noPicText">No photo available</div>}
@@ -212,27 +212,27 @@ class Page extends React.PureComponent<
                   </div>
 
 
-                  {/* {productInfo.instagramUrl !== "" && */}
+                  {productInfo.instagramUrl !== "" &&
                   <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
                     <div className="icon">
                       <ReactSVG path={instagram} />
                     </div>
                   </a>
-                  {/* } */}
-                  {/* {productInfo.facebookUrl !== "" && */}
+                   } 
+                  {productInfo.facebookUrl !== "" &&
                   <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
                     <div className="icon">
                       <ReactSVG path={facebook} />
                     </div>
                   </a>
-                  {/* } */}
-                  {/* {productInfo.twitterUrl !== "" && */}
+                   } 
+                  {productInfo.twitterUrl !== "" &&
                   <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
                     <div className="icon">
                       <ReactSVG path={twitter} />
                     </div>
                   </a>
-                  {/* } */}
+                   }
                 </div>
               </div>
             </div>
@@ -363,7 +363,7 @@ class Page extends React.PureComponent<
                           <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
                         </div></div>}</>
                 }
-                {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
+                {/* {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
                   <div className="useful-links-res">
                     {productInfo.instagramUrl !== "" &&
                       <a className="item" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
@@ -386,7 +386,7 @@ class Page extends React.PureComponent<
                         </div>
                         <p>Twitter</p>
                       </a>}
-                  </div>}
+                  </div>} */}
               </div>
             </div>
             {productInfo.storeCategory.edges.length !== 0 &&

@@ -12,6 +12,7 @@ import businessResourceCenter from "../../views/FooterPages/businessResourceCent
 import ContactUs from "../../views/FooterPages/ContactUs";
 import PrivacyPolicy from "../../views/FooterPages/PrivacyPolicy";
 import { HomePage } from "../../views/Home";
+import { PhotoGalleryPage } from "../../views/PhotoGallery";
 import { ProductPage } from "../../views/Product";
 import { SearchPage } from "../../views/Search";
 import { ShopPage } from "../../views/Shop";
@@ -28,6 +29,7 @@ export const Routes: React.FC = () => (
     <Route path={paths.collectionUrl} component={CollectionPage} />
     <Route path={paths.shopUrl} component={ShopPage} />
     <Route path={paths.productUrl} component={ProductPage} />
+    <Route path={paths.photoGalleryUrl} component={PhotoGalleryPage} />
     <Route path={paths.cartUrl} component={CartPage} />
     <Route path={paths.checkoutLoginUrl} component={CheckoutLogin} />
     <Route path={paths.pageUrl} component={ArticlePage} />

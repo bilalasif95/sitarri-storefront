@@ -77,6 +77,8 @@ export const generateCollectionUrl = (id: string, name: string) =>
 
 export const generatePageUrl = (slug: string) => `/page/${slug}/`;
 
+export const generatePhotoGalleryUrl = (id: string) => `/photoGallery/${id}/`;
+
 interface AttributeDict {
   [attributeSlug: string]: string[];
 }
