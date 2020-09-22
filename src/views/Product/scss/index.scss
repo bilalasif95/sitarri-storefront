@@ -3,6 +3,9 @@
 .product-page {
   background-color: #fafafa;
 
+  .slider-frame:focus, .slider-slide:focus{
+    outline: none;
+  }
   .breadcrumbs {
     background-color: $white;
     padding: $spacer / 2 $spacer $spacer / 2 $spacer * 1.5;
@@ -711,7 +714,10 @@ svg{
   margin: 0 0.5rem 0 0;
   fill: #F39721;
   width: 10px;
-
+}
+.Miles{
+  font-size: 10px;
+  color: #F39721;
 }
 }
 .Right{
@@ -765,4 +771,24 @@ svg{
   font-size: 12px;
   color: #6F7477;
   text-align: left;
+}
+.image-gallery-bullets .image-gallery-bullet:hover{
+  background: #fff;
+}
+.image-gallery-image:focus, .image-gallery-slides:focus{
+  outline: none;
+}
+.image-gallery-slide .image-gallery-image{
+  width: 100%;
+  object-fit: cover;
+  height: 360px;
+}
+
+@media(max-width: 540px){
+  .Right{
+    width: 17%;
+  }
+  .Left{
+    width: 83%;
+  }
 }

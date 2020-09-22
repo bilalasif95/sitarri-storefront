@@ -51,7 +51,7 @@ const MainMenu: React.FC = () => {
 
       {overlayContext => (
         <>
-          {(window.innerWidth >= 540 || (!window.location.hash.includes("/product/") && !window.location.hash.includes("/shop/"))) ?
+          {(window.innerWidth >= 540 || (!window.location.hash.includes("/product/") && !window.location.hash.includes("/shop/") && !window.location.hash.includes("/photoGallery/"))) ?
             <nav id="header">
             <div className="container">
               <div className="main-menu">

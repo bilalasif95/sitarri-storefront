@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { DropdownSelect,RichTextContent } from "@components/atoms";
+import { DropdownSelect, RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 
 // import ImageGallery from 'react-image-gallery';
@@ -78,7 +78,7 @@ export const ProductDescription: React.FC<IProps> = ({
 
   const [isSticky, setSticky] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
-  const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: ""});
+  const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: "" });
   const handleScroll = () => {
     if (ref.current) {
       setSticky(ref.current.getBoundingClientRect().top <= 0);
@@ -140,33 +140,49 @@ export const ProductDescription: React.FC<IProps> = ({
                   )}
                 </S.TabList>
                 {window.innerWidth > 540 ?
-                storeCategory.edges.length > 11 ? 
-                // <button onClick={() => seeMoreCat()}>
-                //   More
-                  <DropdownSelect
-                    sortBy="More"
-                    type="PriceBase"
-                    onChange={(value, type) => {
-                      if (type === "PriceBase") {
-                        setSortPriceBase(value)
-                        setTabProduct(value.label,value.products)
-                      }}}
-                    options={sortOptionsByPrice}
-                    value={sortOptionsByPrice.find(
-                      option => option.label === sortPriceBase.label
-                    )}
-                  />
-        //  {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
-        //             : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
-        //           } </button> 
-                  : "" : 
-                  storeCategory.edges.length > 3 ? 
-                <button onClick={() => seeMoreCat()}>
-                  More
-         {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
-                    : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
-                  } </button> : ""
-                  }
+                  storeCategory.edges.length > 11 ?
+                    // <button onClick={() => seeMoreCat()}>
+                    //   More
+                    <DropdownSelect
+                      sortBy="More"
+                      type="PriceBase"
+                      onChange={(value, type) => {
+                        if (type === "PriceBase") {
+                          setSortPriceBase(value)
+                          setTabProduct(value.label, value.products)
+                        }
+                      }}
+                      options={sortOptionsByPrice}
+                      value={sortOptionsByPrice.find(
+                        option => option.label === sortPriceBase.label
+                      )}
+                    />
+                    //  {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
+                    //             : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
+                    //           } </button> 
+                    : "" :
+                  storeCategory.edges.length > 3 ?
+                    <DropdownSelect
+                      sortBy="More"
+                      type="PriceBase"
+                      onChange={(value, type) => {
+                        if (type === "PriceBase") {
+                          setSortPriceBase(value)
+                          setTabProduct(value.label, value.products)
+                        }
+                      }}
+                      options={sortOptionsByPrice}
+                      value={sortOptionsByPrice.find(
+                        option => option.label === sortPriceBase.label
+                      )}
+                    />
+                    //         <button onClick={() => seeMoreCat()}>
+                    //           More
+                    //  {seeMore ? <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" /></svg>
+                    //             : <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="#f2492b" d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" /></svg>
+                    //           } </button> 
+                    : ""
+                }
 
               </S.TabsContainer>
             </S.Tabs>

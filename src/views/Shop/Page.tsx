@@ -3,14 +3,15 @@
 import classNames from "classnames";
 import * as React from "react";
 // import Media from "react-media";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import ImageGallery from 'react-image-gallery';
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
-import { generateCategoryUrl, generateShopUrl } from "../../core/utils";
+import { generateCategoryUrl,generatePhotoGalleryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 // import OtherProducts from "./Other";
@@ -184,9 +185,9 @@ class Page extends React.PureComponent<
             {productInfo.images.length > 0 ? 
             <>
             {window.innerWidth >= 540 ?
-            <GalleryCarousel images={this.getImages()} />
+            <Link to={generatePhotoGalleryUrl(productInfo.id)}><GalleryCarousel images={this.getImages()} /></Link>
               // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-              : <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              : <Link to={generatePhotoGalleryUrl(productInfo.id)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
             }
             </>
               : <div className="noPicText">No photo available</div>}

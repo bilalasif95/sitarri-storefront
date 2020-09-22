@@ -35,8 +35,8 @@ export const SortLine = styled.div<{sortby: any}>`
   }
   }
   @media(max-width: 767px){
-    padding: ${props => props.sortby === "Results:" ? "3px 10px" : "4px 10px"};
-    margin-right: 10px;
+    padding: ${props => props.sortby === "Results:" ? "3px 10px" : "10px 14px"};
+    // margin-right: 10px;
 }
 `;
 
