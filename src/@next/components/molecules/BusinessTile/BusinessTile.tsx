@@ -72,8 +72,8 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
             {/* <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
             {/* :  */}
             {product.logo ?
-            <img src={product.logo} className="noImg" />
-            : "" }
+              <img src={product.logo} className="noImg" />
+              : ""}
             {/* } */}
 
           </S.Brand>
@@ -158,9 +158,10 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
               </S.Likes>
 
               <S.Tags>
-                <S.Subtag>Mexican</S.Subtag>
+                {product && product.tags.map((tag: any) => <S.Subtag>{tag.name}</S.Subtag>)}
+                {/* <S.Subtag>Mexican</S.Subtag>
                 <S.Subtag>Taco</S.Subtag>
-                <S.Subtag>Tequila</S.Subtag>
+                <S.Subtag>Tequila</S.Subtag> */}
               </S.Tags>
 
             </S.Content>

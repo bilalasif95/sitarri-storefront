@@ -15,7 +15,7 @@ export const Top = styled.div`
   padding: 1rem 0;
   @media(max-width:768px){
     justify-content: space-between;
-    padding: 1rem 0 0;
+    padding: 1rem 0;
     overflow-x: scroll;
     display: flex;
     ::-webkit-scrollbar{

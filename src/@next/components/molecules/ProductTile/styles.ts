@@ -232,12 +232,15 @@ export const Right = styled.div`
 `;
 export const Imgbox = styled.div`
   overflow: hidden;
-  height: 51px;
-  border-radius: 100px;
+  height: 50px;
+  width: 50px;
+  // border-radius: 100px;
   img{
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+    background: #fff;
+    border: 1px solid #B2BEC7;
   }
   @media(max-width: 767px){
     height: 45px;

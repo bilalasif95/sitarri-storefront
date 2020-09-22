@@ -117,6 +117,9 @@ export const searchProductsQuery = gql`
             name
             totalReviews
             logo
+            tags{
+              name
+            }
             distance(longitude: $longitude, latitude: $latitude)
             rating
             images{
@@ -169,6 +172,9 @@ export const searchProductsQuery = gql`
             }
             logo
           openingHours
+          tags{
+            name
+          }
             closingHours
           storeProduct(first: $pageSize, filter: { search: $query }) {
              edges {

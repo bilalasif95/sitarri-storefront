@@ -155,6 +155,7 @@ export const productDetailsQuery = gql`
     id
     name
     description
+    tags{name}
     images{url}
     address {
       privateMetadata

@@ -12,6 +12,43 @@ export const ProductList = styled.div`
   }
 `}
 `;
+
+export const Carouseltitle = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  p{
+    font-size: 12px;
+    color: #99A9B4;
+    span{
+      cursor: pointer;
+    }
+    img{
+      width: 5px;
+      margin-left: 5px;
+    }
+  }
+`;
+
+export const OnlyCarousel = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+`
+
+export const AllShops = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0;
+  @media (max-width: 992px){
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 540px){
+    grid-template-columns: 1fr;
+  }
+`
+
 export const Shops = styled.div`
   background-color: #fff;
   margin-bottom: 30px;
