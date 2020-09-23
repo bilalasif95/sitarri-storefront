@@ -31,7 +31,7 @@ const ContactUs: React.FC = () => (
                      <div className="BusinessBtns">
                         <a className="SignupBtn" href="">Sign Up 
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                            <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
                               <g id="Group_8" data-name="Group 8">
                                  <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#fff"/>
@@ -42,7 +42,7 @@ const ContactUs: React.FC = () => (
                         </a>
                         <a className="SigninBtn" href="">Sign In
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                            <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
                               <g id="Group_8" data-name="Group 8">
                                  <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#092540"/>
@@ -166,7 +166,7 @@ const ContactUs: React.FC = () => (
       </div>
       <div className="Contactusbtn">
          <Link className="Contactbtn" to={appPaths.contactUsUrl}>Contact Us
-         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
             <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
                <g id="Group_8" data-name="Group 8">
                   <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#fff"/>

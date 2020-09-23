@@ -85,7 +85,7 @@ const search: React.FC = (props: any) => {
             <input autoFocus ref={ref} type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control"  />
             {(!loadingState || search === "") && 
 
-            <svg onClick={()=> overlayContext.hide()} className="BackArrow" xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 24">
+            <svg onClick={()=> overlayContext.hide()} className="BackArrow" xmlns="https://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 24">
                 <g id="Group_961" data-name="Group 961" transform="translate(17940 12803)">
                     <g id="Group_960" data-name="Group 960">
                     <g id="Group_959" data-name="Group 959">
@@ -108,7 +108,7 @@ const search: React.FC = (props: any) => {
 
             {search !== null && search !== "" ?
             
-            <svg onClick={()=>setSearch("")} className="CloseIcon" width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg onClick={()=>setSearch("")} className="CloseIcon" width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="https://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.07104 5.65674L1.41431 0L0 1.41418L5.65674 7.07104L0 12.7279L1.41406 14.1421L7.07104 8.48511L12.728 14.1421L14.1423 12.7279L8.48535 7.07092L14.1421 1.41418L12.7278 0L7.07104 5.65674Z" fill="#C4C4C4"/>
             </svg>
 

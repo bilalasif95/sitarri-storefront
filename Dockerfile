@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 ARG API_URI
-ENV API_URI ${API_URI:-https://backend.sitarri.rnssol.com/graphql/}
+ENV API_URI ${API_URI:-https://dev-backend.sitarri.co.uk/graphql/}
 RUN API_URI=${API_URI} npm run build
 
 FROM nginx:stable

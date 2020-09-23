@@ -3,7 +3,7 @@ module.exports = {
     excludes: ["**/__tests__/**/*", "**/@sdk/**/*"],
     service: {
       name: "sitarri",
-      url: "https://backend.sitarri.rnssol.com/graphql/",
+      url: "https://dev-backend.sitarri.co.uk/graphql/",
     },
   },
 };

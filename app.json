@@ -2,13 +2,13 @@
   "name": "sitarri-storefront",
   "description": "A GraphQL-powered, PWA, single-page storefront application for Sitarri",
   "repository": "https://github.com/mirumee/saleor-storefront",
-  "website": "http://getsaleor.com/",
+  "website": "https://dev.sitarri.co.uk/",
   "logo": "https://mirumee.com/img/opensource_saleor.jpg",
   "keywords": ["sitarri", "e-commerce", "storefront"],
   "env": {
     "API_URI": {
       "description": "URI of a running instance of Sitarri GraphQL API",
-      "value": "https://backend.sitarri.rnssol.com/graphql/"
+      "value": "https://dev-backend.sitarri.co.uk/graphql/"
     }
   },
   "buildpacks": [
