@@ -2,354 +2,349 @@ import "./scss/index.scss";
 
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
-// import ReactSVG from "react-svg";
 
+import { NotFound, OfflinePlaceholder } from "../../components";
+import NetworkStatus from "../../components/NetworkStatus";
+import { getGraphqlIdFromDBId } from "../../core/utils";
 
-// import { useCart } from "@sdk/react";
-// MetaWrapper
-// import { NotFound, OfflinePlaceholder } from "../../components";
-// import NetworkStatus/ from "../../components/NetworkStatus";
-// import { getGraphqlIdFromDBId } from "../../core/utils";
-// import { ProductDetails_product } from "./gqlTypes/ProductDetails";
-// import Page from "./Page";
-// import { TypedProductDetailsQuery } from "./queries";
-
-// import backIcon from "../../images/back.svg";
-// import Search from "../../images/search.svg";
-// import backIcon from "../../images/back.svg";
-// import noPhotoImg from "../../../../images/no-photo.svg";
-// import Search from "../../images/search.svg";
-
-
-
-
+import Page from "./Page";
+import { TypedProductDetailsQuery } from "./queries";
 
 
 const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
-  // const { addItem, items } = useCart();
-  // const [latitude, setLatitude] = React.useState(0)
-  // const [longitude, setLongitude] = React.useState(0)
-  // const getCurrentLocation = () => {
-  //   navigator.geolocation.watchPosition(
-  //     (position) => {
-  //       setLatitude(position.coords.latitude)
-  //       setLongitude(position.coords.longitude)
-  //     },
-  //     (error) => {
-  //       setLatitude(0)
-  //       setLongitude(0)
-  //     },
-  //     {
 
-  //       enableHighAccuracy: true,
-  //       maximumAge: 250,
-  //     }
-  //   );
-  // }
+  return (
+    <TypedProductDetailsQuery
+      loaderFull
+      variables={{
+        id: getGraphqlIdFromDBId(match.params.id, "Store"),
+      }}
+    >
+      {({ data, loading }) => {
 
-  // React.useEffect(() => {
-  //   getCurrentLocation()
-  // }, [latitude, longitude])
 
-  // React.useEffect(() => {
-  //   getCurrentLocation()
-  // }, [])
+        //       if (loading) {
+        //         return <h3 className="GallerySkeleton">
+        //           <div className="container">
+        //             <div className="Loadingskeleton">
+        //               <div className="Selectboxes">
 
-  return  (<h3 className="GallerySkeleton">
-  <div className="container">
-  <div className="Loadingskeleton">
-        <div className="Selectboxes">
 
+        //                 {/* skeleton-cards */}
+        //                 <div className="Skeletoncards">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-       {/* skeleton-cards */}
-        <div className="Skeletoncards">
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //                     <div className="SkeletonCardsbody">
 
-            <div className="SkeletonCardsbody">
+        //                     </div>
 
-            </div>
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardtext">
 
-          {/* <div className="SkeletonCardtext">
+        //         </div> */}
+        //                   </div>
 
-          </div> */}
-          </div>
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //                     <div className="SkeletonCardsbody">
 
-            <div className="SkeletonCardsbody">
+        //                     </div>
 
-            </div>
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardtext">
 
-          {/* <div className="SkeletonCardtext">
+        //         </div> */}
+        //                   </div>
 
-          </div> */}
-          </div>
 
-          
 
 
-        </div>
-        {/* skeleton-cards */}
+        //                 </div>
+        //                 {/* skeleton-cards */}
 
 
-        </div>
+        //               </div>
 
-        <div className="Selectboxes">
+        //               <div className="Selectboxes">
 
 
-{/* skeleton-cards */}
- <div className="Skeletoncards">
-   <div className="SkeletonCardsCont">
-     {/* <div className="CardsTitle">
-     </div> */}
+        //                 {/* skeleton-cards */}
+        //                 <div className="Skeletoncards">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //    </div> */}
 
-     <div className="SkeletonCardsbody">
+        //                     <div className="SkeletonCardsbody">
 
-     </div>
+        //                     </div>
 
-     {/* skeletonbar */}
-   {/* <div className="SkeletonCardsbar">
-   </div> */}
-   {/* skeletonbar */}
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //  </div> */}
+        //                     {/* skeletonbar */}
 
-   {/* <div className="SkeletonCardtext">
+        //                     {/* <div className="SkeletonCardtext">
 
-   </div> */}
-   </div>
+        //  </div> */}
+        //                   </div>
 
-   <div className="SkeletonCardsCont">
-     {/* <div className="CardsTitle">
-     </div> */}
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //    </div> */}
 
-     <div className="SkeletonCardsbody">
+        //                     <div className="SkeletonCardsbody">
 
-     </div>
+        //                     </div>
 
-     {/* skeletonbar */}
-   {/* <div className="SkeletonCardsbar">
-   </div> */}
-   {/* skeletonbar */}
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //  </div> */}
+        //                     {/* skeletonbar */}
 
-   {/* <div className="SkeletonCardtext">
+        //                     {/* <div className="SkeletonCardtext">
 
-   </div> */}
-   </div>
+        //  </div> */}
+        //                   </div>
 
-   
 
 
- </div>
- {/* skeleton-cards */}
 
+        //                 </div>
+        //                 {/* skeleton-cards */}
 
- </div>
 
- <div className="Selectboxes">
+        //               </div>
 
+        //               <div className="Selectboxes">
 
-       {/* skeleton-cards */}
-        <div className="Skeletoncards">
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
 
-            <div className="SkeletonCardsbody">
+        //                 {/* skeleton-cards */}
+        //                 <div className="Skeletoncards">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-            </div>
+        //                     <div className="SkeletonCardsbody">
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     </div>
 
-          {/* <div className="SkeletonCardtext">
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-          </div> */}
-          </div>
+        //                     {/* <div className="SkeletonCardtext">
 
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //         </div> */}
+        //                   </div>
 
-            <div className="SkeletonCardsbody">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-            </div>
+        //                     <div className="SkeletonCardsbody">
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     </div>
 
-          {/* <div className="SkeletonCardtext">
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-          </div> */}
-          </div>
+        //                     {/* <div className="SkeletonCardtext">
 
-          
+        //         </div> */}
+        //                   </div>
 
 
-        </div>
-        {/* skeleton-cards */}
 
 
-        </div>
+        //                 </div>
+        //                 {/* skeleton-cards */}
 
-        <div className="Selectboxes">
 
+        //               </div>
 
-       {/* skeleton-cards */}
-        <div className="Skeletoncards">
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //               <div className="Selectboxes">
 
-            <div className="SkeletonCardsbody">
 
-            </div>
+        //                 {/* skeleton-cards */}
+        //                 <div className="Skeletoncards">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     <div className="SkeletonCardsbody">
 
-          {/* <div className="SkeletonCardtext">
+        //                     </div>
 
-          </div> */}
-          </div>
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //                     {/* <div className="SkeletonCardtext">
 
-            <div className="SkeletonCardsbody">
+        //         </div> */}
+        //                   </div>
 
-            </div>
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                     <div className="SkeletonCardsbody">
 
-          {/* <div className="SkeletonCardtext">
+        //                     </div>
 
-          </div> */}
-          </div>
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-          
+        //                     {/* <div className="SkeletonCardtext">
 
+        //         </div> */}
+        //                   </div>
 
-        </div>
-        {/* skeleton-cards */}
 
 
-        </div>
 
+        //                 </div>
+        //                 {/* skeleton-cards */}
 
-        <div className="Selectboxes">
 
+        //               </div>
 
-       {/* skeleton-cards */}
-        <div className="Skeletoncards">
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
 
-            <div className="SkeletonCardsbody">
+        //               <div className="Selectboxes">
 
-            </div>
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                 {/* skeleton-cards */}
+        //                 <div className="Skeletoncards">
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-          {/* <div className="SkeletonCardtext">
+        //                     <div className="SkeletonCardsbody">
 
-          </div> */}
-          </div>
+        //                     </div>
 
-          <div className="SkeletonCardsCont">
-            {/* <div className="CardsTitle">
-            </div> */}
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
-            <div className="SkeletonCardsbody">
+        //                     {/* <div className="SkeletonCardtext">
 
-            </div>
+        //         </div> */}
+        //                   </div>
 
-            {/* skeletonbar */}
-          {/* <div className="SkeletonCardsbar">
-          </div> */}
-          {/* skeletonbar */}
+        //                   <div className="SkeletonCardsCont">
+        //                     {/* <div className="CardsTitle">
+        //           </div> */}
 
-          {/* <div className="SkeletonCardtext">
+        //                     <div className="SkeletonCardsbody">
 
-          </div> */}
-          </div>
+        //                     </div>
 
-          
+        //                     {/* skeletonbar */}
+        //                     {/* <div className="SkeletonCardsbar">
+        //         </div> */}
+        //                     {/* skeletonbar */}
 
+        //                     {/* <div className="SkeletonCardtext">
 
-        </div>
-        {/* skeleton-cards */}
+        //         </div> */}
+        //                   </div>
 
 
-        </div>
 
 
+        //                 </div>
+        //                 {/* skeleton-cards */}
 
-      </div>
 
+        //               </div>
 
-  </div>
 
-</h3>
 
-        
-          // <div className="gallerySkeleton">
+        //             </div>
 
-          //   <div className="galleryCards">
-          //     <div className="SkeletonCardsbody"></div>
-          //     <div className="SkeletonCardsbody"></div>
-          //   </div>
 
-          //   <div className="galleryCards">
-          //     <div className="SkeletonCardsbody"></div>
-          //     <div className="SkeletonCardsbody"></div>
-          //   </div>
+        //           </div>
 
-          //   <div className="galleryCards">
-          //     <div className="SkeletonCardsbody"></div>
-          //     <div className="SkeletonCardsbody"></div>
-          //   </div>
+        //         </h3>
 
-          //   <div className="galleryCards">
-          //     <div className="SkeletonCardsbody"></div>
-          //     <div className="SkeletonCardsbody"></div>
-          //   </div>
 
-          //   <div className="galleryCards">
-          //     <div className="SkeletonCardsbody"></div>
-          //     <div className="SkeletonCardsbody"></div>
-          //   </div>
+        //         // <div className="gallerySkeleton">
 
+        //         //   <div className="galleryCards">
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //   </div>
 
-          // </div>
-        
-  
+        //         //   <div className="galleryCards">
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //   </div>
+
+        //         //   <div className="galleryCards">
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //   </div>
+
+        //         //   <div className="galleryCards">
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //   </div>
+
+        //         //   <div className="galleryCards">
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //     <div className="SkeletonCardsbody"></div>
+        //         //   </div>
+
+
+        //         // </div>
+
+        //       }
+
+
+        return <NetworkStatus>
+          {isOnline => {
+
+            const { store } = data;
+
+
+            return (
+              // <MetaWrapper meta={extractMeta(product)}>
+              <Page product={store} loading={loading} />
+              // </MetaWrapper>
+            );
+
+
+            if (store === null) {
+              return <NotFound />;
+            }
+
+            if (!isOnline) {
+              return <OfflinePlaceholder />;
+            }
+          }}
+        </NetworkStatus>
+      }}
+    </TypedProductDetailsQuery>
   )
 }
 

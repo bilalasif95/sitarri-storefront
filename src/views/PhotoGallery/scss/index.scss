@@ -54,14 +54,16 @@ body{
 .column {
   -ms-flex: 25%; /* IE10 */
   flex: 50%;
-  max-width: 50%;
+  // max-width: 50%;
   padding: 0 4px;
+  columns: 2 auto;
 }
 
 .column img {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
+  cursor: pointer;
 }
 .galleryCards{
   display: flex;
@@ -74,7 +76,16 @@ body{
 // Skeleton
 .GallerySkeleton{
 .Loadingskeleton{
-  padding: 3rem 0rem 1rem;
+  div:first-child{
+    .Skeletoncards {
+      .SkeletonCardsCont {
+        .SkeletonCardsbody {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  padding: 0rem 0rem 2rem;
 }
 .Skeletonbar{
   height: 20px;
@@ -165,7 +176,7 @@ body{
   .column {
     -ms-flex: 50%;
     flex: 50%;
-    max-width: 50%;
+    // max-width: 50%;
   }
 }
 
@@ -174,7 +185,7 @@ body{
   .column {
     -ms-flex: 50%;
     flex: 50%;
-    max-width: 50%;
+    // max-width: 50%;
   }
 }
 @media(max-width: 540px){
@@ -193,7 +204,7 @@ body{
   .column {
     -ms-flex: 25%; /* IE10 */
     flex: 50%;
-    max-width: 50%;
+    // max-width: 50%;
     padding: 0 2px;
   }
   .column img {

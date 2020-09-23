@@ -184,9 +184,9 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <Link to={generatePhotoGalleryUrl(productInfo.id)}><GalleryCarousel images={this.getImages()} /></Link>
+                      <Link to={generatePhotoGalleryUrl(productInfo.id,productInfo.name)}><GalleryCarousel images={this.getImages()} /></Link>
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-                      : <Link to={generatePhotoGalleryUrl(productInfo.id)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
+                      : <Link to={generatePhotoGalleryUrl(productInfo.id,productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
                   : <div className="noPicText">No photo available</div>}
