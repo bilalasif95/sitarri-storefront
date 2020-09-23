@@ -148,65 +148,15 @@ export const productVariantFragment = gql`
 // `;
 
 export const productDetailsQuery = gql`
-query($id: ID!, $longitude: Float, $latitude: Float) {
-  product(id: $id) {
-    name
-    descriptionJson
-    images {
-      id
-      alt
-      url
-    }
-    pricing {
-      priceRange {
-        start {
-          gross {
-            currency
-            amount
-          }
-        }
-      }
-    }
-    store {
-      id
-      name
-      logo
-      openingHours
-      closingHours
-      rating
-      totalReviews
-      distance(longitude: $longitude, latitude: $latitude)
-      storeCategory(first: 100) {
-        edges {
-          node {
-            name
-            products(first: 100) {
-              edges {
-                node {
-                  id
-                  name
-                  pricing {
-                    priceRange {
-                      start {
-                        gross {
-                          currency
-                          amount
-                        }
-                      }
-                    }
-                  }
-                  descriptionJson
-                  images {
-                    url
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+query($id:ID!){
+  store(id:$id){
+   id
+   name
+   images{
+     id
+     url
+   }
+ }
 }
 `;
 // FIXME: Check how to handle pagination of `productVariants` in the UI.

@@ -153,10 +153,16 @@ export const Image = styled.div`
       width: 10px;
     }
     .image-gallery-slide{
-      width: 75%;
+      width: 100%;
       padding:0 2px 0 0;
     }
     .image-gallery-content 
+    .image-gallery-bullets{
+      top: 66%;
+      .image-gallery-bullet{
+        padding: 3px;
+      }
+    }
     .image-gallery-slide
      .image-gallery-image{
        max-height: 100% !important;
