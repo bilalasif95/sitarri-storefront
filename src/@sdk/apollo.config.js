@@ -3,7 +3,7 @@ module.exports = {
     includes: ["./queries/*.ts", "./mutations/*.ts", "./fragments/*.ts"],
     service: {
       name: "sitarri",
-      url: "https://backend.sitarri.rnssol.com/graphql/"
+      url: "https://dev-backend.sitarri.co.uk/graphql/"
     }
   }
 };

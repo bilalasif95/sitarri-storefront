@@ -14,7 +14,7 @@ A GraphQL-powered, PWA, single-page application storefront for [Sitarri](https:/
 
 ## Demo
 
-See the [public demo](http://erocery.com) of Sitarri Storefront!
+See the [public demo](https://dev.sitarri.co.uk/) of Sitarri Storefront!
 
 Or launch the demo on a free Heroku instance.
 
@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Node.js 10.0+
 - A running instance of Sitarri.
 
-  To run the storefront, you have to set the `API_URI` environment variable to point to the Sitarri GraphQL API. If you are running Sitarri locally with the default settings, set `API_URI` to: `https://backend.sitarri.rnssol.com/graphql/`.
+  To run the storefront, you have to set the `API_URI` environment variable to point to the Sitarri GraphQL API. If you are running Sitarri locally with the default settings, set `API_URI` to: `https://dev-backend.sitarri.co.uk/graphql/`.
 
 ### Installing
 

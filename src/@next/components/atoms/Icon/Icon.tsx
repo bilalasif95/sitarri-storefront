@@ -24,7 +24,7 @@ export const Icon: React.FC<IProps> = ({ size = 32, color, name }: IProps) => {
     //   />
     //   ))}
     // </svg>
-    <svg width="10" height="8" xmlns="http://www.w3.org/2000/svg">
+    <svg width="10" height="8" xmlns="https://www.w3.org/2000/svg">
 
  <g>
   <title>background</title>
