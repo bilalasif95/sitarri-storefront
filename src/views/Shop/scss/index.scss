@@ -549,6 +549,13 @@
     border-radius: 10px;
   }
 }
+.ShareIcon{
+  svg{
+    &:hover{
+      transform: none !important;
+    }
+  }
+}
 // Skeleton
 @media(min-width: 768px){
   .SkeletonHeader{
