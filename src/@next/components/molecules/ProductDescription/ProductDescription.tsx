@@ -72,8 +72,8 @@ export const ProductDescription: React.FC<IProps> = ({
 
   // const seeMoreCat = () => {
   //   seeMoreSet(!seeMore)
-    // background: ${props => props.active ? '#f34928' : 'none'};
-    // color: ${props => props.active ? props.theme.colors.tabTitle:"#f34928"};
+  // background: ${props => props.active ? '#f34928' : 'none'};
+  // color: ${props => props.active ? props.theme.colors.tabTitle:"#f34928"};
   // }
 
   const [isSticky, setSticky] = React.useState(false);

@@ -4,12 +4,12 @@ import React from "react";
 import ImageGallery from 'react-image-gallery';
 import { Link } from "react-router-dom";
 
-import { TaxedMoney } from "@components/containers";
+// import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -20,25 +20,25 @@ import { IProps } from "./types";
 import { generateShopUrl } from "../../../../core/utils";
 
 export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) => {
-  const price =
-    product.pricing &&
-      product.pricing.priceRange &&
-      product.pricing.priceRange.start
-      ? product.pricing.priceRange.start
-      : undefined;
+  // const price =
+  //   product.pricing &&
+  //     product.pricing.priceRange &&
+  //     product.pricing.priceRange.start
+  //     ? product.pricing.priceRange.start
+  //     : undefined;
 
-  const [displayNewModal, setDisplayNewModal] = React.useState(false);
-  const [show, setShow] = React.useState(true);
-  const onModalClicked = () => {
-    if (displayNewModal) {
-      setDisplayNewModal(false)
-      setShow(false)
-    }
-    else {
-      setDisplayNewModal(true)
-      setShow(true)
-    }
-  };
+  // const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  // const [show, setShow] = React.useState(true);
+  // const onModalClicked = () => {
+  //   if (displayNewModal) {
+  //     setDisplayNewModal(false)
+  //     setShow(false)
+  //   }
+  //   else {
+  //     setDisplayNewModal(true)
+  //     setShow(true)
+  //   }
+  // };
   const tempArray: any = [];
   product.images.map((image: any) => tempArray.push({ original: image.url }));
   // product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
@@ -80,8 +80,8 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
           <S.Image>
             {/* <img src={tileimg} /> */}
             {tempArray.length > 0 ?
-              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-              : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
+              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>
             <S.Content>
@@ -169,7 +169,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
         </S.Top>
 
       </S.Wrapper>
-      {
+      {/* {
         displayNewModal && (
           <Modal
             title=""
@@ -186,11 +186,11 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
               <S.ModalImage>
                 {tempArray.length > 0 ?
                   <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-                  : <img src={noPhotoImg} className="noImg" />}
-                {/* <img src={tileimg} /> */}
-                {/* {product.logo ? <img width="100%" src={product.logo} />
+                  : <img src={noPhotoImg} className="noImg" />} */}
+      {/* <img src={tileimg} /> */}
+      {/* {product.logo ? <img width="100%" src={product.logo} />
                 : <img src={noPhotoImg} />} */}
-              </S.ModalImage>
+      {/* </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
                   <Link to={generateShopUrl(product.id, product.name)} key={product.id}>See Shop</Link>
@@ -204,7 +204,7 @@ export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) =>
             </S.Top>
           </Modal>
         )
-      }
+      } */}
     </>
   );
 };

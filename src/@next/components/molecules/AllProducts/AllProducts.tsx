@@ -8,7 +8,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import { RichTextContent } from "@components/atoms";
 
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
@@ -22,25 +22,25 @@ import { IProps } from "./types";
 import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
 
 export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => {
-  const price =
-    product.pricing &&
-      product.pricing.priceRange &&
-      product.pricing.priceRange.start
-      ? product.pricing.priceRange.start
-      : undefined;
+  // const price =
+  //   product.pricing &&
+  //     product.pricing.priceRange &&
+  //     product.pricing.priceRange.start
+  //     ? product.pricing.priceRange.start
+  //     : undefined;
 
-  const [displayNewModal, setDisplayNewModal] = React.useState(false);
-  const [show, setShow] = React.useState(true);
-  const onModalClicked = () => {
-    if (displayNewModal) {
-      setDisplayNewModal(false)
-      setShow(false)
-    }
-    else {
-      setDisplayNewModal(true)
-      setShow(true)
-    }
-  };
+  // const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  // const [show, setShow] = React.useState(true);
+  // const onModalClicked = () => {
+  //   if (displayNewModal) {
+  //     setDisplayNewModal(false)
+  //     setShow(false)
+  //   }
+  //   else {
+  //     setDisplayNewModal(true)
+  //     setShow(true)
+  //   }
+  // };
   const tempArray: any = [];
   product.images.map((image: any) => tempArray.push({ original: image.url }));
   // product.logo === null ? [].map((image: any) => tempArray.push({ original: image.url })) : [{url: product.logo}].map((image: any) => tempArray.push({ original: image.url }));
@@ -69,8 +69,8 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
         <S.Top>
           <S.Image>
             {tempArray.length > 0 ?
-              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-              : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
+              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>
             <S.Content>
@@ -201,7 +201,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
 
 
       </S.Wrapper>
-      {
+      {/* {
         displayNewModal && (
           <Modal
             title=""
@@ -218,11 +218,11 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
               <S.ModalImage>
                 {tempArray.length > 0 ?
                   <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-                  : <img src={noPhotoImg} className="noImg" />}
-                {/* <Thumbnail source={product} /> */}
-                {/* {product.logo ? <img width="100%" src={product.logo} />
+                  : <img src={noPhotoImg} className="noImg" />} */}
+      {/* <Thumbnail source={product} /> */}
+      {/* {product.logo ? <img width="100%" src={product.logo} />
                 : <img src={noPhotoImg} />} */}
-              </S.ModalImage>
+      {/* </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
                   <Link to={generateShopUrl(product.id, product.name)} key={product.id}>See Shop</Link>
@@ -236,7 +236,7 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
             </S.Top>
           </Modal>
         )
-      }
+      } */}
     </>
   );
 };
