@@ -16,6 +16,28 @@ export const Top = styled.div`
   position: relative;
   .jlQsbh{
     position: absolute;
+    z-index: 2;
+    top: 57px;
+    right: 0;
+    svg{
+      path{
+        fill: #0e2a43;
+      }
+    }
+  }
+  .gsBHXN{
+    position: relative;
+  }
+  .css-kj6f9i-menu{
+    .css-19ni769-option{
+      border-bottom: 1px solid #fafafa;
+    }
+    .css-19ni769-option:focus, .css-r59xpm-option:focus{
+      outline: none;
+    }
+    .css-19ni769-option:active, .css-r59xpm-option:active{
+      background: #fff;
+    }
   }
   @media(max-width:768px){
     justify-content: space-between;
@@ -24,6 +46,9 @@ export const Top = styled.div`
     display: flex;
     ::-webkit-scrollbar{
       display: none;
+    }
+    .jlQsbh{
+      z-index: 99999;
     }
   }
 `;

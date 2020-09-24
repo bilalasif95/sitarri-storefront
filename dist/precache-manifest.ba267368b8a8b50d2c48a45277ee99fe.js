@@ -434,7 +434,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/app.f76d083dbd7a14d505a8.js"
   },
   {
-    "revision": "4dffadf2790c48354b9e",
-    "url": "/js/vendors.2c6ade75482cd8c5f81a.js"
+    "revision": "cecaa4381492937efa9f",
+    "url": "/js/vendors.c0b66c186f0379d1e005.js"
   }
 ]);
