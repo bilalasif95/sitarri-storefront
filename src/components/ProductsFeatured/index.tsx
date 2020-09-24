@@ -7,7 +7,7 @@ import { maybe } from "../../core/utils";
 import { TypedFeaturedProductsQuery } from "./queries";
 
 import { BusinessTile, ProductTile } from "@components/molecules";
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 import Carousel from "../Carousel";
 
@@ -21,11 +21,11 @@ interface ProductsFeaturedProps {
 }
 
 const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }) => {
-  const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  // const [displayNewModal, setDisplayNewModal] = React.useState(false);
   const [showAllResults, setShowAllResults] = React.useState(false);
   const [showProductResults, setShowProductResults] = React.useState(false);
-  const [product] = React.useState({});
-  const [show, setShow] = React.useState(true);
+  // const [product] = React.useState({});
+  // const [show, setShow] = React.useState(true);
   const onShowAllResultsClick = () => {
     if (showAllResults) {
       return setShowAllResults(false)
@@ -2278,7 +2278,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
           }
         }}
       </TypedFeaturedProductsQuery>
-      {
+      {/* {
         displayNewModal && (
           <Modal
             title=""
@@ -2294,7 +2294,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
             <ProductListItem product={product} />
           </Modal>
         )
-      }
+      } */}
     </>
   );
 };
