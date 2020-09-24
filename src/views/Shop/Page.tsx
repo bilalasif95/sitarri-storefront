@@ -4,9 +4,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import classNames from "classnames";
 import * as React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { ToastContainer, toast } from 'react-toastify';
-// import Media from "react-media";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+// import Media from "react-media";
 
 import ImageGallery from 'react-image-gallery';
 
@@ -310,7 +310,7 @@ class Page extends React.PureComponent<
                       <div className="shop-address">
                         <ReactSVG path={location} />
                         <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
-                          position: toast.POSITION.TOP_RIGHT
+                          position: toast.POSITION.TOP_RIGHT,
                         })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                       </div>}
                     {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
@@ -368,7 +368,7 @@ class Page extends React.PureComponent<
                         <div className="shop-address">
                           <ReactSVG path={location} />
                           <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
-                            position: toast.POSITION.TOP_RIGHT
+                            position: toast.POSITION.TOP_RIGHT,
                           })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                         </div></div>}</>
                 }

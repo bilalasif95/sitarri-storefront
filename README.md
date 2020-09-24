@@ -2,7 +2,7 @@
 
 _**Note:** This project is beta quality. We don't advise using it in production._
 
-A GraphQL-powered, PWA, single-page application storefront for [Sitarri](https://erocery.com).
+A GraphQL-powered, PWA, single-page application storefront for [Sitarri](https://dev.sitarri.co.uk/).
 
 ## Features
 

@@ -116,12 +116,12 @@
           }
         }
       }
-      .item:nth-child(odd) {
+      // .item:nth-child(odd) {
         // margin: 0 1rem 1rem 0;
-      }
-      .item:nth-child(even) {
+      // }
+      // .item:nth-child(even) {
         // margin: 0 0 1rem 0;
-      }
+      // }
       @media (max-width: 575px) {
         .item {
           width: 100%;
