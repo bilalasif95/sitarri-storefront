@@ -2,6 +2,8 @@ import React from "react";
 import { components } from "react-select";
 import { ThemeContext } from "styled-components";
 
+import { IconButton } from "@components/atoms";
+
 import { Label } from "../Label";
 import { Select } from "../Select";
 // import ReactSVG from "react-svg";
@@ -61,6 +63,7 @@ export const DropdownSelect: React.FC<IProps> = ({
 
   return (
     <S.Wrapper data-cy="dropdown-select" ref={setElementRef()}>
+      {menuIsOpen && <IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} />}
       <Select
         options={options}
         value={value}

@@ -13,6 +13,10 @@ export const Top = styled.div`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
+  position: relative;
+  .jlQsbh{
+    position: absolute;
+  }
   @media(max-width:768px){
     justify-content: space-between;
     padding: 1rem 0;

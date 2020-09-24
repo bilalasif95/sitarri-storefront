@@ -40,6 +40,7 @@ export const Brand = styled.div`
   height: 50px;
   width: 50px;
   left: 12px;
+  border-radius: 60px;
   overflow: hidden;
   > img {
     height: 50px;
@@ -355,4 +356,31 @@ export const Address = styled.p`
   font-size: 12px
   color: #666;
   text-align: left;
+`;
+
+
+export const Icon = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: no-wrap;
+  flex-grow: 1;
+  position: relative;
+  padding: 2px 3px 20px 10px;
+  margin: 5px 3px 2px 1px;
+  z-index: 4;
+  top: 80%;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: none;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-image: url(../../../images/back.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  @media (max-width: 540px){
+    
+  }
 `;

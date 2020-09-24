@@ -237,10 +237,10 @@ export const Right = styled.div`
   }
 `;
 export const Imgbox = styled.div`
-  overflow: hidden;
+  // overflow: hidden;
   height: 50px;
   width: 50px;
-  // border-radius: 100px;
+  border-radius: 60px;
   img{
     width: 50px;
     height: 50px;
@@ -248,9 +248,9 @@ export const Imgbox = styled.div`
     background: #fff;
     border: 1px solid #B2BEC7;
   }
-  @media(max-width: 767px){
-    height: 45px;
-  }
+  // @media(max-width: 767px){
+  //   height: 45px;
+  // }
 `;
 
 export const Timing = styled.div`

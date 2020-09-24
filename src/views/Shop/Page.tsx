@@ -1,7 +1,10 @@
 // import { smallScreen } from "../../globalStyles/scss/variables.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 import classNames from "classnames";
 import * as React from "react";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer, toast } from 'react-toastify';
 // import Media from "react-media";
 import { Link } from "react-router-dom";
 
@@ -52,7 +55,7 @@ class Page extends React.PureComponent<
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { seeMore: boolean; variantId: string }
+  { add: string; seeMore: boolean; variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -60,6 +63,7 @@ class Page extends React.PureComponent<
   constructor(props) {
     super(props);
     this.state = {
+      add: this.props.product && this.props.product.address && this.props.product.address.streetAddress + " , " + this.props.product.address.city,
       seeMore: false,
       variantId: "",
     };
@@ -166,6 +170,7 @@ class Page extends React.PureComponent<
     return <OverlayContext.Consumer>
       {overlayContext => (
         <>
+          <ToastContainer />
           <div className="product-page">
             <div className="container">
               <div className="product-page__product">
@@ -184,9 +189,9 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <Link to={generatePhotoGalleryUrl(productInfo.id,productInfo.name)}><GalleryCarousel images={this.getImages()} /></Link>
+                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()  } /></Link>
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-                      : <Link to={generatePhotoGalleryUrl(productInfo.id,productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
+                      : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
                   : <div className="noPicText">No photo available</div>}
@@ -213,26 +218,26 @@ class Page extends React.PureComponent<
 
 
                   {productInfo.instagramUrl !== "" &&
-                  <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={instagram} />
-                    </div>
-                  </a>
-                   } 
+                    <a className="item dNone" href={productInfo.instagramUrl} target="_blank" rel="noopener noreferrer">
+                      <div className="icon">
+                        <ReactSVG path={instagram} />
+                      </div>
+                    </a>
+                  }
                   {productInfo.facebookUrl !== "" &&
-                  <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={facebook} />
-                    </div>
-                  </a>
-                   } 
+                    <a className="item dNone" href={productInfo.facebookUrl} target="_blank" rel="noopener noreferrer">
+                      <div className="icon">
+                        <ReactSVG path={facebook} />
+                      </div>
+                    </a>
+                  }
                   {productInfo.twitterUrl !== "" &&
-                  <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
-                    <div className="icon">
-                      <ReactSVG path={twitter} />
-                    </div>
-                  </a>
-                   }
+                    <a className="item dNone" href={productInfo.twitterUrl} target="_blank" rel="noopener noreferrer">
+                      <div className="icon">
+                        <ReactSVG path={twitter} />
+                      </div>
+                    </a>
+                  }
                 </div>
               </div>
             </div>
@@ -304,7 +309,9 @@ class Page extends React.PureComponent<
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
                       <div className="shop-address">
                         <ReactSVG path={location} />
-                        <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+                        <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
+                          position: toast.POSITION.TOP_RIGHT
+                        })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                       </div>}
                     {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
                       <div className="open-time">
@@ -360,7 +367,9 @@ class Page extends React.PureComponent<
                       <div className="shop-at">
                         <div className="shop-address">
                           <ReactSVG path={location} />
-                          <p>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</p>
+                          <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
+                            position: toast.POSITION.TOP_RIGHT
+                          })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                         </div></div>}</>
                 }
                 {/* {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
