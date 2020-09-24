@@ -17,9 +17,9 @@ const getCancelBtnProps = (action: () => void, text?: string) =>
 const getSubmitBtnProps = (text: string, action?: () => void) => ({
   submitBtn: action
     ? {
-        action,
-        text,
-      }
+      action,
+      text,
+    }
     : { text },
 });
 
@@ -36,22 +36,26 @@ export const Modal: React.FC<IProps> = ({
   title,
 }: IProps) => {
   return (
-    <Overlay position="center" show={show} hide={hide} target={target}>
-      <S.Modal>
-        <CardHeader divider onHide={hide}>
-          {title}
-        </CardHeader>
-        <S.Content>{children}</S.Content>
-        {formId === "product-form" ? "" :
-          <FormFooter
-            divider
-            disabled={disabled}
-            {...getSubmitBtnProps(submitBtnText, onSubmit)}
-            {...getCancelBtnProps(hide, cancelBtnText)}
-            formId={formId}
-          />
-        }
-      </S.Modal>
+    <Overlay position="center" show={show} hide={hide} target={target} >
+      
+        <S.Modal>
+          <CardHeader divider onHide={hide}>
+            {title}
+          </CardHeader>
+          <S.Content>{children}</S.Content>
+          {formId === "product-form" ? "" :
+            <FormFooter
+              divider
+              disabled={disabled}
+              {...getSubmitBtnProps(submitBtnText, onSubmit)}
+              {...getCancelBtnProps(hide, cancelBtnText)}
+              formId={formId}
+            />
+          }
+        </S.Modal>
+     
     </Overlay>
+
+
   );
 };

@@ -12,6 +12,7 @@ import ImageGallery from 'react-image-gallery';
 import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 import { CachedImage, Thumbnail } from "@components/molecules";
+import { Modal } from "@components/organisms/Modal";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
@@ -48,7 +49,7 @@ class Page extends React.PureComponent<
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { variantId: string }
+  { displayNewModal: boolean, show: boolean, tempArray: any, variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -56,6 +57,9 @@ class Page extends React.PureComponent<
   constructor(props) {
     super(props);
     this.state = {
+      displayNewModal: false,
+      show: true,
+      tempArray: [],
       variantId: "",
     };
   }
@@ -122,7 +126,32 @@ class Page extends React.PureComponent<
 
   openTab = (url) => {
     window.open(url);
-  }
+  };
+
+  onModalClicked = () => {
+    // const image = this.props.product.images[index]
+    // const filteredImages = this.props.product.images.filter(img => {
+    //   return img.id !== image.id ? img : ""
+    // })
+    // filteredImages.unshift(image)
+    // const tempArray2 = []
+    // filteredImages.map(img => tempArray2.push({ original: img.url }))
+    // this.setState({
+    //   tempArray: tempArray2,
+    // })
+    if (this.state.displayNewModal) {
+      this.setState({
+        displayNewModal: false,
+        show: false,
+      })
+    }
+    else {
+      this.setState({
+        displayNewModal: true,
+        show: true,
+      })
+    }
+  };
   render() {
     const { product } = this.props;
     const productInfo = product.product;
@@ -171,9 +200,9 @@ class Page extends React.PureComponent<
                 <script className="structured-data-list" type="application/ld+json">
                   {/* {structuredData(product)} */}
                 </script>
-                {productInfo && productInfo.images.length > 0 ? 
-                  <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-                // <GalleryCarousel images={this.getImages()} />
+                {productInfo && productInfo.images.length > 0 ?
+                  <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+                  // <GalleryCarousel images={this.getImages()} />
                   // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
                   : <div className="noPicText">No photo available</div>}
 
@@ -211,73 +240,73 @@ class Page extends React.PureComponent<
 
             {/* Bottom */}
             <div className="container">
-            {productInfo.store && <Link to={generateShopUrl(productInfo.store.id, productInfo.store.name)} key={productInfo.store.id}>
-              <div className="Bottom">
-                <div className="Right">
-                  <div className="Imgbox">
-                    {productInfo.store && productInfo.store.logo ? <img src={productInfo.store.logo} />
-                      :
-                      <img src={noPhotoImg} />
-                    }
-                  </div>
-                </div>
-
-                <div className="Left">
-                  <div className="CardTitle">
-                    <div className="StoreTitle">
-                      {productInfo.store && productInfo.store.name}
+              {productInfo.store && <Link to={generateShopUrl(productInfo.store.id, productInfo.store.name)} key={productInfo.store.id}>
+                <div className="Bottom">
+                  <div className="Right">
+                    <div className="Imgbox">
+                      {productInfo.store && productInfo.store.logo ? <img src={productInfo.store.logo} />
+                        :
+                        <img src={noPhotoImg} />
+                      }
                     </div>
-                    <div className="CardDetails">
-                      <div className="Nos">
-                        {productInfo.store && productInfo.store.rating}
-                        {productInfo.store && productInfo.store.rating === 0 ?
-                          <div className="Star" ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></div>
-                          : <div className="Star"><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></div>}
-                        <div className="Close">
+                  </div>
 
-                          ({productInfo.store && productInfo.store.totalReviews})
+                  <div className="Left">
+                    <div className="CardTitle">
+                      <div className="StoreTitle">
+                        {productInfo.store && productInfo.store.name}
+                      </div>
+                      <div className="CardDetails">
+                        <div className="Nos">
+                          {productInfo.store && productInfo.store.rating}
+                          {productInfo.store && productInfo.store.rating === 0 ?
+                            <div className="Star" ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></div>
+                            : <div className="Star"><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></div>}
+                          <div className="Close">
+
+                            ({productInfo.store && productInfo.store.totalReviews})
                           </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
 
-                  <div className="CardTime">
-                  {productInfo.store && productInfo.store.openingHours !== "" && productInfo.store.closingHours !== "" &&
-                  <>
-                    {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
-                      <div className="Timing">
-                        <div className="Open" style={{ color: "green" }}>Open </div>
-                        <div className="Close">
-                          <span />
+                    <div className="CardTime">
+                      {productInfo.store && productInfo.store.openingHours !== "" && productInfo.store.closingHours !== "" &&
+                        <>
+                          {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
+                            <div className="Timing">
+                              <div className="Open" style={{ color: "green" }}>Open </div>
+                              <div className="Close">
+                                <span />
                           Closes
                           {productInfo.store && productInfo.store.closingHours}
-                        </div>
-                      </div>
-                      :
-                      <div className="Timing">
-                        <div className="Open" style={{ color: "red" }}>Closed </div>
-                        <div className="Close">
-                          <span />
+                              </div>
+                            </div>
+                            :
+                            <div className="Timing">
+                              <div className="Open" style={{ color: "red" }}>Closed </div>
+                              <div className="Close">
+                                <span />
                           Opens
                           {productInfo.store && productInfo.store.openingHours}
-                        </div>
-                      </div>
-                    }
-                    </>}
+                              </div>
+                            </div>
+                          }
+                        </>}
 
-                    {productInfo.store && productInfo.store.distance &&
-                      <div className="Location">
-                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                        <div className="Miles">
-                          {productInfo.store.distance}
+                      {productInfo.store && productInfo.store.distance &&
+                        <div className="Location">
+                          <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                          <div className="Miles">
+                            {productInfo.store.distance}
+                          </div>
                         </div>
-                      </div>
-                    }
+                      }
 
+                    </div>
                   </div>
                 </div>
-              </div>
               </Link>}
             </div>
             {/* Bottom */}
@@ -292,7 +321,39 @@ class Page extends React.PureComponent<
                 </div>
               </div>
             }
-          </div>
+             
+            {
+              
+              this.state.displayNewModal && (
+              
+                <Modal
+                  title=""
+                  hide={() => {
+                    this.setState({
+                      displayNewModal: false,
+                      show: false,
+                    })
+                  }}
+                  formId="product-form"
+                  disabled={false}
+                  show={this.state.show}
+                  submitBtnText=""
+                  
+                >
+                  <div>
+
+                    {tempArray.length > 0 &&
+                      <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+                    }
+                    {/* <img src={tileimg} /> */}
+                    {/* {product.logo ? <img width="100%" src={product.logo} />
+                : <img src={noPhotoImg} />} */}
+                  </div>
+                </Modal>
+                
+              )
+            }
+            </div>
         </>
       )
       }

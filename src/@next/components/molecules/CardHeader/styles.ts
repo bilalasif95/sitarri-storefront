@@ -5,7 +5,7 @@ export const Header = styled.div<{ divider: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  // padding: 0.5rem 1rem;
 `;
 // padding: ${props => `1.1rem ${props.theme.spacing.gutter}`};
 // ${({ divider, theme }) =>

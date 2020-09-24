@@ -201,6 +201,7 @@ class Page extends React.PureComponent<
             </div>
             {
               this.state.displayNewModal && (
+                <div className="GalleryModal">
                 <Modal
                   title=""
                   hide={() => {
@@ -223,6 +224,7 @@ class Page extends React.PureComponent<
                 : <img src={noPhotoImg} />} */}
                   </div>
                 </Modal>
+                </div>
               )
             }
           </div>

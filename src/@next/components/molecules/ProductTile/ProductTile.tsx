@@ -12,7 +12,7 @@ import { TaxedMoney } from "@components/containers";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -30,18 +30,18 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
       ? product.pricing.priceRange.start
       : undefined;
 
-  const [displayNewModal, setDisplayNewModal] = React.useState(false);
-  const [show, setShow] = React.useState(true);
-  const onModalClicked = () => {
-    if (displayNewModal) {
-      setDisplayNewModal(false)
-      setShow(false)
-    }
-    else {
-      setDisplayNewModal(true)
-      setShow(true)
-    }
-  };
+  // const [displayNewModal, setDisplayNewModal] = React.useState(false);
+  // const [show, setShow] = React.useState(true);
+  // const onModalClicked = () => {
+  //   if (displayNewModal) {
+  //     setDisplayNewModal(false)
+  //     setShow(false)
+  //   }
+  //   else {
+  //     setDisplayNewModal(true)
+  //     setShow(true)
+  //   }
+  // };
 
   const tempArray: any = [];
   product.images.map((image: any) => tempArray.push({ original: image.url }));
@@ -71,8 +71,8 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-              <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-              : <img onClick={onModalClicked} src={noPhotoImg} className="noImg" />}
+              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <S.Content>
             {/* <S.Link> */}
@@ -177,7 +177,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
         </Link>}
 
       </S.Wrapper>
-      {
+      {/* {
         displayNewModal && (
           <Modal
             title=""
@@ -194,9 +194,9 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
               <S.ModalImage>
                 {tempArray.length > 0 ?
                   <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} />
-                  : <img src={noPhotoImg} className="noImg" />}
-                {/* <Thumbnail source={product} /> */}
-              </S.ModalImage>
+                  : <img src={noPhotoImg} className="noImg" />} */}
+      {/* <Thumbnail source={product} /> */}
+      {/* </S.ModalImage>
               <S.Content>
                 <S.ModalLink>
                   <Link to={generateShopUrl(product.store.id, product.store.name)} key={product.store.id}>See Shop</Link>
@@ -210,7 +210,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             </S.Top>
           </Modal>
         )
-      }
+      } */}
 
     </>
   );
