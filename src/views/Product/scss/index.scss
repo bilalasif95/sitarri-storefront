@@ -168,6 +168,8 @@
       // }
     }
 
+    
+
     .useful-links {
       display: flex;
       justify-content: space-between;
@@ -797,4 +799,9 @@ svg{
 }
 .image-gallery-bullets{
   z-index: 2;
+}
+@media (max-width: 768px){
+  .useful-links .item:after{
+    display: none;
+  }
 }
