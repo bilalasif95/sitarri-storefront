@@ -8,7 +8,7 @@ import { generateGuestOrderDetailsUrl } from "@utils/core";
 import { IProps } from "./types";
 
 const ThankYouPage: React.FC<IProps> = ({}: IProps) => {
-  const location = useLocation();
+  const location = useLocation<any>();
   const history = useHistory();
   const { token, orderNumber } = location.state;
   return (

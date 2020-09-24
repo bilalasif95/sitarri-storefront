@@ -1,10 +1,12 @@
 import * as React from "react";
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 import ReactSVG from "react-svg";
 // import { Link } from "react-router-dom";
 
 import { CachedImage, Thumbnail } from "@components/molecules";
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 import {
   OverlayContext,
@@ -20,13 +22,14 @@ class Page extends React.PureComponent<
     product: any;
     loading: boolean;
   },
-  { displayNewModal: boolean, show: boolean, tempArray: any }
+  { displayNewModal: boolean, show: boolean, tempArray: any, photoIndex: number }
   > {
 
   constructor(props) {
     super(props);
     this.state = {
       displayNewModal: false,
+      photoIndex: 0,
       show: true,
       tempArray: [],
     };
@@ -55,13 +58,14 @@ class Page extends React.PureComponent<
     return <CachedImage />;
   };
   onModalClicked = (index) => {
+    this.setState({photoIndex: 0})
     const image = this.props.product.images[index]
     const filteredImages = this.props.product.images.filter(img => {
       return img.id !== image.id ? img : ""
     })
     filteredImages.unshift(image)
     const tempArray2 = []
-    filteredImages.map(img => tempArray2.push({ original: img.url }))
+    filteredImages.map(img => tempArray2.push(img.url))
     this.setState({
       tempArray: tempArray2,
     })
@@ -202,7 +206,23 @@ class Page extends React.PureComponent<
             {
               this.state.displayNewModal && (
                 <div className="GalleryModal">
-                <Modal
+                  <Lightbox
+                    mainSrc={this.state.tempArray[this.state.photoIndex]}
+                    nextSrc={this.state.tempArray[(this.state.photoIndex + 1) % this.state.tempArray.length]}
+                    prevSrc={this.state.tempArray[(this.state.photoIndex + this.state.tempArray.length - 1) % this.state.tempArray.length]}
+                    onCloseRequest={() => this.setState({ displayNewModal: false })}
+                    onMovePrevRequest={() =>
+                      this.setState({
+                        photoIndex: (this.state.photoIndex + this.state.tempArray.length - 1) % this.state.tempArray.length,
+                      })
+                    }
+                    onMoveNextRequest={() =>
+                      this.setState({
+                        photoIndex: (this.state.photoIndex + 1) % this.state.tempArray.length,
+                      })
+                    }
+                  />
+                  {/* <Modal
                   title=""
                   hide={() => {
                     this.setState({
@@ -218,12 +238,12 @@ class Page extends React.PureComponent<
                   <div>
                     {this.state.tempArray.length > 0 &&
                       <ImageGallery items={this.state.tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-                    }
-                    {/* <img src={tileimg} /> */}
-                    {/* {product.logo ? <img width="100%" src={product.logo} />
+                    } */}
+                  {/* <img src={tileimg} /> */}
+                  {/* {product.logo ? <img width="100%" src={product.logo} />
                 : <img src={noPhotoImg} />} */}
-                  </div>
-                </Modal>
+                  {/* </div>
+                </Modal> */}
                 </div>
               )
             }

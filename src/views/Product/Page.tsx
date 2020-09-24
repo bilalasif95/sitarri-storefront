@@ -2,17 +2,17 @@
 
 import classNames from "classnames";
 import * as React from "react";
+import ImageGallery from 'react-image-gallery';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 // import Media from "react-media";
-
-import { Link } from "react-router-dom";
-
-import ImageGallery from 'react-image-gallery';
 
 import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 import { CachedImage, Thumbnail } from "@components/molecules";
-import { Modal } from "@components/organisms/Modal";
+// import { Modal } from "@components/organisms/Modal";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
@@ -49,7 +49,7 @@ class Page extends React.PureComponent<
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { displayNewModal: boolean, show: boolean, tempArray: any, variantId: string }
+  { displayNewModal: boolean,photoIndex: number, show: boolean, modalImagesArray: any, variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -58,8 +58,9 @@ class Page extends React.PureComponent<
     super(props);
     this.state = {
       displayNewModal: false,
+      modalImagesArray: [],
+      photoIndex: 0,
       show: true,
-      tempArray: [],
       variantId: "",
     };
   }
@@ -129,6 +130,7 @@ class Page extends React.PureComponent<
   };
 
   onModalClicked = () => {
+    this.setState({photoIndex: 0})
     // const image = this.props.product.images[index]
     // const filteredImages = this.props.product.images.filter(img => {
     //   return img.id !== image.id ? img : ""
@@ -139,6 +141,11 @@ class Page extends React.PureComponent<
     // this.setState({
     //   tempArray: tempArray2,
     // })
+    const tempArray2: any = []
+    this.props.product.product.images.map(img => tempArray2.push(img.url))
+    this.setState({
+      modalImagesArray: tempArray2,
+    })
     if (this.state.displayNewModal) {
       this.setState({
         displayNewModal: false,
@@ -321,39 +328,54 @@ class Page extends React.PureComponent<
                 </div>
               </div>
             }
-             
-            {
-              
-              this.state.displayNewModal && (
-              
-                <Modal
-                  title=""
-                  hide={() => {
-                    this.setState({
-                      displayNewModal: false,
-                      show: false,
-                    })
-                  }}
-                  formId="product-form"
-                  disabled={false}
-                  show={this.state.show}
-                  submitBtnText=""
-                  
-                >
-                  <div>
 
-                    {tempArray.length > 0 &&
-                      <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-                    }
-                    {/* <img src={tileimg} /> */}
-                    {/* {product.logo ? <img width="100%" src={product.logo} />
-                : <img src={noPhotoImg} />} */}
-                  </div>
-                </Modal>
-                
+            {
+
+              this.state.displayNewModal && (
+                <Lightbox
+                  mainSrc={this.state.modalImagesArray[this.state.photoIndex]}
+                  nextSrc={this.state.modalImagesArray[(this.state.photoIndex + 1) % this.state.modalImagesArray.length]}
+                  prevSrc={this.state.modalImagesArray[(this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length]}
+                  onCloseRequest={() => this.setState({ displayNewModal: false })}
+                  onMovePrevRequest={() =>
+                    this.setState({
+                      photoIndex: (this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length,
+                    })
+                  }
+                  onMoveNextRequest={() =>
+                    this.setState({
+                      photoIndex: (this.state.photoIndex + 1) % this.state.modalImagesArray.length,
+                    })
+                  }
+                />
+                // <Modal
+                //   title=""
+                //   hide={() => {
+                //     this.setState({
+                //       displayNewModal: false,
+                //       show: false,
+                //     })
+                //   }}
+                //   formId="product-form"
+                //   disabled={false}
+                //   show={this.state.show}
+                //   submitBtnText=""
+
+                // >
+                //   <div>
+
+                //     {tempArray.length > 0 &&
+                //       <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+                //     }
+                //     {/* <img src={tileimg} /> */}
+                //     {/* {product.logo ? <img width="100%" src={product.logo} />
+                // : <img src={noPhotoImg} />} */}
+                //   {/* </div>
+                // </Modal> */}
+
               )
             }
-            </div>
+          </div>
         </>
       )
       }
