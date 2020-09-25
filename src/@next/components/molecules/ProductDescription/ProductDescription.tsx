@@ -137,6 +137,7 @@ export const ProductDescription: React.FC<IProps> = ({
                   storeCategory.edges.length > 11 ?
                     // <button onClick={() => seeMoreCat()}>
                     //   More
+                    
                     <SelectMenu
                       title="Categories"
                       onFilterChange={value => {
@@ -152,7 +153,6 @@ export const ProductDescription: React.FC<IProps> = ({
                     >
                       <Button>More<Icon name="select_arrow" color={"#000"} size={8} /></Button>
                     </SelectMenu>
-
                     // <DropdownSelect
                     //   sortBy="More"
                     //   type="PriceBase"
@@ -172,6 +172,7 @@ export const ProductDescription: React.FC<IProps> = ({
                     //           } </button> 
                     : "" :
                   storeCategory.edges.length > 3 ?
+                  <S.Select>
                     <SelectMenu
                       title="Categories"
                       onFilterChange={value => {
@@ -187,6 +188,8 @@ export const ProductDescription: React.FC<IProps> = ({
                     >
                       <Button>More<Icon name="select_arrow" color={"#000"} size={8} /></Button>
                     </SelectMenu>
+
+                    </S.Select>
                     // <DropdownSelect
                     //   sortBy="More"
                     //   type="PriceBase"

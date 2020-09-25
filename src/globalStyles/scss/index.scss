@@ -161,3 +161,45 @@ header {
   width: 100%;
   z-index: 2;
 }
+
+.css-nil{
+  color: #94a3b2;
+  
+  svg{
+    path{
+    fill: #000;
+    }
+  }
+  .ub-h_14px{
+    display: none;
+  }
+}
+@media(max-width: 767px){
+  .ub-min-h_248px{
+    background-color: #00000069 !important;
+    bottom: 0;
+    width: 100%;
+    left: 0px !important;
+    top: 0px !important;
+    border-radius: 0px !important;
+.ub-w_240px {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0px;
+    background: #fff;
+  }
+}
+.css-nil{
+  color: #94a3b2;
+  
+  svg{
+    path{
+    fill: #000;
+    }
+  }
+  .ub-h_14px{
+    display: none;
+  }
+}
+}
