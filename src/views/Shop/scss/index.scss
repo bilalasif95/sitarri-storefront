@@ -316,6 +316,7 @@
       width: 100%;
       padding: 0;
       box-sizing: border-box;
+      margin-top: 15px;
       // margin: 1rem 0 0;
 
       // @media (max-width: $medium-screen) {
@@ -723,6 +724,35 @@
     }
   }
 }
-.Toastify{
-  margin-top: 0px;
+
+.ril__zoomInButton, .ril__zoomOutButton, .ril__navButtonPrev, .ril__navButtonNext{
+    display: none;
+}
+.ril__toolbar{
+  background: transparent;
+  left: 13%;
+  right: initial;
+}
+.ril__closeButton{
+  background-color: #737373;
+  border-radius: 50px;
+  height: 30px;
+  width: 30px;
+  &:hover{
+    background-color: #737373;
+  }
+}
+@media(max-width: 767px){
+  .ril__toolbar{
+    left: 0;
+  }
+  .ril__outer{
+    background-color: #000;
+  }
+  .ril__closeButton{
+    background-color: transparent;
+  }
+  .Toastify{
+    margin-top: 0px !important;
+  }
 }

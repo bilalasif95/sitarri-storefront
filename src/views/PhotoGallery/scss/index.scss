@@ -248,9 +248,63 @@ body{
   left: -10px;
   background-color: #737373;
   svg{
+    position: relative;
     path{
       fill: #fff;
     }
   }
 }
+
+.ModalContent{
+  position: fixed;
+  top: 85%;
+  left: 25.5%;
+  z-index: 9999;
+  p, .modalLink{
+    color: #dfdfdf;
+  }
 }
+}
+.modalList{
+  li{
+    position: relative;
+    padding-left: 35px;
+    margin-top: 5px;
+    img{
+      position: absolute;
+      left: 0;
+      vertical-align: middle;
+      top: -4px;
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+@media(min-width: 768px){
+  .ril__inner{
+    .ril__image{
+      height: 500px;
+      width: 700px;
+    }
+  }
+  }
+
+  @media(max-width: 767px){
+    .ModalContent{
+      left: 10px !important;
+      p{
+        color: #6d7b88 !important;
+        font-size: 10px;
+      }
+      .modalLink{
+        font-size: 10px;;
+      }
+    }
+    // .ril__inner{
+    //   .ril__image{
+    //     height: 200px;
+    //     width: 95%;
+    //     transform: initial !important;
+    //   }
+    // }
+  }

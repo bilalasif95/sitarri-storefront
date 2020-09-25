@@ -4,6 +4,7 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import ReactSVG from "react-svg";
 // import { Link } from "react-router-dom";
+import ModalIcon from "src/images/favicon.svg"
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 // import { Modal } from "@components/organisms/Modal";
@@ -206,6 +207,14 @@ class Page extends React.PureComponent<
             {
               this.state.displayNewModal && (
                 <div className="GalleryModal">
+
+                  <div className="ModalContent">
+                      <p>TAQUERIA delivery from Notting Hill - Order with Deliveroo</p>
+                      <ul className="modalList">
+                        <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" href="#">Deliveroo.co.uk/taqueria</a></li>
+                      </ul>
+                  </div>
+
                   <Lightbox
                     mainSrc={this.state.tempArray[this.state.photoIndex]}
                     nextSrc={this.state.tempArray[(this.state.photoIndex + 1) % this.state.tempArray.length]}
@@ -216,6 +225,7 @@ class Page extends React.PureComponent<
                         photoIndex: (this.state.photoIndex + this.state.tempArray.length - 1) % this.state.tempArray.length,
                       })
                     }
+                    imageCaption=""
                     onMoveNextRequest={() =>
                       this.setState({
                         photoIndex: (this.state.photoIndex + 1) % this.state.tempArray.length,

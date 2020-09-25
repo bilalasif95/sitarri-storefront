@@ -172,15 +172,22 @@ export const TabsContainer = styled.div`
   align-items: center;
   width: 100%;
   padding-right: 1rem;
+.jlQsbh{
+  position: absolute;
+  top: 53px;
+  right: -85px;
+  z-index: 2;
+}
   .css-1pcexqc-container{
     position: initial;
     .css-kj6f9i-menu{
-      width: inherit;
+      width: 15%;
     }
     .sc-csuQGl{
       position: initial;
     }
   }
+  
   button {
     display: flex;
     align-items: center;
