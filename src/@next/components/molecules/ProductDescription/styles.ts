@@ -12,10 +12,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Select = styled.div`
-.css-qq316i, .css-neyp3c{
-  bottom: 0;
-  top: 0 !important;
-}
 `;
 
 export const AttributeList = styled.ul`
