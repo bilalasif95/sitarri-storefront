@@ -1,21 +1,15 @@
 import React from "react";
 
-import { DropdownSelect } from "@components/atoms";
+import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
 
-// import { BusinessesQuery } from "./queries";
+import { BusinessesQuery } from "./queries";
 
 import * as S from "./styles";
 import { IProps } from "./types";
 
+import { useHandlerWhenClickedOutside } from "../../../hooks";
+
 const sortOptionsByPrice = [
-  {
-    label: "Filters",
-    value: null,
-  },
-  {
-    label: "Clear...",
-    value: null,
-  },
   {
     label: "£0-10",
     value: { gte: 0, lte: 10 },
@@ -44,14 +38,6 @@ const sortOptionsByPrice = [
 ];
 const sortOptionsByDistance = [
   {
-    label: "Sort by",
-    value: null,
-  },
-  {
-    label: "Clear...",
-    value: null,
-  },
-  {
     label: "<100m",
     value: { value: 100, symbol: "METER" },
   },
@@ -76,34 +62,7 @@ const sortOptionsByDistance = [
     value: { value: 0, symbol: "KILOMETER" },
   },
 ];
-// const sortOptionsByBusiness = [
-//   {
-//     label: "Clear...",
-//     value: null,
-//   },
-//   {
-//     label: "Cafe",
-//     value: "cafe",
-//   },
-//   {
-//     label: "Restaurant",
-//     value: "restaurant",
-//   },
-//   {
-//     label: "Grocery",
-//     value: "grocery",
-//   },
-//   {
-//     label: "Hardware",
-//     value: "hardware",
-//   },
-
-// ];
 const sortOptionsByType = [
-  {
-    label: "Results",
-    value: null,
-  },
   {
     label: "All",
     value: null,
@@ -129,22 +88,143 @@ export const ProductListHeader: React.FC<IProps> = ({
 
 }: IProps) => {
 
+  const [menuIsOpen, setMenuIsOpen] = React.useState(false);
+  const [isResultsMenuOpened, setResultsMenuIsOpen] = React.useState(false);
+  const [isSortMenuOpened, setSortMenuIsOpen] = React.useState(false);
+  const [categoriesMenu, setCategoriesMenu] = React.useState(false);
+  const [distanceMenu, setDistanceMenu] = React.useState(false);
+  const [priceMenu, setPriceMenu] = React.useState(false);
+  const [search, setSearch] = React.useState("");
 
+  const onCategoriesMenuClick = () => {
+    if (categoriesMenu) {
+      return setCategoriesMenu(false)
+    }
+    setCategoriesMenu(true)
+  }
 
+  const onDistanceMenuClick = () => {
+    if (distanceMenu) {
+      return setDistanceMenu(false)
+    }
+    setDistanceMenu(true)
+  }
+
+  const onPriceMenuClick = () => {
+    if (priceMenu) {
+      return setPriceMenu(false)
+    }
+    setPriceMenu(true)
+  }
+
+  const { setElementRef } = useHandlerWhenClickedOutside(() => {
+    setMenuIsOpen(false);
+    setCategoriesMenu(false);
+    setDistanceMenu(false);
+  });
+
+  const { setElementRef: setResultsElementRef } = useHandlerWhenClickedOutside(() => {
+    setResultsMenuIsOpen(false)
+  });
+
+  const { setElementRef: setSortElementRef } = useHandlerWhenClickedOutside(() => {
+    setSortMenuIsOpen(false)
+  });
+
+  const resultType: any = sortOptionsByType.find(
+    option => option.label === activeSortTypeBase
+  )
   return (
     <S.Wrapper>
       <S.Top>
         <S.Element>
-          <S.Sort>
-            <DropdownSelect
-              sortBy="Filters"
-              type="PriceBase"
-              onChange={onChange}
-              options={sortOptionsByPrice}
-              value={sortOptionsByPrice.find(
-                option => option.label === activeSortOption
-              )}
-            />
+          <S.Sort data-cy="dropdown-select" ref={setElementRef()}>
+            <S.SortLine
+              sortby=""
+              data-cy="dropdown-select-input"
+              onClick={() => setMenuIsOpen(!menuIsOpen)}
+            >
+              <Label>
+                <div>
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>icon11</title><rect className="cls-1" x="0.1" y="5.21" width="19.8" height="0.71" /><rect className="cls-1" x="0.1" y="9.67" width="19.8" height="0.71" /><rect className="cls-1" x="0.1" y="14.12" width="19.8" height="0.71" /><circle className="cls-1" cx="4.63" cy="5.54" r="2.04" /><circle className="cls-1" cx="12.51" cy="10" r="2.04" /><circle className="cls-1" cx="7.34" cy="14.46" r="2.04" />
+                  </svg>
+                </div>
+              </Label>
+              <Label>Filters</Label>
+              <S.Indicator rotate={String(menuIsOpen)}>
+                <Icon name="select_arrow" color={"#000"} size={8} />
+              </S.Indicator>
+            </S.SortLine>
+            {menuIsOpen &&
+              <div>
+                <div>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></div>
+                <div onClick={() => setMenuIsOpen(!menuIsOpen)}>None</div>
+                <div onClick={onCategoriesMenuClick}>Categories</div>
+                {categoriesMenu &&
+                  <BusinessesQuery>
+                    {({ data }) => {
+                      // const categories = () => {
+                      //   let orders: any = data && data.storesCategories;
+                      //   if (search) {
+                      //     console.log("=========if")
+                      //     orders = data && data.storesCategories.filter((category: any) => {
+                      //       return category.label.toLowerCase().includes(search.toLowerCase())
+                      //     })
+                      //     return orders
+                      //   }
+                      //   else {
+                      //     console.log("=========else")
+                      //     orders = data && data.storesCategories
+                      //     return orders
+                      //   }
+                      // }
+                      // console.log(categories, "======")
+                      return (
+                        <>
+                          <input type="text" placeholder="Categories" value={search} onChange={(e) => setSearch(e.target.value)} />
+                          <DropdownSelect
+                            sortBy="Sort by"
+                            type="BusinessBase"
+                            onChange={onChange}
+                            menuIsOpen={categoriesMenu}
+                            options={data && data.storesCategories}
+                            value={data && data.storesCategories.find(
+                              (option: any) => option.label === activeSortBusinessType
+                            )}
+                          />
+                        </>
+                      )
+                    }}
+                  </BusinessesQuery>
+                }
+                <div onClick={onDistanceMenuClick}>Distance</div>
+                {distanceMenu &&
+                  <DropdownSelect
+                    sortBy="Sort by"
+                    type="DistanceBase"
+                    onChange={onChange}
+                    menuIsOpen={distanceMenu}
+                    options={sortOptionsByDistance}
+                    value={sortOptionsByDistance.find(
+                      option => option.label === acitveSortDistanceBase
+                    )}
+                  />
+                }
+                <div onClick={onPriceMenuClick}>Price</div>
+                {priceMenu &&
+                  <DropdownSelect
+                    sortBy="Filters"
+                    type="PriceBase"
+                    onChange={onChange}
+                    menuIsOpen={priceMenu}
+                    options={sortOptionsByPrice}
+                    value={sortOptionsByPrice.find(
+                      option => option.label === activeSortOption
+                    )}
+                  />
+                }
+              </div>
+            }
           </S.Sort>
         </S.Element>
         {/* <S.Element>
@@ -166,8 +246,31 @@ export const ProductListHeader: React.FC<IProps> = ({
           </S.Sort>
         </S.Element> */}
         <S.Element>
-          <S.Sort>
-            <DropdownSelect
+          <S.Sort data-cy="dropdown-select" ref={setSortElementRef()}>
+            <S.SortLine
+              sortby=""
+              data-cy="dropdown-select-input"
+              onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}
+            >
+              <Label>
+                <div><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>filter</title><g id="filter"><path className="cls-1" d="M.11,16.59h4.4v-2.2H.11Zm0-13.18v2.2H19.89V3.41Zm0,7.69H13.3V8.9H.11Z" /></g></svg></div>
+              </Label>
+              <Label>Sort by</Label>
+              <S.Indicator rotate={String(isSortMenuOpened)}>
+                <Icon name="select_arrow" color={"#000"} size={8} />
+              </S.Indicator>
+            </S.SortLine>
+            {isSortMenuOpened &&
+              <div>
+                <div>Sort by<IconButton name="x" size={8} onClick={() => setSortMenuIsOpen(!isSortMenuOpened)} /></div>
+                <div onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>Default</div>
+                <div>Price: High to Low</div>
+                <div>Price: Low to High</div>
+                {/* <div>Rating</div> */}
+                <div>Distance</div>
+              </div>
+            }
+            {/* <DropdownSelect
               sortBy="Sort by"
               type="DistanceBase"
               onChange={onChange}
@@ -175,20 +278,39 @@ export const ProductListHeader: React.FC<IProps> = ({
               value={sortOptionsByDistance.find(
                 option => option.label === acitveSortDistanceBase
               )}
-            />
+            /> */}
           </S.Sort>
         </S.Element>
         <S.Element>
-          <S.Sort>
-            <DropdownSelect
-              sortBy="Results:"
-              type="showType"
-              onChange={onChange}
-              options={sortOptionsByType}
-              value={sortOptionsByType.find(
-                option => option.label === activeSortTypeBase
-              )}
-            />
+          <S.Sort data-cy="dropdown-select" ref={setResultsElementRef()}>
+            <S.SortLine
+              sortby="Results:"
+              data-cy="dropdown-select-input"
+              onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}
+            >
+              <Label>
+                <div><svg xmlns="https://www.w3.org/2000/svg" height="15px" width="13px" className="SearchIcon" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" /></svg></div>
+              </Label>
+              <Label>Results: {resultType.label}</Label>
+              <S.Indicator rotate={String(isResultsMenuOpened)}>
+                <Icon name="select_arrow" color={"#000"} size={8} />
+              </S.Indicator>
+            </S.SortLine>
+            {isResultsMenuOpened &&
+              <>
+                <div>Results<IconButton name="x" size={8} onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)} /></div>
+                <DropdownSelect
+                  sortBy="Results:"
+                  type="showType"
+                  onChange={onChange}
+                  menuIsOpen={isResultsMenuOpened}
+                  options={sortOptionsByType}
+                  value={sortOptionsByType.find(
+                    option => option.label === activeSortTypeBase
+                  )}
+                />
+              </>
+            }
           </S.Sort>
         </S.Element>
       </S.Top>

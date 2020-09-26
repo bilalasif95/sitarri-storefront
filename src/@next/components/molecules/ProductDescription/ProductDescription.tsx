@@ -142,6 +142,7 @@ export const ProductDescription: React.FC<IProps> = ({
                       onFilterChange={value => {
                         setSortPriceBase(value)
                       }}
+                      closeOnSelect
                       filterPlaceholder="Categories"
                       options={sortOptionsByPrice}
                       selected={sortPriceBase.label}
@@ -177,6 +178,7 @@ export const ProductDescription: React.FC<IProps> = ({
                       onFilterChange={value => {
                         setSortPriceBase(value)
                       }}
+                      closeOnSelect
                       filterPlaceholder="Categories"
                       options={sortOptionsByPrice}
                       selected={sortPriceBase.label}
