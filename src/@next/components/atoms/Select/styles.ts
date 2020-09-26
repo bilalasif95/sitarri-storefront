@@ -14,8 +14,8 @@ export const Wrapper = styled.div`
       // }
     }
     .css-11unzgr div:first-child{
-      font-size: 17px;
-      font-weight: 700;
+      // font-size: 17px;
+      // font-weight: 700;
     }
     .css-18y29eu-option:active, .css-18y29eu-option:focus{
       background-color: #fff;
@@ -67,19 +67,19 @@ export const Wrapper = styled.div`
     position: fixed;
   }
 }
-@media (max-width: 767px){
-  .css-1pcexqc-container{
-    position: initial !important;
-    .css-kj6f9i-menu{
-      top: -2% !important;
-      left: -1px;
-      position: fixed;
-      background: rgb(0 0 0 / 41%);
-      z-index: 99999;
-      margin-bottom: 0;
-    }
-  }
-}
+// @media (max-width: 767px){
+//   .css-1pcexqc-container{
+//     position: initial !important;
+//     .css-kj6f9i-menu{
+//       top: -2% !important;
+//       left: -1px;
+//       position: fixed;
+//       background: rgb(0 0 0 / 41%);
+//       z-index: 99999;
+//       margin-bottom: 0;
+//     }
+//   }
+// }
 `;
 // margin-bottom: ${props => props.theme.spacing.fieldSpacer};
 export const Indicator = styled.div<{ rotate: string }>`

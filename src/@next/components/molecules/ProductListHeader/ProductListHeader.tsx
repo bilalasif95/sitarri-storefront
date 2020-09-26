@@ -1,10 +1,13 @@
 import { Button, SelectMenu } from "evergreen-ui";
 import React from "react";
+import ReactSVG from "react-svg";
 
 import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
 
 import * as S from "./styles";
 import { IProps } from "./types";
+
+import SearchIcon from "src/images/search.svg"
 
 import { useHandlerWhenClickedOutside } from "../../../hooks";
 
@@ -178,69 +181,76 @@ export const ProductListHeader: React.FC<IProps> = ({
               </S.Indicator>
             </S.SortLine>
             {menuIsOpen &&
-              <div>
-                <div>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></div>
-                <div onClick={() => setMenuIsOpen(!menuIsOpen)}>None</div>
-                <div onClick={onCategoriesMenuClick}>Categories</div>
-                {categoriesMenu &&
-                  <>
-                    <input type="text" placeholder="Categories" value={search} onChange={(e) => {
-                      setSearch(e.target.value)
-                      let currentList = [];
-                      let newList = [];
-                      if (e.target.value !== "") {
-                        currentList = categories;
-                        newList = currentList.filter((item: any) => {
-                          const lc = item.label.toLowerCase();
-                          const filter = e.target.value.toLowerCase();
-                          return lc.includes(filter);
-                        })
-                      }
-                      else {
-                        newList = categories
-                      }
-                      setFiltered(newList)
+              <S.menuDropdown>
+                <S.Submenu>
+                  <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
+                  <S.SubmenuBox>
+                    <S.SubmenuList categoriesMenu={false} onClick={() => setMenuIsOpen(!menuIsOpen)}>None</S.SubmenuList>
+                    <S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList>
+                    {categoriesMenu &&
+                      <>
+                        <S.Input>
+                          <ReactSVG path={SearchIcon} />
+                          <input type="text" placeholder="Categories" value={search} onChange={(e) => {
+                            setSearch(e.target.value)
+                            let currentList = [];
+                            let newList = [];
+                            if (e.target.value !== "") {
+                              currentList = categories;
+                              newList = currentList.filter((item: any) => {
+                                const lc = item.label.toLowerCase();
+                                const filter = e.target.value.toLowerCase();
+                                return lc.includes(filter);
+                              })
+                            }
+                            else {
+                              newList = categories
+                            }
+                            setFiltered(newList)
+                          }
+                          } />
+                        </S.Input>
+                        <DropdownSelect
+                          sortBy="Sort by"
+                          type="BusinessBase"
+                          onChange={onChange}
+                          menuIsOpen={categoriesMenu}
+                          options={filtered}
+                          value={categories.find(
+                            (option: any) => option.label === activeSortBusinessType
+                          )}
+                        />
+                      </>
                     }
-                    } />
-                    <DropdownSelect
-                      sortBy="Sort by"
-                      type="BusinessBase"
-                      onChange={onChange}
-                      menuIsOpen={categoriesMenu}
-                      options={filtered}
-                      value={categories.find(
-                        (option: any) => option.label === activeSortBusinessType
-                      )}
-                    />
-                  </>
-                }
-                <div onClick={onDistanceMenuClick}>Distance</div>
-                {distanceMenu &&
-                  <DropdownSelect
-                    sortBy="Sort by"
-                    type="DistanceBase"
-                    onChange={onChange}
-                    menuIsOpen={distanceMenu}
-                    options={sortOptionsByDistance}
-                    value={sortOptionsByDistance.find(
-                      option => option.label === acitveSortDistanceBase
-                    )}
-                  />
-                }
-                <div onClick={onPriceMenuClick}>Price</div>
-                {priceMenu &&
-                  <DropdownSelect
-                    sortBy="Filters"
-                    type="PriceBase"
-                    onChange={onChange}
-                    menuIsOpen={priceMenu}
-                    options={sortOptionsByPrice}
-                    value={sortOptionsByPrice.find(
-                      option => option.label === activeSortOption
-                    )}
-                  />
-                }
-              </div>
+                    <S.SubmenuList categoriesMenu={distanceMenu} onClick={onDistanceMenuClick}>Distance</S.SubmenuList>
+                    {distanceMenu &&
+                      <DropdownSelect
+                        sortBy="Sort by"
+                        type="DistanceBase"
+                        onChange={onChange}
+                        menuIsOpen={distanceMenu}
+                        options={sortOptionsByDistance}
+                        value={sortOptionsByDistance.find(
+                          option => option.label === acitveSortDistanceBase
+                        )}
+                      />
+                    }
+                    <S.SubmenuList categoriesMenu={priceMenu} onClick={onPriceMenuClick}>Price</S.SubmenuList>
+                    {priceMenu &&
+                      <DropdownSelect
+                        sortBy="Filters"
+                        type="PriceBase"
+                        onChange={onChange}
+                        menuIsOpen={priceMenu}
+                        options={sortOptionsByPrice}
+                        value={sortOptionsByPrice.find(
+                          option => option.label === activeSortOption
+                        )}
+                      />
+                    }
+                  </S.SubmenuBox>
+                </S.Submenu>
+              </S.menuDropdown>
             }
           </S.Sort>
         </S.Element>
