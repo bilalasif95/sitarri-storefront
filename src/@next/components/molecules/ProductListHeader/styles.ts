@@ -45,15 +45,120 @@ export const Indicator = styled.div<{ rotate: string }>`
   transform: ${props =>
     props.rotate === "true" ? "rotate(180deg)" : "rotate(0deg)"};
 `;
+export const menuDropdown = styled .div`
+    @media(max-width: 540px){
+      background-color: #00000069;
+      width: 100%;
+      position: fixed;
+      height: 100vh;
+      z-index: 2;
+      top: 0;
+    }
+`;
 
+export const Submenu = styled.div`
+  position: absolute;
+  top: 77px;
+  background: #fff;
+  width: 52%;
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
+  transition-duration: 300ms;
+  // transition-property: opacity, -webkit-transform, transform;
+  // transform: scale(0.9) translateY(-1px);
+  // transform-origin: 62px 0px;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
+  -webkit-transition-duration: 300ms;
+  // -webkit-transition-property: opacity, -webkit-transform, transform;
+  // -moz-transition-property: opacity, transform;
+  // -webkit-transform: scale(0.9) translateY(-1px);
+  // -webkit-transform-origin: 62px 0px;
+  @media(max-width: 540px){
+    position: fixed;
+    bottom: 0;
+    top: 57%;
+    width: 100%;
+  }
+`;
+export const SubmenuTitle = styled.div`
+    font-weight: 700;
+    color: #000;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #fafafa;
+    position: relative;
+    .jlQsbh{
+      top: 0 !important;
+    }
+`;
+export const SubmenuList = styled.div<{categoriesMenu: boolean}>`
+  padding: 5px 0px;
+  border-bottom: 1px solid #fafafa;
+  cursor: pointer;
+  color: #8799a9;
+  font-size: 14px;
+  color: ${props =>
+    props.categoriesMenu ? "#000" : "#8799a9"};
+`;
+export const Input = styled.div`
+  svg{
+    position: absolute;
+    z-index: 2;
+    margin-top: 14px;
+    left: 15px;
+    path{
+      fill: #8e8e8f;
+    }
+  }
+    input{
+      width: 104%;
+      height: 40px;
+      padding-left: 40px;
+      border: none;
+      background: #F5F6F7;
+      position: relative;
+      margin-left: -10px;
+      &:focus{
+        outline: none;
+      }
+    }
+`;
+export const SubmenuBox = styled.div`
+    padding: 0px 10px;
+    .css-kj6f9i-menu{
+      position: inherit;
+      border: none;
+      box-shadow: inherit;
+      .css-11unzgr {
+        max-height: 150px;
+        padding: 0px 0px 0px 20px;
+        ::-webkit-scrollbar-thumb{
+          display: none;
+        }
+        ::-webkit-scrollbar-track{
+          display: none;
+        }
+        .css-19ni769-option{
+          padding: 0px;
+          color: #8799a9;
+        }
+        @media(max-width: 540px){
+          position: inherit;
+        }
+      }    
+    }
+`;
 
 export const Top = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 1rem 0;
+  padding: 20px 0px 10px 0;
   position: relative;
+  background: #fff;
   .jlQsbh{
     position: absolute;
     z-index: 2;

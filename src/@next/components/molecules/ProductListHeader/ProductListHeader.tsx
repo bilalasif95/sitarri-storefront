@@ -7,7 +7,10 @@ import { BusinessesQuery } from "./queries";
 import * as S from "./styles";
 import { IProps } from "./types";
 
+import SearchIcon from "src/images/search.svg"
+
 import { useHandlerWhenClickedOutside } from "../../../hooks";
+import ReactSVG from "react-svg";
 
 const sortOptionsByPrice = [
   {
@@ -156,74 +159,81 @@ export const ProductListHeader: React.FC<IProps> = ({
               </S.Indicator>
             </S.SortLine>
             {menuIsOpen &&
-              <div>
-                <div>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></div>
-                <div onClick={() => setMenuIsOpen(!menuIsOpen)}>None</div>
-                <div onClick={onCategoriesMenuClick}>Categories</div>
-                {categoriesMenu &&
-                  <BusinessesQuery>
-                    {({ data }) => {
-                      // const categories = () => {
-                      //   let orders: any = data && data.storesCategories;
-                      //   if (search) {
-                      //     console.log("=========if")
-                      //     orders = data && data.storesCategories.filter((category: any) => {
-                      //       return category.label.toLowerCase().includes(search.toLowerCase())
-                      //     })
-                      //     return orders
-                      //   }
-                      //   else {
-                      //     console.log("=========else")
-                      //     orders = data && data.storesCategories
-                      //     return orders
-                      //   }
-                      // }
-                      // console.log(categories, "======")
-                      return (
-                        <>
-                          <input type="text" placeholder="Categories" value={search} onChange={(e) => setSearch(e.target.value)} />
-                          <DropdownSelect
-                            sortBy="Sort by"
-                            type="BusinessBase"
-                            onChange={onChange}
-                            menuIsOpen={categoriesMenu}
-                            options={data && data.storesCategories}
-                            value={data && data.storesCategories.find(
-                              (option: any) => option.label === activeSortBusinessType
-                            )}
-                          />
-                        </>
-                      )
-                    }}
-                  </BusinessesQuery>
-                }
-                <div onClick={onDistanceMenuClick}>Distance</div>
-                {distanceMenu &&
-                  <DropdownSelect
-                    sortBy="Sort by"
-                    type="DistanceBase"
-                    onChange={onChange}
-                    menuIsOpen={distanceMenu}
-                    options={sortOptionsByDistance}
-                    value={sortOptionsByDistance.find(
-                      option => option.label === acitveSortDistanceBase
-                    )}
-                  />
-                }
-                <div onClick={onPriceMenuClick}>Price</div>
-                {priceMenu &&
-                  <DropdownSelect
-                    sortBy="Filters"
-                    type="PriceBase"
-                    onChange={onChange}
-                    menuIsOpen={priceMenu}
-                    options={sortOptionsByPrice}
-                    value={sortOptionsByPrice.find(
-                      option => option.label === activeSortOption
-                    )}
-                  />
-                }
-              </div>
+            <S.menuDropdown>
+              <S.Submenu>
+                <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
+                <S.SubmenuBox>
+                  <S.SubmenuList categoriesMenu={false}  onClick={() => setMenuIsOpen(!menuIsOpen)}>None</S.SubmenuList>
+                  <S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList>
+                  {categoriesMenu &&
+                    <BusinessesQuery>
+                      {({ data }) => {
+                        // const categories = () => {
+                        //   let orders: any = data && data.storesCategories;
+                        //   if (search) {
+                        //     console.log("=========if")
+                        //     orders = data && data.storesCategories.filter((category: any) => {
+                        //       return category.label.toLowerCase().includes(search.toLowerCase())
+                        //     })
+                        //     return orders
+                        //   }
+                        //   else {
+                        //     console.log("=========else")
+                        //     orders = data && data.storesCategories
+                        //     return orders
+                        //   }
+                        // }
+                        // console.log(categories, "======")
+                        return (
+                          <>
+                            <S.Input>
+                              <ReactSVG path={SearchIcon} />
+                              <input type="text" placeholder="Categories" value={search} onChange={(e) => setSearch(e.target.value)} />
+                            </S.Input>
+                            <DropdownSelect
+                              sortBy="Sort by"
+                              type="BusinessBase"
+                              onChange={onChange}
+                              menuIsOpen={categoriesMenu}
+                              options={data && data.storesCategories}
+                              value={data && data.storesCategories.find(
+                                (option: any) => option.label === activeSortBusinessType
+                              )}
+                            />
+                          </>
+                        )
+                      }}
+                    </BusinessesQuery>
+                  }
+                  <S.SubmenuList categoriesMenu={distanceMenu} onClick={onDistanceMenuClick}>Distance</S.SubmenuList>
+                  {distanceMenu &&
+                    <DropdownSelect
+                      sortBy="Sort by"
+                      type="DistanceBase"
+                      onChange={onChange}
+                      menuIsOpen={distanceMenu}
+                      options={sortOptionsByDistance}
+                      value={sortOptionsByDistance.find(
+                        option => option.label === acitveSortDistanceBase
+                      )}
+                    />
+                  }
+                  <S.SubmenuList categoriesMenu={priceMenu} onClick={onPriceMenuClick}>Price</S.SubmenuList>
+                  {priceMenu &&
+                    <DropdownSelect
+                      sortBy="Filters"
+                      type="PriceBase"
+                      onChange={onChange}
+                      menuIsOpen={priceMenu}
+                      options={sortOptionsByPrice}
+                      value={sortOptionsByPrice.find(
+                        option => option.label === activeSortOption
+                      )}
+                    />
+                  }
+                </S.SubmenuBox>
+              </S.Submenu>
+              </S.menuDropdown>
             }
           </S.Sort>
         </S.Element>

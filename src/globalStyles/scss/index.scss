@@ -161,6 +161,9 @@ header {
   width: 100%;
   z-index: 2;
 }
+.css-69cngj{
+  box-shadow: -5px 0px 9px #bbb9b8d1 !important;
+}
 .ub-color_425A70{
   color: #94a3b2 !important;
 }
@@ -169,7 +172,7 @@ header {
   
   svg{
     path{
-    fill: #000;
+    fill: #8e8e8f;
     }
   }
   .ub-h_14px{
@@ -182,8 +185,8 @@ header {
   font-size: 16px !important;
 }
 .ub-color_1070ca{
-        color: #000 !important;
-      }
+  color: #000 !important;
+}
 @media(max-width: 767px){
   .ub-min-h_248px{
     background-color: #00000069 !important;
@@ -219,6 +222,6 @@ header {
   padding: 19px 5px;
   box-shadow: -5px 0px 9px #bbb9b8d1 !important;
 }
-.css-69cngj{
-  box-shadow: inherit !important;
+.hqWiqd button{
+  padding: 19px 10px;
 }
