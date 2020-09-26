@@ -75,7 +75,8 @@ export const ProductDescription: React.FC<IProps> = ({
   // background: ${props => props.active ? '#f34928' : 'none'};
   // color: ${props => props.active ? props.theme.colors.tabTitle:"#f34928"};
   // }
-
+  const [isResultsMenuOpened, setResultsMenuIsOpen] = React.useState(false);
+  const [isMoreMenuOpened, setMoreMenuIsOpen] = React.useState(false);
   const [isSticky, setSticky] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
   const [sortPriceBase, setSortPriceBase] = React.useState<any>({ label: "", products: [], value: "" });
@@ -137,7 +138,7 @@ export const ProductDescription: React.FC<IProps> = ({
                   storeCategory.edges.length > 11 ?
                     // <button onClick={() => seeMoreCat()}>
                     //   More
-                    
+
                     <SelectMenu
                       title="Categories"
                       onFilterChange={value => {
@@ -152,7 +153,7 @@ export const ProductDescription: React.FC<IProps> = ({
                         setTabProduct(value.label, value.products)
                       }}
                     >
-                      <Button>More<Icon name="select_arrow" color={"#000"} size={8} /></Button>
+                      <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
                     </SelectMenu>
                     // <DropdownSelect
                     //   sortBy="More"
@@ -173,23 +174,23 @@ export const ProductDescription: React.FC<IProps> = ({
                     //           } </button> 
                     : "" :
                   storeCategory.edges.length > 3 ?
-                  <S.Select>
-                    <SelectMenu
-                      title="Categories"
-                      onFilterChange={value => {
-                        setSortPriceBase(value)
-                      }}
-                      closeOnSelect
-                      filterPlaceholder="Categories"
-                      options={sortOptionsByPrice}
-                      selected={sortPriceBase.label}
-                      onSelect={(value: any) => {
-                        setSortPriceBase(value)
-                        setTabProduct(value.label, value.products)
-                      }}
-                    >
-                      <Button>More<Icon name="select_arrow" color={"#000"} size={8} /></Button>
-                    </SelectMenu>
+                    <S.Select>
+                      <SelectMenu
+                        title="Categories"
+                        onFilterChange={value => {
+                          setSortPriceBase(value)
+                        }}
+                        closeOnSelect
+                        filterPlaceholder="Categories"
+                        options={sortOptionsByPrice}
+                        selected={sortPriceBase.label}
+                        onSelect={(value: any) => {
+                          setSortPriceBase(value)
+                          setTabProduct(value.label, value.products)
+                        }}
+                      >
+                        <Button><S.ButtonSpan onClick={() => setMoreMenuIsOpen(!isMoreMenuOpened)}>More<S.Indicator rotate={String(isMoreMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
+                      </SelectMenu>
 
                     </S.Select>
                     // <DropdownSelect

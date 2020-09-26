@@ -38,6 +38,20 @@ export const AttributeList = styled.ul`
   }
 `;
 
+export const Indicator = styled.div<{ rotate: string }>`
+  right: 1rem;
+  transition-duration: 0.3s;
+  transform: ${props =>
+    props.rotate === "true" ? "rotate(180deg)" : "rotate(0deg)"};
+  svg {
+    margin-right: 5px;
+  }
+`;
+
+export const ButtonSpan = styled.span`
+    display: flex;
+`;
+
 export const Tabs = styled.div<{isSticky: any}>`
   display: flex;
   flex-wrap: wrap;

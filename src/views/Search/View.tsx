@@ -19,12 +19,13 @@ export const View: React.FC<ViewProps> = ({ match }) => {
   const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 0 } });
   const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "", value: "" });
   const [sortTypeBase, setSortTypeBase] = React.useState({ label: "All", value: null });
+  const [sorting, setSorting] = React.useState({ label: "", value: "" });
   const [sortDistanceBase, setSortDistanceBase] = React.useState({
     label: "",
     value: { value: -1, symbol: "KILOMETER" },
   });
 
-  const [sort] = useQueryParam("sortBy", StringParam);
+  const [sort,setSort] = useQueryParam("sortBy", StringParam);
   const [lat] = useQueryParam("lat", StringParam);
   const [long] = useQueryParam("long", StringParam);
   // const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
@@ -59,11 +60,10 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     pageSize: PRODUCTS_PER_PAGE,
 
     Price: sortPriceBase.value,
-    
+
     query: search || null,
     sortBy: convertSortByFromString(sort),
   };
-
 
   return (
     <NetworkStatus>
@@ -74,11 +74,9 @@ export const View: React.FC<ViewProps> = ({ match }) => {
           loaderFull
         >
           {({ loading, data, loadMore, refetch }) => {
-
             const CallApi = () => {
               refetch()
             }
-
             return (
               <Page
                 displayLoader={loading}
@@ -86,12 +84,12 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 search={search}
                 activeSortOption={sortPriceBase.label}
                 activeSortBusinessType={sortBusinessBase.label}
+                activeSortedField={sorting.label}
                 activeSortTypeBase={sortTypeBase.label}
                 acitveSortDistanceBase={sortDistanceBase.label}
                 products={data.search && data.search.products}
                 stores={data.search && data.search.stores}
                 onOrder={(value, type) => {
-
                   if (type === "PriceBase") {
                     setSortPriceBase(value)
                     CallApi()
@@ -99,10 +97,13 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                   else if (type === "BusinessBase") {
                     setSortBusinessBase(value)
                     CallApi()
-
                   }
                   else if (type === "showType") {
                     setSortTypeBase(value)
+                  }
+                  else if (type === "sorting") {
+                    setSorting(value)
+                    setSort(value.value)
                   }
                   else if (type === "DistanceBase") {
                     // getCurrentLocation()

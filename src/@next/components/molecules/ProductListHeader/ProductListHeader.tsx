@@ -1,8 +1,7 @@
+import { Button, SelectMenu } from "evergreen-ui";
 import React from "react";
 
 import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
-
-import { BusinessesQuery } from "./queries";
 
 import * as S from "./styles";
 import { IProps } from "./types";
@@ -62,7 +61,7 @@ const sortOptionsByDistance = [
     value: { value: 0, symbol: "KILOMETER" },
   },
 ];
-const sortOptionsByType = [
+const sortOptionsByType: any = [
   {
     label: "All",
     value: null,
@@ -75,17 +74,39 @@ const sortOptionsByType = [
     label: "Shops",
     value: "stores",
   },
-
-
 ];
-export const ProductListHeader: React.FC<IProps> = ({
 
+const sorting: any = [
+  {
+    label: "Default",
+    value: null,
+  },
+  {
+    label: "Price: High to Low",
+    value: "-price",
+  },
+  {
+    label: "Price: Low to High",
+    value: "price",
+  },
+  // {
+  //   label: "Rating",
+  //   value: "rating",
+  // },
+  {
+    label: "Distance",
+    value: "distance",
+  },
+];
+
+export const ProductListHeader: React.FC<IProps> = ({
+  categories,
   activeSortOption,
   activeSortBusinessType,
   activeSortTypeBase,
+  activeSortedField,
   acitveSortDistanceBase,
   onChange,
-
 }: IProps) => {
 
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
@@ -95,6 +116,7 @@ export const ProductListHeader: React.FC<IProps> = ({
   const [distanceMenu, setDistanceMenu] = React.useState(false);
   const [priceMenu, setPriceMenu] = React.useState(false);
   const [search, setSearch] = React.useState("");
+  const [filtered, setFiltered] = React.useState(categories);
 
   const onCategoriesMenuClick = () => {
     if (categoriesMenu) {
@@ -132,7 +154,7 @@ export const ProductListHeader: React.FC<IProps> = ({
   });
 
   const resultType: any = sortOptionsByType.find(
-    option => option.label === activeSortTypeBase
+    (option: any) => option.label === activeSortTypeBase
   )
   return (
     <S.Wrapper>
@@ -161,41 +183,36 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <div onClick={() => setMenuIsOpen(!menuIsOpen)}>None</div>
                 <div onClick={onCategoriesMenuClick}>Categories</div>
                 {categoriesMenu &&
-                  <BusinessesQuery>
-                    {({ data }) => {
-                      // const categories = () => {
-                      //   let orders: any = data && data.storesCategories;
-                      //   if (search) {
-                      //     console.log("=========if")
-                      //     orders = data && data.storesCategories.filter((category: any) => {
-                      //       return category.label.toLowerCase().includes(search.toLowerCase())
-                      //     })
-                      //     return orders
-                      //   }
-                      //   else {
-                      //     console.log("=========else")
-                      //     orders = data && data.storesCategories
-                      //     return orders
-                      //   }
-                      // }
-                      // console.log(categories, "======")
-                      return (
-                        <>
-                          <input type="text" placeholder="Categories" value={search} onChange={(e) => setSearch(e.target.value)} />
-                          <DropdownSelect
-                            sortBy="Sort by"
-                            type="BusinessBase"
-                            onChange={onChange}
-                            menuIsOpen={categoriesMenu}
-                            options={data && data.storesCategories}
-                            value={data && data.storesCategories.find(
-                              (option: any) => option.label === activeSortBusinessType
-                            )}
-                          />
-                        </>
-                      )
-                    }}
-                  </BusinessesQuery>
+                  <>
+                    <input type="text" placeholder="Categories" value={search} onChange={(e) => {
+                      setSearch(e.target.value)
+                      let currentList = [];
+                      let newList = [];
+                      if (e.target.value !== "") {
+                        currentList = categories;
+                        newList = currentList.filter((item: any) => {
+                          const lc = item.label.toLowerCase();
+                          const filter = e.target.value.toLowerCase();
+                          return lc.includes(filter);
+                        })
+                      }
+                      else {
+                        newList = categories
+                      }
+                      setFiltered(newList)
+                    }
+                    } />
+                    <DropdownSelect
+                      sortBy="Sort by"
+                      type="BusinessBase"
+                      onChange={onChange}
+                      menuIsOpen={categoriesMenu}
+                      options={filtered}
+                      value={categories.find(
+                        (option: any) => option.label === activeSortBusinessType
+                      )}
+                    />
+                  </>
                 }
                 <div onClick={onDistanceMenuClick}>Distance</div>
                 {distanceMenu &&
@@ -227,90 +244,66 @@ export const ProductListHeader: React.FC<IProps> = ({
             }
           </S.Sort>
         </S.Element>
-        {/* <S.Element>
-          <S.Sort>
-            <BusinessesQuery>
-            {({ data }) => {
-              return(
-                <DropdownSelect
-                  sortBy="Sort by"
-                  type="BusinessBase"
-                  onChange={onChange}
-                  options={data && data.storesCategories}
-                  value={data && data.storesCategories.find(
-                    option => option.label === activeSortBusinessType
-                  )}
-                />
-              )}}
-            </BusinessesQuery>
-          </S.Sort>
-        </S.Element> */}
         <S.Element>
           <S.Sort data-cy="dropdown-select" ref={setSortElementRef()}>
-            <S.SortLine
-              sortby=""
-              data-cy="dropdown-select-input"
-              onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}
+            <SelectMenu
+              title="Sort by"
+              closeOnSelect
+              hasFilter={false}
+              options={sorting}
+              selected={activeSortedField.label}
+              onSelect={(value: any) => {
+                onChange(value, "sorting")
+                setSortMenuIsOpen(false)
+              }}
             >
-              <Label>
-                <div><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>filter</title><g id="filter"><path className="cls-1" d="M.11,16.59h4.4v-2.2H.11Zm0-13.18v2.2H19.89V3.41Zm0,7.69H13.3V8.9H.11Z" /></g></svg></div>
-              </Label>
-              <Label>Sort by</Label>
-              <S.Indicator rotate={String(isSortMenuOpened)}>
-                <Icon name="select_arrow" color={"#000"} size={8} />
-              </S.Indicator>
-            </S.SortLine>
-            {isSortMenuOpened &&
-              <div>
-                <div>Sort by<IconButton name="x" size={8} onClick={() => setSortMenuIsOpen(!isSortMenuOpened)} /></div>
-                <div onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>Default</div>
-                <div>Price: High to Low</div>
-                <div>Price: Low to High</div>
-                {/* <div>Rating</div> */}
-                <div>Distance</div>
-              </div>
-            }
-            {/* <DropdownSelect
-              sortBy="Sort by"
-              type="DistanceBase"
-              onChange={onChange}
-              options={sortOptionsByDistance}
-              value={sortOptionsByDistance.find(
-                option => option.label === acitveSortDistanceBase
-              )}
-            /> */}
+              <Button>
+                <S.SortLine
+                  sortby=""
+                  data-cy="dropdown-select-input"
+                  onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}
+                >
+                  <Label>
+                    <div><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>filter</title><g id="filter"><path className="cls-1" d="M.11,16.59h4.4v-2.2H.11Zm0-13.18v2.2H19.89V3.41Zm0,7.69H13.3V8.9H.11Z" /></g></svg></div>
+                  </Label>
+                  <Label>Sort by</Label>
+                  <S.Indicator rotate={String(isSortMenuOpened)}>
+                    <Icon name="select_arrow" color={"#000"} size={8} />
+                  </S.Indicator>
+                </S.SortLine>
+              </Button>
+            </SelectMenu>
           </S.Sort>
         </S.Element>
         <S.Element>
           <S.Sort data-cy="dropdown-select" ref={setResultsElementRef()}>
-            <S.SortLine
-              sortby="Results:"
-              data-cy="dropdown-select-input"
-              onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}
+            <SelectMenu
+              title="Results"
+              closeOnSelect
+              hasFilter={false}
+              options={sortOptionsByType}
+              selected={activeSortTypeBase.label}
+              onSelect={(value: any) => {
+                onChange(value, "showType")
+                setResultsMenuIsOpen(false)
+              }}
             >
-              <Label>
-                <div><svg xmlns="https://www.w3.org/2000/svg" height="15px" width="13px" className="SearchIcon" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" /></svg></div>
-              </Label>
-              <Label>Results: {resultType.label}</Label>
-              <S.Indicator rotate={String(isResultsMenuOpened)}>
-                <Icon name="select_arrow" color={"#000"} size={8} />
-              </S.Indicator>
-            </S.SortLine>
-            {isResultsMenuOpened &&
-              <>
-                <div>Results<IconButton name="x" size={8} onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)} /></div>
-                <DropdownSelect
-                  sortBy="Results:"
-                  type="showType"
-                  onChange={onChange}
-                  menuIsOpen={isResultsMenuOpened}
-                  options={sortOptionsByType}
-                  value={sortOptionsByType.find(
-                    option => option.label === activeSortTypeBase
-                  )}
-                />
-              </>
-            }
+              <Button>
+                <S.SortLine
+                  sortby="Results:"
+                  data-cy="dropdown-select-input"
+                  onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}
+                >
+                  <Label>
+                    <div><svg xmlns="https://www.w3.org/2000/svg" height="15px" width="13px" className="SearchIcon" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" /></svg></div>
+                  </Label>
+                  <Label>Results: {resultType.label}</Label>
+                  <S.Indicator rotate={String(isResultsMenuOpened)}>
+                    <Icon name="select_arrow" color={"#000"} size={8} />
+                  </S.Indicator>
+                </S.SortLine>
+              </Button>
+            </SelectMenu>
           </S.Sort>
         </S.Element>
       </S.Top>

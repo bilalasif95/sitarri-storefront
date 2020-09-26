@@ -15,12 +15,14 @@ export interface IProps {
   // activeFiltersAttributes: ActiveFiltersAttribute[];
   // numberOfProducts: number;
   // sortOptions: SortOptions[];
-  onChange: (order: { value?: string; label: string }) => void;
+  onChange: (value: string, type?: string) => void;
   // onCloseFilterAttribute: (attributeSlug: string, valueSlug: string) => void;
   // openFiltersMenu: () => void;
   // clearFilters: () => void;
-  activeSortOption ?:any;
+  activeSortOption?:any;
+  categories?: any;
   activeSortBusinessType:any;
   activeSortTypeBase:any;
+  activeSortedField: any;
   acitveSortDistanceBase:any;
 }

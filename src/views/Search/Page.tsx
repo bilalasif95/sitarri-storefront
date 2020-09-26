@@ -13,6 +13,7 @@ import { maybe } from "../../core/utils";
 
 import { SearchProducts_products } from "./gqlTypes/SearchProducts";
 
+import { BusinessesQuery } from "../../../src/@next/components/molecules/ProductListHeader/queries";
 // interface SortItem {
 //   label: string;
 //   value?: string;
@@ -23,6 +24,7 @@ import { SearchProducts_products } from "./gqlTypes/SearchProducts";
 interface PageProps {
   activeSortBusinessType: any;
   activeSortTypeBase: any;
+  activeSortedField: any;
   acitveSortDistanceBase: any;
   // activeFilters: number;
   // attributes: IFilterAttributes[];
@@ -48,32 +50,33 @@ const Page: React.FC<PageProps> = ({
   activeSortOption,
   activeSortBusinessType,
   activeSortTypeBase,
+  activeSortedField,
   acitveSortDistanceBase,
   displayLoader,
   products,
   stores,
   onOrder,
-  
-  
 }) => {
   const canDisplayProducts = maybe(
     () => !!products.edges && products.totalCount !== undefined
   );
- 
+
   return (
     <div className="category">
-
       <div className="container">
-
-        <ProductListHeader
-          activeSortOption={activeSortOption}
-          activeSortBusinessType={activeSortBusinessType}
-          activeSortTypeBase={activeSortTypeBase}
-          acitveSortDistanceBase={acitveSortDistanceBase}
-        
-          onChange={onOrder}
-         
-        />
+        <BusinessesQuery>
+          {({ data }) =>
+            <ProductListHeader
+              activeSortOption={activeSortOption}
+              activeSortBusinessType={activeSortBusinessType}
+              activeSortTypeBase={activeSortTypeBase}
+              acitveSortDistanceBase={acitveSortDistanceBase}
+              activeSortedField={activeSortedField}
+              categories={data && data.storesCategories}
+              onChange={onOrder}
+            />
+          }
+        </BusinessesQuery>
         {canDisplayProducts && (
           <ProductList
             activeSortTypeBase={activeSortTypeBase}

@@ -6,6 +6,10 @@ import { ProductListItem } from "..";
 import { maybe } from "../../core/utils";
 import { TypedFeaturedProductsQuery } from "./queries";
 
+// import { searchUrl } from "../../app/routes";
+
+// import { stringify } from "query-string";
+
 import { BusinessTile, ProductTile } from "@components/molecules";
 // import { Modal } from "@components/organisms/Modal";
 
@@ -24,6 +28,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
   // const [displayNewModal, setDisplayNewModal] = React.useState(false);
   const [showAllResults, setShowAllResults] = React.useState(false);
   const [showProductResults, setShowProductResults] = React.useState(false);
+  const [latitude, setLatitude] = React.useState(0)
+  const [longitude, setLongitude] = React.useState(0)
   // const [product] = React.useState({});
   // const [show, setShow] = React.useState(true);
   const onShowAllResultsClick = () => {
@@ -39,6 +45,36 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
     }
     setShowProductResults(true)
   }
+
+  // const searchQs = (searchWord) => {
+  //   return stringify({ q: searchWord, lat: latitude, long: longitude });
+  // }
+
+  const getCurrentLocation = () => {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        setLatitude(position.coords.latitude)
+        setLongitude(position.coords.longitude)
+      },
+      (error) => {
+        setLatitude(0)
+        setLongitude(0)
+      },
+      {
+
+        enableHighAccuracy: true,
+        maximumAge: 250,
+      }
+    );
+  }
+
+  React.useEffect(() => {
+    getCurrentLocation()
+  }, [latitude, longitude])
+
+  React.useEffect(() => {
+    getCurrentLocation()
+  }, [])
 
   return (
     <>
@@ -285,8 +321,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                   <div className="shopsCarousel">
                     <div className="Carouseltitle">
                       <h3>Popular Shops</h3>
-                      {window.innerWidth >= 540 ? 123 > 3 && <p><span onClick={onShowProductResultsClick}>{showProductResults ? "Hide" : "Show"} 123 results </span><img src={Next} alt="next" /></p>
-                        : 123 > 2 && <p><span onClick={onShowProductResultsClick}>{showProductResults ? "Hide" : "Show"} 123 results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? 123 > 3 && <p><span onClick={onShowProductResultsClick}>123 results </span><img src={Next} alt="next" /></p>
+                        : 123 > 2 && <p><span onClick={onShowProductResultsClick}>123 results </span><img src={Next} alt="next" /></p>
                       }
                     </div>
                     < div className="hrBorder"></div>
