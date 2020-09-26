@@ -7,7 +7,12 @@ const textProps = css`
   text-align: left;
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+
+`;
+
+export const Select = styled.div`
+`;
 
 export const AttributeList = styled.ul`
   columns: 2;
@@ -43,7 +48,10 @@ export const Tabs = styled.div<{isSticky: any}>`
   overflow: hidden;
   // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
-  
+  .ub-color_234361 {
+    color: ##09253f;
+    font-weight: 800;
+  }
 `;
 export const fixed = styled.div<{isSticky: any}>`
 position: relative;
@@ -187,7 +195,7 @@ export const TabsContainer = styled.div`
       position: initial;
     }
   }
-  
+
   button {
     display: flex;
     align-items: center;
