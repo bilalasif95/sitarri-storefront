@@ -163,6 +163,7 @@ header {
 }
 .css-69cngj{
   box-shadow: -5px 0px 9px #bbb9b8d1 !important;
+  padding: 19px 10px !important;
 }
 .ub-color_425A70{
   color: #94a3b2 !important;
@@ -184,7 +185,7 @@ header {
   font-weight: 800 !important;
   font-size: 16px !important;
 }
-.ub-color_1070ca{
+.ub-color_425A70:active{
   color: #000 !important;
 }
 @media(max-width: 767px){
@@ -218,10 +219,19 @@ header {
   }
 }
 }
+.css-1ii3p2c{
+      div{
+        svg{
+          path{
+            fill: #0e2a43 !important;
+          }
+      }
+      }
+}
 .hoVOPF button{
   padding: 19px 5px;
   box-shadow: -5px 0px 9px #bbb9b8d1 !important;
 }
-.hqWiqd button{
-  padding: 19px 10px;
+.ub-pl_12px {
+  padding-left: 9px;
 }

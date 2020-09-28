@@ -48,8 +48,8 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Shops</h3>
-                      {window.innerWidth >= 540 ? stores.length > 3 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : "Show"} {stores.length} results </span><img src={Next} alt="next" /></p>
-                        : stores.length > 2 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : "Show"} {stores.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? stores.length > 3 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : ""} {stores.length} results </span><img src={Next} alt="next" /></p>
+                        : stores.length > 2 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : ""} {stores.length} results </span><img src={Next} alt="next" /></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>
@@ -77,8 +77,8 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Products</h3>
-                      {window.innerWidth >= 540 ? products.length > 3 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : "Show"} {products.length} results </span><img src={Next} alt="next" /></p>
-                        : products.length > 2 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : "Show"} {products.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? products.length > 3 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : ""} {products.length} results </span><img src={Next} alt="next" /></p>
+                        : products.length > 2 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : ""} {products.length} results </span><img src={Next} alt="next" /></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>

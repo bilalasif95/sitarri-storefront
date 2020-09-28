@@ -46,6 +46,7 @@ export const Indicator = styled.div<{ rotate: string }>`
     props.rotate === "true" ? "rotate(180deg)" : "rotate(0deg)"};
 `;
 export const menuDropdown = styled.div`
+    
     @media(max-width: 540px){
       background-color: #00000069;
       width: 100%;
@@ -58,23 +59,24 @@ export const menuDropdown = styled.div`
 
 export const Submenu = styled.div`
   position: absolute;
-  top: 77px;
+  top: 72px;
   background: #fff;
-  width: 52%;
+  width: 240px;
   border-radius: 5px;
   z-index: 1;
   box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
   transition-duration: 300ms;
-  // transition-property: opacity, -webkit-transform, transform;
-  // transform: scale(0.9) translateY(-1px);
-  // transform-origin: 62px 0px;
+  transition-property: opacity, -webkit-transform, transform;
+  transform: scale(0.9) translateY(-1px);
+  transform-origin: 80px 0px;
   -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
-  -webkit-transition-duration: 300ms;
-  // -webkit-transition-property: opacity, -webkit-transform, transform;
-  // -moz-transition-property: opacity, transform;
-  // -webkit-transform: scale(0.9) translateY(-1px);
-  // -webkit-transform-origin: 62px 0px;
+    -webkit-transition-duration: 300ms;
+    -webkit-transition-property: opacity, -webkit-transform, transform;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    -webkit-transform: scale(1);
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
@@ -86,21 +88,21 @@ export const Submenu = styled.div`
 `;
 export const SubmenuTitle = styled.div`
     font-weight: 700;
-    color: #000;
+    color: #09253f;
     padding: 10px 10px;
     font-size: 18px;
-    border-bottom: 1px solid #fafafa;
+    border-bottom: 1px solid #E4E7EB;
     position: relative;
-    .jlQsbh{
-      top: 0 !important;
-    }
+    // .jlQsbh{
+    //   top: 0 !important;
+    // }
 `;
 export const SubmenuList = styled.div<{ categoriesMenu: boolean }>`
   padding: 5px 0px;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid #EDF0F2;
   cursor: pointer;
   color: #8799a9;
-  font-size: 14px;
+  font-size: 12px;
   color: ${props =>
     props.categoriesMenu ? "#000" : "#8799a9"};
 `;
@@ -108,34 +110,34 @@ export const Input = styled.div`
   svg{
     position: absolute;
     z-index: 2;
-    margin-top: 14px;
+    margin-top: 8px;
     left: 15px;
     path{
       fill: #8e8e8f;
     }
   }
     input{
-      width: 104%;
-      height: 40px;
-      padding-left: 40px;
+      width: 106%;
+      height: 31px;
+      padding-left: 35px;
       border: none;
       background: #F5F6F7;
       position: relative;
-      margin-left: -10px;
+      margin-left: -15px;
       &:focus{
         outline: none;
       }
     }
 `;
 export const SubmenuBox = styled.div`
-    padding: 0px 10px;
+    padding: 0px 0px 0px 15px;
     .css-kj6f9i-menu{
       position: inherit;
       border: none;
       box-shadow: inherit;
       .css-11unzgr {
         max-height: 150px;
-        padding: 0px 0px 0px 20px;
+        padding: 0px 0px 0px 15px;
         ::-webkit-scrollbar-thumb{
           display: none;
         }
@@ -145,6 +147,7 @@ export const SubmenuBox = styled.div`
         .css-19ni769-option{
           padding: 0px;
           color: #8799a9;
+          border-bottom: 1px solid #EDF0F2;
         }
         @media(max-width: 540px){
           position: inherit;
@@ -164,8 +167,14 @@ export const Top = styled.div`
   .jlQsbh{
     position: absolute;
     z-index: 2;
-    top: 57px;
-    right: 0;
+    top: 8px;
+    right: 3px;
+    border-radius: inherit !important;
+    width: 24px;
+    height: 24px;
+    &:hover{
+      background-color: rgba(67, 90, 111, 0.06);
+      }
     svg{
       path{
         fill: #0e2a43;

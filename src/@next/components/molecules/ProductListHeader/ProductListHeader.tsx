@@ -1,4 +1,4 @@
-import { Button, SelectMenu } from "evergreen-ui";
+import { SelectMenu } from "evergreen-ui";
 import React from "react";
 import ReactSVG from "react-svg";
 
@@ -267,7 +267,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                 setSortMenuIsOpen(false)
               }}
             >
-              <Button>
+              <span onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>
                 <S.SortLine
                   sortby=""
                   data-cy="dropdown-select-input"
@@ -281,7 +281,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                     <Icon name="select_arrow" color={"#000"} size={8} />
                   </S.Indicator>
                 </S.SortLine>
-              </Button>
+              </span>
             </SelectMenu>
           </S.Sort>
         </S.Element>
@@ -298,7 +298,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                 setResultsMenuIsOpen(false)
               }}
             >
-              <Button>
+              <span onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>
                 <S.SortLine
                   sortby="Results:"
                   data-cy="dropdown-select-input"
@@ -312,7 +312,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                     <Icon name="select_arrow" color={"#000"} size={8} />
                   </S.Indicator>
                 </S.SortLine>
-              </Button>
+              </span>
             </SelectMenu>
           </S.Sort>
         </S.Element>
