@@ -3,7 +3,7 @@ import { media, styled } from "@styles";
 export const ProductList = styled.div`
   margin: 0 0 1rem;
   h3{
-    padding: 1rem 0 1rem 2rem
+    padding: 0;
   }
   ${media.smallScreen`
   h3{
@@ -17,6 +17,7 @@ export const Carouseltitle = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  padding: 5px;
   p{
     font-size: 12px;
     color: #99A9B4;
@@ -86,7 +87,7 @@ export const Shops = styled.div`
   }
 `;
 export const Slider = styled.div`
-
+  padding-left: 5px;
   .slider-frame{
       padding-bottom: 35px !important;
       ul{

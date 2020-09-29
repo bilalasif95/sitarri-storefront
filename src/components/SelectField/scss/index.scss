@@ -28,6 +28,7 @@
 
       &--is-focused {
         box-shadow: 0 0 0 1px $blue;
+        -webkit-box-shadow: 0 0 0 1px $blue;
       }
     }
 
@@ -59,12 +60,14 @@
       margin-top: 0;
       border-radius: 0;
       box-shadow: 0 0 0 1px $blue;
+      -webkit-box-shadow: 0 0 0 1px $blue;
       border: 1px solid $blue;
       z-index: 2;
     }
 
     &__menu-list {
       box-shadow: $select-menu-shadow;
+      -webkit-box-shadow: $select-menu-shadow;
       padding-bottom: 0;
       padding-top: 0;
 

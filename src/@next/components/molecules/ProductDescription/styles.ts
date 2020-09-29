@@ -62,6 +62,7 @@ export const Tabs = styled.div<{isSticky: any}>`
   overflow: hidden;
   // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
+  -webkit-box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
   .ub-color_234361 {
     color: ##09253f;
     font-weight: 800;
@@ -239,6 +240,7 @@ export const TabsContainer = styled.div`
     background: #fff !important;
     border-radius: 3px;
     box-shadow: -5px 0px 9px #bbb9b8d1;
+    -webkit-box-shadow: -5px 0px 9px #bbb9b8d1;
     padding: 12px 5px;
    
   //   }

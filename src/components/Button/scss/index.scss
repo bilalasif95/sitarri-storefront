@@ -6,6 +6,7 @@ button.button {
   padding: $button-padding;
   border: none;
   box-shadow: $button-box-shadow;
+  -webkit-box-shadow: $button-box-shadow;
   transition: $button-transition;
   outline: none;
   font-family: $base-font-family;
@@ -33,11 +34,13 @@ button.button {
 
   &:active {
     box-shadow: $button-box-shadow-clicked;
+    -webkit-box-shadow: $button-box-shadow-clicked;
   }
 
   &.secondary {
     background-color: $white;
     box-shadow: inset 0px 0px 0px 3px $blue;
+    -webkit-box-shadow: inset 0px 0px 0px 3px $blue;
     border-left: 1px solid $blue;
     border-right: 1px solid $blue;
 

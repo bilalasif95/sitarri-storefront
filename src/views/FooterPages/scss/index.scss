@@ -36,6 +36,7 @@
           margin-bottom: 20px;
           border-radius: 8px;
           box-shadow: 0px 2px 4px #cecbcbb8;
+          -webkit-box-shadow: 0px 2px 4px #cecbcbb8;
           .FormTitle{
             font-weight: 700;
             margin-bottom: 10px;
@@ -46,6 +47,7 @@
             margin-bottom: 10px;
             font-size: 15px;
             color: #FAC73C;
+            
           }
           .HelpText{
             color: #435365;
@@ -92,37 +94,7 @@
         
         }
       }
-      .BusinessForm{
-        position: relative;
-        display: none;
-        .BusinessBtns{
-        position: absolute;
-        top: -50px;
-        display: flex;
-        justify-content: space-between;
-        margin-top: 30px;
-        }
-        .SignupBtn:focus, .SigninBtn:focus{
-          outline: none;
-        }
-        .SignupBtn, .SigninBtn{
-          text-align: center;
-          padding: 8px 0px;
-          display: block;
-          border-radius: 50px;
-          width: 45%;
-          svg{
-            margin-left: 20px;
-          }
-        }
-        .SignupBtn{
-          background-color: #092540;
-          color: #fff;
-        }
-        .SigninBtn{
-          color: #092540;
-        }
-      }
+     
     }
     .SideBox{
       width: 75%;
@@ -148,11 +120,13 @@
   font-weight: 700;
   margin-bottom: 10px;
   color: #FAC73C;
+  padding: 0px 5px;
 }
 .JoinTitle{
   font-weight: 700;
   color: #09253F;
   margin: 15px 0px;
+  padding: 0px 5px;
 }
 .JoinContent{
   display: flex;
@@ -165,6 +139,7 @@
   padding: 20px 20px;
   border-radius: 5px;
   box-shadow: 3px 2px 5px #cacacab8;
+  -webkit-box-shadow: 3px 2px 5px #cacacab8;
   text-align: center;
   .boxHeading{
     color: #09253F;
@@ -227,6 +202,7 @@
   background-color: #EAF0F5;
   border-radius: 5px;
   box-shadow: 3px 2px 5px #cacacab8;
+  -webkit-box-shadow: 3px 2px 5px #cacacab8;
   
 .joinBoxes{
   width: 30%;
@@ -279,6 +255,17 @@
 // Contactus
 
 @media (max-width: 767px){
+  .Contactus{
+    .Contactusbtn{
+      display: none;
+    }
+    .BusinessForm{
+      display: block;
+    }
+   .BusinessBtns {
+      position: initial !important;
+  }
+  }
   .small-text{
     display: none;
   }
@@ -286,7 +273,7 @@
     display: initial;
 }
 .homePage .ContactContent .ContactText {
-  padding: 45px 0px 350px 0px;
+  padding: 45px 5px 350px 5px;
   // text-align: center;
   width: 100%;
 
@@ -303,7 +290,7 @@ h2{
   .FormContent{
     width: 100%;
     top: -340px;
-    padding: 35px 0px 5px 0px;
+    padding: 35px 5px 5px 5px;
   }
 } 
 .homePage .ContactContent .ContactFrom .FormContent{
@@ -389,6 +376,7 @@ h2{
 }
 }
 
+
 @media (max-width: 480px){
   .partner{
     margin-top: -140px;
@@ -396,6 +384,14 @@ h2{
       padding: 250px 5px 110px 5px;
   }
 }
+.Businessbg {
+  margin-bottom: 925px;
+}
+  }
+  @media (max-width: 375px){
+    .Businessbg {
+      margin-bottom: 840px;
+    }  
   }
   @media (max-width: 320px){
     .partner{
@@ -404,9 +400,14 @@ h2{
         padding: 290px 5px 110px 5px;
     }
   }
-  .joinSitarri{
-    margin-top: -30px;
+  .Businessbg{
+    margin-bottom: 755px;
   }
+    }
+    @media(max-width: 540px){
+      .food{
+        width: 100%;
+      }
     }
 @media (min-width: 768px) and (max-width: 992px){
   .homePage .ContactContent .ContactFrom .FormContent .formTypography .FormTitle{
@@ -436,4 +437,36 @@ h2{
 .Businessbg{
   margin-bottom: 0px;
 }
+}
+
+.BusinessForm{
+  position: relative;
+  display: none;
+  .BusinessBtns{
+  position: absolute;
+  top: -50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  }
+  .SignupBtn:focus, .SigninBtn:focus{
+    outline: none;
+  }
+  .SignupBtn, .SigninBtn{
+    text-align: center;
+    padding: 8px 0px;
+    display: block;
+    border-radius: 50px;
+    width: 45%;
+    svg{
+      margin-left: 20px;
+    }
+  }
+  .SignupBtn{
+    background-color: #092540;
+    color: #fff;
+  }
+  .SigninBtn{
+    color: #092540;
+  }
 }

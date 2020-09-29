@@ -18,8 +18,24 @@ export const SortLine = styled.div<{ sortby: any }>`
   border: ${props => `1px solid ${props.sortby === "Results:" ? "#69CD74" : "#f3f0f0"}`};
   border-radius: 50px;
   cursor: pointer;
+  &:after{
+    content: '';
+    position: absolute;
+    border-bottom: ${props => props.sortby === "Results:" ? "1px solid #69CD74" : "1px solid #F7F7F7"};
+    width: 18px;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 27px;
+    top: 20px;
+    @media(max-width: 767px){
+      right: 19px;
+      top: 14px;
+    }
+  }
   span{
     color: ${props => props.sortby === "Results:" ? "#69CD74" : "#7d7d7d"}
+    font-size: 14px;
     
     .SearchIcon{
       margin-top: 3px;
@@ -30,7 +46,7 @@ export const SortLine = styled.div<{ sortby: any }>`
       }
     }
     @media(max-width: 767px){
-      margin-right: 5px;
+      margin-right: 20px;
   }
   }
   @media(max-width: 767px){
@@ -65,25 +81,26 @@ export const Submenu = styled.div`
   border-radius: 5px;
   z-index: 1;
   box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
-  transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
-  transition-duration: 300ms;
-  transition-property: opacity, -webkit-transform, transform;
-  transform: scale(0.9) translateY(-1px);
-  transform-origin: 80px 0px;
-  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.175);
-    -webkit-transition-duration: 300ms;
-    -webkit-transition-property: opacity, -webkit-transform, transform;
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-    -webkit-transform: scale(1);
+  -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
+  // -webkit-transition-timing-function:  ease-in-out ;
+  // transition-duration: 300ms;
+  // transform: scale(1);
+  // transition-timing-function: ease-in-out;
+  // transition-property: opacity, -webkit-transform, transform;
+  // transform: scale(0.9) translateY(-1px);
+  // transform-origin: 80px 0px;
+  //   opacity: 1;
+  //   visibility: visible;
+  //   transform: scale(1);
+  //   -webkit-transform: scale(1);
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
     top: 57%;
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-radius: inherit;
   }
 `;
 export const SubmenuTitle = styled.div`
@@ -135,9 +152,17 @@ export const SubmenuBox = styled.div`
       position: inherit;
       border: none;
       box-shadow: inherit;
+      margin: 0px 0px;
       .css-11unzgr {
         max-height: 150px;
         padding: 0px 0px 0px 15px;
+        .css-1gl4k7y{
+          padding: 8px 55px;
+          text-align: inherit;
+          @media(max-width: 540px){
+            padding: 8px 90px;
+          }
+        }
         ::-webkit-scrollbar-thumb{
           display: none;
         }
@@ -148,6 +173,16 @@ export const SubmenuBox = styled.div`
           padding: 0px;
           color: #8799a9;
           border-bottom: 1px solid #EDF0F2;
+          font-size:12px;
+          min-height: 31px;
+          cursor: pointer;
+        }
+        .css-r59xpm-option{
+          font-weight: 400;
+          min-height: 31px;
+          border-bottom: 1px solid #EDF0F2;
+          font-size: 12px;
+          padding: 0px;
         }
         @media(max-width: 540px){
           position: inherit;
@@ -197,7 +232,7 @@ export const Top = styled.div`
   }
   @media(max-width:768px){
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 10px 5px;
     overflow-x: scroll;
     display: flex;
     ::-webkit-scrollbar{
@@ -243,7 +278,7 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:16%; 
+  width:19%; 
   margin: 0 0.7rem;
   @media(max-width:1024px){
     width:17%;
@@ -254,7 +289,7 @@ export const Element = styled.span`
     margin: 0;
   }
   @media(max-width:480px){
-    width:55%;
+    width:100%;
   }
 `;
 

@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
 `;
 export const Header = styled.div`
   display: flex;

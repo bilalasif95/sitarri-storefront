@@ -17,6 +17,7 @@
   flex-direction: row;
   height: 3.55rem;
   position: relative;
+  padding: 0px 5px;
 
   &__left {
     width: 10%;
@@ -48,17 +49,17 @@
       align-items: center;
     }
     @media (min-width: $medium-screen) {
-      width: 7%;
+      width: 5%;
     }
   }
 
   &__center {
     align-self: center;
-    width: 80%;
+    width: 85%;
     position: relative;
     padding: 0 1rem;
     @media (min-width: $medium-screen) {
-      width: 80%;
+      width: 85%;
       padding: 0 2rem;
     }
     .SearchLocation{
@@ -294,7 +295,7 @@
       display: none;
     }
 
-    &:hover {
+    // &:hover{
       // .main-menu__hamburger--icon {
       //   display: none;
       // }
@@ -302,7 +303,7 @@
       // .main-menu__hamburger--hover {
       //   display: block;
       // }
-    }
+    // }
 
     svg {
       vertical-align: bottom;
@@ -546,11 +547,32 @@
     }
   }
 }
+.searchLogo{
+  display: none;
+}
 @media(max-width: 540px){
+  .searchedlist{
+    width: 99.7% !important;
+    margin-top: 0px !important;
+  }
   .SearchLocation {
     width: 35% !important;
 }
 .ShopAddress{
   width: 65% !important;
+}
+.main-menu__center{
+  padding: 0;
+}
+.searchfield{
+  .form-control{
+    padding-left: 40px !important;
+  }
+}
+.searchLogo{
+  position: absolute;
+  display: block;
+  top: 10px;
+  left: -12px
 }
 }

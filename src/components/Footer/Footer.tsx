@@ -32,11 +32,11 @@ const Footer: React.FC = () => (
                 <div className="sideRight">
                 <div className="footer-item">
                   <div>
-                    <h4>About Us</h4>
+                    {/* <h4>About Us</h4> */}
                     <ul className="quick-links">
                       {/* <li onClick={() => window.open(ADMIN_PANEL_LINK)}>Add Your Business</li> */}
-                      <Link to={appPaths.businessResourceCenterUrl}><li>Business Resource Center</li></Link>
                       <Link to={appPaths.contactUsUrl}><li>Contact Us</li></Link>
+                      <Link to={appPaths.businessResourceCenterUrl}><li>Sitarri for Business</li></Link>
                     </ul>
                   </div>
                 </div>

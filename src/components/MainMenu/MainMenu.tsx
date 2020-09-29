@@ -59,7 +59,7 @@ const MainMenu: React.FC = () => {
                   <Media query={{
                     maxWidth: smallScreen,
                   }}>
-                    {window.location.hash === "#/" ?
+                    {window.location.hash === "#/" || window.location.hash === "#/contactUs/" || window.location.hash === "#/businessResourceCenter/" || window.location.hash.includes("#/page/") ?
                       <div className="main-menu__left">
                         <Link to={appPaths.baseUrl}>
                           <ReactSVG path={logoImg} />
@@ -80,7 +80,7 @@ const MainMenu: React.FC = () => {
                   <Media query={{
                     maxWidth: smallScreen,
                   }}>
-                    {window.location.hash !== "#/" ?
+                    {((window.location.hash !== "#/") && (!window.location.hash.includes("#/contactUs/")) && (!window.location.hash.includes("#/businessResourceCenter/")) && (!window.location.hash.includes("#/page/"))) ?
                       <div className="main-menu__center">
                         <Search />
                       </div>
@@ -214,7 +214,7 @@ const MainMenu: React.FC = () => {
                       const items = maybe(() => data.shop.navigation.main.items, []);
                       return (
                         <ul>
-                          {window.innerWidth >= 540 || !window.location.hash.includes("#/product/") || !window.location.hash.includes("#/shop/") ?
+                          {(window.innerWidth >= 540 || !window.location.hash.includes("#/search/")) ?
                           // <Media
                           //   query={{ maxWidth: mediumScreen }}
                           //   render={() => (

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 import { withRouter } from "react-router-dom";
 
-// import ReactSVG from "react-svg";
+import ReactSVG from "react-svg";
 
-// import searchicon from "../../images/search.svg";
+import logo from "../../images/searchLogo.svg";
 
 // import loader from "../../../src/images/loader.svg";
 // import Arrow from "../../../src/images/Back_arrow.svg";
@@ -74,7 +74,13 @@ const desktopSearch: React.FC = (props: any) => {
 
     return  <>
         <div className="searchfield">
-            
+
+            {/* search-logo */}
+
+            <ReactSVG className="searchLogo" path={logo} />
+
+              {/* search-logo */}  
+
             <input autoFocus ref={ref} type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control"  />
 
             {search !== null && search !== "" ?

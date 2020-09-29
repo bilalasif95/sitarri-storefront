@@ -36,6 +36,7 @@ export const Primary = styled.div<{
 
 export const Secondary = styled(Primary)`
   box-shadow: inset 0px 0px 0px 3px
+  -webkit-box-shadow: inset 0px 0px 0px 3px
     ${props => props.theme.chip.colors.secondary.color};
   border-left: 1px solid ${props => props.theme.chip.colors.secondary.color};
   border-right: 1px solid ${props => props.theme.chip.colors.secondary.color};

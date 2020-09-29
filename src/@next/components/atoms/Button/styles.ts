@@ -36,6 +36,7 @@ export const Primary = styled.button<{
     background-color: ${props =>
       props.theme.button.colors[props.color].activeBackground};
     box-shadow: -3px 3px 14px 0px rgba(129, 67, 67, 0.2);
+    -webkit-box-shadow: -3px 3px 14px 0px rgba(129, 67, 67, 0.2);
   }
 
   &:disabled {
@@ -56,6 +57,7 @@ export const Primary = styled.button<{
 
 export const Secondary = styled(Primary)`
   box-shadow: inset 0px 0px 0px 3px
+  -webkit-box-shadow: inset 0px 0px 0px 3px
     ${props => props.theme.button.colors.secondary.color};
   border-left: 1px solid ${props => props.theme.button.colors.secondary.color};
   border-right: 1px solid ${props => props.theme.button.colors.secondary.color};

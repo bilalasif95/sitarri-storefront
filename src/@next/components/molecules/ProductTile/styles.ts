@@ -9,6 +9,7 @@ const textProps = css`
 export const Wrapper = styled.div`
   margin: 1rem;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
   min-height: 360px;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
     background: #fff;
   }
   ${media.smallScreen`
-  margin: 1rem 3px;
+  margin: 0;
 `}
 `;
 export const Top = styled.div`

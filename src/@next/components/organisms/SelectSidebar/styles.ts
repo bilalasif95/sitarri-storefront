@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
 `;
 
 export const Content = styled.div`

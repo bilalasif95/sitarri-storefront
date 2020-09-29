@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   box-shadow: ${props => props.theme.dropdown.boxShadow};
+  -webkit-box-shadow: ${props => props.theme.dropdown.boxShadow};
   background-color: ${props => props.theme.dropdown.backgroundColor};
 
   position: absolute;
