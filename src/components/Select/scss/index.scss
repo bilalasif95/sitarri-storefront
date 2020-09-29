@@ -48,6 +48,7 @@
 
   &__options {
     border-radius: 0;
+    -webkit-box-shadow: 0 0 0 1px $blue;
     box-shadow: 0 0 0 1px $blue;
     border: 1px solid $blue;
     background-color: $white;
@@ -62,6 +63,7 @@
     opacity: 0;
     z-index: -1;
     box-shadow: $select-menu-shadow;
+    -webkit-box-shadow: $select-menu-shadow;
     overflow: auto;
 
     &--open {

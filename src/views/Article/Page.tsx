@@ -65,7 +65,7 @@ export const Page: React.FC<PageProps> = ({
                 {/* <Link to={menuElement.url}>{menuElement.label}</Link> */}
                 {page.title}
               </li>
-              <li style={{color: "#999a9a"}}>{page.seoDescription}</li>
+              <li style={{color: "#3f5669"}}>{page.seoDescription}</li>
               {/* ))} */}
             </ul>
           </div>

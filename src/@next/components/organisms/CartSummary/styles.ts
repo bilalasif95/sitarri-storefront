@@ -10,6 +10,7 @@ export const Wrapper = styled.div<{ mobileCartOpened: boolean }>`
     left: 0%;
     transition: all 0.5s ease;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
   `}
   ${props =>
     props.mobileCartOpened &&

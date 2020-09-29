@@ -9,10 +9,11 @@ const textProps = css`
 export const Wrapper = styled.div`
   margin: 1rem;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
-  min-height: 300px;
+  min-height: 320px;
   ${media.smallScreen`
   margin: 1rem 0;
 `}
@@ -146,6 +147,9 @@ export const Image = styled.div`
   align-items: center;
   cursor: pointer;
   background: #f1f5f5;
+  @media(max-width:540px){
+    height: 125px;
+  }
   > img {
     margin: 0 2px 0 0;
     max-width: 255px;

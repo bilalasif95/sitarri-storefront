@@ -18,6 +18,7 @@
         left: $spacer;
         margin: auto;
         box-shadow: 0 0 0 1px $blue;
+        -webkit-box-shadow: 0 0 0 1px $blue;
         border: 2px solid $white;
         background-color: $white;
       }
@@ -33,6 +34,7 @@
       label::before {
         background-color: rgba($gray, 0.5);
         box-shadow: 0 0 0 1px $gray;
+        -webkit-box-shadow: 0 0 0 1px $gray;
       }
     }
 

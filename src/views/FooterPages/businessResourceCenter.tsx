@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import * as appPaths from "../../app/routes";
 
+import { ADMIN_PANEL_LINK } from "../../core/config";
+
 import Card from "../../images/Card.png";
 import Check from "../../images/Check.png";
 import Discover from "../../images/Discover.png";
@@ -29,7 +31,7 @@ const ContactUs: React.FC = () => (
 
                   <div className="BusinessForm">
                      <div className="BusinessBtns">
-                        <a className="SignupBtn" href="">Sign Up 
+                        <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up 
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                            <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -40,7 +42,7 @@ const ContactUs: React.FC = () => (
                         </svg>
 
                         </a>
-                        <a className="SigninBtn" href="">Sign In
+                        <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                            <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -176,6 +178,34 @@ const ContactUs: React.FC = () => (
 
          </Link>
       </div>
+
+<div className="BusinessForm">
+                     <div className="BusinessBtns">
+                        <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up 
+
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                           <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
+                              <g id="Group_8" data-name="Group 8">
+                                 <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#fff"/>
+                              </g>
+                           </g>
+                        </svg>
+
+                        </a>
+                        <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
+
+                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
+                           <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
+                              <g id="Group_8" data-name="Group 8">
+                                 <path id="Path_374" data-name="Path 374" d="M382.678,226.8,163.73,7.86a26.972,26.972,0,0,0-38.064,0L109.542,23.98a26.95,26.95,0,0,0,0,38.064L293.4,245.9,109.338,429.96a26.977,26.977,0,0,0,0,38.068l16.124,16.116a26.972,26.972,0,0,0,38.064,0L382.678,265a27.161,27.161,0,0,0,0-38.2Z" fill="#092540"/>
+                              </g>
+                           </g>
+                        </svg>
+
+                        </a>
+                     </div>
+                  </div>
+
    </div>
    {/* Contact-US */}
          </div>

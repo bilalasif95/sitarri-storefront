@@ -56,6 +56,10 @@
     }
   }
   .quick-links {
+    display: flex;
+    >a:first-child{
+      margin-right: 30px;
+    }
     ul {
       padding: 0;
     }
@@ -174,6 +178,12 @@
   }
 
   @media (max-width: 640px) {
+    .quick-links{
+      display: initial;
+      li{
+        margin: 0;
+      }
+    }
     .sideLeft {
       margin: 0 0 1rem;
     }

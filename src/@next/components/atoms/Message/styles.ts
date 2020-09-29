@@ -14,6 +14,7 @@ export const Wrapper = styled.div<{ status: IProps["status"] }>`
   padding: ${props => props.theme.message.padding};
   background-color: ${props => props.theme.message.backgroundColor};
   box-shadow: 0px 6px 15px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 6px 15px 3px rgba(0, 0, 0, 0.25);
   position: fixed;
   bottom: ${props => props.theme.spacing.spacer};
   right: ${props => props.theme.spacing.spacer};

@@ -9,6 +9,7 @@
     right: 1rem;
     top: 1.5rem;
     box-shadow: $message-shadow;
+    -webkit-box-shadow: $message-shadow;
     background-color: $white;
     padding: $spacer;
     width: 15rem;

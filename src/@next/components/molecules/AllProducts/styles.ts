@@ -8,6 +8,7 @@ const textProps = css`
 `;
 export const Wrapper = styled.div`
   margin: 1rem;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   overflow: hidden;
@@ -241,14 +242,14 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  width: 25%;
+  width: 18%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 export const Imgbox = styled.div`
 overflow: hidden;
-max-height: 100px;
+max-height: 70px;
 img{
   width: 100%;
   height: 100%;

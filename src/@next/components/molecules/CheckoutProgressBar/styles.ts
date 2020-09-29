@@ -13,6 +13,7 @@ export const ActiveDot = styled.div`
   height: 12px;
   border-radius: 50%;
   box-shadow: 0 0 0 4px #c2c2c2;
+  -webkit-box-shadow: 0 0 0 4px #c2c2c2;
 `;
 
 export const Label = styled.span`
