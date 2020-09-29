@@ -13,6 +13,13 @@ export const ProductList = styled.div`
 `}
 `;
 
+export const Span = styled.span`
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 5px;
+`;
+
 export const Carouseltitle = styled.div`
   display: flex;
   align-items: baseline;

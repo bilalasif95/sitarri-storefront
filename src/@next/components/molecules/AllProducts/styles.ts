@@ -19,7 +19,28 @@ export const Wrapper = styled.div`
 export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
+  position: relative;
+`;
 
+export const Brand = styled.div`
+  position: absolute;
+  top: 95px;
+  height: 50px;
+  width: 50px;
+  left: 12px;
+  border-radius: 60px;
+  overflow: hidden;
+  > img {
+    height: 50px;
+    width: 50px;
+    border: 1px solid #B2BEC7;
+    border-radius: 60px;
+    background: #fff;
+  }
+  @media(max-width: 767px){
+    top: 70px;
+  }
+  
 `;
 
 export const Bottom = styled.div`
@@ -91,7 +112,7 @@ export const Title = styled.h4`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 90%;
+  // width: 90%;
   @media(max-width: 767px){
     font-size: 13px;
   }
@@ -107,7 +128,12 @@ max-height: 34px;
 overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
-width: 55%;
+// width: 55%;
+p{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 }
 @media (max-width: 767px){
   font-size: 11px;

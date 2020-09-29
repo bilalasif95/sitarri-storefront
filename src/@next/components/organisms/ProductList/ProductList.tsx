@@ -17,24 +17,35 @@ import { AllProducts } from "../../molecules/AllProducts";
 export const ProductList: React.FC<IProps> = ({
   activeSortTypeBase,
   products,
+  showShopResults,
+  showProductsResults,
   stores,
   canLoadMore = false,
   loading,
   onLoadMore = () => null,
+  onChange = () => null,
 }: IProps) => {
-  const [showShopResults, setShowShopResults] = React.useState(false);
-  const [showProductsResults, setShowProductsResults] = React.useState(false);
+  // const [showShopResults, setShowShopResults] = React.useState(false);
+  // const [showProductsResults, setShowProductsResults] = React.useState(false);
   const onShowShopsResultsClick = () => {
-    if (showShopResults) {
-      return setShowShopResults(false)
-    }
-    setShowShopResults(true)
+    // if (showShopResults) {
+    //   return setShowShopResults(false)
+    // }
+    // setShowShopResults(true)
+    onChange({
+      label: "Shops",
+      value: "stores",
+    }, "showType")
   }
   const onShowProductsResultsClick = () => {
-    if (showProductsResults) {
-      return setShowProductsResults(false)
-    }
-    setShowProductsResults(true)
+    // if (showProductsResults) {
+    //   return setShowProductsResults(false)
+    // }
+    onChange({
+      label: "Products",
+      value: "products",
+    }, "showType")
+    // setShowProductsResults(true)
   }
   return (
     <>
@@ -48,8 +59,8 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Shops</h3>
-                      {window.innerWidth >= 540 ? stores.length > 3 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : ""} {stores.length} results </span><img src={Next} alt="next" /></p>
-                        : stores.length > 2 && <p><span onClick={onShowShopsResultsClick}>{showShopResults ? "Hide" : ""} {stores.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? stores.length > 3 && <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span>{showShopResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p>
+                        : stores.length > 2 && <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span><img src={Next} alt="next" /></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>
@@ -77,8 +88,8 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Products</h3>
-                      {window.innerWidth >= 540 ? products.length > 3 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : ""} {products.length} results </span><img src={Next} alt="next" /></p>
-                        : products.length > 2 && <p><span onClick={onShowProductsResultsClick}>{showProductsResults ? "Hide" : ""} {products.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? products.length > 3 && <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p>
+                        : products.length > 2 && <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>

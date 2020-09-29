@@ -24,13 +24,13 @@
 
     .noPicText {
       text-align: center;
-      padding: 6rem 1rem;
+      padding: 4rem 1rem;
       background: #fff;
-      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+      // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
       color: #1a73e4;
-      border: 1px solid #ccc;
-      margin: 1rem 0 0;
-      border-radius: 5px;
+      // border: 1px solid #ccc;
+      // margin: 1rem 0 0;
+      // border-radius: 5px;
     }
 
     &__description {
@@ -44,7 +44,7 @@
         text-align: left;
         width: 100%;
         background-color: #fff;
-        padding: 1rem 1rem;
+        padding: 1rem 0.5rem;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         border-bottom: 1px solid #F6F6F6;
@@ -502,6 +502,35 @@
 }
 .SkeletonHeader{
   display: none;
+}
+.DesktopBackIcon {
+  position: absolute;
+  top: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // width: 100%;
+  padding: 0px 10px;
+  margin: 0px auto;
+  cursor: pointer;
+  z-index: 1;
+  .SkeletonbackIcon{
+    background-color: #9D9FA1;
+    height: 30px;
+    border-radius: 50px;
+    width: 30px;
+    padding: 7px 7px;
+    svg{
+      margin: 0px auto;
+      display: block;
+      path{
+        fill: #fff;
+      }
+    }
+  }
+  @media (max-width: 767px){
+    display: none;
+  }
 }
 @keyframes load {
   from {

@@ -194,7 +194,7 @@ class Page extends React.PureComponent<
                       : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
-                  : <div className="noPicText">No photo available</div>}
+                  : <div className="noPicText"></div>}
 
               </div>
             </div>
@@ -288,11 +288,11 @@ class Page extends React.PureComponent<
                     }
 
 
-                    <div className=" container">
+                    {productInfo.uberEatsUrl !== "" && <div className=" container">
                       <div className="Resevations">
-                        <a className="ReservationBtn" href="#">Make a reservation</a>
+                        <a className="ReservationBtn" href={productInfo.uberEatsUrl}>Make a reservation</a>
                       </div>
-                    </div>
+                    </div>}
 
                     {productInfo.deliverooUrl !== "" &&
                       <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
@@ -307,7 +307,7 @@ class Page extends React.PureComponent<
                 {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
                   <div className="shop-at">
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
-                      <div className="shop-address">
+                      <div className="shop-address m-0">
                         <ReactSVG path={location} />
                         <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                           position: toast.POSITION.TOP_RIGHT,
@@ -365,7 +365,7 @@ class Page extends React.PureComponent<
                   : <>
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
                       <div className="shop-at">
-                        <div className="shop-address">
+                        <div className="shop-address m-0">
                           <ReactSVG path={location} />
                           <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                             position: toast.POSITION.TOP_RIGHT,

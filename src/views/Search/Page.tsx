@@ -30,6 +30,8 @@ interface PageProps {
   // attributes: IFilterAttributes[];
   activeSortOption: any;
   displayLoader: boolean;
+  showShopResults: boolean;
+  showProductsResults: boolean;
   // filters: IFilters;
   // hasNextPage: boolean;
   search?: string;
@@ -53,6 +55,8 @@ const Page: React.FC<PageProps> = ({
   activeSortedField,
   acitveSortDistanceBase,
   displayLoader,
+  showShopResults,
+  showProductsResults,
   products,
   stores,
   onOrder,
@@ -80,9 +84,12 @@ const Page: React.FC<PageProps> = ({
         {canDisplayProducts && (
           <ProductList
             activeSortTypeBase={activeSortTypeBase}
+            showShopResults={showShopResults}
+            showProductsResults={showProductsResults}
             products={products.edges.map(edge => edge.node)}
             stores={stores && stores.edges.map(edge => edge.node)}
             loading={displayLoader}
+            onChange={onOrder}
           />
         )}
       </div>

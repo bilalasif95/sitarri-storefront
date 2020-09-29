@@ -25,12 +25,14 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     value: { value: -1, symbol: "KILOMETER" },
   });
 
-  const [sort,setSort] = useQueryParam("sortBy", StringParam);
+  const [sort, setSort] = useQueryParam("sortBy", StringParam);
   const [lat] = useQueryParam("lat", StringParam);
   const [long] = useQueryParam("long", StringParam);
   // const [location, setLocation] = React.useState({ latitude: 0, longitude: 0 })
   const [search, setSearch] = useQueryParam("q", StringParam);
 
+  const [showShopResults, setShowShopResults] = React.useState(false);
+  const [showProductsResults, setShowProductsResults] = React.useState(false);
   // const getCurrentLocation = () => {
   //   navigator.geolocation.watchPosition(
   //     (position) => {
@@ -85,6 +87,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 activeSortOption={sortPriceBase.label}
                 activeSortBusinessType={sortBusinessBase.label}
                 activeSortedField={sorting.label}
+                showShopResults={showShopResults}
+                showProductsResults={showProductsResults}
                 activeSortTypeBase={sortTypeBase.label}
                 acitveSortDistanceBase={sortDistanceBase.label}
                 products={data.search && data.search.products}
@@ -99,7 +103,21 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     CallApi()
                   }
                   else if (type === "showType") {
-                    setSortTypeBase(value)
+                    if(value.value === "products"){
+                      setSortTypeBase(value)
+                      setShowProductsResults(true)
+                      setShowShopResults(false)
+                    }
+                    else if(value.value === "stores"){
+                      setSortTypeBase(value)
+                      setShowShopResults(true)
+                      setShowProductsResults(false)
+                    }
+                    else {
+                      setSortTypeBase(value)
+                      setShowShopResults(false)
+                      setShowProductsResults(false)
+                    }
                   }
                   else if (type === "sorting") {
                     setSorting(value)
@@ -109,6 +127,18 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     // getCurrentLocation()
                     setSortDistanceBase(value)
                     CallApi()
+                  }
+                  else if (type === "none") {
+                    setSortBusinessBase({
+                      label: "", value: "",
+                    })
+                    setSortDistanceBase({
+                      label: "",
+                      value: { value: -1, symbol: "KILOMETER" },
+                    })
+                    setSortPriceBase({
+                      label: "", value: { gte: 0, lte: 0 },
+                    })
                   }
                 }}
               />

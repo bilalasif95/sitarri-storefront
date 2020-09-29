@@ -125,27 +125,34 @@ export const ProductListHeader: React.FC<IProps> = ({
     if (categoriesMenu) {
       return setCategoriesMenu(false)
     }
-    setCategoriesMenu(true)
+    setCategoriesMenu(true);
+    setDistanceMenu(false);
+    setPriceMenu(false);
   }
 
   const onDistanceMenuClick = () => {
     if (distanceMenu) {
       return setDistanceMenu(false)
     }
-    setDistanceMenu(true)
+    setDistanceMenu(true);
+    setCategoriesMenu(false);
+    setPriceMenu(false);
   }
 
   const onPriceMenuClick = () => {
     if (priceMenu) {
       return setPriceMenu(false)
     }
-    setPriceMenu(true)
+    setPriceMenu(true);
+    setDistanceMenu(false);
+    setCategoriesMenu(false);
   }
 
   const { setElementRef } = useHandlerWhenClickedOutside(() => {
     setMenuIsOpen(false);
     setCategoriesMenu(false);
     setDistanceMenu(false);
+    setPriceMenu(false);
   });
 
   const { setElementRef: setResultsElementRef } = useHandlerWhenClickedOutside(() => {
@@ -185,7 +192,15 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <S.Submenu>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox>
-                    <S.SubmenuList categoriesMenu={false} onClick={() => setMenuIsOpen(!menuIsOpen)}>None</S.SubmenuList>
+                    <S.SubmenuList categoriesMenu={false} onClick={() => {
+                      setMenuIsOpen(!menuIsOpen);
+                      onChange("", "none");
+                      setFiltered(categories);
+                      setSearch("");
+                      setCategoriesMenu(false);
+                      setDistanceMenu(false);
+                      setPriceMenu(false);
+                    }}>None</S.SubmenuList>
                     <S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList>
                     {categoriesMenu &&
                       <>
