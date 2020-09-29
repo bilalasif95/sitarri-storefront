@@ -43,7 +43,6 @@ import backIcon from "../../images/back.svg";
 // import clock from "../../images/iconmonstr-time-2.svg";
 import Search from "../../images/search.svg";
 
-// import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: any;

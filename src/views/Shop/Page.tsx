@@ -6,6 +6,7 @@ import * as React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+// import webShare from 'react-web-share-api';
 // import Media from "react-media";
 
 import ImageGallery from 'react-image-gallery';
@@ -17,7 +18,7 @@ import { CachedImage, Thumbnail } from "@components/molecules";
 import { generateCategoryUrl, generatePhotoGalleryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
-// import OtherProducts from "./Other";
+import OtherProducts from "./Other";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
@@ -35,7 +36,7 @@ import clock from "../../images/iconmonstr-time-2.svg";
 import instagram from "../../images/instagram.svg";
 import delivery from "../../images/scooter.svg";
 import Search from "../../images/search.svg";
-import Share from "../../images/share.svg";
+// import Share from "../../images/share.svg";
 import twitter from "../../images/twitter.svg";
 
 import {
@@ -48,7 +49,6 @@ import {
   ProductDescription,
 } from "../../components";
 
-// import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: ProductDetails_product;
@@ -189,7 +189,7 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()  } /></Link>
+                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()} /></Link>
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
                       : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
@@ -211,10 +211,20 @@ class Page extends React.PureComponent<
                 </div>
                 <div className="SocialIcons">
 
-
-                  <div className="icon ShareIcon">
+                  <OtherProducts config={{
+                    params: {
+                      text: productInfo.description,
+                      title: productInfo.name,                      
+                      url: window.location.href,
+                    },
+                    /* tslint:disable-next-line:no-console */
+                    // onShareSuccess: () => console.log('Success'),
+                    /* tslint:disable-next-line:no-console */
+                    // onShareError: (error: Error) => console.log('error', error)
+                  }} />
+                  {/* <div className="icon ShareIcon">
                     <ReactSVG path={Share} />
-                  </div>
+                  </div> */}
 
 
                   {productInfo.instagramUrl !== "" &&

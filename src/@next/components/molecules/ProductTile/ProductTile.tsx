@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import ImageGallery from 'react-image-gallery';
 
-// import { Slide } from 'react-slideshow-image';
 import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
 

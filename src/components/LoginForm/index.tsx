@@ -2,12 +2,13 @@ import "./scss/index.scss";
 
 import * as React from "react";
 // import { useAlert } from "react-alert";
-import FacebookLogin from "react-facebook-login";
-import GoogleLogin from "react-google-login";
+// import FacebookLogin from "react-facebook-login";
+// import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { useSignIn, useSocialAuth } from "@sdk/react";
+// import { useSignIn, useSocialAuth } from "@sdk/react";
+import { useSignIn } from "@sdk/react";
 import { maybe } from "@utils/misc";
 import removeImg from "../../images/pass-invisible.svg";
 import removeImgg from "../../images/pass-visible.svg";
@@ -15,7 +16,7 @@ import removeImgg from "../../images/pass-visible.svg";
 
 import { Button, Form, OverlayTheme, OverlayType, TextField } from "..";
 
-import { setAuthToken } from "@sdk/auth";
+// import { setAuthToken } from "@sdk/auth";
 
 import emailImg from "../../images/email.svg";
 import backicon from "../../images/iconmonstr-arrow-72.svg";
@@ -29,10 +30,10 @@ interface ILoginForm {
 
 const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
   const [signIn, { loading, error }] = useSignIn();
-  const [socialAuth] = useSocialAuth();
+  // const [socialAuth] = useSocialAuth();
   const [emailClick, setEmailClick] = React.useState(false);
   const [registerClick, setRegisterClick] = React.useState(false);
-  const [errors, setErrors] = React.useState("");
+  // const [errors, setErrors] = React.useState("");
   const [passwordType, setPasswordType] = React.useState(true);
   // const alert = useAlert();
   const handleOnSubmit = async (evt, { email, password }) => {
@@ -43,17 +44,17 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
     }
   };
 
-  const responseGoogle = async response => {
-    if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid: "" });
-      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
-        setAuthToken(authenticated.data.socialAuth.token);
-        hide();
-      }
-      else {
-        setErrors(authenticated.data.socialAuth.error.message)
-      }
-    }
+  // const responseGoogle = async response => {
+  //   if (response.accessToken) {
+  //     const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "google-oauth2", email: response.profileObj.email, uid: "" });
+  //     if (authenticated && hide && authenticated.data.socialAuth.error === null) {
+  //       setAuthToken(authenticated.data.socialAuth.token);
+  //       hide();
+  //     }
+  //     else {
+  //       setErrors(authenticated.data.socialAuth.error.message)
+  //     }
+  //   }
     // else {
     //   alert.show(
     //     {
@@ -65,19 +66,19 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
     //     }
     //   );
     // }
-  };
+  // };
 
-  const responseFacebook = async response => {
-    if (response.accessToken) {
-      const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email: "", uid: response.id });
-      if (authenticated && hide && authenticated.data.socialAuth.error === null) {
-        setAuthToken(authenticated.data.socialAuth.token);
-        hide();
-      }
-      else {
-        setErrors(authenticated.data.socialAuth.error.message)
-      }
-    }
+  // const responseFacebook = async response => {
+  //   if (response.accessToken) {
+  //     const authenticated = await socialAuth({ accessToken: response.accessToken, provider: "facebook", email: "", uid: response.id });
+  //     if (authenticated && hide && authenticated.data.socialAuth.error === null) {
+  //       setAuthToken(authenticated.data.socialAuth.token);
+  //       hide();
+  //     }
+  //     else {
+  //       setErrors(authenticated.data.socialAuth.error.message)
+  //     }
+  //   }
     // else {
     //   alert.show(
     //     {
@@ -89,7 +90,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
     //     }
     //   );
     // }
-  };
+  // };
 
   const menuBack = () => {
     setEmailClick(true)
@@ -188,8 +189,8 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
               <div className="body-head">
                 <p>Sign up or Log in</p>
               </div>
-              <div className="errorMessages">{errors}</div>
-              <FacebookLogin
+              {/* <div className="errorMessages">{errors}</div> */}
+              {/* <FacebookLogin
                 appId="1078436535883692"
                 // autoLoad={true}
                 fields="name,email,picture"
@@ -205,7 +206,7 @@ const LoginForm: React.FC<ILoginForm> = ({ hide, show }) => {
                 onFailure={responseGoogle}
                 className="googleLoginButton"
                 cookiePolicy={"single_host_origin"}
-              />
+              /> */}
               <br /><br />
               <div className="line"><span>OR</span></div>
               <Button className="emailButton" onClick={() => setEmailClick(true)}>
