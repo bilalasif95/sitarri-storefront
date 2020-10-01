@@ -14,9 +14,10 @@ import arrowImg from "../../images/iconmonstr-arrow-64.svg";
 interface CarouselType extends CarouselProps {
   children: React.ReactNode;
   productDetails: string;
+  length?: number;
 }
 
-const Carousel: React.FC<CarouselType> = ({ children,productDetails, ...rest }) => {
+const Carousel: React.FC<CarouselType> = ({ children,productDetails,length, ...rest }) => {
   const settings = {
     className: "carousel",
     renderBottomCenterControls: () => null,
@@ -35,7 +36,7 @@ const Carousel: React.FC<CarouselType> = ({ children,productDetails, ...rest }) 
       slideCount,
       slidesToShow,
     }) =>
-      slideCount - slidesToShow !== currentSlide ? (
+      (slideCount - slidesToShow !== currentSlide) && (length > 2) ? (
         <div
           onClick={nextSlide}
           className="carousel__control carousel__control--right"

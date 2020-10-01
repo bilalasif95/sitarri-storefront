@@ -288,7 +288,7 @@ class Page extends React.PureComponent<
                     }
                     {productInfo.address &&
                       <a className="item"
-                        // href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                        href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
                         target="_blank" rel="noopener noreferrer">
                         <div className="icon">
                           <ReactSVG path={direction} />

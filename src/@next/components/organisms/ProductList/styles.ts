@@ -3,7 +3,7 @@ import { media, styled } from "@styles";
 export const ProductList = styled.div`
   margin: 0 0 1rem;
   h3{
-    padding: 0;
+    padding: 20px 0px 0px 17px;
   }
   ${media.smallScreen`
   h3{

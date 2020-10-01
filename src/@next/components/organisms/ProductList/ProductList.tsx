@@ -59,19 +59,17 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Shops</h3>
-                      {window.innerWidth >= 540 ? stores.length > 3 && <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span>{showShopResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p>
-                        : stores.length > 2 && <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? stores.length > 2 ? <p><span onClick={onShowShopsResultsClick}>{stores.length} results</span>{showShopResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p> : <p><span>{stores.length} {stores.length === 1 ? "result" : "results"}</span><S.Span></S.Span></p>
+                        : stores.length > 1 ? <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span><img src={Next} alt="next" /></p> : <p><span>{stores.length} result</span><S.Span></S.Span></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>
                       {!showShopResults ?
                         <S.OnlyCarousel>
-                          <Carousel productDetails={"productList"}>
-
+                          <Carousel length={stores.length} productDetails={"productList"}>
                             {stores && stores.map(product => (
                               <BusinessTile product={product} />
                             ))}
-
                           </Carousel>
                         </S.OnlyCarousel>
                         : <S.AllShops>
@@ -88,14 +86,14 @@ export const ProductList: React.FC<IProps> = ({
                   <S.Shops>
                     <S.Carouseltitle>
                       <h3>Products</h3>
-                      {window.innerWidth >= 540 ? products.length > 3 && <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p>
-                        : products.length > 2 && <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p>
+                      {window.innerWidth >= 540 ? products.length > 2 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p> : <p><span>{products.length} {products.length === 1 ? "result" : "results"}</span><S.Span></S.Span></p>
+                        : products.length > 1 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p> : <p><span>{products.length} result</span><S.Span></S.Span></p>
                       }
                     </S.Carouseltitle>
                     <S.Slider>
                       {!showProductsResults ?
                         <S.OnlyCarousel>
-                          <Carousel productDetails={"productList"}>
+                          <Carousel length={products.length} productDetails={"productList"}>
                             {products.map(product => (
                               <ProductTile product={product} />
                             ))}
@@ -115,8 +113,8 @@ export const ProductList: React.FC<IProps> = ({
                   <>
                     <S.Carouseltitle>
                       <h3>{stores && stores.length > 0 ? "All Results" : ""}</h3>
-                      {window.innerWidth >= 540 ? stores.length > 3 && <p>{stores.length} results </p>
-                        : stores.length > 2 && <p>{stores.length} results </p>
+                      {window.innerWidth >= 540 ? <p>{stores.length} {stores.length === 1 ? "result" : "results"}</p>
+                        : <p>{stores.length} {stores.length === 1 ? "result" : "results"}</p>
                       }
                     </S.Carouseltitle>
                     <S.List>

@@ -321,14 +321,12 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                   <div className="shopsCarousel">
                     <div className="Carouseltitle">
                       <h3>Popular Shops</h3>
-                      {window.innerWidth >= 540 ? 123 > 3 && <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
-                        : 123 > 2 && <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
-                      }
+                      <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
                     </div>
                     < div className="hrBorder"></div>
                     {/* <Carousel> */}
                     <div className="pro-list">
-                      <Carousel className="customSlider" productDetails={"productList"}>
+                      <Carousel length={4} className="customSlider" productDetails={"productList"}>
                         {/* {products.map(({ node: product }) => ( */}
 
                         <div className="modalDiv"
@@ -538,14 +536,12 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                   <div className="shopsCarousel">
                     <div className="Carouseltitle">
                       <h3>Popular Products</h3>
-                      {window.innerWidth >= 540 ? 123 > 3 && <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
-                        : 123 > 2 && <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
-                      }
+                      <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
                     </div>
                     <div className="hrBorder"></div>
                     {/* <Carousel> */}
                     <div className="pro-list">
-                      <Carousel className="customSlider" productDetails={"productList"}>
+                      <Carousel length={4} className="customSlider" productDetails={"productList"}>
                         {/* {products.map(({ node: product }) => ( */}
 
                         <div className="modalDiv"
