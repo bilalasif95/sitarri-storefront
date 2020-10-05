@@ -264,7 +264,7 @@ align-items: center;
 `;
 
 export const Open = styled.p`
-  font-size: 10px
+  font-size: 14px
   color: #1fa300;
   text-align: left;
   margin: 0 0.5rem 0 0;

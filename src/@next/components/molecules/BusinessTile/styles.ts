@@ -7,9 +7,9 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 10px 16px 16px 16px;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  margin: 10px 16px 16px 0px;
+  box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
+  -webkit-box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
@@ -103,7 +103,7 @@ export const ModalLink = styled.div`
 export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
-  font-size: 14px;
+  font-size: 18px;
   margin: 0 0 0.3rem;
   color: #435365;
   overflow: hidden;
@@ -119,7 +119,7 @@ export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
 text-align: left;
-color: #8899A9;
+color: #40464A;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
@@ -256,15 +256,15 @@ align-items: center;
 `;
 
 export const Open = styled.p`
-  font-size: 10px
+  font-size: 14px
   color: #1fa300;
   text-align: left;
   margin: 0 0.5rem 0 0;
 `;
 
 export const Close = styled.p`
-  font-size: 10px
-  color: #8899A9;
+  font-size: 12px
+  color: #40464A;
   text-align: left;
   display: flex;
   align-items: center;

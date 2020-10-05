@@ -371,7 +371,7 @@
     }
   }
   .shopsCarousel{
-    margin-top: 5px !important;
+    margin-top: 7px !important;
     margin-bottom: 5px !important;
   }
   .categoryCarousel{
@@ -437,5 +437,14 @@
 .categoryCarousel{
   .pro-list{
     margin-top: 20px;
+  }
+}
+.productCarousel{
+  .shopsCarousel{
+    .slider-control-centerright{
+      right: -25px !important;
+      transform: translateY(-90%) !important;
+      top: 46% !important;
+    }
   }
 }
