@@ -7,15 +7,15 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 1rem;
+  margin: 10px 16px 16px 16px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   background: #fff;
   min-height: 320px;
   ${media.smallScreen`
-  margin: 1rem 0;
+  margin: 1.3rem 0;
 `}
 `;
 
@@ -104,13 +104,13 @@ export const Title = styled.h4`
   ${textProps}
   font-size: 14px;
   margin: 0 0 0.3rem;
-  color: #111212;
+  color: #435365;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 50%;
   @media(max-width: 767px){
-    font-size: 13px;
+    font-size: 18px;
   }
 `;
 
@@ -118,7 +118,7 @@ export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
 text-align: left;
-color: #888C8F;
+color: #8899A9;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
@@ -133,7 +133,7 @@ width: 55%;
 
 export const Price = styled.p`
   font-size: 12px
-  color: #40464A;
+  color: #435365;
   text-align: left;
 `;
 
@@ -263,7 +263,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 10px
-  color: #666;
+  color: #8899A9;
   text-align: left;
   display: flex;
   align-items: center;
@@ -292,7 +292,7 @@ export const star = styled.p`
 `;
 export const Nos = styled.p`
   font-size: 16px
-  color: #000;
+  color: #40464A;
   font-weight: 600;
   text-align: left;
   margin: 0 0.5rem 0 0;
@@ -344,7 +344,7 @@ export const Subtag = styled.div`
   background-color: #F7F7F8;
   border-radius: 3px;
   padding: 0px 4px;
-  color: #9EAEB8;
+  color: #99A9B4;
 `;
 export const Miles = styled.p`
   display: flex;

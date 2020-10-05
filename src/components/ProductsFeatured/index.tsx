@@ -532,7 +532,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                     {/* </Carousel> */}
                   </div>
 
-
+                          <div className="productCarousel">
                   <div className="shopsCarousel">
                     <div className="Carouseltitle">
                       <h3>Popular Products</h3>
@@ -1129,8 +1129,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                     </div>
                     {/* </Carousel> */}
                   </div>
-
-
+                          </div>
                 </div>
               </div>
             );

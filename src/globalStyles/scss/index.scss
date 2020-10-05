@@ -241,3 +241,11 @@ header {
 .ub-color_1070ca{
   color: #000 !important;
 }
+@media(max-width:540px){
+  .cookie-message{
+    margin-right: initial !important;
+  }
+  .button-close{
+    right: 5px !important;
+  }
+}

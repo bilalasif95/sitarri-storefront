@@ -7,10 +7,10 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 1rem;
+  margin: 10px 16px 16px 16px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   min-height: 360px;
   background: #fff;
@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   }
   ${media.smallScreen`
   margin: 0;
+  min-height: 310px;
 `}
 `;
 export const Top = styled.div`
@@ -83,7 +84,7 @@ export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #111212;
+  color: #40464A;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
@@ -91,7 +92,7 @@ export const Title = styled.h4`
   white-space: nowrap;
   font-size: 14px;
   @media(max-width: 767px){
-    font-size: 13px;
+    font-size: 18px;
   }
 `;
 export const StoreTitle = styled.h4`
@@ -115,7 +116,7 @@ export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
 text-align: left;
-color: #777878;
+color: #8899A9;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
@@ -130,7 +131,7 @@ margin-bottom: 10px;
 export const Price = styled.p`
   font-size: 12px;
   text-align: left;
-  color: #40464A;
+  color: #435365;
 `;
 
 export const Image = styled.div`
@@ -272,7 +273,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 10px
-  color: #666;
+  color: #8899A9;
   text-align: left;
   display: flex;
   align-items: center;
@@ -307,7 +308,7 @@ align-items: center;
 
 export const Nos = styled.p`
   font-size: 16px
-  color: #000;
+  color: #40464A;
   font-weight: 600;
   text-align: left;
   // margin: 0 0.5rem 0 0;

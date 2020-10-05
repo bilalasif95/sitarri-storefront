@@ -2,11 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,500&display=swap');
 
 #header {
-  -webkit-box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
-  -moz-box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
-  box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
+  // -webkit-box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
+  // -moz-box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
+  // box-shadow: 0px 2px 9px -4px rgba(0, 0, 0, 0.45);
   position: relative;
   background: white;
+  padding: 10px 0px;
 }
 
 .main-menu {
@@ -18,7 +19,7 @@
   flex-direction: row;
   height: 3.55rem;
   position: relative;
-  padding: 0px 5px;
+  
 
   &__left {
     width: 10%;
@@ -553,6 +554,9 @@
   display: none;
 }
 @media(max-width: 540px){
+  .main-menu{
+    padding: 0px 10px;
+  }
   .searchedlist{
     width: 99.7% !important;
     margin-top: 0px !important;
@@ -577,4 +581,7 @@
   top: 10px;
   left: -12px
 }
+}
+::placeholder{
+  color: #8899A9;
 }

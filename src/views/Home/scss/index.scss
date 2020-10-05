@@ -268,7 +268,7 @@
   .Mobilesearchfield{
     display: block;
     margin-top: 25px;
-    padding: 0rem 5px;
+    padding: 0rem 10px;
     position: relative;
     input{
       width: 100%;
@@ -277,10 +277,13 @@
       border-radius: 5px;
       padding: 5px 0px 5px 40px;
       font-size: 12px;
+      position: relative;
+      margin-top: 15px;
+      box-shadow: 0px 2px 16px #d0d0d094;
     }
     .searchicon{
       position: absolute;
-      top: 14px;
+      top: 28px;
       right: 25px;
       svg{
         width: 15px !important;
@@ -289,15 +292,21 @@
     .locationicon{
       img{
       position: absolute;
-      top: 14px;
+      top: 28px;
       left: 20px;
       width: 15px;
       height: 15px;
       transform: rotateZ(-45deg);
+      z-index: 1;
       }
       path{
         fill: #e6e6e6;
       }
     }
   }
+}
+@media(max-width: 540px){
+  .products-featured {
+    padding: 25px 0 0 !important;
+}
 }

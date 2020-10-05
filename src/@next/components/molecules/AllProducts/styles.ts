@@ -123,7 +123,7 @@ export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
 text-align: left;
-color: #888C8F;
+color: #8899A9;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
@@ -272,7 +272,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 10px
-  color: #666;
+  color: #8899A9;
   text-align: left;
   display: flex;
   align-items: center;
@@ -294,7 +294,7 @@ export const Subtag = styled.div`
   background-color: #F7F7F8;
   border-radius: 3px;
   padding: 0px 4px;
-  color: #9EAEB8;
+  color: #99A9B4;
 `;
 
 export const Likes = styled.div`
@@ -305,7 +305,7 @@ align-items: center;
 
 export const Nos = styled.p`
   font-size: 16px
-  color: #000;
+  color: #40464A;
   font-weight: 600;
   text-align: left;
   margin: 0 0.5rem 0 0;

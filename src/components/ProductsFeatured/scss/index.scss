@@ -1,7 +1,7 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .products-featured {
-  padding: 2rem 0 0;
+  padding: 55px 0 0;
   .categoryCarousel{
     padding: 5px 12px 20px 12px;
     background-color: #fff !important;
@@ -17,9 +17,12 @@
     justify-content: space-between;
     cursor: pointer;
     padding-right: 12px;
+    a{
+      font-weight: 500;;
+    }
     p{
       font-size: 12px;
-      color: #99A9B4;
+      color: #8899A9;
       cursor: pointer;
       img{
         width: 5px;
@@ -28,12 +31,12 @@
     }
   }
   .shopsCarousel{
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 35px;
+    margin-bottom: 35px;
   }
   .hrBorder{
     border-bottom: 1px solid #F5F5F5;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     position: relative;
     width: 101.3%;
     margin-left: -13px;
@@ -41,9 +44,9 @@
   }
   h3 {
     font-weight: 400;
-    margin: 12px 0 30px;
-    font-size: 25px;
-    color: #2b445a !important;;
+    margin: 20px 0 20px;
+    font-size: 23px;
+    color: #09253F !important;;
   }
 
   .pro-list{
@@ -51,6 +54,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: 0px;
     .slider-list,.slider-frame{
       border: none !important;
     }
@@ -72,7 +76,7 @@
     }
     .customSlider{
       .image-gallery-bullets{
-        top: 65%;
+        top: 85%;
         .image-gallery-bullet{
           &:hover{
             background-color: #fff;
@@ -117,7 +121,6 @@
     display: inline-block;
     // max-width: 255px;
     text-decoration: none;
-    width: 85%;
     cursor: pointer;
   }
   .modalDiv:nth-child(even) {
@@ -128,12 +131,22 @@
   }
   @media (max-width:768px) {
     .modalDiv {
+      padding-right: 5px;
       width: 100%;
     }
     
     .shopsCarousel{
       background-color: #fff !important;
       padding: 5px 5px 5px 5px;
+    }
+    .productCarousel{
+      .shopsCarousel{
+        background-color: #fff !important;
+        padding: 5px 5px 25px 5px;
+        .slider-frame{
+          height: 340px !important;
+        }
+      }
     }
   }
   @media(max-width: $small-screen){
@@ -155,7 +168,8 @@
     }
     h3 {
       margin-top: 0 ;
-      margin-bottom: 1rem ;
+      margin-bottom: 15px;
+      margin-top: 10px;
       font-size: 18px;
     }
   }
@@ -351,6 +365,20 @@
 }
 }
 @media (max-width: 540px){
+  .categoryCarousel{
+    .pro-list{
+      padding: 0px 10px;
+    }
+  }
+  .shopsCarousel{
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+  }
+  .categoryCarousel{
+    .pro-list{
+      margin-top: 15px !important;
+    }
+  }
   .allResults {
       grid-template-columns: 1fr;
   }
@@ -391,7 +419,7 @@
 }
 .products-featured {
   .categoryCarousel{
-    padding: 5px 5px 5px 5px;
+    // padding: 5px 5px 5px 5px;
   }
 }
 }
@@ -405,4 +433,9 @@
       top: 70% !important;
     }
 }
+}
+.categoryCarousel{
+  .pro-list{
+    margin-top: 20px;
+  }
 }
