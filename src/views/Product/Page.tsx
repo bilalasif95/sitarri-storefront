@@ -23,6 +23,7 @@ import { CachedImage, Thumbnail } from "@components/molecules";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
+import ModalIcon from "../../images/favicon.svg";
 import noPhotoImg from "../../images/no-photo.svg";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
@@ -42,14 +43,13 @@ import backIcon from "../../images/back.svg";
 // import clock from "../../images/iconmonstr-time-2.svg";
 import Search from "../../images/search.svg";
 
-// import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: any;
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { displayNewModal: boolean,photoIndex: number, show: boolean, modalImagesArray: any, variantId: string }
+  { displayNewModal: boolean, photoIndex: number, show: boolean, modalImagesArray: any, variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -130,7 +130,7 @@ class Page extends React.PureComponent<
   };
 
   onModalClicked = () => {
-    this.setState({photoIndex: 0})
+    this.setState({ photoIndex: 0 })
     // const image = this.props.product.images[index]
     // const filteredImages = this.props.product.images.filter(img => {
     //   return img.id !== image.id ? img : ""
@@ -207,11 +207,14 @@ class Page extends React.PureComponent<
                 <script className="structured-data-list" type="application/ld+json">
                   {/* {structuredData(product)} */}
                 </script>
+                <div className="DesktopBackIcon">
+                  <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                </div>
                 {productInfo && productInfo.images.length > 0 ?
                   <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
                   // <GalleryCarousel images={this.getImages()} />
                   // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-                  : <div className="noPicText">No photo available</div>}
+                  : <div className="noPicText"></div>}
 
               </div>
             </div>
@@ -330,24 +333,32 @@ class Page extends React.PureComponent<
             }
 
             {
-
               this.state.displayNewModal && (
-                <Lightbox
-                  mainSrc={this.state.modalImagesArray[this.state.photoIndex]}
-                  nextSrc={this.state.modalImagesArray[(this.state.photoIndex + 1) % this.state.modalImagesArray.length]}
-                  prevSrc={this.state.modalImagesArray[(this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length]}
-                  onCloseRequest={() => this.setState({ displayNewModal: false })}
-                  onMovePrevRequest={() =>
-                    this.setState({
-                      photoIndex: (this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length,
-                    })
-                  }
-                  onMoveNextRequest={() =>
-                    this.setState({
-                      photoIndex: (this.state.photoIndex + 1) % this.state.modalImagesArray.length,
-                    })
-                  }
-                />
+                <div className="GalleryModal">
+
+                  <div className="ModalContent">
+                    <p>TAQUERIA delivery from Notting Hill - Order with Deliveroo</p>
+                    <ul className="modalList">
+                      <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" href="#">Deliveroo.co.uk/taqueria</a></li>
+                    </ul>
+                  </div>
+                  <Lightbox
+                    mainSrc={this.state.modalImagesArray[this.state.photoIndex]}
+                    nextSrc={this.state.modalImagesArray[(this.state.photoIndex + 1) % this.state.modalImagesArray.length]}
+                    prevSrc={this.state.modalImagesArray[(this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length]}
+                    onCloseRequest={() => this.setState({ displayNewModal: false })}
+                    onMovePrevRequest={() =>
+                      this.setState({
+                        photoIndex: (this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length,
+                      })
+                    }
+                    onMoveNextRequest={() =>
+                      this.setState({
+                        photoIndex: (this.state.photoIndex + 1) % this.state.modalImagesArray.length,
+                      })
+                    }
+                  />
+                </div>
                 // <Modal
                 //   title=""
                 //   hide={() => {

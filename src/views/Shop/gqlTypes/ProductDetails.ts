@@ -699,6 +699,7 @@ export interface ProductDetails_product {
   id: string;
   name: string;
   address: any;
+  description: string;
   storeCategory: any;
   storeProduct: any;
   minPrice: number;

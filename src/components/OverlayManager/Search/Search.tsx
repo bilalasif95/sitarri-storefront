@@ -24,7 +24,6 @@ import { SearchResults } from "./gqlTypes/SearchResults";
 // import ProductItem from "./ProductItem";
 // import { TypedSearchResults } from "./queries";
 
-// import searchImg from "../../../images/search.png";
 // import closeImg from "../../../images/x.svg";
 import SearchComponent from "../../MainMenu/search";
 

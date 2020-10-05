@@ -3,7 +3,7 @@ import { media, styled } from "@styles";
 export const ProductList = styled.div`
   margin: 0 0 1rem;
   h3{
-    padding: 0;
+    padding: 20px 0px 0px 17px;
   }
   ${media.smallScreen`
   h3{
@@ -11,6 +11,13 @@ export const ProductList = styled.div`
     font-size: 1rem;
   }
 `}
+`;
+
+export const Span = styled.span`
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 5px;
 `;
 
 export const Carouseltitle = styled.div`

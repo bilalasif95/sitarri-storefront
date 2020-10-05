@@ -67,6 +67,11 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
 
       <S.Wrapper data-cy="product-tile">
         <S.Top>
+          <S.Brand>
+            {product.logo ?
+              <img src={product.logo} className="noImg" />
+              : ""}
+          </S.Brand>
           <S.Image>
             {tempArray.length > 0 ?
               <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />

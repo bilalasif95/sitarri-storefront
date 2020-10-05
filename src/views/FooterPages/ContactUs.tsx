@@ -9,7 +9,7 @@ const ContactUs: React.FC = () => (
          <div className="ContactContent">
                <div className="ContactText">
                   <h3>Get In Touch</h3>
-                  <p>We'd love to hear from you</p>
+                  <p>We would love to hear from you</p>
                </div>
                
                <div className="ContactFrom">

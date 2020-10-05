@@ -6,6 +6,7 @@ import * as React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+// import webShare from 'react-web-share-api';
 // import Media from "react-media";
 
 import ImageGallery from 'react-image-gallery';
@@ -17,7 +18,7 @@ import { CachedImage, Thumbnail } from "@components/molecules";
 import { generateCategoryUrl, generatePhotoGalleryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
-// import OtherProducts from "./Other";
+import OtherProducts from "./Other";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
@@ -35,7 +36,7 @@ import clock from "../../images/iconmonstr-time-2.svg";
 import instagram from "../../images/instagram.svg";
 import delivery from "../../images/scooter.svg";
 import Search from "../../images/search.svg";
-import Share from "../../images/share.svg";
+// import Share from "../../images/share.svg";
 import twitter from "../../images/twitter.svg";
 
 import {
@@ -48,7 +49,6 @@ import {
   ProductDescription,
 } from "../../components";
 
-// import youtube from "../../images/iconmonstr-youtube-6.svg";
 class Page extends React.PureComponent<
   {
     product: ProductDetails_product;
@@ -189,12 +189,12 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()  } /></Link>
+                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()} /></Link>
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
                       : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
-                  : <div className="noPicText">No photo available</div>}
+                  : <div className="noPicText"></div>}
 
               </div>
             </div>
@@ -211,10 +211,20 @@ class Page extends React.PureComponent<
                 </div>
                 <div className="SocialIcons">
 
-
-                  <div className="icon ShareIcon">
+                  <OtherProducts config={{
+                    params: {
+                      text: productInfo.description,
+                      title: productInfo.name,                      
+                      url: window.location.href,
+                    },
+                    /* tslint:disable-next-line:no-console */
+                    // onShareSuccess: () => console.log('Success'),
+                    /* tslint:disable-next-line:no-console */
+                    // onShareError: (error: Error) => console.log('error', error)
+                  }} />
+                  {/* <div className="icon ShareIcon">
                     <ReactSVG path={Share} />
-                  </div>
+                  </div> */}
 
 
                   {productInfo.instagramUrl !== "" &&
@@ -278,7 +288,7 @@ class Page extends React.PureComponent<
                     }
                     {productInfo.address &&
                       <a className="item"
-                        // href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                        href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
                         target="_blank" rel="noopener noreferrer">
                         <div className="icon">
                           <ReactSVG path={direction} />
@@ -288,11 +298,11 @@ class Page extends React.PureComponent<
                     }
 
 
-                    <div className=" container">
+                    {productInfo.uberEatsUrl !== "" && <div className=" container">
                       <div className="Resevations">
-                        <a className="ReservationBtn" href="#">Make a reservation</a>
+                        <a className="ReservationBtn" href={productInfo.uberEatsUrl}>Make a reservation</a>
                       </div>
-                    </div>
+                    </div>}
 
                     {productInfo.deliverooUrl !== "" &&
                       <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
@@ -307,7 +317,7 @@ class Page extends React.PureComponent<
                 {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
                   <div className="shop-at">
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
-                      <div className="shop-address">
+                      <div className="shop-address m-0">
                         <ReactSVG path={location} />
                         <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                           position: toast.POSITION.TOP_RIGHT,
@@ -365,7 +375,7 @@ class Page extends React.PureComponent<
                   : <>
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
                       <div className="shop-at">
-                        <div className="shop-address">
+                        <div className="shop-address m-0">
                           <ReactSVG path={location} />
                           <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                             position: toast.POSITION.TOP_RIGHT,

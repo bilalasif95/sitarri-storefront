@@ -14,9 +14,7 @@ import { stringify } from "query-string";
 
 // import searchicon from "../../images/search.svg";
 
-import locationicon from "../../images/send.svg"
-
-// import searchicon from "../../images/search.png";
+import locationicon from "../../images/send.svg";
 
 import { searchUrl } from "../../app/routes";
 
