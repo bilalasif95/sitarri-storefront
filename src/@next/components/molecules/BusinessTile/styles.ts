@@ -105,7 +105,7 @@ export const Title = styled.h4`
   ${textProps}
   font-size: 18px;
   margin: 0 0 0.3rem;
-  color: #435365;
+  color: #40464A;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
