@@ -264,7 +264,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 12px
-  color: #40464A;
+  color: #99A9B4;
   text-align: left;
   display: flex;
   align-items: center;
