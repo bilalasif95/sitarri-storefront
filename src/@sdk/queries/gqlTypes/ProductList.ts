@@ -233,7 +233,7 @@ export interface ProductList_products_edges_node {
    */
   id: string;
   name: string;
-
+  description?: string;
   images: imagesArray[];
   /**
    * The main thumbnail for a product.
@@ -248,6 +248,7 @@ export interface ProductList_products_edges_node {
    */
   pricing: ProductList_products_edges_node_pricing | null;
   category: ProductList_products_edges_node_category | null;
+  store?: any;
 }
 
 export interface ProductList_products_edges {
