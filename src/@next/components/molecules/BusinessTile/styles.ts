@@ -264,7 +264,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 12px
-  color: #99A9B4;
+  color: #40464A;
   text-align: left;
   display: flex;
   align-items: center;
@@ -275,6 +275,14 @@ export const Close = styled.p`
     background: #666;
     margin: 0 0.3rem 0 0rem;
   }
+`;
+
+export const TotalReviews = styled.div` 
+font-size: 12px;
+color: #99A9B4;
+text-align: left;
+display: flex;
+align-items: center;
 `;
 
 export const Likes = styled.div`

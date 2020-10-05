@@ -99,7 +99,7 @@ export const StoreTitle = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #111212;
+  color: #435365;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
@@ -111,7 +111,13 @@ export const StoreTitle = styled.h4`
     margin-bottom: 0px;
   }
 `;
-
+export const TotalReviews = styled.div` 
+font-size: 12px;
+color: #99A9B4;
+text-align: left;
+display: flex;
+align-items: center;
+`;
 export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
@@ -273,7 +279,7 @@ export const Open = styled.p`
 
 export const Close = styled.p`
   font-size: 12px
-  color: #99A9B4;
+  color: #40464A;
   text-align: left;
   display: flex;
   align-items: center;
@@ -391,6 +397,7 @@ export const Address = styled.p`
 export const CardTitle = styled.div`
 display: flex;
 justify-content: space-between;
+margin-bottom: -8px;
 `;
 export const CardTime = styled.div`
 display: flex;
