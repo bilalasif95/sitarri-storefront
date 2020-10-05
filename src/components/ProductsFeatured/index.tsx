@@ -61,7 +61,6 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
         setLongitude(0)
       },
       {
-
         enableHighAccuracy: true,
         maximumAge: 250,
       }
@@ -349,35 +348,35 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             id: "U3RvcmU6Njg=",
                             images: [{
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
                             },
                             {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
                             }, {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
                             }],
-                            logo: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                            logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
                             name: "Taqueria",
                             openingHours: "09:00 AM",
-                            rating: 0,
+                            rating: 4.0,
                             storeProduct: {
                               __typename: "ProductCountableConnection",
                               edges: [],
                             },
                             tags: [
                               {
-                                name: "Vegetables",
+                                name: "Mexican",
                               },
                               {
-                                name: "Food",
+                                name: "Taco",
                               },
                               {
-                                name: "Drinks",
+                                name: "Tequila",
                               },
                             ],
-                            totalReviews: 10,
+                            totalReviews: 600,
                           }} />
                           {/* <ProductListItem product={product} /> */}
                           {/* </Link> */}
@@ -402,35 +401,35 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             id: "U3RvcmU6Njg=",
                             images: [{
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
                             },
                             {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
                             }, {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
                             }],
-                            logo: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                            logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
                             name: "Five Guys",
                             openingHours: "09:00 AM",
-                            rating: 0,
+                            rating: 4.6,
                             storeProduct: {
                               __typename: "ProductCountableConnection",
                               edges: [],
                             },
                             tags: [
                               {
-                                name: "Vegetables",
+                                name: "Burger",
                               },
                               {
-                                name: "Food",
+                                name: "American",
                               },
                               {
-                                name: "Drinks",
+                                name: "Milkshakes",
                               },
                             ],
-                            totalReviews: 10,
+                            totalReviews: 578,
                           }} />
                           {/* <ProductListItem product={product} /> */}
                           {/* </Link> */}
@@ -451,29 +450,39 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             closingHours: "12:42 PM",
                             description: "Mexican Resturant . ££",
-                            distance: "52 mi",
+                            distance: "5 mi",
                             id: "U3RvcmU6Njg=",
-                            images: [],
-                            logo: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                            images: [{
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                            },
+                            {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
+                            }, {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                            }],
+                            logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
                             name: "Taqueria",
                             openingHours: "09:00 AM",
-                            rating: 0,
+                            rating: 4.0,
                             storeProduct: {
                               __typename: "ProductCountableConnection",
                               edges: [],
                             },
                             tags: [
                               {
-                                name: "Vegetables",
+                                name: "Mexican",
                               },
                               {
-                                name: "Food",
+                                name: "Taco",
                               },
                               {
-                                name: "Drinks",
+                                name: "Tequila",
                               },
                             ],
-                            totalReviews: 10,
+                            totalReviews: 600,
                           }} />
                           {/* <ProductListItem product={product} /> */}
                           {/* </Link> */}
@@ -493,32 +502,40 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             closingHours: "12:42 PM",
-                            description: "Mexican Resturant . ££",
-                            distance: "52 mi",
+                            description: "Burger Resturant . ££",
+                            distance: "5.9 mi",
                             id: "U3RvcmU6Njg=",
-                            images: [],
-                            logo: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            name: "Taqueria",
+                            images: [{
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
+                            },
+                            {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                            }, {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
+                            }],
+                            logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
+                            name: "Five Guys",
                             openingHours: "09:00 AM",
-                            rating: 0,
+                            rating: 4.6,
                             storeProduct: {
                               __typename: "ProductCountableConnection",
                               edges: [],
-
-
                             },
                             tags: [
                               {
-                                name: "Vegetables",
+                                name: "Burger",
                               },
                               {
-                                name: "Food",
+                                name: "American",
                               },
                               {
-                                name: "Drinks",
+                                name: "Milkshakes",
                               },
                             ],
-                            totalReviews: 10,
+                            totalReviews: 578,
                           }} />
                           {/* <ProductListItem product={product} /> */}
                           {/* </Link> */}
@@ -556,58 +573,52 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           key={product.id}
                         > */}
                           <ProductTile product={{
-
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            // description: "",
+                            description: "Our regular two-patty burger with two slices of melted american cheese added.",
                             // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
                             },
                             {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
                             }, {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
                             }],
-                            name: "ASOS DESIGN festival pork pie hat in beige straw with band",
+                            name: "Cheeseburger",
                             pricing: {
                               __typename: "ProductPricingInfo",
                               onSale: false,
                               priceRange: {
-
                                 __typename: "TaxedMoneyRange",
                                 start: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -617,31 +628,26 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
-
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -657,10 +663,10 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                                 },
                               ],
-                              logo: null,
-                              name: "Amazon",
+                              logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
+                              name: "Five Guys",
                               openingHours: "09:00 AM",
-                              rating: 4.5,
+                              rating: 4.6,
                               tags: [
                                 {
                                   name: "Vegetables",
@@ -672,7 +678,140 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   name: "Drinks",
                                 },
                               ],
-                              totalReviews: 15000,
+                              totalReviews: 395,
+                            },
+                            thumbnail: {
+                              __typename: "Image",
+                              alt: "",
+                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                            },
+                            thumbnail2x: {
+                              __typename: "Image",
+                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                            },
+                          }} />
+                          {/* <ProductListItem product={product} /> */}
+                          {/* </Link> */}
+                        </div>
+
+                        <div className="modalDiv"
+                          onClick={() => {
+                            // setDisplayNewModal(true)
+                            // setProduct(product)
+                            // SeeDetails(product.name)
+                          }}
+                        >
+                          {/* <Link
+                          to={generateProductUrl(product.id, product.name)}
+                          key={product.id}
+                        > */}
+                          <ProductTile product={{
+                            __typename: "Product",
+                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
+                            description: "This is such a great product and you should definitely buy it cause it is so great.",
+                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
+                            id: "UHJvZHVjdDozMQ==",
+                            images: [{
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
+                            },
+                            {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
+                            }, {
+                              id: "",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
+                            }],
+                            name: "Black Bean Tostada (V)",
+                            pricing: {
+                              __typename: "ProductPricingInfo",
+                              onSale: false,
+                              priceRange: {
+                                __typename: "TaxedMoneyRange",
+                                start: {
+                                  __typename: "TaxedMoney",
+                                  gross: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                  net: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                },
+                                stop: {
+                                  __typename: "TaxedMoney",
+                                  gross: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                  net: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                },
+                              },
+                              priceRangeUndiscounted: {
+                                __typename: "TaxedMoneyRange",
+                                start: {
+                                  __typename: "TaxedMoney",
+                                  gross: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                  net: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                },
+                                stop: {
+                                  __typename: "TaxedMoney",
+                                  gross: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                  net: {
+                                    __typename: "Money",
+                                    amount: 4.20,
+                                    currency: "GBP",
+                                  },
+                                },
+                              },
+                            },
+                            store: {
+                              __typename: "Store",
+                              closingHours: "12:42 PM",
+                              distance: "5 mi",
+                              id: "U3RvcmU6NTk=",
+                              images: [
+                                {
+                                  __typename: "StoreImage",
+                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                                },
+                              ],
+                              logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
+                              name: "Taqueria",
+                              openingHours: "09:00 AM",
+                              rating: 4.0,
+                              tags: [
+                                {
+                                  name: "Vegetables",
+                                },
+                                {
+                                  name: "Food",
+                                },
+                                {
+                                  name: "Drinks",
+                                },
+                              ],
+                              totalReviews: 600,
                             },
                             thumbnail: {
                               __typename: "Image",
@@ -701,58 +840,52 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           key={product.id}
                         > */}
                           <ProductTile product={{
-
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            // description: "",
+                            description: "Our regular two-patty burger with two slices of melted american cheese added.",
                             // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
                             },
                             {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
                             }, {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
                             }],
-                            name: "ASOS DESIGN festival pork pie hat in beige straw with band",
+                            name: "Cheeseburger",
                             pricing: {
                               __typename: "ProductPricingInfo",
                               onSale: false,
                               priceRange: {
-
                                 __typename: "TaxedMoneyRange",
                                 start: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -762,31 +895,26 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
-
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 9.95,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -802,10 +930,10 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                                 },
                               ],
-                              logo: null,
-                              name: "Amazon",
+                              logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
+                              name: "Five Guys",
                               openingHours: "09:00 AM",
-                              rating: 4.5,
+                              rating: 4.6,
                               tags: [
                                 {
                                   name: "Vegetables",
@@ -817,7 +945,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   name: "Drinks",
                                 },
                               ],
-                              totalReviews: 15000,
+                              totalReviews: 395,
                             },
                             thumbnail: {
                               __typename: "Image",
@@ -846,58 +974,52 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           key={product.id}
                         > */}
                           <ProductTile product={{
-
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            // description: "",
+                            description: "This is such a great product and you should definitely buy it cause it is so great.",
                             // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
                             },
                             {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
                             }, {
                               id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
                             }],
-                            name: "ASOS DESIGN festival pork pie hat in beige straw with band",
+                            name: "Black Bean Tostada (V)",
                             pricing: {
                               __typename: "ProductPricingInfo",
                               onSale: false,
                               priceRange: {
-
                                 __typename: "TaxedMoneyRange",
                                 start: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -907,31 +1029,26 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                 },
                                 stop: {
-
                                   __typename: "TaxedMoney",
                                   gross: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                   net: {
                                     __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
+                                    amount: 4.20,
+                                    currency: "GBP",
                                   },
                                 },
                               },
@@ -947,10 +1064,10 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
                                 },
                               ],
-                              logo: null,
-                              name: "Amazon",
+                              logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
+                              name: "Taqueria",
                               openingHours: "09:00 AM",
-                              rating: 4.5,
+                              rating: 4.0,
                               tags: [
                                 {
                                   name: "Vegetables",
@@ -962,152 +1079,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                                   name: "Drinks",
                                 },
                               ],
-                              totalReviews: 15000,
-                            },
-                            thumbnail: {
-                              __typename: "Image",
-                              alt: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            thumbnail2x: {
-                              __typename: "Image",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                          }} />
-                          {/* <ProductListItem product={product} /> */}
-                          {/* </Link> */}
-                        </div>
-
-
-                        <div className="modalDiv"
-                          onClick={() => {
-                            // setDisplayNewModal(true)
-                            // setProduct(product)
-                            // SeeDetails(product.name)
-                          }}
-                        >
-                          {/* <Link
-                          to={generateProductUrl(product.id, product.name)}
-                          key={product.id}
-                        > */}
-                          <ProductTile product={{
-
-                            __typename: "Product",
-                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            // description: "",
-                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
-                            id: "UHJvZHVjdDozMQ==",
-                            images: [{
-                              id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            {
-                              id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            }, {
-                              id: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            }],
-                            name: "ASOS DESIGN festival pork pie hat in beige straw with band",
-                            pricing: {
-                              __typename: "ProductPricingInfo",
-                              onSale: false,
-                              priceRange: {
-
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                },
-                              },
-                              priceRangeUndiscounted: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                },
-                                stop: {
-
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 8,
-                                    currency: "USD",
-
-                                  },
-                                },
-                              },
-                            },
-                            store: {
-                              __typename: "Store",
-                              closingHours: "12:42 PM",
-                              distance: "5 mi",
-                              id: "U3RvcmU6NTk=",
-                              images: [
-                                {
-                                  __typename: "StoreImage",
-                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                                },
-                              ],
-                              logo: null,
-                              name: "Amazon",
-                              openingHours: "09:00 AM",
-                              rating: 4.5,
-                              tags: [
-                                {
-                                  name: "Vegetables",
-                                },
-                                {
-                                  name: "Food",
-                                },
-                                {
-                                  name: "Drinks",
-                                },
-                              ],
-                              totalReviews: 15000,
+                              totalReviews: 600,
                             },
                             thumbnail: {
                               __typename: "Image",

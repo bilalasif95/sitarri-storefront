@@ -78,7 +78,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
               {/* </S.Link> */}
               <S.Title>{product.name}</S.Title>
-              <S.Desc>{product.description}Our regular two-patty burger with two slices of melted american cheese added.</S.Desc>
+              <S.Desc>{product.description}</S.Desc>
               <S.Price>
                 <TaxedMoney taxedMoney={price} />
               </S.Price>

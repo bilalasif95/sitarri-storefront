@@ -12,14 +12,14 @@ import noPhotoImg from "../../../../images/no-photo.svg";
 // import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
-import { IProps } from "./types";
+// import { IProps } from "./types";
 
 // import Rating from 'react-rating';
 // import { Tile } from "../../atoms";
 
 import { generateShopUrl } from "../../../../core/utils";
 
-export const BusinessTile: React.FC<IProps> = ({ product }: { product: any }) => {
+export const BusinessTile: React.FC<any> = ({ product }: { product: any }) => {
   // const price =
   //   product.pricing &&
   //     product.pricing.priceRange &&
