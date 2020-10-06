@@ -1,7 +1,7 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .products-featured {
-  padding: 55px 0 0;
+  padding: 35px 0 0;
   .categoryCarousel{
     padding: 5px 0px 20px 12px;
     background-color: #fff !important;
@@ -18,7 +18,6 @@
     cursor: pointer;
     padding-right: 12px;
     a{
-      font-weight: 500;;
     }
     p{
       font-size: 12px;
@@ -45,7 +44,7 @@
   h3 {
     font-weight: 400;
     margin: 20px 0 20px;
-    font-size: 23px;
+    font-size: 18px;
     color: #09253F !important;;
   }
 
@@ -65,7 +64,7 @@
       transform: translate3d(55px, 0px, 0px) !important;
     }
     .slider-control-centerright{
-      right: -25px !important;
+      right: -22px !important;
       transform: translateY(-90%) !important;
       top: 37% !important;
     }
@@ -142,9 +141,9 @@
     .productCarousel{
       .shopsCarousel{
         background-color: #fff !important;
-        padding: 5px 5px 25px 5px;
+        padding: 5px 5px 5px 5px;
         .slider-frame{
-          height: 340px !important;
+          height: 350px !important;
         }
       }
     }
@@ -443,9 +442,20 @@
 .productCarousel{
   .shopsCarousel{
     .slider-control-centerright{
-      right: -25px !important;
+      right: -22px !important;
       transform: translateY(-90%) !important;
       top: 46% !important;
+    }
+  }
+}
+
+@media(max-width: 540px){
+  .productCarousel{
+    .shopsCarousel{
+      padding-bottom: 2px !important;
+    }
+    .image-gallery-bullets{
+      top: 71%;
     }
   }
 }

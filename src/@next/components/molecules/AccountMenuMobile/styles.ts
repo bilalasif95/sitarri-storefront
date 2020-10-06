@@ -22,8 +22,8 @@ export const Overlay = styled.div`
   overflow: visible;
   z-index: 10;
   background-color: white;
-  -webkit-box-shadow: 0 0 0 9999px rgba(50, 50, 50, 0.1);
-  box-shadow: 0 0 0 9999px rgba(50, 50, 50, 0.1);
+  -webkit-box-shadow: 0 0 0 9999px #7090b02e;
+  box-shadow: 0 0 0 9999px #7090b02e;
 `;
 
 export const MenuHeader = styled.div`

@@ -1,9 +1,9 @@
 import { styled } from "@styles";
 
 export const Wrapper = styled.div`
-  margin-bottom: 1.4rem;
+  margin-bottom: 35px;
   @media(max-width:640px){
-    margin-bottom: 0;
+    margin-bottom: 7px;
   }
 `;
 
@@ -11,11 +11,11 @@ export const SortLine = styled.div<{ sortby: any }>`
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
-  padding:10px 14px;
+  padding: 5px 14px;
   background: ${props => props.sortby === "Results:" ? "#F6FCF7" : "#fff"};
-  border: ${props => `1px solid ${props.sortby === "Results:" ? "#69CD74" : "#f3f0f0"}`};
+  border: ${props => `1px solid ${props.sortby === "Results:" ? "#69CD74" : "#F5F5F5"}`};
   border-radius: 50px;
   cursor: pointer;
   &:after{
@@ -27,7 +27,7 @@ export const SortLine = styled.div<{ sortby: any }>`
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
     right: 27px;
-    top: 20px;
+    top: 16px;
     @media(max-width: 767px){
       right: 19px;
       top: 14px;
@@ -35,14 +35,15 @@ export const SortLine = styled.div<{ sortby: any }>`
   }
   span{
     color: ${props => props.sortby === "Results:" ? "#69CD74" : "#7d7d7d"}
-    font-size: 14px;
+    font-size: 13px;
     
     .SearchIcon{
-      margin-top: 3px;
+      // margin-top: 3px;
     }
     div{
       svg{
         fill: ${props => props.sortby === "Results:" ? "#69CD74" : "#EE744D"};
+        vertical-align: middle;
       }
     }
     @media(max-width: 767px){
@@ -70,6 +71,7 @@ export const menuDropdown = styled.div`
       height: 100vh;
       z-index: 2;
       top: 0;
+      left: 0;
     }
 `;
 
@@ -80,8 +82,8 @@ export const Submenu = styled.div`
   width: 240px;
   border-radius: 5px;
   z-index: 1;
-  box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
-  -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
+  box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
+  -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
   // -webkit-transition-timing-function:  ease-in-out ;
   // transition-duration: 300ms;
   // transform: scale(1);
@@ -196,7 +198,7 @@ export const Top = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px 0px 10px 0;
+  padding: 10px 0px 10px 0;
   position: relative;
   background: #fff;
   .jlQsbh{
@@ -278,7 +280,7 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:19%; 
+  width:18%; 
   margin: 0 0.7rem;
   @media(max-width:1024px){
     width:17%;

@@ -8,13 +8,13 @@ const textProps = css`
 `;
 export const Wrapper = styled.div`
   margin: 1rem;
-  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
+  box-shadow: 0 2px 10px 0 #7090b02e;
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
   ${media.smallScreen`
-  margin: 1rem 0;
+  margin: 10px 0;
 `}
 `;
 export const Top = styled.div`
@@ -51,7 +51,7 @@ export const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top:  1px solid #ddd;
+  border-top:  1px solid #f5f5f5;
 `;
 
 export const Content = styled.div`
@@ -68,9 +68,9 @@ export const Link = styled.div`
   padding: 0.2rem 0.5rem;
   color: #000;
   font-size: 12px;
-  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0px 0px 9px -3px #7090b02e;
+  -moz-box-shadow: 0px 0px 9px -3px #7090b02e;
+  box-shadow: 0px 0px 9px -3px #7090b02e;
 `;
 
 export const ModalLink = styled.div`
@@ -82,9 +82,9 @@ export const ModalLink = styled.div`
   padding: 0.2rem 0.5rem;
   color: #000;
   font-size: 12px;
-  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0px 0px 9px -3px #7090b02e;
+  -moz-box-shadow: 0px 0px 9px -3px #7090b02e;
+  box-shadow: 0px 0px 9px -3px #7090b02e;
 `;
 export const CardDetails = styled.div`
   display: flex;
@@ -107,15 +107,15 @@ export const star = styled.p`
 export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
-  font-size: 14px;
+  font-size: 18px;
   margin: 0 0 0.3rem;
-  color: #111212;
+  color: #40464A;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   // width: 90%;
   @media(max-width: 767px){
-    font-size: 13px;
+    font-size: 18px;
   }
 `;
 
@@ -123,7 +123,7 @@ export const Desc = styled.p`
 font-weight: normal;
 font-size: 14px;
 text-align: left;
-color: #8899A9;
+color: #99A9B4;
 line-height: normal;
 max-height: 34px;
 overflow: hidden;
@@ -142,14 +142,14 @@ p{
 `;
 
 export const Price = styled.p`
-  font-size: 12px
+  font-size: 14px
   color: #40464A;
   text-align: left;
 `;
 
 export const Image = styled.div`
   width: 100%;
-  height: 158px;
+  height: 165px;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -185,9 +185,13 @@ export const Image = styled.div`
     }
     .image-gallery-content 
     .image-gallery-bullets{
-      top: 66%;
+      top: 85%;
       .image-gallery-bullet{
         padding: 3px;
+      }
+
+      @media(max-width: 540px){
+        top: 50%;
       }
     }
     .image-gallery-slide
@@ -198,7 +202,7 @@ export const Image = styled.div`
   ${media.smallScreen`
   height: 130px;
   .image-gallery-bullets {
-    top: 58% !important;
+    top:70% !important;
   }
 `}
 `;
@@ -271,8 +275,8 @@ export const Open = styled.p`
 `;
 
 export const Close = styled.p`
-  font-size: 10px
-  color: #8899A9;
+  font-size: 12px
+  color: #40464A;
   text-align: left;
   display: flex;
   align-items: center;
@@ -296,7 +300,13 @@ export const Subtag = styled.div`
   padding: 0px 4px;
   color: #99A9B4;
 `;
-
+export const TotalReviews = styled.div` 
+font-size: 12px;
+color: #99A9B4;
+text-align: left;
+display: flex;
+align-items: center;
+`;
 export const Likes = styled.div`
 display: flex;
 justify-content: flex-start;

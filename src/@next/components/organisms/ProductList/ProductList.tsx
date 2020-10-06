@@ -63,6 +63,10 @@ export const ProductList: React.FC<IProps> = ({
                         : stores.length > 1 ? <p><span onClick={onShowShopsResultsClick}>{stores.length} results </span><img src={Next} alt="next" /></p> : <p><span>{stores.length} result</span><S.Span></S.Span></p>
                       }
                     </S.Carouseltitle>
+
+                      <S.hrBorder></S.hrBorder>
+
+
                     <S.Slider>
                       {!showShopResults ?
                         <S.OnlyCarousel>
@@ -83,13 +87,18 @@ export const ProductList: React.FC<IProps> = ({
 
               {(activeSortTypeBase === "Products" || activeSortTypeBase === "" || activeSortTypeBase === "All") && !showShopResults ? products.length > 0 ?
                 <div>
+                   <S.ProductsShop>
                   <S.Shops>
+                  
                     <S.Carouseltitle>
                       <h3>Products</h3>
                       {window.innerWidth >= 540 ? products.length > 2 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p> : <p><span>{products.length} {products.length === 1 ? "result" : "results"}</span><S.Span></S.Span></p>
                         : products.length > 1 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p> : <p><span>{products.length} result</span><S.Span></S.Span></p>
                       }
                     </S.Carouseltitle>
+
+                    <S.hrBorder></S.hrBorder>
+
                     <S.Slider>
                       {!showProductsResults ?
                         <S.OnlyCarousel>
@@ -106,9 +115,11 @@ export const ProductList: React.FC<IProps> = ({
                         </S.AllShops>}
                     </S.Slider>
                   </S.Shops>
+                  </S.ProductsShop>
                 </div> : <div></div> : <div></div>}
 
               {(activeSortTypeBase === "" || activeSortTypeBase === "Clear..." || activeSortTypeBase === "All") && (!showShopResults && !showProductsResults) ? stores.length > 0 ?
+               
                 <S.Shops>
                   <>
                     <S.Carouseltitle>
@@ -117,6 +128,9 @@ export const ProductList: React.FC<IProps> = ({
                         : <p>{stores.length} {stores.length === 1 ? "result" : "results"}</p>
                       }
                     </S.Carouseltitle>
+
+                    <S.hrBorder></S.hrBorder>
+
                     <S.List>
                       {stores && stores.map(product => (
                         <AllProducts product={product} />
@@ -124,6 +138,7 @@ export const ProductList: React.FC<IProps> = ({
                     </S.List>
                   </>
                 </S.Shops>
+            
                 : "" : ""}
               {/* <S.Loader>
         {loading ? (

@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 0px 30px #7090b02e;
+  -webkit-box-shadow: 6px 0px 30px #7090b02e;
 `;
 
 export const Content = styled.div`

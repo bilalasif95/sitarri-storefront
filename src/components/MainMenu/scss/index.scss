@@ -554,6 +554,10 @@
   display: none;
 }
 @media(max-width: 540px){
+  .main-menu__center 
+  .CloseIcon {
+    right: -16px;
+}
   .main-menu{
     padding: 0px 10px;
   }

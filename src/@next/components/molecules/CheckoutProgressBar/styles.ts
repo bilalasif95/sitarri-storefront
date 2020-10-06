@@ -12,8 +12,8 @@ export const ActiveDot = styled.div`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px #c2c2c2;
-  -webkit-box-shadow: 0 0 0 4px #c2c2c2;
+  box-shadow: 0 0 0 4px #7090b02e;
+  -webkit-box-shadow: 0 0 0 4px #7090b02e;
 `;
 
 export const Label = styled.span`

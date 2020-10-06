@@ -1,5 +1,5 @@
 // colors
-$base-font-color: #323232;
+$base-font-color: #09253F;
 $black: #000;
 $blue-dark: #190c4e;
 $blue: #21125e;
@@ -37,8 +37,8 @@ $container-width: 1140px;
 // button
 $button-font-size: 1.125rem;
 $button-line-height: $base-line-height;
-$button-box-shadow: -5px 5px 14px 0px rgba(0, 0, 0, 0.2);
-$button-box-shadow-clicked: -3px 3px 14px 0px rgba(129, 67, 67, 0.2);
+$button-box-shadow: -5px 5px 14px 0px #7090b02e;
+$button-box-shadow-clicked: -3px 3px 14px 0px #7090b02e;
 $button-padding: 0.6rem 2.7rem;
 $button-padding-small-screen: 0.9rem 1rem;
 $button-transition: 0.3s;

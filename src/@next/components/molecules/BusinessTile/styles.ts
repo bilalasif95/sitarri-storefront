@@ -15,7 +15,8 @@ export const Wrapper = styled.div`
   background: #fff;
   min-height: 320px;
   ${media.smallScreen`
-  margin: 1.3rem 0;
+  margin: 5px 0;
+  min-height: 275px;
 `}
 `;
 
@@ -23,7 +24,7 @@ export const CardDetails = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   @media(max-width: 767px){
     align-items: flex-end;
     margin-bottom: 5px;
@@ -64,7 +65,7 @@ export const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top:  1px solid #ddd;
+  border-top:  1px solid #f5f5f5;
 `;
 
 export const Content = styled.div`
@@ -104,7 +105,7 @@ export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
   font-size: 18px;
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.5rem;
   color: #40464A;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -112,6 +113,7 @@ export const Title = styled.h4`
   width: 50%;
   @media(max-width: 767px){
     font-size: 18px;
+    margin: 0 0 0rem;
   }
 `;
 
@@ -140,7 +142,7 @@ export const Price = styled.p`
 
 export const Image = styled.div`
   width: 100%;
-  height: 158px;
+  height: 165px;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -179,7 +181,7 @@ export const Image = styled.div`
     }
     .image-gallery-content 
     .image-gallery-bullets {
-      top: 66%;
+      top: 85%;
       .image-gallery-bullet {
         padding: 3px;
     }
@@ -191,7 +193,7 @@ export const Image = styled.div`
   ${media.smallScreen`
   height: 130px;
   .image-gallery-bullets {
-    top: 58% !important;
+    top: 50% !important;
   }
 `}
 `;

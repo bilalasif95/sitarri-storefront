@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 6px 0px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px 0px 30px #7090b02e;
+  -webkit-box-shadow: 6px 0px 30px #7090b02e;
 `;
 export const Header = styled.div`
   display: flex;

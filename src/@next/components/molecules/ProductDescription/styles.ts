@@ -61,11 +61,14 @@ export const Tabs = styled.div<{isSticky: any}>`
   border-radius: 5px;
   overflow: hidden;
   // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
-  -webkit-box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 rgba(0, 0, 0, 0.1)'};
+  box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
+  -webkit-box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
   .ub-color_234361 {
     color: ##09253f;
     font-weight: 800;
+  }
+  @media(max-width: 540px){
+    margin: 7px 0 7px;
   }
 `;
 export const fixed = styled.div<{isSticky: any}>`
@@ -80,6 +83,8 @@ position: relative;
     div{
       font-weight: 700;
       text-align: center;
+      font-size: 18px;
+      color: #09253F;
     }
   }
   }
@@ -137,9 +142,9 @@ export const ModalLink = styled.div`
   padding: 0.2rem 0.5rem;
   color: #000;
   font-size: 12px;
-  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0px 0px 9px -3px #7090b02e;
+  -moz-box-shadow: 0px 0px 9px -3px #7090b02e;
+  box-shadow: 0px 0px 9px -3px #7090b02e;
 `;
 
 export const Title = styled.h4`
@@ -219,7 +224,7 @@ export const TabsContainer = styled.div`
       margin-left: 5px;
       width: 9px;
       path{
-        fill: #000;
+        fill: #09253F;
       }
     }
   }
@@ -239,9 +244,11 @@ export const TabsContainer = styled.div`
     button{
     background: #fff !important;
     border-radius: 3px;
-    box-shadow: -5px 0px 9px #bbb9b8d1;
-    -webkit-box-shadow: -5px 0px 9px #bbb9b8d1;
+    box-shadow: -5px 0px 9px #7090b02e;
+    -webkit-box-shadow: -5px 0px 9px #7090b02e;
     padding: 12px 5px;
+    color: #435365;
+    font-size: 14px;
    
   //   }
   // }
@@ -259,7 +266,7 @@ export const Sectitle = styled.div`
 export const TabTitle = styled.div<{ active?: boolean }>`
   cursor: pointer;
   color: #A1AFBB;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.02em;
   padding: 0.5rem 1rem;
@@ -267,8 +274,8 @@ export const TabTitle = styled.div<{ active?: boolean }>`
   text-align: center;
   // text-overflow: ellipsis;
   max-width: 120px;
-  border-bottom: ${props => props.active ? '1px solid #F4B49F' : 'none'};
-  color: ${props => props.active ? "#1F3950" : "#A1AFBB"};
+  border-bottom: ${props => props.active ? '1px solid #FF4B13' : 'none'};
+  color: ${props => props.active ? "#435365" : "#8899A9"};
   font-size: 12px;
 
 
@@ -276,7 +283,7 @@ export const TabTitle = styled.div<{ active?: boolean }>`
     font-size: ${(props: any) => props.theme.typography.h4FontSize};
     min-width: 100px;
     width: 33.33%;
-    font-size: 12px;
+    font-size: 14px;
   `};
   @media(max-width: 450px){
     width: 50%;

@@ -8,8 +8,8 @@ const textProps = css`
 `;
 export const Wrapper = styled.div`
   margin: 10px 16px 16px 0px;
-  box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
-  -webkit-box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
+  box-shadow: 0 2px 10px 0 #7090b02e;
+  -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
   border-radius: 10px;
   overflow: hidden;
   min-height: 360px;
@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   ${media.smallScreen`
   margin: 0;
   min-height: 310px;
+  margin-top: 5px;
 `}
 `;
 export const Top = styled.div`
@@ -38,7 +39,7 @@ export const Bottom = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   align-items: center;
-  border-top:  1px solid #ddd;
+  border-top:  1px solid #f5f5f5;
   @media(max-width: 767px) {
     padding: 20px 10px 20px 10px;
     align-items: flex-end;
@@ -58,9 +59,9 @@ export const Link = styled.div`
   padding: 0.2rem 0.5rem;
   color: #000;
   font-size: 12px;
-  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0px 0px 9px -3px #7090b02e;
+  -moz-box-shadow: 0px 0px 9px -3px #7090b02e;
+  box-shadow: 0px 0px 9px -3px #7090b02e;
 `;
 
 export const ModalLink = styled.div`
@@ -72,9 +73,9 @@ export const ModalLink = styled.div`
   padding: 0.2rem 0.5rem;
   color: #000;
   font-size: 12px;
-  -webkit-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  -moz-box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
-  box-shadow: 0px 0px 9px -3px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 0px 0px 9px -3px #7090b02e;
+  -moz-box-shadow: 0px 0px 9px -3px #7090b02e;
+  box-shadow: 0px 0px 9px -3px #7090b02e;
   @media(max-width: 480px) {
     top: -1rem;
   }
@@ -135,14 +136,14 @@ margin-bottom: 10px;
 `;
 
 export const Price = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   color: #435365;
 `;
 
 export const Image = styled.div`
   width: 100%;
-  height: 158px;
+  height: 165px;
   max-width: 100%;
   overflow: hidden;
   display: flex;
@@ -178,7 +179,7 @@ export const Image = styled.div`
     }
     .image-gallery-content 
     .image-gallery-bullets {
-      top: 66%;
+      top: 85%;
       .image-gallery-bullet {
         padding: 3px;
     }
@@ -191,7 +192,7 @@ export const Image = styled.div`
   ${media.smallScreen`
   height: 130px;
   .image-gallery-bullets {
-    top: 58% !important;
+    top: 70% !important;
   }
 `}
 `;
@@ -397,7 +398,10 @@ export const Address = styled.p`
 export const CardTitle = styled.div`
 display: flex;
 justify-content: space-between;
-margin-bottom: -8px;
+margin-bottom: -5px;
+@media(max-width: 540px){
+  margin-bottom: 0px;
+}
 `;
 export const CardTime = styled.div`
 display: flex;

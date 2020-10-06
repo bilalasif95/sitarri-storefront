@@ -3,12 +3,15 @@ import { media, styled } from "@styles";
 export const ProductList = styled.div`
   margin: 0 0 1rem;
   h3{
-    padding: 20px 0px 0px 17px;
+    padding: 20px 0px 20px 12px;
+    font-size: 18px !important;
+    color: #09253F;
   }
   ${media.smallScreen`
   h3{
-    padding: 0;
+    padding: 12.5px 0px 12.5px 5px;
     font-size: 1rem;
+    color: #09253F;
   }
 `}
 `;
@@ -24,10 +27,11 @@ export const Carouseltitle = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 5px;
+  padding: 0px 5px;
+  padding-right: 12px;
   p{
     font-size: 12px;
-    color: #99A9B4;
+    color: #8899A9;
     span{
       cursor: pointer;
     }
@@ -56,6 +60,13 @@ export const AllShops = styled.div`
     grid-template-columns: 1fr;
   }
 `
+export const hrBorder =styled.div`
+border-bottom: 1px solid #F5F5F5;
+position: relative;
+width: 100%;
+// margin-left: -13px;
+overflow: hidden;
+`;
 
 export const Shops = styled.div`
   background-color: #fff;
@@ -63,6 +74,7 @@ export const Shops = styled.div`
   div:focus{
       outline: none;
   }
+ 
   .slider-control-centerleft{
     top: 37% !important;
     left: -20px !important;
@@ -80,7 +92,7 @@ export const Shops = styled.div`
     }
   }
   .slider-control-centerright{
-    top: 37% !important;
+    top: 34% !important;
     right: -20px !important;
     >div{
       height: 40px !important;
@@ -92,16 +104,31 @@ export const Shops = styled.div`
       display: none;
     }
   }
+  @media(max-width: 540px){
+    margin-bottom: 7px;
+  }
+`;
+export const ProductsShop = styled.div`
+.slider-control-centerright{
+  top:45% !important;
+  right: -20px !important;
+}
 `;
 export const Slider = styled.div`
-  padding-left: 5px;
+  padding-left: 12px;
   .slider-frame{
-      padding-bottom: 35px !important;
+      padding-bottom: 25px !important;
       ul{
         li:focus{
           outline: none;
         }
       }
+      @media(max-width: 540px){
+        padding-bottom: 15px !important;
+      }
+  }
+  @media(max-width: 540px){
+    padding-left: 5px;
   }
 `;
 // export const ProductsSlider = styled.div`
@@ -148,6 +175,7 @@ export const Skeletoncards = styled.div`
 export const NoResult = styled.div`
   text-align: center;
 `;
+
 
 
 export const Loadingskeleton = styled.div`

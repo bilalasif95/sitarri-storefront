@@ -14,10 +14,10 @@ export const SortLine = styled.div<{sortby: any}>`
   align-items: end;
   justify-content: space-between;
   padding:10px 14px;
-  box-shadow: ${props => props.sortby === "More" ? "-5px 0px 9px #bbb9b8d1" : ""};
-  -webkit-box-shadow: ${props => props.sortby === "More" ? "-5px 0px 9px #bbb9b8d1" : ""};
+  box-shadow: ${props => props.sortby === "More" ? "-5px 0px 9px #7090b02e" : ""};
+  -webkit-box-shadow: ${props => props.sortby === "More" ? "-5px 0px 9px #7090b02e" : ""};
   background: ${props => props.sortby === "Results:" ? "#F6FCF7" : "#fff"};
-  border: ${props => props.sortby === "More" ? "" : `1px solid ${props.sortby === "Results:" ? "#69CD74" : "#f3f0f0"}` };
+  border: ${props => props.sortby === "More" ? "" : `1px solid ${props.sortby === "Results:" ? "#69CD74" : "#F5F5F5"}` };
   border-radius: ${props => props.sortby === "More" ? "3px" : "50px"};
   cursor: pointer;
   span{

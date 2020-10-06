@@ -67,7 +67,9 @@ const Page: React.FC<PageProps> = ({
 
   return (
     <div className="category">
-      <div className="container">
+      
+        <div className="FilterHeader">
+          <div className="container">
         <BusinessesQuery>
           {({ data }) =>
             <ProductListHeader
@@ -81,6 +83,9 @@ const Page: React.FC<PageProps> = ({
             />
           }
         </BusinessesQuery>
+        </div>
+        </div>
+        <div className="container">
         {canDisplayProducts && (
           <ProductList
             activeSortTypeBase={activeSortTypeBase}
