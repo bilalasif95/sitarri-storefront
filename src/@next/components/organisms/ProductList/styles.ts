@@ -58,6 +58,7 @@ export const AllShops = styled.div`
   }
   @media (max-width: 540px){
     grid-template-columns: 1fr;
+    padding 0px 5px;
   }
 `
 export const hrBorder =styled.div`

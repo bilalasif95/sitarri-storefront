@@ -171,7 +171,7 @@ class Page extends React.PureComponent<
       {overlayContext => (
         <>
           <ToastContainer />
-          <div className="product-page">
+          <div className="product-Page">
             <div className="container">
               <div className="product-page__product">
 

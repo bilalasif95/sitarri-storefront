@@ -75,12 +75,12 @@
     svg{
       margin-right: 8px;
       path{
-        fill: #68C965;
+        fill: #53C865;
       }
     }
     span{
       font-size: 10px;
-      color: #68C965;;
+      color: #53C865;
     }
   }
   .CategoryTitle{
@@ -246,5 +246,10 @@
   &__quantity-input {
     margin-top: 20px;
     padding-top: 20px;
+  }
+}
+@media(max-width: 540px){
+  .star{
+  margin-top: 5px;
   }
 }

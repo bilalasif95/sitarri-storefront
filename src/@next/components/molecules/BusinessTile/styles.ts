@@ -299,10 +299,12 @@ export const star = styled.p`
       fill: #FBCE2E;
     }
   }
-
+  @media(max-width: 540px){
+    margin-top: 5px;
+  }
 `;
 export const Nos = styled.p`
-  font-size: 16px
+  font-size: 14px
   color: #40464A;
   font-weight: 600;
   text-align: left;

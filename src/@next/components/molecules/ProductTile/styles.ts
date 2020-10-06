@@ -108,7 +108,6 @@ export const StoreTitle = styled.h4`
   white-space: nowrap;
   font-size: 14px;
   @media(max-width: 767px){
-    font-size: 13px;
     margin-bottom: 0px;
   }
 `;
@@ -314,7 +313,7 @@ align-items: center;
 `;
 
 export const Nos = styled.p`
-  font-size: 16px
+  font-size: 14px
   color: #40464A;
   font-weight: 600;
   text-align: left;
@@ -366,6 +365,9 @@ export const star = styled.p`
     path{
       fill: #FBCE2E;
     }
+  }
+  @media(max-width: 540px){
+    margin-top: 5px;
   }
 `;
 

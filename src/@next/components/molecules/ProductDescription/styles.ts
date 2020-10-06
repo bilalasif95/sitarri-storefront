@@ -61,8 +61,8 @@ export const Tabs = styled.div<{isSticky: any}>`
   border-radius: 5px;
   overflow: hidden;
   // box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
-  -webkit-box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
+  // box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
+  // -webkit-box-shadow: ${props => props.isSticky ? 'inherit' : '0 2px 10px 0 #7090b02e'};
   .ub-color_234361 {
     color: ##09253f;
     font-weight: 800;
