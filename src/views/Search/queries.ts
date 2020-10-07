@@ -163,6 +163,7 @@ export const searchProductsQuery = gql`
             id
             address
           }
+          category
           description
             totalReviews
             distance(longitude: $longitude, latitude: $latitude)

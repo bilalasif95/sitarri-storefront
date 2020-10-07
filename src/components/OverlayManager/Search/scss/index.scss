@@ -119,18 +119,23 @@ $drawer-width: 25rem;
   }
 }
 
-
+.MobileSearchBar{
+  .searchfield{
+    background-color: #fff;
+    padding: 20px 0px 8px;
+  }
+}
 .MobileSearchBar .overlay__right{
   background-color: rgb(252,252,253) !important;
   height: 100vh !important;
   width: 100vw;
 }
 .MobileSearchBar .overlay__right input{
-  height: 45px;
+  height: 49px;
   width: 95%;
   margin: 0px auto;
   display: table;
-  margin-top: 20px;
+  // margin-top: 20px;
   position: relative;
   background-color: #F5F5F5;
   border: none;
@@ -161,18 +166,19 @@ $drawer-width: 25rem;
   margin: 0px auto;
    .items{
   border-bottom: 1px solid #FAFAFA;
-  padding: 10px 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  padding: 10px 4px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-start;
   .ShopAddress{
   p{
-    font-size: 12px;
-    color: #000;
+    font-size: 14px;
+    color: #435365;
   }
 }
 }
 }
+
 .MobileSearchBar {
   .SearchLocation{
     display: flex;
@@ -180,24 +186,26 @@ $drawer-width: 25rem;
     background: #FDECD1;
     border-radius: 3px;
     padding: 0px 2px;
-    width: 28%;
+    // width: 28%;
     justify-content: center;
     svg{
       width: 10px;
       margin-right: 3px;
       path{
-        fill: #F39721;
+        fill: #FF9922;
       }
     }
     div{
     p{
       font-size: 10px !important;
-      color: #F39721 !important;
+      color: #FF9922 !important;
     }
   }
   }
   .ShopAddress{
-    width: 72%;
+    // width: 100%;
+    display: flex;
+    justify-content: space-between;
     >p{
         overflow: hidden;
         white-space: nowrap;
@@ -205,32 +213,40 @@ $drawer-width: 25rem;
         width: 150px;
         word-wrap: break-word;
     }
-    .shop-address{
-      p{
-        color: #B9C4CC !important;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 70%;
-        word-wrap: break-word;
-      }
+    
+  }
+  .shop-address{
+    p{
+      color: #B9C4CC !important;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 70%;
+      word-wrap: break-word;
     }
   }
   .SearchDropdown{
     background-color: #fff;
     overflow-y: scroll;
     height: 100vh;
+    padding: 0px 5px;
+    margin-top: 8px;
+  }
+  .SearchDropdown::-webkit-scrollbar{
+    display: none;
   }
   .NoResults{
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 8px;
+    padding: 10px 10px;
+    background-color: #fff;
     li:first-child{
       margin-right: 10px;
       span{
         height: 25px;
         width: 25px;
-        background-color: #F8D4D5;
+        background-color: #FFD5D5;
         line-height: 0;
         display: inline-block;
         line-height: 31px;
@@ -240,18 +256,22 @@ $drawer-width: 25rem;
     svg{
       width: 12px;
       path{
-        fill: #ED6E70;
+        fill: #FF2F2D;
       }
     }
   }
   li:last-child{
     font-size: 14px;
+    color: #435365;
     span{
       font-weight: 700;
+      color: #435365;
+      
     }
     li{
-      font-size: 12px;
-      color: #B9C4CC;
+      font-size: 14px;
+      color: #8899A9;
+      margin-top: 5px;
     }
   }
   }
@@ -262,12 +282,12 @@ $drawer-width: 25rem;
   }
   .BackArrow{
     position: absolute;
-    top: 35px;
+    top: 37px;
     left: 15px;
   }
   .CloseIcon{
     position: absolute;
-    top: 37px;
+    top: 38px;
     right: 20px;  
       path{
         fill: #40464A;

@@ -46,7 +46,8 @@
             font-weight: 700;
             margin-bottom: 10px;
             font-size: 15px;
-            color: #FAC73C;
+            color: #FBC73C;
+            font-size: 18px;
             
           }
           .HelpText{
@@ -77,17 +78,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
   .addBusiness{
     display: flex;
     .BusinessContent{
-      width: 34%;;
+      width: 55%;;
       .BusinessText{
         h3{
           font-weight: 700;
-          font-size: 36px;
-          line-height: 45px;
-          margin-bottom: 20px;
+          font-size: 48px;
+          line-height: 60px;
+          margin-bottom: 25px;
         }
         color: #fff;
         padding: 100px 0px 150px 0px;
@@ -99,7 +100,7 @@
     .SideBox{
       width: 75%;
       position: relative;
-      margin-top: 20px;
+      margin-top: 15px;
 
       .SideBoxContent{
         position: absolute;
@@ -119,14 +120,16 @@
 .FormQuestion{
   font-weight: 700;
   margin-bottom: 10px;
-  color: #FAC73C;
   padding: 0px 5px;
+  color: #FBC73C;
+  font-size: 18px;
 }
 .JoinTitle{
   font-weight: 700;
   color: #09253F;
   margin: 15px 0px;
   padding: 0px 5px;
+  font-size: 32px;
 }
 .JoinContent{
   display: flex;
@@ -135,15 +138,16 @@
   
 .joinBoxes{
   width: 30%;
-  background-color: #eaf0f5ba;
+  background-color: #EFF4F8;
   padding: 20px 20px;
   border-radius: 5px;
-  box-shadow: 3px 2px 5px #7090b02e;
-  -webkit-box-shadow: 3px 2px 5px #7090b02e;
+  box-shadow: 3px 6px 40px #7090B04D;
+  -webkit-box-shadow: 3px 6px 40px #7090B04D;
   text-align: center;
   .boxHeading{
     color: #09253F;
     margin-bottom: 15px;
+    font-size: 18px;
   }
   .joinBoxestext{
     font-size: 12px;
@@ -424,7 +428,10 @@ h2{
 }
 .Businessbg .addBusiness .BusinessContent .BusinessText {
     color: #fff;
-    padding: 100px 0px 370px 0px;
+    padding: 55px 0px 370px 0px;
+    p{
+      font-size: 18px;
+    }
 }
 }
 @media (min-width: 992px) and (max-width: 1024px){

@@ -1,7 +1,7 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .product-description {
-  margin: 0 0 2rem;
+  margin: 0 0 20px;
   .ProductRating{
     display: flex;
     justify-content: space-between;
@@ -20,6 +20,7 @@
       .Close{
         color: #8799A9 !important;
         font-weight: normal;
+        font-size: 14px;
       }
     }
   }
@@ -85,11 +86,10 @@
   }
   .CategoryTitle{
     font-weight: 600;
-    font-size: 16px;
-    color: #000;
+    color: #09253F;
     text-align: left;
-    margin: 10px 0px 8px;
-    font-size: 20px;
+    margin: 15px 0px 8px;
+    font-size: 18px;
 
   }
   
@@ -101,15 +101,15 @@
       width: 2px;
       height: 2px;
       display: block;
-      background: #666;
+      background: #435365;
       margin: 0 0.3rem 0 0rem;
     }
 
   p {
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     text-align: left;
-    color: #777878;
+    color: #435365;
     line-height: normal;
   }
   }
@@ -147,8 +147,8 @@
   font-weight: normal;
   font-size: 14px;
   text-align: left;
-  color: #777878;
-  line-height: normal;
+  color: #8899A9;
+  
 }
 
   &__about {
@@ -252,4 +252,7 @@
   .star{
   margin-top: 5px;
   }
+  .product-description {
+    margin: 0 0 15px
+}
 }

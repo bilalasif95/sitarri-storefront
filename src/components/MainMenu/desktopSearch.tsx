@@ -71,7 +71,7 @@ const desktopSearch: React.FC = (props: any) => {
     return <>
         <div className="searchfield">
             {/* search-logo */}
-            <ReactSVG className="searchLogo" path={logo} />
+            <ReactSVG className="searchLogo" onClick={()=>props.history.push("/")} path={logo} />
             {/* search-logo */}
             <input ref={ref} type="txt" placeholder="Search shops, products and more" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
             {search !== null && search !== "" ?
@@ -111,17 +111,18 @@ const desktopSearch: React.FC = (props: any) => {
                                         <div className="items" onClick={() => SeeDetails(store.node.name)}>
                                             <div className="ShopAddress">
                                                 <p>{store.node.name}</p>
-                                                {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
-                                                    <div className="shop-address">
-                                                        <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
+                                                {store.node.distance &&
+                                                    <div className="SearchLocation">
+                                                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                        <div>
+                                                            <p>{store.node.distance}</p>
+                                                        </div>
                                                     </div>}
+
                                             </div>
-                                            {store.node.distance &&
-                                                <div className="SearchLocation">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                                                    <div>
-                                                        <p>{store.node.distance}</p>
-                                                    </div>
+                                            {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
+                                                <div className="shop-address">
+                                                    <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
                                                 </div>}
                                         </div>
                                     ))}
@@ -129,17 +130,18 @@ const desktopSearch: React.FC = (props: any) => {
                                         <div className="items" onClick={() => SeeDetails(product.node.name)}>
                                             <div className="ShopAddress">
                                                 <p>{product.node.name}</p>
-                                                {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
-                                                    <div className="shop-address">
-                                                        <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
+                                                {product.node.store && product.node.store.distance &&
+                                                    <div className="SearchLocation">
+                                                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                        <div>
+                                                            <p>{product.node.store.distance}</p>
+                                                        </div>
                                                     </div>}
+
                                             </div>
-                                            {product.node.store && product.node.store.distance &&
-                                                <div className="SearchLocation">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                                                    <div>
-                                                        <p>{product.node.store.distance}</p>
-                                                    </div>
+                                            {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
+                                                <div className="shop-address">
+                                                    <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
                                                 </div>}
                                         </div>
                                     ))}

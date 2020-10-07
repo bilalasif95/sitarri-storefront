@@ -348,14 +348,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             id: "U3RvcmU6Njg=",
                             images: [{
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             },
                             {
                               id: "",
                               url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
                             }, {
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             }],
                             logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
                             name: "Taqueria",
@@ -405,7 +405,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             },
                             {
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             }, {
                               id: "",
                               url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
@@ -454,14 +454,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             id: "U3RvcmU6Njg=",
                             images: [{
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             },
                             {
                               id: "",
                               url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
                             }, {
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             }],
                             logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
                             name: "Taqueria",
@@ -511,7 +511,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             },
                             {
                               id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image.png",
+                              url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
                             }, {
                               id: "",
                               url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",

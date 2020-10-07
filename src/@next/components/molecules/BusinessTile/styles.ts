@@ -48,12 +48,12 @@ export const Brand = styled.div`
   > img {
     height: 50px;
     width: 50px;
-    border: 1px solid #B2BEC7;
+    // border: 1px solid #B2BEC7;
     border-radius: 60px;
     background: #fff;
   }
   @media(max-width: 767px){
-    top: 70px;
+    top: 64px;
   }
   
 `;
@@ -177,7 +177,7 @@ export const Image = styled.div`
     }
     .image-gallery-slide{
       width: 100%;
-       padding:0 2px 0 0;
+      //  padding:0 2px 0 0;
     }
     .image-gallery-content 
     .image-gallery-bullets {
@@ -220,7 +220,7 @@ export const ModalImage = styled.div`
     }
     .image-gallery-slide{
       // width: 75%;
-      padding:0 2px 0 0;
+      // padding:0 2px 0 0;
     }
     .image-gallery-content 
     .image-gallery-slide
@@ -274,7 +274,7 @@ export const Close = styled.p`
     width: 2px;
     height: 2px;
     display: block;
-    background: #666;
+    background: #435365;
     margin: 0 0.3rem 0 0rem;
   }
 `;

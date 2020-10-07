@@ -8,11 +8,13 @@ export interface OwnProps {
   style: object;
 }
 
-const OtherProducts: React.StatelessComponent<WebShareInterface & OwnProps> = ({ share, isSupported, style }) => isSupported
-  ? <div className="icon ShareIcon">
+const OtherProducts: React.StatelessComponent<WebShareInterface & OwnProps> = ({ share, isSupported, style }) => 
+// isSupported
+//   ? 
+  <div className="icon ShareIcon">
     <ReactSVG onClick={share} path={Share} />
   </div>
-  : <div></div>;
+  // : <div></div>;
 //   <div className="product-page__other-products">
 //     <div className="container">
 //       <h4 className="product-page__other-products__title">

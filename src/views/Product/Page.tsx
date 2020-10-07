@@ -286,7 +286,7 @@ class Page extends React.PureComponent<
                         <>
                           {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
                             <div className="Timing">
-                              <div className="Open" style={{ color: "green" }}>Open </div>
+                              <div className="Open" style={{ color: "#58C829" }}>Open </div>
                               <div className="Close">
                                 <span />
                           Closes

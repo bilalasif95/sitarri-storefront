@@ -174,7 +174,7 @@ export const Image = styled.div`
     }
     .image-gallery-slide{
       width: 100%;
-      padding:0 2px 0 0;
+      // padding:0 2px 0 0;
     }
     .image-gallery-content 
     .image-gallery-bullets {
@@ -218,7 +218,7 @@ export const ModalImage = styled.div`
     }
     .image-gallery-slide{
       width: 100%;
-      padding:0 2px 0 0;
+      // padding:0 2px 0 0;
     }
     .image-gallery-content 
     .image-gallery-slide
@@ -257,7 +257,7 @@ export const Imgbox = styled.div`
     height: 50px;
     border-radius: 60px;
     background: #fff;
-    border: 1px solid #B2BEC7;
+    // border: 1px solid #B2BEC7;
   }
   // @media(max-width: 767px){
   //   height: 45px;
@@ -287,7 +287,7 @@ export const Close = styled.p`
     width: 2px;
     height: 2px;
     display: block;
-    background: #666;
+    background: #435365;
     margin: 0 0.3rem 0 0rem;
   }
   @media (max-width: 767px){

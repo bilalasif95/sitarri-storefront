@@ -171,7 +171,7 @@ class Page extends React.PureComponent<
       {overlayContext => (
         <>
           <ToastContainer />
-          <div className="product-Page">
+          <div className="Shop-page">
             <div className="container">
               <div className="product-page__product">
 
@@ -276,7 +276,7 @@ class Page extends React.PureComponent<
                         <div className="icon">
                           <ReactSVG path={phone} />
                         </div>
-                        <p>Phone</p>
+                        <p>Call</p>
                       </a>}
                     {productInfo.websiteUrl !== "" &&
                       <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
@@ -298,12 +298,7 @@ class Page extends React.PureComponent<
                     }
 
 
-                    {productInfo.uberEatsUrl !== "" && <div className=" container">
-                      <div className="Resevations">
-                        <a className="ReservationBtn" href={productInfo.uberEatsUrl}>Make a reservation</a>
-                      </div>
-                    </div>}
-
+                   
                     {productInfo.deliverooUrl !== "" &&
                       <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
                         <div className="icon">
@@ -314,6 +309,18 @@ class Page extends React.PureComponent<
                     }
                   </div>
                 </div>
+
+
+                <div className="ReservationBox">
+                    <div className="makeReservation">
+                {productInfo.uberEatsUrl !== "" && <div className=" container">
+                      <div className="Resevations">
+                        <a className="ReservationBtn" href={productInfo.uberEatsUrl}>Make a reservation</a>
+                      </div>
+                    </div>}
+                    </div>
+                    </div>
+
                 {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
                   <div className="shop-at">
                     {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
@@ -323,12 +330,15 @@ class Page extends React.PureComponent<
                           position: toast.POSITION.TOP_RIGHT,
                         })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                       </div>}
+
+                        <div className="hrBorder"></div>
+
                     {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
                       <div className="open-time">
                         <ReactSVG path={clock} />
                         {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
                           <div className="timing">
-                            <p style={{ color: "green" }}>Open</p>
+                            <p style={{ color: "#58C829" }}>Open</p>
                             <span />
                             <p>Closes {productInfo.closingHours}</p>
                           </div>

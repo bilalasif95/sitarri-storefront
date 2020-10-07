@@ -64,12 +64,12 @@
       transform: translate3d(55px, 0px, 0px) !important;
     }
     .slider-control-centerright{
-      right: -22px !important;
+      right: -23px !important;
       transform: translateY(-90%) !important;
       top: 37% !important;
     }
     .slider-control-centerleft{
-      left: -25px !important;
+      left: -23px !important;
       transform: translateY(-90%) !important;
       top: 37% !important;
     }
@@ -96,8 +96,8 @@
         }
       }
       .carousel__control--right, .carousel__control--left{
-        height: 40px !important;
-        width: 40px !important;
+        height: 48px !important;
+        width: 48px !important;
         text-align: center !important;
         padding: 0px;
       }
@@ -442,9 +442,9 @@
 .productCarousel{
   .shopsCarousel{
     .slider-control-centerright{
-      right: -22px !important;
+      right: -23px !important;
       transform: translateY(-90%) !important;
-      top: 46% !important;
+      top: 49% !important;
     }
   }
 }

@@ -80,8 +80,8 @@ export const Shops = styled.div`
     top: 37% !important;
     left: -20px !important;
     >div{
-      height: 40px !important;
-      width: 40px !important;
+      height: 48px !important;
+      width: 48px !important;
       text-align: center !important;
       padding: 0px;
       svg{
@@ -96,8 +96,8 @@ export const Shops = styled.div`
     top: 34% !important;
     right: -20px !important;
     >div{
-      height: 40px !important;
-      width: 40px !important;
+      height: 48px !important;
+      width: 48px !important;
       text-align: center !important;
       padding: 0px;
     }

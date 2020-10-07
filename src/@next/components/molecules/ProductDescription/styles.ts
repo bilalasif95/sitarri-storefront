@@ -118,7 +118,7 @@ export const ModalImage = styled.div`
     }
     .image-gallery-slide{
       // width: 75%;
-      padding:0 2px 0 0;
+      // padding:0 2px 0 0;
     }
     .image-gallery-content 
     .image-gallery-slide
@@ -273,10 +273,10 @@ export const TabTitle = styled.div<{ active?: boolean }>`
   text-transform: capitalize;
   text-align: center;
   // text-overflow: ellipsis;
-  max-width: 120px;
+  max-width: 140px;
   border-bottom: ${props => props.active ? '1px solid #FF4B13' : 'none'};
   color: ${props => props.active ? "#435365" : "#8899A9"};
-  font-size: 12px;
+  font-size: 14px;
 
 
   ${media.smallScreen`
@@ -286,7 +286,7 @@ export const TabTitle = styled.div<{ active?: boolean }>`
     font-size: 14px;
   `};
   @media(max-width: 450px){
-    width: 50%;
+    width: 100%;
   }
 `;
 

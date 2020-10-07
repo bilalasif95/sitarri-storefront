@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import ImageGallery from 'react-image-gallery';
 
+import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
 
@@ -78,7 +79,8 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
               {/* </S.Link> */}
               <S.Title>{product.name}</S.Title>
-              <S.Desc>{product.description}</S.Desc>
+              {product.descriptionJson === "{}" ? <div className="EmptySpace"></div> : <S.Desc><RichTextContent descriptionJson={product.descriptionJson} /></S.Desc>}
+              {/* <S.Desc>{product.description}</S.Desc> */}
               <S.Price>
                 <TaxedMoney taxedMoney={price} />
               </S.Price>

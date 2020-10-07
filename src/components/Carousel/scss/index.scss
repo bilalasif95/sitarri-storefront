@@ -21,9 +21,9 @@
 
       svg {
         transform: rotate(180deg);
-        margin-top: 9px;
+        margin-top: 12px;
         width: 15px;
-        margin-left: 8px;
+        margin-left: 12px;
         path {
           fill: #f34928
         }
@@ -32,15 +32,17 @@
 
     &--left {
       margin-left: 0;
+      height: 48px;
+      width: 48px;
 
       // @media (max-width: $container-width) {
       //   margin-left: -0.5rem;
       // }
 
       svg {
-        margin-top: 6px;
+        margin-top: 9px;
         width: 15px;
-        margin-right: 8px;
+        margin-left: -10px;
         path {
           fill: #f34928
         }

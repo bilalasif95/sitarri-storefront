@@ -2,7 +2,7 @@
 // @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,500&display=swap');
 
 body{
-  background-color: #fafafa !important;
+  background-color: #fcfcfd !important;
   // font-family: 'Roboto', sans-serif !important;
 }
 // .container{
@@ -38,8 +38,8 @@ body{
     }
   }
   h3{
-    color: #000;
-    font-size: 16px;
+    color: #09253F;
+    font-size: 18px;
   }
 }
 }
@@ -243,6 +243,7 @@ body{
   position: relative;
 }
 .GalleryModal{
+  position: relative;
 .jlQsbh{
   position: absolute;
   z-index: 2;
@@ -259,34 +260,38 @@ body{
 
 .ModalContent{
   position: fixed;
-  top: 85%;
-  left: 25.5%;
+  top: 86.5%;
+  left: 17.5%;
   z-index: 9999;
   p, .modalLink{
-    color: #dfdfdf;
+    color: #fff;
+    font-size: 13px;
   }
 }
 }
 .modalList{
   li{
     position: relative;
-    padding-left: 35px;
-    margin-top: 5px;
+    padding-left: 25px;
+    margin-top: 3px;
+      a{
+        font-size: 16px !important;
+      }
     img{
       position: absolute;
       left: 0;
       vertical-align: middle;
-      top: -4px;
-      height: 30px;
-      width: 30px;
+      top: -2px;
+      height: 18px;
+      width: 18px;
     }
   }
 }
 @media(min-width: 768px){
   .ril__inner{
     .ril__image{
-      height: 500px;
-      width: 700px;
+      height: 70vh;
+      width: 960px;
     }
   }
   }
@@ -296,7 +301,7 @@ body{
       left: 10px !important;
       p{
         color: #6d7b88 !important;
-        font-size: 10px;
+        font-size: 10px !important;
       }
       .modalLink{
         font-size: 10px;;
