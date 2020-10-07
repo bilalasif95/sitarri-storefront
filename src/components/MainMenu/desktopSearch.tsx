@@ -1,5 +1,5 @@
 import { stringify } from "query-string";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import ReactSVG from "react-svg";
 import { StringParam, useQueryParam } from "use-query-params"
@@ -34,6 +34,7 @@ const desktopSearch: React.FC = (props: any) => {
         setSearch(e.target.value)
     }
 
+
     const getCurrentLocation = () => {
         navigator.geolocation.watchPosition(
             (position) => {
@@ -59,14 +60,24 @@ const desktopSearch: React.FC = (props: any) => {
         getCurrentLocation()
     }, [])
 
+
     React.useEffect(() => {
         setTimeout(() => {
             if (!isComponentVisible) {
-                setSearch("")
+                // setSearch("")
+              
             }
+
         })
     }, [isComponentVisible])
 
+
+    useEffect(() => {
+        setSearch(querySearch ? querySearch : "")
+    }, [querySearch])
+
+
+ 
 
     return <>
         <div className="searchfield">
