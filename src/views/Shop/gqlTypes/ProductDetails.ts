@@ -730,5 +730,6 @@ export interface ProductDetails {
 
 export interface ProductDetailsVariables {
   id: string;
-
+  latitude: any;
+  longitude: any;
 }

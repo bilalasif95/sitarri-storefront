@@ -20,13 +20,42 @@ import Search from "../../images/search.svg";
 
 const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   const { addItem, items } = useCart();
+  const [latitude, setLatitude] = React.useState(0)
+  const [longitude, setLongitude] = React.useState(0)
 
+  const getCurrentLocation = () => {
+    navigator.geolocation.watchPosition(
+      (position) => {
+        setLatitude(position.coords.latitude)
+        setLongitude(position.coords.longitude)
+      },
+      (error) => {
+        setLatitude(0)
+        setLongitude(0)
+      },
+      {
+
+        enableHighAccuracy: true,
+        maximumAge: 250,
+      }
+    );
+  }
+
+  React.useEffect(() => {
+    getCurrentLocation()
+  }, [latitude, longitude])
+
+  React.useEffect(() => {
+    getCurrentLocation()
+  }, [])
 
   return (
     <TypedProductDetailsQuery
       loaderFull
       variables={{
         id: getGraphqlIdFromDBId(match.params.id, "Store"),
+        latitude,
+        longitude,
       }}
     >
       {({ data, loading }) => {
@@ -35,11 +64,11 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
         if (loading) {
           return <h3 className="ShopSkeleton">
             <div className="container">
-            <div className="Loadingskeleton">
-                  <div className="Selectboxes">
+              <div className="Loadingskeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
@@ -50,11 +79,11 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                       </div>
 
                       {/* skeletonbar */}
-                    {/* <div className="SkeletonCardsbar">
+                      {/* <div className="SkeletonCardsbar">
                     </div> */}
-                    {/* skeletonbar */}
+                      {/* skeletonbar */}
 
-                    {/* <div className="SkeletonCardtext">
+                      {/* <div className="SkeletonCardtext">
 
                     </div> */}
                     </div>
@@ -68,11 +97,11 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                       </div>
 
                       {/* skeletonbar */}
-                    {/* <div className="SkeletonCardsbar">
+                      {/* <div className="SkeletonCardsbar">
                     </div> */}
-                    {/* skeletonbar */}
+                      {/* skeletonbar */}
 
-                    {/* <div className="SkeletonCardtext">
+                      {/* <div className="SkeletonCardtext">
 
                     </div> */}
                     </div>
@@ -86,11 +115,11 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                       </div>
 
                       {/* skeletonbar */}
-                    {/* <div className="SkeletonCardsbar">
+                      {/* <div className="SkeletonCardsbar">
                     </div> */}
-                    {/* skeletonbar */}
+                      {/* skeletonbar */}
 
-                    {/* <div className="SkeletonCardtext">
+                      {/* <div className="SkeletonCardtext">
 
                     </div> */}
                     </div>
@@ -100,33 +129,33 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                <div className="SkeletonHeader">
+              <div className="SkeletonHeader">
                 <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
 
                 <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
-                  </div>
+              </div>
 
-                <div className="LoadingBars">
-                  <div className="Selectboxes">
+              <div className="LoadingBars">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -134,32 +163,32 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
 
 
 
-                      {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -172,32 +201,32 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
-
-
-                 {/* product-skeleton */}
-
-                 <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              {/* product-skeleton */}
 
 
-                 {/* skeleton-cards */}
+              {/* product-skeleton */}
+
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
+
+
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -210,31 +239,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -247,31 +276,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -284,31 +313,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -321,31 +350,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 {/* product-skeleton */}
+              {/* product-skeleton */}
 
-                 <div className="ProductSkeleton">
-                  <div className="Selectboxes">
+              <div className="ProductSkeleton">
+                <div className="Selectboxes">
 
 
-                 {/* skeleton-cards */}
+                  {/* skeleton-cards */}
                   <div className="Skeletoncards">
                     <div className="SkeletonCardsCont">
                       {/* <div className="CardsTitle">
                       </div> */}
 
                       {/* skeletonbar */}
-                    <div className="SkeletonCardsbar">
-                    </div>
-                    {/* skeletonbar */}
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      {/* skeletonbar */}
 
-                    <div className="SkeletonCardtext">
+                      <div className="SkeletonCardtext">
 
-                    </div>
+                      </div>
                     </div>
 
 
@@ -358,18 +387,18 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                   {/* skeleton-cards */}
 
 
-                  </div>
                 </div>
+              </div>
 
-                {/* product-skeleton */}
+              {/* product-skeleton */}
 
 
             </div>
 
           </h3>
-          
+
         }
-        
+
 
         return <NetworkStatus>
           {isOnline => {
