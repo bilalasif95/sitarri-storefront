@@ -234,6 +234,7 @@ export interface ProductList_products_edges_node {
   id: string;
   name: string;
   description?: string;
+  descriptionJson?: any;
   images: imagesArray[];
   /**
    * The main thumbnail for a product.

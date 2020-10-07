@@ -342,6 +342,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           <BusinessTile product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
+                            category: "Mexican Resturant . ££",
                             closingHours: "12:42 PM",
                             description: "Mexican Resturant . ££",
                             distance: "5 mi",
@@ -395,6 +396,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           <BusinessTile product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
+                            category: "Burger Resturant . ££",
                             closingHours: "12:42 PM",
                             description: "Burger Resturant . ££",
                             distance: "5.9 mi",
@@ -448,6 +450,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           <BusinessTile product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
+                            category: "Mexican Resturant . ££",
                             closingHours: "12:42 PM",
                             description: "Mexican Resturant . ££",
                             distance: "5 mi",
@@ -501,6 +504,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           <BusinessTile product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
+                            category: "Burger Resturant . ££",
                             closingHours: "12:42 PM",
                             description: "Burger Resturant . ££",
                             distance: "5.9 mi",
@@ -576,7 +580,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                             description: "Our regular two-patty burger with two slices of melted american cheese added.",
-                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
+                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "Our regular two-patty burger with two slices of melted american cheese added.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
@@ -709,7 +713,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                             description: "This is such a great product and you should definitely buy it cause it is so great.",
-                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
+                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "This is such a great product and you should definitely buy it cause it is so great.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
@@ -843,7 +847,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                             description: "Our regular two-patty burger with two slices of melted american cheese added.",
-                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
+                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "Our regular two-patty burger with two slices of melted american cheese added.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
@@ -977,7 +981,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                             __typename: "Product",
                             category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                             description: "This is such a great product and you should definitely buy it cause it is so great.",
-                            // descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "ASOS DESIGN festival pork pie hat in beige straw with band", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
+                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "This is such a great product and you should definitely buy it cause it is so great.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
                             id: "UHJvZHVjdDozMQ==",
                             images: [{
                               id: "",
