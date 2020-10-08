@@ -86,14 +86,14 @@ const ContactUs: React.FC = () => (
          <div className="joinBoxes">
             <h4 className="boxHeading">Increase Sales</h4>
             <img src={Card} />
-            <p>Keep Your Business busy</p>
+            <p className="joinText">Keep Your Business busy</p>
             <p className="joinBoxestext">Join a well-oiled marketing machine and watch the order come in through your door and online.</p>
          </div>
 
          <div className="joinBoxes">
             <h4 className="boxHeading">Reach More Customers</h4>
             <img src={Speaker} />
-            <p>Meet them and keep them</p>
+            <p className="joinText">Meet them and keep them</p>
             <p className="joinBoxestext">Attract new local customers and keep them coming back for more.</p>
          </div>
 
@@ -101,7 +101,7 @@ const ContactUs: React.FC = () => (
          <div className="joinBoxes">
             <h4 className="boxHeading">Pay Nothing</h4>
             <img src={Free} />
-            <p>Free forever</p>
+            <p className="joinText">Free forever</p>
             <p className="joinBoxestext">Make the most of Sitarri as your free marketing tool.</p>
          </div>
          </div>
@@ -117,9 +117,11 @@ const ContactUs: React.FC = () => (
       <div className="partner">
          <div className="container">
          <div className="partnerContent">
+            <div className="BecomeTypography">
          <p className="FormQuestion">Unified Marketing Platform</p>
          <h3 className="partnerTitle">Become a Sitarri Partner Today</h3>
          <p className="partnerheading">Connect your POS or Upload your products and be live on Sitarri in just 1 day.</p>
+         </div>
          <ul className="partnerList">
             <li><img src={Check} />Stand out on to customers with a free Sitarri profile.</li>
             <li><img src={Check} /><img />Keep customers up-to-date, with accurate products, opening times, prices and photos.</li>

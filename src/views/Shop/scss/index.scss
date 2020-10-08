@@ -708,7 +708,7 @@
     }
   }
 }
-.ReservationBtn{
+.ReservationBox{
   display: none;
 }
 @media (max-width:540px){
@@ -742,6 +742,9 @@
     text-align: center;
     color: #FF9922;
     font-size: 12px;
+  }
+  .ReservationBox{
+    display: block;
   }
   .info {
     margin-bottom: 0px;

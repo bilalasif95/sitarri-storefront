@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
   border-radius: 10px;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 375px;
   background: #fff;
   &:hover {
     background: #fff;
@@ -138,6 +138,10 @@ export const Price = styled.p`
   font-size: 14px;
   text-align: left;
   color: #435365;
+`;
+
+export const EmptySpace = styled.p`
+  min-height: 34px;
 `;
 
 export const Image = styled.div`
@@ -348,6 +352,7 @@ justify-content: center;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
+padding: 0px 3px;
 // padding: 1px 5px;
 // width: 70%;
 margin-left: auto;

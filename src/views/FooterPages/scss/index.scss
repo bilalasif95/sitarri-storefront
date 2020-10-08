@@ -2,12 +2,13 @@
 
 .homePage {
   width: 100%;
+  padding-bottom: 65px;
   .Contactbg{
     background-image: url("../../../images/Contactbg.svg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    margin-bottom: 320px;
+    margin-bottom: 394px;
   }
   .ContactContent{
     display: flex;
@@ -16,11 +17,13 @@
     width: 45%;
       h3{
         font-weight: 700;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: #fff;
+        font-size: 48px;
       }
       p{
-        color: #FFFBF1;
+        color: #FFF;
+        font-size: 18px;
       }
     }
     .ContactFrom{
@@ -29,30 +32,31 @@
       .FormContent{
         width: 92%;
         position: absolute;
-        top: 20px;
+        top: 40px;
         .formTypography{
-          background-color: #eaf0f5ba;
+          background-color: #eff4f8de;
           padding: 35px 30px 35px 30px;
           margin-bottom: 20px;
           border-radius: 8px;
-          box-shadow: 0px 2px 4px #7090b02e;
-          -webkit-box-shadow: 0px 2px 4px #7090b02e;
+          box-shadow: 3px 6px 15px #7090b02e;
+          -webkit-box-shadow: 3px 6px 15px #7090b02e;
           .FormTitle{
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
             color: #09253F;
+            font-size: 32px;
           }
           .FormQuestion{
             font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 15px;
+            margin-bottom: 20px;
+            // font-size: 15px;
             color: #FBC73C;
             font-size: 18px;
             
           }
           .HelpText{
             color: #435365;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 20px;
           }
           .FormLink{
@@ -119,8 +123,7 @@
 // Add-Business
 .FormQuestion{
   font-weight: 700;
-  margin-bottom: 10px;
-  padding: 0px 5px;
+  margin-bottom: 20px;
   color: #FBC73C;
   font-size: 18px;
 }
@@ -128,7 +131,7 @@
   font-weight: 700;
   color: #09253F;
   margin: 15px 0px;
-  padding: 0px 5px;
+  // padding: 0px 5px;
   font-size: 32px;
 }
 .JoinContent{
@@ -138,7 +141,7 @@
   
 .joinBoxes{
   width: 30%;
-  background-color: #EFF4F8;
+  background-color: #eff4f8d4;
   padding: 20px 20px;
   border-radius: 5px;
   box-shadow: 3px 6px 40px #7090B04D;
@@ -150,7 +153,7 @@
     font-size: 18px;
   }
   .joinBoxestext{
-    font-size: 12px;
+    font-size: 14px;
     color: #8899A9;
     margin-top: 10px;
     line-height: 15px;
@@ -169,15 +172,18 @@
     width: 100%;
     margin-top: -120px;
     .partnerContent{
-      padding: 230px 0px 140px;
+      padding: 250px 0px 140px;
       .partnerTitle{
         color: #fff;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
         font-weight: 700;
+        font-size: 32px;
       }
       .partnerheading{
         color: #fff;
+        font-size: 18px;
         font-weight: 700;
+        margin-bottom: 20px;
       }
       .partnerList{
         margin-top: 20px;
@@ -186,6 +192,7 @@
           margin-bottom: 30px;
           padding-left: 50px;
           color: #8899A9;
+          font-size: 14px;
           img{
             position: absolute;
             left: 0;
@@ -196,8 +203,8 @@
     }
   }
 .ProfileText{
-  font-size: 14px;
-  color: #586775;
+  font-size: 18px;
+  color: #425364;
 }
 .WorkContent{
   display: flex;
@@ -216,9 +223,10 @@
   .boxHeading{
     color: #09253F;
     margin-bottom: 15px;
+    font-size: 18px;
   }
   .joinBoxestext{
-    font-size: 12px;
+    font-size: 14px;
     color: #8899A9;
     margin-top: 10px;
     line-height: 15px;
@@ -239,13 +247,14 @@
     background-image: linear-gradient(to right, #F5A521 , #FAC73B);
     padding: 30px 40px;
     border-radius: 5px;
-    margin: 50px 0px;
+    margin: 70px 0px 31px;
     .ContactusTitle{
       color: #fff;
       font-weight: 700;
+      font-size: 28px;
     }
     .Contactbtn{
-      background-color: #092540;
+      background-color: #0A2540;
       color: #fff;
       padding: 8px 20px;
       border-radius: 50px;
@@ -277,12 +286,12 @@
     display: initial;
 }
 .homePage .ContactContent .ContactText {
-  padding: 45px 5px 350px 5px;
+  padding: 45px 5px 350px 15px;
   // text-align: center;
   width: 100%;
 
 p{
-  font-size: 15px;
+  // font-size: 15px;
 }
 h2{
   font-size: 27px;
@@ -310,7 +319,7 @@ h2{
   background-size: 100% 100%;
 }
 .homePage .ContactContent .ContactText h3{
-  font-size: 27px;
+  // font-size: 27px;
 }
 .Businessbg{
     margin-bottom: 700px;
@@ -339,6 +348,7 @@ h2{
           position: relative;
           right: 0;
           top: 0;
+          width: 85%;
         }
         .food{
           margin-top: -35px;
@@ -348,9 +358,8 @@ h2{
   }
 }
 .Businessbg .addBusiness .BusinessContent .BusinessText{
-  padding: 40px 0px 220px 0px;
+  padding: 40px 10px 220px 10px;
   h3{
-  font-size: 30px;
   line-height: 35px;
 }
 }
@@ -375,44 +384,97 @@ h2{
   }
 }
 .partner .partnerContent .partnerList li{
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 }
 
+@media(max-width: 540px){
+  .partner {
+    margin-top: -150px;
+    .partnerContent {
+      padding: 315px 5px 160px 5px;
+  }
+}
+  .Businessbg{
+    margin-bottom: 285%;
+  }
+  .BusinessText{
+    h3{
+      line-height: 55px !important;
+    }
+  }
+  .ContactusTitle{
+    line-height: 35px;
+  }
+  .joinSitarri{
+    padding: 0px 15px;
+  }
+  .food{
+    width: 100%;
+    position: relative;
+  }
+  .BusinessText h3{
+    margin-bottom: 35px !important;
+  }
+  .joinTypography{
+    padding: 0px 15px;
+  }
+  .BecomeTypography{
+    padding: 0px 8px;
+  }
+  .partnerTitle{
+    font-size: 33px !important;
+    line-height: 40px;
+  }
+  .partnerList{
+    padding: 0px 10px;
+  }
+}
 
 @media (max-width: 480px){
   .partner{
-    margin-top: -140px;
+    margin-top: -215px;
   .partnerContent {
-      padding: 250px 5px 110px 5px;
+      padding: 370px 5px 160px 5px;
   }
 }
 .Businessbg {
-  margin-bottom: 925px;
+  margin-bottom: 285%;
+}
+.BusinessText h3{
+  font-size: 40px !important;
+  line-height: 50px !important;
 }
   }
   @media (max-width: 375px){
     .Businessbg {
-      margin-bottom: 840px;
+      margin-bottom: 280%;
     }  
+    .BusinessText h3{
+      font-size: 36px !important;
+      line-height: 45px !important;
+    }
   }
   @media (max-width: 320px){
+    .joinSitarri{
+      margin-top: -30px;
+    }
     .partner{
-      margin-top: -200px;
+      margin-top: -235px;
     .partnerContent {
-        padding: 290px 5px 110px 5px;
+        padding: 320px 5px 110px 5px;
     }
   }
   .Businessbg{
-    margin-bottom: 755px;
+    margin-bottom: 270%;
+  }
+  .BusinessText h3{
+    font-size: 30px !important;
+    line-height: 38px !important;
   }
     }
-    @media(max-width: 540px){
-      .food{
-        width: 100%;
-      }
-    }
+    
 @media (min-width: 768px) and (max-width: 992px){
   .homePage .ContactContent .ContactFrom .FormContent .formTypography .FormTitle{
     font-size: 22px;
@@ -470,10 +532,14 @@ h2{
     }
   }
   .SignupBtn{
-    background-color: #092540;
+    background-color: #0A2540;
     color: #fff;
   }
   .SigninBtn{
-    color: #092540;
+    color: #0A2540;
   }
+}
+.joinText{
+  font-size: 14px;
+  color: #435365;
 }

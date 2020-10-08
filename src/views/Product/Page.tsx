@@ -289,7 +289,7 @@ class Page extends React.PureComponent<
                               <div className="Open" style={{ color: "#58C829" }}>Open </div>
                               <div className="Close">
                                 <span />
-                          Closes
+                          Closes&nbsp;
                           {productInfo.store && productInfo.store.closingHours}
                               </div>
                             </div>

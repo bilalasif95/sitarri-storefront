@@ -77,7 +77,7 @@ export const Shops = styled.div`
   }
  
   .slider-control-centerleft{
-    top: 37% !important;
+    top: 42% !important;
     left: -20px !important;
     >div{
       height: 48px !important;
@@ -88,12 +88,13 @@ export const Shops = styled.div`
         margin-top: 9px !important;
       }
     }
-    @media(max-width: 767px){
-      display: none;
+    @media(max-width: 768px){
+      top: 24% !important;
+      left: 0px !important;
     }
   }
   .slider-control-centerright{
-    top: 34% !important;
+    top: 42% !important;
     right: -20px !important;
     >div{
       height: 48px !important;
@@ -101,8 +102,9 @@ export const Shops = styled.div`
       text-align: center !important;
       padding: 0px;
     }
-    @media(max-width: 767px){
-      display: none;
+    @media(max-width: 768px){
+      top: 24% !important;
+      right: 14px !important;
     }
   }
   @media(max-width: 540px){
@@ -111,8 +113,8 @@ export const Shops = styled.div`
 `;
 export const ProductsShop = styled.div`
 .slider-control-centerright{
-  top:45% !important;
-  right: -20px !important;
+  top:45%;
+  right: -20px;
 }
 `;
 export const Slider = styled.div`
