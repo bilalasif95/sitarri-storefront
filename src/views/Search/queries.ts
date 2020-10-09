@@ -183,6 +183,7 @@ export const searchProductsQuery = gql`
                 id
                 name
           descriptionJson
+          description
           images{
             url
           }

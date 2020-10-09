@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 import { TypedQuery } from "../../core/queries";
 import {
   ProductDetails,
-   ProductDetailsVariables,
+  ProductDetailsVariables,
 } from "./gqlTypes/ProductDetails";
 import { VariantList, VariantListVariables } from "./gqlTypes/VariantList";
 
@@ -187,6 +187,7 @@ export const productDetailsQuery = gql`
                 }
               }
               descriptionJson
+              description
               images{
                 url}
             }

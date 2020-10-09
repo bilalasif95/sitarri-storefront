@@ -6,7 +6,7 @@ import { TaxedMoney } from "@components/containers";
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
 
-import { RichTextContent } from "@components/atoms";
+// import { RichTextContent } from "@components/atoms";
 
 // import { Modal } from "@components/organisms/Modal";
 
@@ -185,7 +185,8 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
                 <S.Bottom>
                   <S.Left>
                     <S.Title>{item.node.name}</S.Title>
-                    <S.Desc><RichTextContent descriptionJson={item.node.descriptionJson} /></S.Desc>
+                    {/* <S.Desc><RichTextContent descriptionJson={item.node.descriptionJson} /></S.Desc> */}
+                    {item.node.description === "" ? <S.EmptySpace></S.EmptySpace> : <S.Desc>{item.node.description}</S.Desc>}
                     <S.Price>
                       <TaxedMoney taxedMoney={price} />
                     </S.Price>

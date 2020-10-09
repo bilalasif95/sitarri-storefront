@@ -1,5 +1,6 @@
 import "./scss/index.scss";
 
+import { Typography } from 'antd';
 import * as React from "react";
 // import ReactSVG from "react-svg";
 // import Rating from 'react-rating';
@@ -25,6 +26,7 @@ class ProductDescription extends React.Component<
 
   render() {
     const { items } = this.props;
+    const { Paragraph } = Typography;
     return (
       <div className="product-description">
         <div className="Instore">
@@ -46,29 +48,31 @@ class ProductDescription extends React.Component<
         <div className="cat-price">
           <div className="CategoryPrice">
             <p>{items && items.category}</p>
-            {/* {items && items.distance && */}
+            {items && items.distance &&
               <div className="LocationDistance">
                 <svg xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
                 <div className="Miles">
                   <div className="Location">
-                      {items.distance}
+                    {items.distance}
                   </div>
                   {/* <S.Address>
                     {product.address && product.address.address}
                   </S.Address> */}
                 </div>
               </div>
-            {/* } */}
+            }
           </div>
           {/* <span className="dot" /> */}
 
         </div>
 
         {items && items.description !== "" &&
-          <p className="desc">
-            {/* Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. */}
+          <Paragraph className="desc" ellipsis={{ rows: 2, expandable: true, symbol: '..' }}>
             {items.description}
-          </p>
+          </Paragraph>
+          // <p className="desc">
+          // {items.description}
+          // </p>
         }
 
         <div className="Tags">

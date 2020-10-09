@@ -1,12 +1,13 @@
 import "react-image-gallery/styles/css/image-gallery.css";
 
+import { Typography } from 'antd';
 import React from "react";
 import { Link } from "react-router-dom";
 // import Carousel from "../../../../../src/components/Carousel";
 
 import ImageGallery from 'react-image-gallery';
 
-import { RichTextContent } from "@components/atoms";
+// import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
 
@@ -64,6 +65,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
     end.setHours(closingHours);
     end.setMinutes(closingMinutes);
   }
+  const { Paragraph } = Typography;
   return (
     <>
       <S.Wrapper data-cy="product-tile">
@@ -79,7 +81,12 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
               {/* </S.Link> */}
               <S.Title>{product.name}</S.Title>
-              {product.descriptionJson === "{}" ? <S.EmptySpace></S.EmptySpace> : <S.Desc><RichTextContent descriptionJson={product.descriptionJson} /></S.Desc>}
+              {product.description === "" ? <S.EmptySpace></S.EmptySpace> : <S.Desc>
+                {/* <RichTextContent descriptionJson={product.descriptionJson} /> */}
+                <Paragraph ellipsis={{ rows: 2, expandable: true, symbol: '..' }}>
+                  {product.description}
+                </Paragraph>
+              </S.Desc>}
               {/* <S.Desc>{product.description}</S.Desc> */}
               <S.Price>
                 <TaxedMoney taxedMoney={price} />
