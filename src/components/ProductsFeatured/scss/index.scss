@@ -141,7 +141,7 @@
         background-color: #fff !important;
         padding: 5px 5px 5px 5px;
         .slider-frame{
-          height: 350px !important;
+          height: 375px !important;
         }
       }
     }
@@ -186,6 +186,7 @@
 .Topboxes{
   display: flex;
   width: 100%;
+  justify-content: center;
 }
 .TopSkeletonboxes{
   margin-right: 20px;
