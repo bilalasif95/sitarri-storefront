@@ -15,10 +15,8 @@
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    cursor: pointer;
+    // cursor: pointer;
     padding-right: 12px;
-    a{
-    }
     p{
       font-size: 12px;
       color: #8899A9;
@@ -417,11 +415,11 @@
   width: 100%;
   margin-top: 20px;
 }
-.products-featured {
-  .categoryCarousel{
+// .products-featured {
+  // .categoryCarousel{
     // padding: 5px 5px 5px 5px;
-  }
-}
+  // }
+// }
 }
 
 

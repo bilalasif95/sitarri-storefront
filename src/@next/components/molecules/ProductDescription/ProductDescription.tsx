@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { Icon, RichTextContent } from "@components/atoms";
+import { Icon } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 
 // import ImageGallery from 'react-image-gallery';
@@ -230,7 +230,10 @@ export const ProductDescription: React.FC<IProps> = ({
                   >
                     <div className="desc">
                       <h4>{item.node.name}</h4>
-                      <p className="descr">{item && item.node.descriptionJson === "{}" ? <div className="EmptySpace"></div> : <RichTextContent descriptionJson={item && item.node.descriptionJson} />}</p>
+                      <p className="descr">{item && item.node.description === "" ? <S.EmptySpace></S.EmptySpace> :
+                        // <RichTextContent descriptionJson={item && item.node.descriptionJson} />
+                        <div>{item && item.node.description}</div>
+                      }</p>
                       <p className="price"><TaxedMoney taxedMoney={item && item.node.pricing && item.node.pricing.priceRange && item.node.pricing.priceRange.start ? item.node.pricing.priceRange.start : undefined} /></p>
                       {/* <p className="price">${item && item.node.pricing.priceRange.start.gross.amount}</p> */}
                     </div>

@@ -152,6 +152,7 @@ query($id: ID!, $longitude: Float, $latitude: Float) {
   product(id: $id) {
     name
     descriptionJson
+    description
     images {
       id
       alt
@@ -196,6 +197,7 @@ query($id: ID!, $longitude: Float, $latitude: Float) {
                     }
                   }
                   descriptionJson
+                  description
                   images {
                     url
                   }

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
   border-radius: 10px;
   overflow: hidden;
-  min-height: 375px;
+  min-height: 387px;
   background: #fff;
   &:hover {
     background: #fff;
@@ -123,10 +123,10 @@ font-weight: normal;
 font-size: 14px;
 text-align: left;
 color: #8899A9;
-line-height: normal;
-max-height: 34px;
+line-height: unset;
+max-height: 40px;
 overflow: hidden;
-white-space: nowrap;
+// white-space: nowrap;
 text-overflow: ellipsis;
 margin-bottom: 10px;
 @media(max-width: 767px){
@@ -141,7 +141,8 @@ export const Price = styled.p`
 `;
 
 export const EmptySpace = styled.p`
-  min-height: 34px;
+  min-height: 40px;
+  margin-bottom: 10px;
 `;
 
 export const Image = styled.div`

@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
 export const Select = styled.div`
 `;
 
+export const EmptySpace = styled.div`
+  min-height: 16px;
+`;
+
 export const AttributeList = styled.ul`
   columns: 2;
   column-width: 50%;

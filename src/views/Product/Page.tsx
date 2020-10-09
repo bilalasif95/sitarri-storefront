@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 // import Media from "react-media";
 
-import { RichTextContent } from "@components/atoms";
+// import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
 import { CachedImage, Thumbnail } from "@components/molecules";
 // import { Modal } from "@components/organisms/Modal";
@@ -237,7 +237,10 @@ class Page extends React.PureComponent<
                     <div className="desc">
                       <h4>{productInfo.name}</h4>
                       <p className="descr">
-                        {productInfo.descriptionJson === "{}" ? <div className="EmptySpace"></div> : <RichTextContent descriptionJson={productInfo.descriptionJson} />}
+                        {productInfo.description === "" ? <div className="EmptySpace"></div> :
+                          // <RichTextContent descriptionJson={productInfo.descriptionJson} />
+                          <div>{productInfo.description}</div>
+                        }
                       </p>
                       <p className="price"><span><TaxedMoney taxedMoney={productInfo.pricing && productInfo.pricing.priceRange && productInfo.pricing.priceRange.start ? productInfo.pricing.priceRange.start : undefined} /></span>
                       </p>

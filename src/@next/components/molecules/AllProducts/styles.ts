@@ -45,6 +45,10 @@ export const Brand = styled.div`
   
 `;
 
+export const EmptySpace = styled.div`
+  min-height: 20px;
+`;
+
 export const Bottom = styled.div`
   border-radius: 5px;
   padding: 1rem;
@@ -128,7 +132,7 @@ font-weight: normal;
 font-size: 14px;
 text-align: left;
 color: #435365;
-line-height: normal;
+line-height: unset;
 max-height: 34px;
 overflow: hidden;
 white-space: nowrap;
