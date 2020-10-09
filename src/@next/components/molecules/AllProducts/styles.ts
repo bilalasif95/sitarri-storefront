@@ -31,6 +31,7 @@ export const Brand = styled.div`
   left: 12px;
   border-radius: 60px;
   overflow: hidden;
+  z-index: 1;
   > img {
     height: 50px;
     width: 50px;
