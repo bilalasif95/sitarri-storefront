@@ -216,6 +216,7 @@ class Page extends React.PureComponent<
                   </div>
 
                   <Lightbox
+                  
                     mainSrc={this.state.tempArray[this.state.photoIndex]}
                     nextSrc={this.state.tempArray[(this.state.photoIndex + 1) % this.state.tempArray.length]}
                     prevSrc={this.state.tempArray[(this.state.photoIndex + this.state.tempArray.length - 1) % this.state.tempArray.length]}
@@ -231,6 +232,7 @@ class Page extends React.PureComponent<
                         photoIndex: (this.state.photoIndex + 1) % this.state.tempArray.length,
                       })
                     }
+                    
                   />
                   {/* <Modal
                   title=""

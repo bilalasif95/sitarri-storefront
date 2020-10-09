@@ -192,6 +192,9 @@ body{
   }
 }
 @media(max-width: 540px){
+  .Galleryheader{
+    margin-top: 0px !important;
+  }
   .row{
     margin-top: 4px;
   }
@@ -291,7 +294,7 @@ body{
   .ril__inner{
     .ril__image{
       height: 70vh;
-      width: 960px;
+      width: 67.4%;
     }
   }
   }

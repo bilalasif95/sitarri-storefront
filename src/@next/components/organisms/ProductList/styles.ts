@@ -92,6 +92,9 @@ export const Shops = styled.div`
       top: 24% !important;
       left: 0px !important;
     }
+    @media(max-width: 540px){
+      display: none;
+     }
   }
   .slider-control-centerright{
     top: 42% !important;
@@ -105,6 +108,9 @@ export const Shops = styled.div`
     @media(max-width: 768px){
       top: 24% !important;
       right: 14px !important;
+    }
+    @media(max-width: 540px){
+     display: none;
     }
   }
   @media(max-width: 540px){

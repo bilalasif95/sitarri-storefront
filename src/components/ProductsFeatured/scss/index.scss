@@ -480,6 +480,20 @@
 @media(max-width: 540px){
   .productCarousel{
     .shopsCarousel{
+      .slider-control-centerright{
+      display: none !important;
+      }
+    }
+  }
+  .productCarousel{
+    .shopsCarousel{
+      .slider-control-centerleft{
+      display: none !important;
+      }
+    }
+  }
+  .productCarousel{
+    .shopsCarousel{
       padding-bottom: 2px !important;
     }
     .image-gallery-bullets{

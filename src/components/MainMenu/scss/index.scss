@@ -569,6 +569,11 @@
 .searchLogo{
   display: none;
 }
+@media(max-width: 768px){
+  .main-menu{
+    padding: 0px 10px;
+  }
+}
 @media(max-width: 540px){
   .main-menu__center 
   .CloseIcon {
