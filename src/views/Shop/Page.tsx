@@ -214,7 +214,7 @@ class Page extends React.PureComponent<
                   <OtherProducts config={{
                     params: {
                       text: productInfo.description,
-                      title: productInfo.name,                      
+                      title: productInfo.name,
                       url: window.location.href,
                     },
                     /* tslint:disable-next-line:no-console */
@@ -298,7 +298,7 @@ class Page extends React.PureComponent<
                     }
 
 
-                   
+
                     {productInfo.deliverooUrl !== "" &&
                       <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
                         <div className="icon">
@@ -311,15 +311,16 @@ class Page extends React.PureComponent<
                 </div>
 
 
-                <div className="ReservationBox">
-                    <div className="makeReservation">
-                {productInfo.uberEatsUrl !== "" && <div className=" container">
+                {productInfo.uberEatsUrl !== "" && <div className="ReservationBox">
+                  <div className="makeReservation">
+                    <div className=" container">
                       <div className="Resevations">
                         <a className="ReservationBtn" href={productInfo.uberEatsUrl}>Make a reservation</a>
                       </div>
-                    </div>}
                     </div>
-                    </div>
+                  </div>
+                </div>
+                }
 
                 {productInfo.address && productInfo.openingHours !== "" && productInfo.closingHours !== "" ?
                   <div className="shop-at">
@@ -331,7 +332,7 @@ class Page extends React.PureComponent<
                         })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
                       </div>}
 
-                        <div className="hrBorder"></div>
+                    <div className="hrBorder"></div>
 
                     {productInfo.openingHours !== "" && productInfo.closingHours !== "" &&
                       <div className="open-time">

@@ -309,6 +309,7 @@
         color: #435365;
         line-height: normal;
         margin-left: 15px;
+        cursor: pointer;
       }
     }
 
@@ -712,8 +713,8 @@
   align-items: center;
 }
 .Close{
-  font-size: 10px;
-  color: #666;
+  font-size: 12px;
+  color: #09253F;
   text-align: left;
   display: flex;
   align-items: center;
@@ -761,6 +762,7 @@ justify-content: center;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
+padding: 0px 3px;
 // padding: 1px 5px;
 // width: 70%;
 margin-left: auto;
@@ -848,6 +850,9 @@ svg{
   }
   .Left{
     width: 83%;
+  }
+  .shop-at{
+    margin-bottom: 7px !important;
   }
 }
 .image-gallery-bullets{

@@ -79,7 +79,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
             <Link to={generateProductUrl(product.id, product.name)} key={product.id}>
               {/* </S.Link> */}
               <S.Title>{product.name}</S.Title>
-              {product.descriptionJson === "{}" ? <div className="EmptySpace"></div> : <S.Desc><RichTextContent descriptionJson={product.descriptionJson} /></S.Desc>}
+              {product.descriptionJson === "{}" ? <S.EmptySpace></S.EmptySpace> : <S.Desc><RichTextContent descriptionJson={product.descriptionJson} /></S.Desc>}
               {/* <S.Desc>{product.description}</S.Desc> */}
               <S.Price>
                 <TaxedMoney taxedMoney={price} />

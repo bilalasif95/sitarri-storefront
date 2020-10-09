@@ -355,7 +355,7 @@ justify-content: flex-start;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
-padding: 0px 2px;
+padding: 0px 3px;
 // width: 60%;
 svg{
   margin: 0 0.5rem 0 0;

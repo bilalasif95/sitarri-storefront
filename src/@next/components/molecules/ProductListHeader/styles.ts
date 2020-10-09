@@ -77,7 +77,7 @@ export const menuDropdown = styled.div`
 
 export const Submenu = styled.div`
   position: absolute;
-  top: 72px;
+  top: 52px;
   background: #fff;
   width: 240px;
   border-radius: 5px;

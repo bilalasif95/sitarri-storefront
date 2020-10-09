@@ -7,8 +7,9 @@
   flex-direction: column;
   text-align: center;
   padding: $spacer * 4 $spacer;
-  background: #140a24 !important;
+  background: #140823 !important;
   margin: 3.5rem 0 -2rem !important;
+  margin-bottom: -55px !important;
 
   &__header {
     width: 100%;
@@ -33,14 +34,14 @@
 
   &__message {
     b{
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 500;
-      color: #bfb8c2;
+      color: #fff;
       margin: 0 0 $spacer;
       display: block;
     }
     p{
-      color: #726578;
+      color: #fff;
     }
     @media (max-width: $small-screen) {
       p {
