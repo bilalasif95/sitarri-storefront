@@ -148,6 +148,16 @@ class Page extends React.PureComponent<
 
     const today = new Date();
     const start = new Date();
+    const days = new Array(7);
+    days[0] = "Sunday";
+    days[1] = "Monday";
+    days[2] = "Tuesday";
+    days[3] = "Wednesday";
+    days[4] = "Thursday";
+    days[5] = "Friday";
+    days[6] = "Saturday";
+    const todayDay = days[start.getDay()];
+
     const end = new Date();
     const [openTime, openFormat] = productInfo.openingHours.split(" ")
     const openHoursMinutes = openTime.split(":")
@@ -361,22 +371,22 @@ class Page extends React.PureComponent<
                     {this.state.seeMore &&
                       <div className="WeekDays">
                         <div className="Days">
-                          <p>Monday</p>
-                          <p>Tuesday</p>
-                          <p>Wednesday</p>
-                          <p>Thursday</p>
-                          <p>Friday</p>
-                          <p>Saturday</p>
-                          <p>Sunday</p>
+                          <p className={todayDay === "Monday" ? "activeDay" : ""}>Monday</p>
+                          <p className={todayDay === "Tuesday" ? "activeDay" : ""}>Tuesday</p>
+                          <p className={todayDay === "Wednesday" ? "activeDay" : ""}>Wednesday</p>
+                          <p className={todayDay === "Thursday" ? "activeDay" : ""}>Thursday</p>
+                          <p className={todayDay === "Friday" ? "activeDay" : ""}>Friday</p>
+                          <p className={todayDay === "Saturday" ? "activeDay" : ""}>Saturday</p>
+                          <p className={todayDay === "Sunday" ? "activeDay" : ""}>Sunday</p>
                         </div>
                         <div className="Time">
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
-                          <p><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Monday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Tuesday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Wednesday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Thursday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Friday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Saturday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
+                          <p className={todayDay === "Sunday" ? "activeDay" : ""}><span>11:00 am </span> - <span>1:00am</span></p>
 
                         </div>
                       </div>

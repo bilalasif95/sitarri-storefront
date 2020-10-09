@@ -758,6 +758,10 @@
   display: flex;
   justify-content: space-between;
   .Days, .Time{
+    .activeDay {
+      color: #435365;
+      font-weight: 600;
+    }
     p{
       margin: 0px 0px 10px 0px;
     }
@@ -797,6 +801,7 @@
   }
   .Toastify{
     margin-top: 0px !important;
+    padding-bottom: 0px !important;
   }
 }
 @media(max-width: 540px){
