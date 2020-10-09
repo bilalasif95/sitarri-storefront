@@ -52,6 +52,7 @@ export const ProductList: React.FC<IProps> = ({
       {!loading ?
         <>
           {(products.length > 0 || stores && stores.length > 0) ?
+          
             <S.ProductList>
               {/* first condition for filter */}
               {(activeSortTypeBase === "Shops" || activeSortTypeBase === "" || activeSortTypeBase === "All") && !showProductsResults ? stores.length > 0 ?
@@ -156,6 +157,7 @@ export const ProductList: React.FC<IProps> = ({
           )}
       </S.Loader> */}
             </S.ProductList >
+            
             : <S.NoResult>No result found...</S.NoResult>}
         </>
         :

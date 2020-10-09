@@ -247,7 +247,7 @@
     background-image: linear-gradient(to right, #F5A521 , #FAC73B);
     padding: 30px 40px;
     border-radius: 5px;
-    margin: 70px 0px 31px;
+    margin: 70px 0px 0px;
     .ContactusTitle{
       color: #fff;
       font-weight: 700;
@@ -412,7 +412,7 @@ h2{
   }
   .food{
     width: 100%;
-    position: relative;
+    // position: relative;
   }
   .BusinessText h3{
     margin-bottom: 35px !important;

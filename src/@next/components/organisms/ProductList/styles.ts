@@ -77,7 +77,7 @@ export const Shops = styled.div`
   }
  
   .slider-control-centerleft{
-    top: 42% !important;
+    top: 33% !important;
     left: -20px !important;
     >div{
       height: 48px !important;
@@ -85,7 +85,7 @@ export const Shops = styled.div`
       text-align: center !important;
       padding: 0px;
       svg{
-        margin-top: 9px !important;
+        margin-top: 12px !important;
       }
     }
     @media(max-width: 768px){
@@ -97,7 +97,7 @@ export const Shops = styled.div`
      }
   }
   .slider-control-centerright{
-    top: 42% !important;
+    top: 33% !important;
     right: -20px !important;
     >div{
       height: 48px !important;

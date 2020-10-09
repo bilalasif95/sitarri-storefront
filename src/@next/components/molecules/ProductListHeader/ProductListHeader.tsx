@@ -192,16 +192,19 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <S.Submenu>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox>
-                    <S.SubmenuList categoriesMenu={false} onClick={() => {
-                      setMenuIsOpen(!menuIsOpen);
-                      onChange("", "none");
-                      setFiltered(categories);
-                      setSearch("");
-                      setCategoriesMenu(false);
-                      setDistanceMenu(false);
-                      setPriceMenu(false);
-                    }}>None</S.SubmenuList>
-                    <S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList>
+                  <S.MenuLink>
+                      <S.SubmenuList categoriesMenu={false} onClick={() => {
+                        setMenuIsOpen(!menuIsOpen);
+                        onChange("", "none");
+                        setFiltered(categories);
+                        setSearch("");
+                        setCategoriesMenu(false);
+                        setDistanceMenu(false);
+                        setPriceMenu(false);
+                      }}>None</S.SubmenuList>
+                    </S.MenuLink>
+
+                    <S.MenuLink><S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList></S.MenuLink>
                     {categoriesMenu &&
                       <>
                         <S.Input>
@@ -237,7 +240,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                         />
                       </>
                     }
-                    <S.SubmenuList categoriesMenu={distanceMenu} onClick={onDistanceMenuClick}>Distance</S.SubmenuList>
+                    <S.MenuLink><S.SubmenuList categoriesMenu={distanceMenu} onClick={onDistanceMenuClick}>Distance</S.SubmenuList></S.MenuLink>
                     {distanceMenu &&
                       <DropdownSelect
                         sortBy="Sort by"
@@ -250,7 +253,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                         )}
                       />
                     }
-                    <S.SubmenuList categoriesMenu={priceMenu} onClick={onPriceMenuClick}>Price</S.SubmenuList>
+                    <S.MenuLink><S.SubmenuList categoriesMenu={priceMenu} onClick={onPriceMenuClick}>Price</S.SubmenuList></S.MenuLink>
                     {priceMenu &&
                       <DropdownSelect
                         sortBy="Filters"
@@ -280,6 +283,7 @@ export const ProductListHeader: React.FC<IProps> = ({
               onSelect={(value: any) => {
                 onChange(value, "sorting")
                 setSortMenuIsOpen(false)
+
               }}
             >
               <span onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>

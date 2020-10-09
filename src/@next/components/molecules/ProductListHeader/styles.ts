@@ -77,7 +77,7 @@ export const menuDropdown = styled.div`
 
 export const Submenu = styled.div`
   position: absolute;
-  top: 52px;
+  top: 48px;
   background: #fff;
   width: 240px;
   border-radius: 5px;
@@ -117,14 +117,29 @@ export const SubmenuTitle = styled.div`
     // }
 `;
 export const SubmenuList = styled.div<{ categoriesMenu: boolean }>`
-  padding: 5px 0px;
   border-bottom: 1px solid #EDF0F2;
   cursor: pointer;
   color: #8799a9;
   font-size: 12px;
   color: ${props =>
-    props.categoriesMenu ? "#000" : "#8799a9"};
+    props.categoriesMenu ? "#09253F" : "#8799a9"};
+    padding: 6px 0px 6px 0px;
+    margin-left: 18px;
 `;
+
+export const MenuLink = styled.div`
+&:last-child{
+  div{
+    border-bottom: none;
+  }
+}
+  &:hover{
+    background-color: rgba(67, 90, 111, 0.06);
+    cursor: pointer;
+  }
+
+`;
+
 export const Input = styled.div`
   svg{
     position: absolute;
@@ -136,20 +151,19 @@ export const Input = styled.div`
     }
   }
     input{
-      width: 106%;
+      width: 100%;
       height: 31px;
       padding-left: 35px;
       border: none;
       background: #F5F6F7;
       position: relative;
-      margin-left: -15px;
+      // margin-left: -15px;
       &:focus{
         outline: none;
       }
     }
 `;
 export const SubmenuBox = styled.div`
-    padding: 0px 0px 0px 15px;
     .css-kj6f9i-menu{
       position: inherit;
       border: none;
@@ -307,6 +321,9 @@ export const Label = styled.span`
 export const Sort = styled.div`
   width: 100%;
   display: inline-block;
+  .ub-color_425A70{
+    color: #000;
+  }
 `;
 
 export const FiltersChipsWrapper = styled.div`

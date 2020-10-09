@@ -122,7 +122,7 @@ $drawer-width: 25rem;
 .MobileSearchBar{
   .searchfield{
     background-color: #fff;
-    padding: 20px 0px 8px;
+    padding: 10px 0px 8px;
   }
 }
 .MobileSearchBar .overlay__right{
@@ -151,7 +151,7 @@ $drawer-width: 25rem;
 }
 .MobileSearchBar .overlay__right .searchicon{
   position: absolute;
-  top: 33px;
+  top: 28px;
   right: 20px;
   svg{
     width: 14px;
@@ -277,17 +277,17 @@ $drawer-width: 25rem;
   }
   .loaderIcon{
     position: absolute;
-    top: 34px;
+    top: 26px;
     left: 20px;
   }
   .BackArrow{
     position: absolute;
-    top: 37px;
+    top: 27px;
     left: 15px;
   }
   .CloseIcon{
     position: absolute;
-    top: 38px;
+    top: 29px;
     right: 20px;  
       path{
         fill: #40464A;

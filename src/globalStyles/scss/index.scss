@@ -49,7 +49,7 @@ body {
       flex: 1;
       background: #fafafa;
       margin: 75px 0 0;
-      padding-bottom: 82px;
+      padding-bottom: 77px;
     }
   }
 
@@ -173,7 +173,7 @@ header {
 }
 .css-nil{
   // color: #94a3b2;
-  margin-top: 4px;
+  // margin-top: 4px;
   
   svg{
     path{
@@ -183,11 +183,14 @@ header {
   .ub-h_14px{
     display: none;
   }
+  .ub-h_33px{
+    height: inherit;
+  }
 }
 .ub-ln-ht_20px{
   color: #09253f !important;
-  font-weight: 800 !important;
-  font-size: 16px !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
 }
 .ub-color_425A70:active{
   color: #000 !important;
@@ -241,7 +244,7 @@ header {
   padding-left: 9px;
 }
 .ub-color_1070ca{
-  color: #000 !important;
+  color: #09253F !important;
 }
 @media(max-width:540px){
   .cookie-message{
