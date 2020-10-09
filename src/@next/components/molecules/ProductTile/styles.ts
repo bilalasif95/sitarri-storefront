@@ -125,6 +125,7 @@ text-align: left;
 color: #8899A9;
 line-height: unset;
 max-height: 40px;
+min-height: 40px;
 overflow: hidden;
 // white-space: nowrap;
 text-overflow: ellipsis;

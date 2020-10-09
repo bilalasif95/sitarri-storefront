@@ -171,7 +171,7 @@ export const SubmenuBox = styled.div`
       margin: 0px 0px;
       .css-11unzgr {
         max-height: 150px;
-        padding: 0px 0px 0px 15px;
+        padding: 0px 0px 0px 30px;
         .css-1gl4k7y{
           padding: 8px 55px;
           text-align: inherit;
@@ -186,12 +186,15 @@ export const SubmenuBox = styled.div`
           display: none;
         }
         .css-19ni769-option{
-          padding: 0px;
+          padding: 6px 0px;
           color: #8799a9;
           border-bottom: 1px solid #EDF0F2;
           font-size:12px;
           min-height: 31px;
           cursor: pointer;
+          &:hover{
+            background-color: #435a6f0f;
+          }
         }
         .css-r59xpm-option{
           font-weight: 400;
@@ -220,7 +223,7 @@ export const Top = styled.div`
     z-index: 2;
     top: 8px;
     right: 3px;
-    border-radius: inherit !important;
+    border-radius: 3px;
     width: 24px;
     height: 24px;
     &:hover{
