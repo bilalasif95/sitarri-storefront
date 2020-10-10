@@ -16,14 +16,14 @@ import noPhotoImg from "../../../../images/no-photo.svg";
 // import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
-import { IProps } from "./types";
+// import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 
 import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
 
 // import Rating from 'react-rating';
 
-export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => {
+export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: { product: any; redirectToProductPage: any }) => {
   const price =
     product.pricing &&
       product.pricing.priceRange &&
@@ -73,7 +73,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              <ImageGallery onClick={() => redirectToProductPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <S.Content>

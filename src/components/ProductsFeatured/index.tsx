@@ -21,10 +21,12 @@ import "./scss/index.scss";
 
 interface ProductsFeaturedProps {
   title?: string;
-  SeeDetails: any
+  SeeDetails: any;
+  redirectToShopPage?: any;
+  redirectToProductPage?: any;
 }
 
-const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }) => {
+const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirectToShopPage, redirectToProductPage, title }) => {
   // const [displayNewModal, setDisplayNewModal] = React.useState(false);
   // const [showAllResults, setShowAllResults] = React.useState(false);
   // const [showProductResults, setShowProductResults] = React.useState(false);
@@ -325,7 +327,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                     < div className="hrBorder"></div>
                     {/* <Carousel> */}
                     <div className="pro-list">
-                      <Carousel length={4} className="customSlider" productDetails={"productList"}>
+                      <Carousel length={4} dragging={false} className="customSlider" productDetails={"productList"}>
                         {/* {products.map(({ node: product }) => ( */}
 
                         <div className="modalDiv"
@@ -339,7 +341,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                          <BusinessTile product={{
+                          <BusinessTile redirectToShopPage={redirectToShopPage} product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             category: "Mexican Resturant . ££",
@@ -393,7 +395,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                          <BusinessTile product={{
+                          <BusinessTile redirectToShopPage={redirectToShopPage} product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             category: "Burger Resturant . ££",
@@ -447,7 +449,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                          <BusinessTile product={{
+                          <BusinessTile redirectToShopPage={redirectToShopPage} product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             category: "Mexican Resturant . ££",
@@ -501,7 +503,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                          <BusinessTile product={{
+                          <BusinessTile redirectToShopPage={redirectToShopPage} product={{
                             __typename: "Store",
                             address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
                             category: "Burger Resturant . ££",
@@ -562,7 +564,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                       <div className="hrBorder"></div>
                       {/* <Carousel> */}
                       <div className="pro-list">
-                        <Carousel length={4} className="customSlider" productDetails={"productList"}>
+                        <Carousel length={4} dragging={false} className="customSlider" productDetails={"productList"}>
                           {/* {products.map(({ node: product }) => ( */}
 
                           <div className="modalDiv"
@@ -576,7 +578,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                            <ProductTile product={{
+                            <ProductTile redirectToProductPage={redirectToProductPage} product={{
                               __typename: "Product",
                               category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                               description: "Our regular two-patty burger with two slices of melted american cheese added.",
@@ -709,7 +711,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                            <ProductTile product={{
+                            <ProductTile redirectToProductPage={redirectToProductPage} product={{
                               __typename: "Product",
                               category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                               description: "This is such a great product and you should definitely buy it cause it is so great.",
@@ -843,7 +845,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                            <ProductTile product={{
+                            <ProductTile redirectToProductPage={redirectToProductPage} product={{
                               __typename: "Product",
                               category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                               description: "Our regular two-patty burger with two slices of melted american cheese added.",
@@ -977,7 +979,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, title }
                           to={generateProductUrl(product.id, product.name)}
                           key={product.id}
                         > */}
-                            <ProductTile product={{
+                            <ProductTile redirectToProductPage={redirectToProductPage} product={{
                               __typename: "Product",
                               category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
                               description: "This is such a great product and you should definitely buy it cause it is so great.",

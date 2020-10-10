@@ -19,7 +19,7 @@ import * as S from "./styles";
 
 import { generateShopUrl } from "../../../../core/utils";
 
-export const BusinessTile: React.FC<any> = ({ product }: { product: any }) => {
+export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { product: any; redirectToShopPage: any }) => {
   // const price =
   //   product.pricing &&
   //     product.pricing.priceRange &&
@@ -72,7 +72,7 @@ export const BusinessTile: React.FC<any> = ({ product }: { product: any }) => {
             {/* <ImageGallery onClick={onModalClicked} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={false} showPlayButton={false} showNav={true} /> */}
             {/* :  */}
             {product.logo ?
-              <img src={product.logo} className="noImg" />
+              <img onClick={() => redirectToShopPage(product.id, product.name)} src={product.logo} className="noImg" />
               : ""}
             {/* } */}
 
@@ -80,7 +80,7 @@ export const BusinessTile: React.FC<any> = ({ product }: { product: any }) => {
           <S.Image>
             {/* <img src={tileimg} /> */}
             {tempArray.length > 0 ?
-              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              <ImageGallery onClick={() => redirectToShopPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>

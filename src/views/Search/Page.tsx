@@ -31,6 +31,8 @@ interface PageProps {
   activeSortOption: any;
   displayLoader: boolean;
   showShopResults: boolean;
+  redirectToShopPage: any;
+  redirectToProductPage: any;
   showProductsResults: boolean;
   // filters: IFilters;
   // hasNextPage: boolean;
@@ -55,6 +57,8 @@ const Page: React.FC<PageProps> = ({
   activeSortedField,
   acitveSortDistanceBase,
   displayLoader,
+  redirectToShopPage,
+  redirectToProductPage,
   showShopResults,
   showProductsResults,
   products,
@@ -90,6 +94,8 @@ const Page: React.FC<PageProps> = ({
           <ProductList
             activeSortTypeBase={activeSortTypeBase}
             showShopResults={showShopResults}
+            redirectToShopPage={redirectToShopPage}
+            redirectToProductPage={redirectToProductPage}
             showProductsResults={showProductsResults}
             products={products.edges.map(edge => edge.node)}
             stores={stores && stores.edges.map(edge => edge.node)}

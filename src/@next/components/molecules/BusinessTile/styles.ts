@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
   overflow: hidden;
   background: #fff;
   min-height: 320px;
+  div:focus{
+    outline: none;
+  }
   ${media.smallScreen`
   margin: 5px 0;
   min-height: 275px;
@@ -51,6 +54,7 @@ export const Brand = styled.div`
     // border: 1px solid #B2BEC7;
     border-radius: 60px;
     background: #fff;
+    cursor: pointer;
   }
   @media(max-width: 767px){
     top: 64px;

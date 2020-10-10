@@ -19,12 +19,14 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 // import noPhotoImg from "../../images/no-photo.svg";
 
 const Page: React.FC<{
-  SeeDetails:any,
+  SeeDetails:any;
+  redirectToShopPage: any;
+  redirectToProductPage: any;
   loading: boolean;
   categories: ProductsList_categories;
   backgroundImage: ProductsList_shop_homepageCollection_backgroundImage;
   shop: ProductsList_shop;
-}> = ({ SeeDetails,loading, categories, backgroundImage, shop }) => {
+}> = ({ SeeDetails,redirectToShopPage,redirectToProductPage, loading, categories, backgroundImage, shop }) => {
   // const categoriesExist = () => {
   //   return categories && categories.edges && categories.edges.length > 0;
   // };
@@ -71,7 +73,7 @@ const Page: React.FC<{
           )}
         </div>
       </div> */}
-      <ProductsFeatured SeeDetails={SeeDetails} />
+      <ProductsFeatured SeeDetails={SeeDetails} redirectToShopPage={redirectToShopPage} redirectToProductPage={redirectToProductPage} />
       {/* <SpecificProductsFeatured SeeDetails={SeeDetails}/> */}
       {/* {categoriesExist() && (
         <div className="home-page__categories">

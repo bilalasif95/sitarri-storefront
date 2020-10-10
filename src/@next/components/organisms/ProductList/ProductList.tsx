@@ -18,6 +18,8 @@ export const ProductList: React.FC<IProps> = ({
   activeSortTypeBase,
   products,
   showShopResults,
+  redirectToShopPage,
+  redirectToProductPage,
   showProductsResults,
   stores,
   canLoadMore = false,
@@ -52,7 +54,7 @@ export const ProductList: React.FC<IProps> = ({
       {!loading ?
         <>
           {(products.length > 0 || stores && stores.length > 0) ?
-          
+
             <S.ProductList>
               {/* first condition for filter */}
               {(activeSortTypeBase === "Shops" || activeSortTypeBase === "" || activeSortTypeBase === "All") && !showProductsResults ? stores.length > 0 ?
@@ -65,21 +67,21 @@ export const ProductList: React.FC<IProps> = ({
                       }
                     </S.Carouseltitle>
 
-                      <S.hrBorder></S.hrBorder>
+                    <S.hrBorder></S.hrBorder>
 
 
                     <S.Slider>
                       {!showShopResults ?
                         <S.OnlyCarousel>
-                          <Carousel length={stores.length} productDetails={"productList"}>
+                          <Carousel length={stores.length} dragging={false} productDetails={"productList"}>
                             {stores && stores.map(product => (
-                              <BusinessTile product={product} />
+                              <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
                             ))}
                           </Carousel>
                         </S.OnlyCarousel>
                         : <S.AllShops>
                           {stores && stores.map(product => (
-                            <BusinessTile product={product} />
+                            <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
                           ))}
                         </S.AllShops>}
                     </S.Slider>
@@ -88,39 +90,39 @@ export const ProductList: React.FC<IProps> = ({
 
               {(activeSortTypeBase === "Products" || activeSortTypeBase === "" || activeSortTypeBase === "All") && !showShopResults ? products.length > 0 ?
                 <div>
-                   <S.ProductsShop>
-                  <S.Shops>
-                  
-                    <S.Carouseltitle>
-                      <h3>Products</h3>
-                      {window.innerWidth >= 540 ? products.length > 2 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p> : <p><span>{products.length} {products.length === 1 ? "result" : "results"}</span><S.Span></S.Span></p>
-                        : products.length > 1 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p> : <p><span>{products.length} result</span><S.Span></S.Span></p>
-                      }
-                    </S.Carouseltitle>
+                  <S.ProductsShop>
+                    <S.Shops>
 
-                    <S.hrBorder></S.hrBorder>
+                      <S.Carouseltitle>
+                        <h3>Products</h3>
+                        {window.innerWidth >= 540 ? products.length > 2 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span>{showProductsResults ? <S.Span></S.Span> : <img src={Next} alt="next" />}</p> : <p><span>{products.length} {products.length === 1 ? "result" : "results"}</span><S.Span></S.Span></p>
+                          : products.length > 1 ? <p><span onClick={onShowProductsResultsClick}>{products.length} results </span><img src={Next} alt="next" /></p> : <p><span>{products.length} result</span><S.Span></S.Span></p>
+                        }
+                      </S.Carouseltitle>
 
-                    <S.Slider>
-                      {!showProductsResults ?
-                        <S.OnlyCarousel>
-                          <Carousel length={products.length} productDetails={"productList"}>
+                      <S.hrBorder></S.hrBorder>
+
+                      <S.Slider>
+                        {!showProductsResults ?
+                          <S.OnlyCarousel>
+                            <Carousel length={products.length} dragging={false} productDetails={"productList"}>
+                              {products.map(product => (
+                                <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
+                              ))}
+                            </Carousel>
+                          </S.OnlyCarousel>
+                          : <S.AllShops>
                             {products.map(product => (
-                              <ProductTile product={product} />
+                              <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
                             ))}
-                          </Carousel>
-                        </S.OnlyCarousel>
-                        : <S.AllShops>
-                          {products.map(product => (
-                            <ProductTile product={product} />
-                          ))}
-                        </S.AllShops>}
-                    </S.Slider>
-                  </S.Shops>
+                          </S.AllShops>}
+                      </S.Slider>
+                    </S.Shops>
                   </S.ProductsShop>
                 </div> : <div></div> : <div></div>}
 
               {(activeSortTypeBase === "" || activeSortTypeBase === "Clear..." || activeSortTypeBase === "All") && (!showShopResults && !showProductsResults) ? stores.length > 0 ?
-               
+
                 <S.Shops>
                   <>
                     <S.Carouseltitle>
@@ -139,7 +141,7 @@ export const ProductList: React.FC<IProps> = ({
                     </S.List>
                   </>
                 </S.Shops>
-            
+
                 : "" : ""}
               {/* <S.Loader>
         {loading ? (
@@ -157,7 +159,7 @@ export const ProductList: React.FC<IProps> = ({
           )}
       </S.Loader> */}
             </S.ProductList >
-            
+
             : <S.NoResult>No result found...</S.NoResult>}
         </>
         :

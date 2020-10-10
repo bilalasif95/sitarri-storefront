@@ -1,11 +1,14 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
+import { withRouter } from "react-router-dom";
 import { StringParam, useQueryParam } from "use-query-params";
 import { NotFound, OfflinePlaceholder } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
 import {
   convertSortByFromString,
+  generateProductUrl,
+  generateShopUrl,
   getGraphqlIdFromDBId,
 } from "../../core/utils";
 import Page from "./Page";
@@ -15,7 +18,7 @@ type ViewProps = RouteComponentProps<{
   id: string;
 }>;
 
-export const View: React.FC<ViewProps> = ({ match }) => {
+export const View: React.FC<ViewProps> = ({ match, history }) => {
   const [sortPriceBase, setSortPriceBase] = React.useState({ label: "", value: { gte: 0, lte: 0 } });
   const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "", value: "" });
   const [sortTypeBase, setSortTypeBase] = React.useState({ label: "All", value: null });
@@ -24,6 +27,14 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     label: "",
     value: { value: -1, symbol: "KILOMETER" },
   });
+
+  const redirectToShopPage = (id, name) => {
+    history.push(generateShopUrl(id, name))
+  }
+
+  const redirectToProductPage = (id, name) => {
+    history.push(generateProductUrl(id, name))
+  }
 
   const [sort, setSort] = useQueryParam("sortBy", StringParam);
   const [lat] = useQueryParam("lat", StringParam);
@@ -84,6 +95,8 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 displayLoader={loading}
                 setSearch={setSearch}
                 search={search}
+                redirectToShopPage={redirectToShopPage}
+                redirectToProductPage={redirectToProductPage}
                 activeSortOption={sortPriceBase.label}
                 activeSortBusinessType={sortBusinessBase.label}
                 activeSortedField={sorting.label}
@@ -103,12 +116,12 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                     CallApi()
                   }
                   else if (type === "showType") {
-                    if(value.value === "products"){
+                    if (value.value === "products") {
                       setSortTypeBase(value)
                       setShowProductsResults(true)
                       setShowShopResults(false)
                     }
-                    else if(value.value === "stores"){
+                    else if (value.value === "stores") {
                       setSortTypeBase(value)
                       setShowShopResults(true)
                       setShowProductsResults(false)
@@ -159,4 +172,4 @@ export const View: React.FC<ViewProps> = ({ match }) => {
   );
 };
 
-export default View;
+export default withRouter(View);
