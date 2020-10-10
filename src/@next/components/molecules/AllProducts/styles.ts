@@ -38,6 +38,7 @@ export const Brand = styled.div`
     // border: 1px solid #B2BEC7;
     border-radius: 60px;
     background: #fff;
+    cursor: pointer;
   }
   @media(max-width: 767px){
     top: 64px;

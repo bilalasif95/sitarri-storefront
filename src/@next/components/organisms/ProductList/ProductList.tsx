@@ -136,7 +136,7 @@ export const ProductList: React.FC<IProps> = ({
 
                     <S.List>
                       {stores && stores.map(product => (
-                        <AllProducts product={product} />
+                        <AllProducts redirectToShopPage={redirectToShopPage} product={product} />
                       ))}
                     </S.List>
                   </>

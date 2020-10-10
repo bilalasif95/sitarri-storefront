@@ -14,14 +14,14 @@ import noPhotoImg from "../../../../images/no-photo.svg";
 
 import * as S from "./styles";
 
-import { IProps } from "./types";
+// import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 
 // import Rating from 'react-rating';
 
 import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
 
-export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => {
+export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { product: any, redirectToShopPage: any }) => {
   // const price =
   //   product.pricing &&
   //     product.pricing.priceRange &&
@@ -69,12 +69,12 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
         <S.Top>
           <S.Brand>
             {product.logo ?
-              <img src={product.logo} className="noImg" />
+              <img onClick={() => redirectToShopPage(product.id, product.name)} src={product.logo} className="noImg" />
               : ""}
           </S.Brand>
           <S.Image>
             {tempArray.length > 0 ?
-              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              <ImageGallery onClick={() => redirectToShopPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>
@@ -87,11 +87,11 @@ export const AllProducts: React.FC<IProps> = ({ product }: { product: any }) => 
                 <S.Title>{product.name}</S.Title>
                 <S.Nos>{product.rating}
                   {product.rating === 0 ? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></S.star>}
-              
+
                   <S.TotalReviews>
                     ({product.totalReviews})
                     </S.TotalReviews>
-                    
+
                 </S.Nos>
               </S.CardDetails>
 
