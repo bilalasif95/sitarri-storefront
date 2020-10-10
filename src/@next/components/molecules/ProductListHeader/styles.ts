@@ -30,7 +30,7 @@ export const SortLine = styled.div<{ sortby: any }>`
     top: 16px;
     @media(max-width: 767px){
       right: 19px;
-      top: 14px;
+      top: 12px;
     }
   }
   span{
@@ -98,7 +98,7 @@ export const Submenu = styled.div`
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
-    top: 57%;
+    top: 63.5%;
     width: 100%;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
@@ -144,7 +144,7 @@ export const Input = styled.div`
   svg{
     position: absolute;
     z-index: 2;
-    margin-top: 8px;
+    margin-top: 10px;
     left: 15px;
     path{
       fill: #8e8e8f;
@@ -170,7 +170,7 @@ export const SubmenuBox = styled.div`
       box-shadow: inherit;
       margin: 0px 0px;
       .css-11unzgr {
-        max-height: 150px;
+        max-height: 163px;
         padding: 0px 0px 0px 30px;
         .css-1gl4k7y{
           padding: 8px 55px;
