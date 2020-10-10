@@ -342,7 +342,7 @@ class Page extends React.PureComponent<
                   <div className="ModalContent">
                     <p>TAQUERIA delivery from Notting Hill - Order with Deliveroo</p>
                     <ul className="modalList">
-                      <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" href="#">Deliveroo.co.uk/taqueria</a></li>
+                      <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" target="_blank" href="https://deliveroo.co.uk/">Deliveroo.co.uk/taqueria</a></li>
                     </ul>
                   </div>
                   <Lightbox

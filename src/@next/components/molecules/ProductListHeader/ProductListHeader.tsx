@@ -96,10 +96,10 @@ const sorting: any = [
   //   label: "Rating",
   //   value: "rating",
   // },
-  {
-    label: "Distance",
-    value: "distance",
-  },
+  // {
+  //   label: "Distance",
+  //   value: "distance",
+  // },
 ];
 
 export const ProductListHeader: React.FC<IProps> = ({
@@ -192,7 +192,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <S.Submenu>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox>
-                  <S.MenuLink>
+                    <S.MenuLink>
                       <S.SubmenuList categoriesMenu={false} onClick={() => {
                         setMenuIsOpen(!menuIsOpen);
                         onChange("", "none");

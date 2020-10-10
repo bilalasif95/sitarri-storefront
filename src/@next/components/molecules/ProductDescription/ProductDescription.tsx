@@ -34,7 +34,7 @@ export const ProductDescription: React.FC<IProps> = ({
 }: IProps) => {
 
   const [activeTab, setActiveTab] = React.useState(storeCategory.edges.length > 0 ? storeCategory.edges[0].node.name : []);
-  const [product, setProduct] = React.useState(storeCategory.edges.length > 0 ? storeCategory.edges[0].node.products : []);
+  const [product, setProduct] = React.useState(storeCategory.edges.length > 0 ? storeCategory.edges : []);
   // const [displayNewModal, setDisplayNewModal] = React.useState(false);
   // const [price, setPrice] = React.useState<any>();
   // const [show, setShow] = React.useState(true);
@@ -43,9 +43,17 @@ export const ProductDescription: React.FC<IProps> = ({
   // const [productName, setProductName] = React.useState("");
   // const [productDescription, setProductDescription] = React.useState("");
   // const [seeMore, seeMoreSet] = React.useState(false)
-  const setTabProduct = (categoryName: any, products: any) => {
-    setActiveTab(categoryName)
-    setProduct(products)
+  const setTabProduct = (categoryName: string, index: number) => {
+    const category = storeCategory.edges[index]
+    const filteredCategories = storeCategory.edges.filter((cat: any) => {
+      return cat.node.id !== category.node.id ? cat : ""
+    })
+    filteredCategories.unshift(category)
+    const tempArray2: any = []
+    filteredCategories.map((cat: any) => { tempArray2.push(cat); setActiveTab(categoryName) })
+    setProduct(tempArray2)
+    // setActiveTab(categoryName)
+    // setProduct(products)
   }
   // const onModalClicked = (item: any) => {
   //   const tempArray: any = [];
@@ -95,7 +103,8 @@ export const ProductDescription: React.FC<IProps> = ({
   }, []);
 
   const sortOptionsByPrice: any = [];
-  storeCategory.edges.map((cat: any) => sortOptionsByPrice.push({
+  storeCategory.edges.map((cat: any, index: number) => sortOptionsByPrice.push({
+    index,
     label: cat.node.name,
     products: cat.node.products,
     value: cat.node.name,
@@ -123,11 +132,12 @@ export const ProductDescription: React.FC<IProps> = ({
               <S.TabsContainer>
                 <S.TabList>
                   {/* {storeCategory.edges.slice(0, seeMore ? 100 : window.innerWidth < 576 ? 3 : 8).map((cate: any) => */}
-                  {storeCategory.edges.map((cate: any) =>
+                  {storeCategory.edges.map((cate: any, index: number) =>
                     <S.TabTitle
                       active={activeTab === cate.node.name}
                       onClick={e =>
-                        setTabProduct(cate.node.name, cate.node.products)
+                        setTabProduct(cate.node.name, index)
+                        // setTabProduct(cate.node.name, cate.node.products)
                       }
                     >
                       {cate.node.name}
@@ -150,7 +160,7 @@ export const ProductDescription: React.FC<IProps> = ({
                       selected={sortPriceBase.label}
                       onSelect={(value: any) => {
                         setSortPriceBase(value)
-                        setTabProduct(value.label, value.products)
+                        setTabProduct(value.label, value.index)
                       }}
                     >
                       <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
@@ -186,7 +196,7 @@ export const ProductDescription: React.FC<IProps> = ({
                         selected={sortPriceBase.label}
                         onSelect={(value: any) => {
                           setSortPriceBase(value)
-                          setTabProduct(value.label, value.products)
+                          setTabProduct(value.label, value.index)
                         }}
                       >
                         <Button><S.ButtonSpan onClick={() => setMoreMenuIsOpen(!isMoreMenuOpened)}>More<S.Indicator rotate={String(isMoreMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
@@ -220,32 +230,34 @@ export const ProductDescription: React.FC<IProps> = ({
 
           </S.fixed>
 
-          <div className="cat">
-            <h3>{activeTab}</h3>
-            <div className="cat-list">
-              {product.edges && product.edges.map((item: any) =>
-                <Link to={generateProductUrl(item.node.id, item.node.name)} key={item.node.id}>
-                  <div className="item"
-                  // onClick={() => onModalClicked(item)}
-                  >
-                    <div className="desc">
-                      <h4>{item.node.name}</h4>
-                      <p className="descr">{item && item.node.description === "" ? <S.EmptySpace></S.EmptySpace> :
-                        // <RichTextContent descriptionJson={item && item.node.descriptionJson} />
-                        <div>{item && item.node.description}</div>
-                      }</p>
-                      <p className="price"><TaxedMoney taxedMoney={item && item.node.pricing && item.node.pricing.priceRange && item.node.pricing.priceRange.start ? item.node.pricing.priceRange.start : undefined} /></p>
-                      {/* <p className="price">${item && item.node.pricing.priceRange.start.gross.amount}</p> */}
+          {product.map((item: any) => (
+            <div className="cat">
+              <h3>{item.node.name}</h3>
+              <div className="cat-list">
+                {item.node.products.edges.map((item: any) =>
+                  <Link to={generateProductUrl(item.node.id, item.node.name)} key={item.node.id}>
+                    <div className="item"
+                    // onClick={() => onModalClicked(item)}
+                    >
+                      <div className="desc">
+                        <h4>{item.node.name}</h4>
+                        <p className="descr">{item && item.node.description === "" ? <S.EmptySpace></S.EmptySpace> :
+                          // <RichTextContent descriptionJson={item && item.node.descriptionJson} />
+                          <div>{item && item.node.description}</div>
+                        }</p>
+                        <p className="price"><TaxedMoney taxedMoney={item && item.node.pricing && item.node.pricing.priceRange && item.node.pricing.priceRange.start ? item.node.pricing.priceRange.start : undefined} /></p>
+                        {/* <p className="price">${item && item.node.pricing.priceRange.start.gross.amount}</p> */}
+                      </div>
+                      <div className="catimg">
+                        {item.node.images.length !== 0 ? <img src={item.node.images && item.node.images[0] && item.node.images[0].url} />
+                          : <img src={noPhotoImg} />}
+                      </div>
                     </div>
-                    <div className="catimg">
-                      {item.node.images.length !== 0 ? <img src={item.node.images && item.node.images[0] && item.node.images[0].url} />
-                        : <img src={noPhotoImg} />}
-                    </div>
-                  </div>
-                </Link>
-              )}
+                  </Link>
+                )}
+              </div>
             </div>
-          </div>
+          ))}
 
         </S.Wrapper>
 

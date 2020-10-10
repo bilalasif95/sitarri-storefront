@@ -180,6 +180,7 @@ query($id: ID!, $longitude: Float, $latitude: Float) {
       storeCategory(first: 100) {
         edges {
           node {
+            id
             name
             products(first: 100) {
               edges {
