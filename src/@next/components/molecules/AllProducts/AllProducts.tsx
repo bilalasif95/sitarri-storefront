@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
-import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
+// import ImageGallery from 'react-image-gallery';
+// import "react-image-gallery/styles/css/image-gallery.css";
 
 // import { RichTextContent } from "@components/atoms";
 
 // import { Modal } from "@components/organisms/Modal";
+
+import Carousel from "../../../../components/Carousel";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
@@ -74,7 +76,31 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
           </S.Brand>
           <S.Image>
             {tempArray.length > 0 ?
-              <ImageGallery onClick={() => redirectToShopPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                renderBottomCenterControls={props => {
+                  const indexes = [];
+                  for (let i = 0; i < props.slideCount; i++) {
+                    indexes.push(i);
+                  }
+                  return (
+                    <ul className="product-page__product__gallery__nav">
+                      {indexes.map(index => (
+                        <li
+                          key={index}
+                          onClick={props.goToSlide.bind(null, index)}
+                          className={props.currentSlide === index ? "active" : ""}
+                        >
+                          <span />
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }}>
+                {tempArray.map((img: any) => (
+                  <img onClick={() => redirectToShopPage(product.id, product.name)} src={img.original} />
+                ))}
+              </Carousel>
+              // <ImageGallery onClick={() => redirectToShopPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>

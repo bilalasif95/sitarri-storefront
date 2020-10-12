@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   overflow: hidden;
   background: #fff;
   ${media.smallScreen`
-  margin: 10px 0;
+  margin: 10px;
 `}
 `;
 export const Top = styled.div`
@@ -166,6 +166,31 @@ export const Image = styled.div`
   align-items: center;
   cursor: pointer;
   background: #f1f5f5;
+  .slider-control-bottomcenter {
+    width: 100%;
+    text-align: center;
+  }
+  .slider-slide {
+    img {
+      object-fit: cover;
+      height: 165px;
+    }
+  }
+  .product-page__product__gallery__nav {
+    li {
+      width: inherit !important;
+      span {
+        border: 1px solid #fff;
+      }
+    }
+    li:hover span {
+      background-color: #fff;
+    }
+    li.active span {
+      background-color: #fff;
+      border-color: #fff;
+    }
+  }
   > img {
     margin: 0 2px 0 0;
     max-width: 255px;

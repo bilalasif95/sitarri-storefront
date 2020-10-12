@@ -72,7 +72,7 @@ export const Tabs = styled.div<{isSticky: any}>`
     font-weight: 800;
   }
   @media(max-width: 540px){
-    margin: 7px 0 7px;
+    margin: ${props => props.isSticky ? "0px 0 7px" : "7px 0 7px"};
   }
 `;
 export const fixed = styled.div<{isSticky: any}>`

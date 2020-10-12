@@ -137,7 +137,7 @@ export const Slider = styled.div`
       }
   }
   @media(max-width: 540px){
-    padding-left: 5px;
+    padding-left: 10px;
   }
 `;
 // export const ProductsSlider = styled.div`
@@ -190,7 +190,7 @@ export const NoResult = styled.div`
 export const Loadingskeleton = styled.div`
 // Skeleton
 .Loadingskeleton{
-  padding: 2rem 0rem;
+  padding: 2rem 10px;
 }
 .Skeletonbox{
   padding: 45px 10px;

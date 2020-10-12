@@ -135,12 +135,12 @@
     
     .shopsCarousel{
       background-color: #fff !important;
-      padding: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 10px;
     }
     .productCarousel{
       .shopsCarousel{
         background-color: #fff !important;
-        padding: 5px 5px 5px 5px;
+        padding: 5px 5px 5px 10px;
         .slider-frame{
           height: 375px !important;
         }
@@ -175,7 +175,7 @@
 
 // Skeleton
 .Loadingskeleton{
-  padding: 2rem 0rem;
+  padding: 2rem 10px;
 }
 .Skeletonbar{
   height: 20px;

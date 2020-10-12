@@ -6,4 +6,6 @@ export interface IImage {
   alt?: string;
   children?: React.ReactElement;
   defaultImage?: string;
+  redirectToPhotoGalleryPage?: any;
+  productInfo?: any;
 }

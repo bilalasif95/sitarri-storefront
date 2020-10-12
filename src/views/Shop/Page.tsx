@@ -4,18 +4,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import classNames from "classnames";
 import * as React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 // import webShare from 'react-web-share-api';
 // import Media from "react-media";
 
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 
 // import { Breadcrumbs, ProductDescription } from "../../components";
 // import { ProductDescription } from "../../components";
-import { generateCategoryUrl, generatePhotoGalleryUrl, generateShopUrl } from "../../core/utils";
+import { generateCategoryUrl, generateShopUrl } from "../../core/utils";
 import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import OtherProducts from "./Other";
@@ -43,6 +43,7 @@ import {
   // MenuDropdown,
   // Offline,
   // Online,
+  Carousel,
   OverlayContext,
   OverlayTheme,
   OverlayType,
@@ -52,6 +53,7 @@ import {
 class Page extends React.PureComponent<
   {
     product: ProductDetails_product;
+    redirectToPhotoGalleryPage: any;
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
@@ -135,7 +137,7 @@ class Page extends React.PureComponent<
     window.open(url);
   }
   render() {
-    const { product } = this.props;
+    const { product, redirectToPhotoGalleryPage } = this.props;
     const productInfo = product;
     const productDescription = (
       <ProductDescription
@@ -199,9 +201,34 @@ class Page extends React.PureComponent<
                 {productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
-                      <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><GalleryCarousel images={this.getImages()} /></Link>
+                      <GalleryCarousel redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} productInfo={productInfo} images={this.getImages()} />
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
-                      : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
+                      :
+                      <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                        renderBottomCenterControls={props => {
+                          const indexes = [];
+                          for (let i = 0; i < props.slideCount; i++) {
+                            indexes.push(i);
+                          }
+                          return (
+                            <ul className="product-page__product__gallery__nav">
+                              {indexes.map(index => (
+                                <li
+                                  key={index}
+                                  onClick={props.goToSlide.bind(null, index)}
+                                  className={props.currentSlide === index ? "active" : ""}
+                                >
+                                  <span />
+                                </li>
+                              ))}
+                            </ul>
+                          );
+                        }}>
+                        {tempArray.map((img: any) => (
+                          <img onClick={() => redirectToPhotoGalleryPage(productInfo.id, productInfo.name)} src={img.original} />
+                        ))}
+                      </Carousel>
+                      // : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
                   : <div className="noPicText"></div>}

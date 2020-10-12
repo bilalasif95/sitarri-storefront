@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import * as React from "react";
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import { Link } from "react-router-dom";
@@ -34,6 +34,7 @@ import {
   // MenuDropdown,
   // Offline,
   // Online,
+  Carousel,
   OverlayContext,
   OverlayTheme,
   OverlayType,
@@ -211,7 +212,31 @@ class Page extends React.PureComponent<
                   <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
                 </div>
                 {productInfo && productInfo.images.length > 0 ?
-                  <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+                  <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                    renderBottomCenterControls={props => {
+                      const indexes = [];
+                      for (let i = 0; i < props.slideCount; i++) {
+                        indexes.push(i);
+                      }
+                      return (
+                        <ul className="product-page__product__gallery__nav">
+                          {indexes.map(index => (
+                            <li
+                              key={index}
+                              onClick={props.goToSlide.bind(null, index)}
+                              className={props.currentSlide === index ? "active" : ""}
+                            >
+                              <span />
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }}>
+                    {tempArray.map((img: any) => (
+                      <img onClick={() => this.onModalClicked()} src={img.original} />
+                    ))}
+                  </Carousel>
+                  // <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
                   // <GalleryCarousel images={this.getImages()} />
                   // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
                   : <div className="noPicText"></div>}
