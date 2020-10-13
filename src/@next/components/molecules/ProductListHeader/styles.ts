@@ -72,7 +72,7 @@ export const menuDropdown = styled.div`
       height: 100vh;
       z-index: 2;
       top: 0;
-      left: 0;2121
+      left: 0;
     }
 `;
 

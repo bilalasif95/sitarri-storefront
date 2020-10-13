@@ -394,7 +394,7 @@ svg{
 `;
 
 export const star = styled.p`
-margin: 1px 5px 0px;
+margin: 3px 5px 0px;
   svg{
     path{
       fill: #FFCE2E;

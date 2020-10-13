@@ -310,7 +310,7 @@ class Page extends React.PureComponent<
                   </div>
                   <div className="useful-links">
                     {productInfo.phone !== "" &&
-                      <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
+                      <a className="item callItem" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
                         <div className="icon">
                           <ReactSVG path={phone} />
                         </div>
@@ -338,7 +338,7 @@ class Page extends React.PureComponent<
 
 
                     {productInfo.deliverooUrl !== "" &&
-                      <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
+                      <a className="item deliveryItem" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
                         <div className="icon">
                           <ReactSVG path={delivery} />
                         </div>
