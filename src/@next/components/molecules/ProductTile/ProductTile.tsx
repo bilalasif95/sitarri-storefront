@@ -1,11 +1,11 @@
-import "react-image-gallery/styles/css/image-gallery.css";
+// import "react-image-gallery/styles/css/image-gallery.css";
 
 import { Typography } from 'antd';
 import React from "react";
 import { Link } from "react-router-dom";
 // import Carousel from "../../../../../src/components/Carousel";
 
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 
 // import { RichTextContent } from "@components/atoms";
 import { TaxedMoney } from "@components/containers";
@@ -13,17 +13,19 @@ import { TaxedMoney } from "@components/containers";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
+import Carousel from "../../../../components/Carousel";
+
 // import { Modal } from "@components/organisms/Modal";
 
 import * as S from "./styles";
-import { IProps } from "./types";
+// import { IProps } from "./types";
 // import { Tile } from "../../atoms";
 
 import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
 
 // import Rating from 'react-rating';
 
-export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => {
+export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: { product: any; redirectToProductPage: any }) => {
   const price =
     product.pricing &&
       product.pricing.priceRange &&
@@ -73,7 +75,31 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
           <S.Image>
             {/* <img src={image.url}/> */}
             {tempArray.length > 0 ?
-              <ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
+              <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                renderBottomCenterControls={props => {
+                  const indexes = [];
+                  for (let i = 0; i < props.slideCount; i++) {
+                    indexes.push(i);
+                  }
+                  return (
+                    <ul className="product-page__product__gallery__nav">
+                      {indexes.map(index => (
+                        <li
+                          key={index}
+                          onClick={props.goToSlide.bind(null, index)}
+                          className={props.currentSlide === index ? "active" : ""}
+                        >
+                          <span />
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }}>
+                {tempArray.map((img: any) => (
+                  <img onClick={() => redirectToProductPage(product.id, product.name)} src={img.original} />
+                ))}
+              </Carousel>
+              // <ImageGallery onClick={() => redirectToProductPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
               : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <S.Content>
@@ -112,7 +138,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                 <S.StoreTitle>{product.store.name}</S.StoreTitle>
                 <S.CardDetails>
                   <S.Nos>{product.store.rating}
-                    {product.store.rating === 0 ? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></S.star>}
+                    {product.store.rating === 0 ? <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></S.star> : <S.star ><svg xmlns="https://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></S.star>}
                     <S.TotalReviews>
                       ({product.store.totalReviews})
                   </S.TotalReviews>
@@ -126,7 +152,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                   <>
                     {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
                       <S.Timing>
-                        <S.Open style={{ color: "green" }}>Open </S.Open>
+                        <S.Open style={{ color: "#58C829" }}>Open </S.Open>
                         <S.Close>
                           <span />
               Closes {product.store.closingHours}
@@ -134,7 +160,7 @@ export const ProductTile: React.FC<IProps> = ({ product }: { product: any }) => 
                       </S.Timing>
                       :
                       <S.Timing>
-                        <S.Open style={{ color: "red" }}>Closed </S.Open>
+                        <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
                         <S.Close>
                           <span />
               Opens {product.store.openingHours}

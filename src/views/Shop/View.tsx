@@ -8,7 +8,7 @@ import { useCart } from "@sdk/react";
 // MetaWrapper
 import { NotFound, OfflinePlaceholder } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
-import { getGraphqlIdFromDBId } from "../../core/utils";
+import { generatePhotoGalleryUrl, getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import Page from "./Page";
 import { TypedProductDetailsQuery } from "./queries";
@@ -18,7 +18,7 @@ import Search from "../../images/search.svg";
 
 
 
-const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
+const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history }) => {
   const { addItem, items } = useCart();
   const [latitude, setLatitude] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
@@ -48,6 +48,10 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   React.useEffect(() => {
     getCurrentLocation()
   }, [])
+
+  const redirectToPhotoGalleryPage = (id, name) => {
+    history.push(generatePhotoGalleryUrl(id, name))
+  }
 
   return (
     <TypedProductDetailsQuery
@@ -408,7 +412,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
 
             return (
               // <MetaWrapper meta={extractMeta(product)}>
-              <Page product={store} add={addItem} items={items} />
+              <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
               // </MetaWrapper>
             );
 

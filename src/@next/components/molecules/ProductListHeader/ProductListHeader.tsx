@@ -96,10 +96,10 @@ const sorting: any = [
   //   label: "Rating",
   //   value: "rating",
   // },
-  {
-    label: "Distance",
-    value: "distance",
-  },
+  // {
+  //   label: "Distance",
+  //   value: "distance",
+  // },
 ];
 
 export const ProductListHeader: React.FC<IProps> = ({
@@ -178,7 +178,7 @@ export const ProductListHeader: React.FC<IProps> = ({
             >
               <Label>
                 <div>
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>icon11</title><rect className="cls-1" x="0.1" y="5.21" width="19.8" height="0.71" /><rect className="cls-1" x="0.1" y="9.67" width="19.8" height="0.71" /><rect className="cls-1" x="0.1" y="14.12" width="19.8" height="0.71" /><circle className="cls-1" cx="4.63" cy="5.54" r="2.04" /><circle className="cls-1" cx="12.51" cy="10" r="2.04" /><circle className="cls-1" cx="7.34" cy="14.46" r="2.04" />
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 20 20"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
                   </svg>
                 </div>
               </Label>
@@ -192,7 +192,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <S.Submenu>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox>
-                  <S.MenuLink>
+                    <S.MenuLink>
                       <S.SubmenuList categoriesMenu={false} onClick={() => {
                         setMenuIsOpen(!menuIsOpen);
                         onChange("", "none");

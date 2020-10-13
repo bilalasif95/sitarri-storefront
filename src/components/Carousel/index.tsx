@@ -17,7 +17,7 @@ interface CarouselType extends CarouselProps {
   length?: number;
 }
 
-const Carousel: React.FC<CarouselType> = ({ children,productDetails,length, ...rest }) => {
+const Carousel: React.FC<CarouselType> = ({ children, productDetails, length, ...rest }) => {
   const settings = {
     className: "carousel",
     renderBottomCenterControls: () => null,
@@ -54,19 +54,20 @@ const Carousel: React.FC<CarouselType> = ({ children,productDetails,length, ...r
   return (
     <Media query={{ maxWidth: smallScreen }}>
       {matches =>
-        matches ? 
-        productDetails === "categoryList" ? carousel(3.5) : (
-          carousel(1.04)
-        ) : (
-          productDetails === "productList" ?
-          <Media query={{ maxWidth: mediumScreen }}>
-            {matches => carousel(matches ? 2 : 2.5)}
-          </Media>
-          :
-          <Media query={{ minWidth: mediumScreen }}>
-            {productDetails === "productDetails" ? matches =>  carousel(matches ? 2.5 : 2.5) : productDetails === "categoryList" ? matches => carousel(matches ? 9.5 : 4) : matches => carousel(matches ? 2 : 3)}
-          </Media>
-        )
+        matches ?
+          productDetails === "categoryList" ? carousel(3.5) :
+            productDetails === "Tiles" ? carousel(1) : (
+              carousel(1.04)
+            ) : (
+            productDetails === "productList" ?
+              <Media query={{ maxWidth: mediumScreen }}>
+                {matches => carousel(matches ? 2 : 2.5)}
+              </Media>
+              :
+              <Media query={{ minWidth: mediumScreen }}>
+                {productDetails === "productDetails" ? matches => carousel(matches ? 2.5 : 2.5) : productDetails === "categoryList" ? matches => carousel(matches ? 9.5 : 4) : productDetails === "Tiles" ? matches => carousel(matches ? 1 : 1) : matches => carousel(matches ? 2 : 3)}
+              </Media>
+          )
       }
     </Media>
   );

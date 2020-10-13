@@ -162,7 +162,7 @@ export const SubmenuBox = styled.div`
       box-shadow: inherit;
       margin: 0px 0px;
       .css-11unzgr {
-        max-height: 163px;
+        max-height: 200px;
         padding: 0px 0px 0px 30px;
         .css-1gl4k7y{
           padding: 8px 55px;

@@ -11,6 +11,8 @@ export const CachedImage: React.FC<IImage> = ({
   url2x,
   alt,
   children,
+  redirectToPhotoGalleryPage,
+  productInfo,
   defaultImage = NoPhoto,
   ...props
 }: IImage) => {
@@ -47,6 +49,7 @@ export const CachedImage: React.FC<IImage> = ({
 
   return (
     <img
+      onClick={() => redirectToPhotoGalleryPage(productInfo.id, productInfo.name)}
       {...props}
       src={url}
       srcSet={url2x ? `${url} 1x, ${url2x} 2x` : `${url} 1x`}

@@ -148,7 +148,7 @@ export const productVariantFragment = gql`
 // `;
 
 export const productDetailsQuery = gql`
- query($id:ID!, $longitude: Float, $latitude: Float){
+ query StoreDetails ($id:ID!, $longitude: Float, $latitude: Float){
    store(id:$id){
     privateMetadata
     metadata
@@ -170,6 +170,7 @@ export const productDetailsQuery = gql`
      storeCategory(first:100) {
           edges{
             node{
+              id
               name
               products(first:100){
                 edges{

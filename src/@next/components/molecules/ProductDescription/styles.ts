@@ -72,7 +72,7 @@ export const Tabs = styled.div<{isSticky: any}>`
     font-weight: 800;
   }
   @media(max-width: 540px){
-    margin: 8px 0 8px;
+    margin: ${props => props.isSticky ? "0px 0 8px" : "8px 0 8px"};
   }
 `;
 export const fixed = styled.div<{isSticky: any}>`
@@ -83,7 +83,7 @@ position: relative;
   .SkeletonHeader{
     position: initial;
     background: #fff;
-    padding: 15px 16px;
+    padding: 14px 16px;
     div{
       font-weight: 700;
       text-align: center;

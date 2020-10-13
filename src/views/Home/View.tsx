@@ -18,6 +18,8 @@ import locationicon from "../../images/send.svg";
 
 import { searchUrl } from "../../app/routes";
 
+import { generateProductUrl, generateShopUrl } from "../../core/utils";
+
 import { TypedHomePageQuery } from "./queries";
 
 import { TypedSearchResults } from "../../components/OverlayManager/Search/queries";
@@ -43,6 +45,15 @@ const View: React.FC = (props: any) => {
     setSearch("")
     props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
   }
+
+  const redirectToShopPage = (id,name) => {
+    props.history.push(generateShopUrl(id,name))
+  }
+
+  const redirectToProductPage = (id,name) => {
+    props.history.push(generateProductUrl(id,name))
+  }
+
   const SetSearchEvent = (e) => {
     setSearch(e.target.value)
   }
@@ -236,6 +247,8 @@ const View: React.FC = (props: any) => {
               >
                 <Page
                   SeeDetails={SeeDetails}
+                  redirectToShopPage={redirectToShopPage}
+                  redirectToProductPage={redirectToProductPage}
                   loading={loading}
                   backgroundImage={
                     data.shop &&

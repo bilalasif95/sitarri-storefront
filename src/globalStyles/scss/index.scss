@@ -249,7 +249,7 @@ header {
 @media(max-width:540px){
   #root {
     & > div:first-of-type {
-      margin: 72px 0 0 !important;
+      margin: 0 !important;
     }
   }
   .cookie-message{
