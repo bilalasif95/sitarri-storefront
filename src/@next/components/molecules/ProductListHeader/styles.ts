@@ -1,9 +1,9 @@
 import { styled } from "@styles";
 
 export const Wrapper = styled.div`
-  margin-bottom: 35px;
+  margin-bottom: 32px;
   @media(max-width:640px){
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
 `;
 
@@ -26,8 +26,8 @@ export const SortLine = styled.div<{ sortby: any }>`
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-    right: 27px;
-    top: 16px;
+    right: 20px;
+    top: 14px;
     @media(max-width: 767px){
       right: 19px;
       top: 12px;
@@ -52,9 +52,10 @@ export const SortLine = styled.div<{ sortby: any }>`
   }
   @media(max-width: 767px){
     padding: ${props => props.sortby === "Results:" ? "3px 10px" : "4px 10px"};
-    margin-right: 10px;
+   margin-right: 10px;
 }
-`;
+`; 
+
 
 export const Indicator = styled.div<{ rotate: string }>`
   right: 1rem;
@@ -71,7 +72,7 @@ export const menuDropdown = styled.div`
       height: 100vh;
       z-index: 2;
       top: 0;
-      left: 0;
+      left: 0;2121
     }
 `;
 
@@ -84,17 +85,8 @@ export const Submenu = styled.div`
   z-index: 1;
   box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
   -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
-  // -webkit-transition-timing-function:  ease-in-out ;
-  // transition-duration: 300ms;
-  // transform: scale(1);
-  // transition-timing-function: ease-in-out;
-  // transition-property: opacity, -webkit-transform, transform;
-  // transform: scale(0.9) translateY(-1px);
-  // transform-origin: 80px 0px;
-  //   opacity: 1;
-  //   visibility: visible;
-  //   transform: scale(1);
-  //   -webkit-transform: scale(1);
+  transform: scale(1);
+  transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
@@ -251,7 +243,7 @@ export const Top = styled.div`
   }
   @media(max-width:768px){
     justify-content: space-between;
-    padding: 10px 5px;
+    padding: 0px 5px 8px;
     overflow-x: scroll;
     display: flex;
     ::-webkit-scrollbar{
@@ -297,7 +289,7 @@ export const Clear = styled.button`
   color: ${props => props.theme.colors.lightFont};
 `;
 export const Element = styled.span`
-  width:18%; 
+  width:10.2%; 
   margin: 0 0.7rem;
   @media(max-width:1024px){
     width:17%;
@@ -310,6 +302,21 @@ export const Element = styled.span`
   @media(max-width:480px){
     width:100%;
   }
+`;
+export const ResultElement = styled.span`
+width: 16%; 
+margin: 0 0.7rem;
+@media(max-width:1024px){
+  width:17%;
+  margin: 0 5px;
+}
+@media(max-width:768px){
+  width:30%;
+  margin: 0;
+}
+@media(max-width:480px){
+  width:100%;
+}
 `;
 
 export const Filters = styled.span`

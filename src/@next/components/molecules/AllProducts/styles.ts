@@ -7,9 +7,9 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 1rem;
-  -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
-  box-shadow: 0 2px 10px 0 #7090b02e;
+  margin: 6px 16px 13px 0px;
+  -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
@@ -25,10 +25,10 @@ export const Top = styled.div`
 
 export const Brand = styled.div`
   position: absolute;
-  top: 95px;
+  top: 107px;
   height: 50px;
   width: 50px;
-  left: 12px;
+  left: 8px;
   border-radius: 60px;
   overflow: hidden;
   z-index: 1;
@@ -51,7 +51,7 @@ export const EmptySpace = styled.div`
 
 export const Bottom = styled.div`
   border-radius: 5px;
-  padding: 1rem;
+  padding: 8px 16px 8px 16px;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -95,14 +95,14 @@ export const CardDetails = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   @media(max-width: 767px){
     align-items: flex-end;
     margin-bottom: 5px;
   }
 `;
 export const star = styled.p`
-  margin: 0px 10px;
+  margin: 1px 5px 0px;
   svg{
     path{
       fill: #FBCE2E;
@@ -314,6 +314,7 @@ color: #99A9B4;
 text-align: left;
 display: flex;
 align-items: center;
+font-weight: 400 !important;
 `;
 export const Likes = styled.div`
 display: flex;
@@ -324,11 +325,11 @@ align-items: center;
 export const Nos = styled.p`
   font-size: 14px
   color: #40464A;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   margin: 0 0.5rem 0 0;
   display: flex;
-  align-items: center;
+  align-items: end;
   @media(max-width: 767px){
     font-size: 12px
   }

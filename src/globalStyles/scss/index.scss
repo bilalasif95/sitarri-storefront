@@ -49,7 +49,7 @@ body {
       flex: 1;
       background: #fafafa;
       margin: 75px 0 0;
-      padding-bottom: 77px;
+      padding-bottom: 88px;
     }
   }
 
@@ -247,6 +247,11 @@ header {
   color: #09253F !important;
 }
 @media(max-width:540px){
+  #root {
+    & > div:first-of-type {
+      margin: 72px 0 0 !important;
+    }
+  }
   .cookie-message{
     margin-right: initial !important;
   }

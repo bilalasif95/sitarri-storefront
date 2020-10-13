@@ -13,7 +13,8 @@ export const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
   body {
     margin: 0;
     min-width: 320px;
-    font-family: ${props => props.theme.typography.baseFontFamily};
+    // font-family: ${props => props.theme.typography.baseFontFamily};
+    font-family: 'Roboto', sans-serif;
     font-size: ${props => props.theme.typography.baseFontSize};
     line-height: ${props => props.theme.typography.baseLineHeight};
     color: ${props => props.theme.colors.baseFont};

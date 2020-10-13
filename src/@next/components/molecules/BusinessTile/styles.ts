@@ -7,13 +7,16 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 10px 16px 16px 0px;
-  box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
-  -webkit-box-shadow: 0 2px 10px 0 rgb(117 116 116 / 10%);
+  margin: 6px 16px 13px 0px;
+  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
-  min-height: 320px;
+  min-height: 304px;
+  div:focus{
+    outline: none;
+  }
   ${media.smallScreen`
   margin: 5px 0;
   min-height: 275px;
@@ -24,7 +27,7 @@ export const CardDetails = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   @media(max-width: 767px){
     align-items: flex-end;
     margin-bottom: 5px;
@@ -38,10 +41,10 @@ export const Top = styled.div`
 `;
 export const Brand = styled.div`
   position: absolute;
-  top: 95px;
+  top: 107px;
   height: 50px;
   width: 50px;
-  left: 12px;
+  left: 8px;
   border-radius: 60px;
   overflow: hidden;
   z-index: 1;
@@ -60,7 +63,7 @@ export const Brand = styled.div`
 
 export const Bottom = styled.div`
   border-radius: 5px;
-  padding: 1rem;
+  padding: 8px 16px 8px 16px;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -105,7 +108,7 @@ export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
   font-size: 18px;
-  margin: 0 0 0.5rem;
+  margin: 0 0 4px;
   color: #40464A;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -285,6 +288,7 @@ color: #99A9B4;
 text-align: left;
 display: flex;
 align-items: center;
+font-weight: 400 !important;
 `;
 
 export const Likes = styled.div`
@@ -293,7 +297,7 @@ justify-content: flex-start;
 align-items: center;
 `;
 export const star = styled.p`
-  margin: 0px 10px;
+margin: 1px 5px 0px;
   svg{
     path{
       fill: #FBCE2E;
@@ -306,11 +310,11 @@ export const star = styled.p`
 export const Nos = styled.p`
   font-size: 14px
   color: #40464A;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   margin: 0 0.5rem 0 0;
   display: flex;
-  align-items: center;
+  align-items: end;
   @media(max-width: 767px){
     font-size: 12px
   }

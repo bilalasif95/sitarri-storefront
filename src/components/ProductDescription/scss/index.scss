@@ -10,7 +10,7 @@
       display: flex;
       font-weight: 700;
       .star{
-        margin: 0px 10px;
+        margin: 1px 5px 0px;
         svg{
           path{
             fill: #FBCE2E;
@@ -62,7 +62,7 @@
   }
   .desc{
     width: 50%;
-    margin-top: 10px;
+    margin-top: 4px;
     a {
       cursor: pointer;
     }
@@ -91,7 +91,7 @@
     font-weight: 600;
     color: #09253F;
     text-align: left;
-    margin: 15px 0px 8px;
+    margin: 15px 0px 4px;
     font-size: 18px;
 
   }

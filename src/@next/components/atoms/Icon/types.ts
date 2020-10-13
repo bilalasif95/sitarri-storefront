@@ -6,4 +6,6 @@ export interface IProps {
   name: IconName;
   color?: string | string[];
   size?: number;
+  width?: number;
+  height?: number;
 }

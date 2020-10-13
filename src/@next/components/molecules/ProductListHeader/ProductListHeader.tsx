@@ -184,7 +184,7 @@ export const ProductListHeader: React.FC<IProps> = ({
               </Label>
               <Label>Filters</Label>
               <S.Indicator rotate={String(menuIsOpen)}>
-                <Icon name="select_arrow" color={"#000"} size={8} />
+              <Icon name="select_arrow" color={"#40464A"} width={8} height={8} />
               </S.Indicator>
             </S.SortLine>
             {menuIsOpen &&
@@ -297,14 +297,14 @@ export const ProductListHeader: React.FC<IProps> = ({
                   </Label>
                   <Label>Sort by</Label>
                   <S.Indicator rotate={String(isSortMenuOpened)}>
-                    <Icon name="select_arrow" color={"#000"} size={8} />
+                  <Icon name="select_arrow" color={"#40464A"} width={8} height={8} />
                   </S.Indicator>
                 </S.SortLine>
               </span>
             </SelectMenu>
           </S.Sort>
         </S.Element>
-        <S.Element>
+        <S.ResultElement>
           <S.Sort data-cy="dropdown-select" ref={setResultsElementRef()}>
             <SelectMenu
               title="Results"
@@ -328,13 +328,13 @@ export const ProductListHeader: React.FC<IProps> = ({
                   </Label>
                   <Label>Results: {resultType.label}</Label>
                   <S.Indicator rotate={String(isResultsMenuOpened)}>
-                    <Icon name="select_arrow" color={"#000"} size={8} />
+                    <Icon name="select_arrow" color={"#40464A"} width={8} height={8} />
                   </S.Indicator>
                 </S.SortLine>
               </span>
             </SelectMenu>
           </S.Sort>
-        </S.Element>
+        </S.ResultElement>
       </S.Top>
     </S.Wrapper>
   );

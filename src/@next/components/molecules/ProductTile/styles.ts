@@ -7,9 +7,9 @@ const textProps = css`
   text-align: left;
 `;
 export const Wrapper = styled.div`
-  margin: 10px 16px 16px 0px;
-  box-shadow: 0 2px 10px 0 #7090b02e;
-  -webkit-box-shadow: 0 2px 10px 0 #7090b02e;
+  margin: 6px 16px 13px 0px;
+  -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
   border-radius: 10px;
   overflow: hidden;
   min-height: 387px;
@@ -33,7 +33,7 @@ export const Top = styled.div`
 
 export const Bottom = styled.div`
   border-radius: 5px;
-  padding: 1rem;
+  padding: 8px 16px 8px 16px;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -41,7 +41,7 @@ export const Bottom = styled.div`
   align-items: center;
   border-top:  1px solid #f5f5f5;
   @media(max-width: 767px) {
-    padding: 20px 10px 20px 10px;
+    padding: 8px 16px 8px 16px;
     align-items: flex-end;
   }
 `;
@@ -117,6 +117,7 @@ color: #99A9B4;
 text-align: left;
 display: flex;
 align-items: center;
+font-weight: 400 !important;
 `;
 export const Desc = styled.p`
 font-weight: normal;
@@ -321,11 +322,11 @@ align-items: center;
 export const Nos = styled.p`
   font-size: 14px
   color: #40464A;
-  font-weight: 600;
+  font-weight: 700;
   text-align: left;
   // margin: 0 0.5rem 0 0;
   display: flex;
-  align-items: center;
+  align-items: end;
   @media (max-width: 767px){
     font-size: 12px
    }
@@ -367,7 +368,7 @@ svg{
 `;
 
 export const star = styled.p`
-  margin: 0px 10px;
+margin: 1px 5px 0px;
   svg{
     path{
       fill: #FBCE2E;

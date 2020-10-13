@@ -180,10 +180,10 @@ class Page extends React.PureComponent<
     return <OverlayContext.Consumer>
       {overlayContext => (
         <>
-          <ToastContainer />
+          
           <div className="Shop-page">
             <div className="container">
-              <div className="product-page__product">
+              <div className="product-page__shop">
 
                 <div className="SkeletonHeader">
                   <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
@@ -440,6 +440,7 @@ class Page extends React.PureComponent<
               </div>
             }
           </div>
+          <ToastContainer />
         </>
       )
       }

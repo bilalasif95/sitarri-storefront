@@ -153,7 +153,7 @@ export const ProductDescription: React.FC<IProps> = ({
                         setTabProduct(value.label, value.products)
                       }}
                     >
-                      <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
+                      <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#40464A"} width={8} height={8} /></S.Indicator></S.ButtonSpan></Button>
                     </SelectMenu>
                     // <DropdownSelect
                     //   sortBy="More"
@@ -189,7 +189,7 @@ export const ProductDescription: React.FC<IProps> = ({
                           setTabProduct(value.label, value.products)
                         }}
                       >
-                        <Button><S.ButtonSpan onClick={() => setMoreMenuIsOpen(!isMoreMenuOpened)}>More<S.Indicator rotate={String(isMoreMenuOpened)}><Icon name="select_arrow" color={"#000"} size={8} /></S.Indicator></S.ButtonSpan></Button>
+                        <Button><S.ButtonSpan onClick={() => setMoreMenuIsOpen(!isMoreMenuOpened)}>More<S.Indicator rotate={String(isMoreMenuOpened)}><Icon name="select_arrow" color={"#40464A"} width={8} height={8} /></S.Indicator></S.ButtonSpan></Button>
                       </SelectMenu>
 
                     </S.Select>

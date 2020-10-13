@@ -3,13 +3,13 @@ import { media, styled } from "@styles";
 export const ProductList = styled.div`
   margin: 0 0 1rem;
   h3{
-    padding: 20px 0px 20px 12px;
+    padding: 13px 0px 13px 8px;
     font-size: 18px !important;
     color: #09253F;
   }
   ${media.smallScreen`
   h3{
-    padding: 12.5px 0px 12.5px 5px;
+    // padding: 12.5px 0px 12.5px 5px;
     font-size: 1rem;
     color: #09253F;
   }
@@ -27,7 +27,7 @@ export const Carouseltitle = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0px 5px;
+  // padding: 0px 5px;
   padding-right: 12px;
   p{
     font-size: 12px;
@@ -36,8 +36,9 @@ export const Carouseltitle = styled.div`
       cursor: pointer;
     }
     img{
-      width: 5px;
-      margin-left: 5px;
+    width: 6.18px;
+    height: 10px;
+    margin-left: 8px;
     }
   }
 `;
@@ -71,7 +72,7 @@ overflow: hidden;
 
 export const Shops = styled.div`
   background-color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
   div:focus{
       outline: none;
   }
@@ -114,7 +115,7 @@ export const Shops = styled.div`
     }
   }
   @media(max-width: 540px){
-    margin-bottom: 7px;
+    margin-bottom: 8px;
   }
 `;
 export const ProductsShop = styled.div`
@@ -126,14 +127,14 @@ export const ProductsShop = styled.div`
 export const Slider = styled.div`
   padding-left: 12px;
   .slider-frame{
-      padding-bottom: 25px !important;
+      padding-bottom: 19px !important;
       ul{
         li:focus{
           outline: none;
         }
       }
       @media(max-width: 540px){
-        padding-bottom: 15px !important;
+        padding-bottom: 12px !important;
       }
   }
   @media(max-width: 540px){
