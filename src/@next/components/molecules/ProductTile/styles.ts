@@ -396,7 +396,7 @@ export const star = styled.p`
   margin: 0px 10px;
   svg{
     path{
-      fill: #FBCE2E;
+      fill: #FFCE2E;
     }
   }
   @media(max-width: 540px){

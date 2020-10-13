@@ -596,7 +596,8 @@
   }
 }
 .ShareIcon{
-  svg{
+  svg * {
+    fill: #09253F;
     &:hover{
       transform: none !important;
     }
@@ -837,6 +838,11 @@
 
 .m-0 {
   margin: 0px !important;
+  svg{
+    path {
+      fill: #09253F !important;
+    }
+  }
 }
 
 @media(max-width: 767px){

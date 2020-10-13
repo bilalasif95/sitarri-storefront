@@ -41,7 +41,6 @@ import {
 } from "../../components";
 
 import backIcon from "../../images/back.svg";
-// import clock from "../../images/iconmonstr-time-2.svg";
 import Search from "../../images/search.svg";
 
 class Page extends React.PureComponent<
@@ -299,7 +298,7 @@ class Page extends React.PureComponent<
                           {productInfo.store && productInfo.store.rating}
                           {productInfo.store && productInfo.store.rating === 0 ?
                             <div className="Star" ><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg></div>
-                            : <div className="Star"><svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"></path></svg></div>}
+                            : <div className="Star"><svg xmlns="https://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>}
                           <div className="TotalReviews">
 
                             ({productInfo.store && productInfo.store.totalReviews})
@@ -323,7 +322,7 @@ class Page extends React.PureComponent<
                             </div>
                             :
                             <div className="Timing">
-                              <div className="Open" style={{ color: "red" }}>Closed </div>
+                              <div className="Open" style={{ color: "#FF2F2D" }}>Closed </div>
                               <div className="Close">
                                 <span />
                           Opens

@@ -28,16 +28,17 @@ import { ProductDescription as NewProductDescription } from "../../@next/compone
 import ReactSVG from "react-svg";
 import backIcon from "../../images/back.svg";
 import facebook from "../../images/facebook.svg";
+import delivery from "../../images/food-bike-delivery.svg";
 import direction from "../../images/iconmonstr-crosshair-6.svg";
-import website from "../../images/iconmonstr-globe-5.svg";
 import location from "../../images/iconmonstr-location-1.svg";
 import phone from "../../images/iconmonstr-phone-1.svg";
-import clock from "../../images/iconmonstr-time-2.svg";
 import instagram from "../../images/instagram.svg";
-import delivery from "../../images/scooter.svg";
+import clock from "../../images/schedule-24px.svg";
 import Search from "../../images/search.svg";
 // import Share from "../../images/share.svg";
 import twitter from "../../images/twitter.svg";
+
+import website from "../../images/Icon_metro-earth.svg";
 
 import {
   // MenuDropdown,
@@ -382,7 +383,7 @@ class Page extends React.PureComponent<
                           </div>
                           :
                           <div className="timing">
-                            <p style={{ color: "red" }}>Closed</p>
+                            <p style={{ color: "#FF2F2D" }}>Closed</p>
                             <span />
                             <p>Opens {productInfo.openingHours}</p>
                           </div>}
