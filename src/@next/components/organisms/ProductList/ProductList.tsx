@@ -1,9 +1,15 @@
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/swiper.scss';
+
 import React from "react";
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Link } from "react-router-dom";
 
 // import { Loader } from "@components/atoms";
 import { BusinessTile, ProductTile } from "@components/molecules";
-import Carousel from "../../../../../src/components/Carousel";
+// import Carousel from "../../../../../src/components/Carousel";
 
 // import { generateProductUrl } from "../../../../core/utils";
 
@@ -13,6 +19,8 @@ import * as S from "./styles";
 import { IProps } from "./types";
 
 import { AllProducts } from "../../molecules/AllProducts";
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export const ProductList: React.FC<IProps> = ({
   activeSortTypeBase,
@@ -49,6 +57,40 @@ export const ProductList: React.FC<IProps> = ({
     }, "showType")
     // setShowProductsResults(true)
   }
+  const HorizontalSwiperParams = {
+    breakpoints: {
+      1024: {
+        slidesPerView: 2.5,
+      },
+      768: {
+        slidesPerView: 2.5,
+      },
+      640: {
+        slidesPerView: 1.04,
+      },
+      320: {
+        slidesPerView: 1.04,
+      },
+    },
+    slidesPerView: 2.5,
+  };
+  const ProductsHorizontalSwiperParams = {
+    breakpoints: {
+      1024: {
+        slidesPerView: 2.5,
+      },
+      768: {
+        slidesPerView: 2.5,
+      },
+      640: {
+        slidesPerView: 1.04,
+      },
+      320: {
+        slidesPerView: 1.04,
+      },
+    },
+    slidesPerView: 2.5,
+  }
   return (
     <>
       {!loading ?
@@ -73,11 +115,13 @@ export const ProductList: React.FC<IProps> = ({
                     <S.Slider>
                       {!showShopResults ?
                         <S.OnlyCarousel>
-                          <Carousel length={stores.length} dragging={false} productDetails={"productList"}>
+                          <Swiper navigation {...HorizontalSwiperParams}>
+                            {/* <Carousel length={stores.length} dragging={false} productDetails={"productList"}> */}
                             {stores && stores.map(product => (
-                              <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
+                              <SwiperSlide><BusinessTile redirectToShopPage={redirectToShopPage} product={product} /></SwiperSlide>
                             ))}
-                          </Carousel>
+                          </Swiper>
+                          {/* </Carousel> */}
                         </S.OnlyCarousel>
                         : <S.AllShops>
                           {stores && stores.map(product => (
@@ -105,11 +149,13 @@ export const ProductList: React.FC<IProps> = ({
                       <S.Slider>
                         {!showProductsResults ?
                           <S.OnlyCarousel>
-                            <Carousel length={products.length} dragging={false} productDetails={"productList"}>
+                            <Swiper navigation {...ProductsHorizontalSwiperParams}>
+                              {/* <Carousel length={products.length} dragging={false} productDetails={"productList"}> */}
                               {products.map(product => (
-                                <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
+                                <SwiperSlide><ProductTile redirectToProductPage={redirectToProductPage} product={product} /></SwiperSlide>
                               ))}
-                            </Carousel>
+                            </Swiper>
+                            {/* </Carousel> */}
                           </S.OnlyCarousel>
                           : <S.AllShops>
                             {products.map(product => (
