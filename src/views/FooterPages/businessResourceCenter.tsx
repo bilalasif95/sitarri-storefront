@@ -120,13 +120,14 @@ const ContactUs: React.FC = () => (
             <div className="BecomeTypography">
          <p className="FormQuestion">Unified Marketing Platform</p>
          <h3 className="partnerTitle">Become a Sitarri Partner Today</h3>
-         <p className="partnerheading">Connect your POS or Upload your products and be live on Sitarri in just 1 day.</p>
+         
          </div>
+         <p className="partnerheading">Connect your POS or Upload your products and be live on Sitarri in just 1 day.</p>
          <ul className="partnerList">
             <li><img src={Check} />Stand out on to customers with a free Sitarri profile.</li>
-            <li><img src={Check} /><img />Keep customers up-to-date, with accurate products, opening times, prices and photos.</li>
-            <li><img src={Check} /><img />Al you business information in one place.Link your Sitarri profile to your,social media accounts,website,delivery partner pages and Google account.</li>
-            <li><img src={Check} /><img />Anyone can use Sitarri free of charge Really, we mean it.</li>
+            <li><img src={Check}  />Keep customers up-to-date, with accurate products, opening times, prices and photos.</li>
+            <li><img src={Check}  />Al you business information in one place.Link your Sitarri profile to your,social media accounts,website,delivery partner pages and Google account.</li>
+            <li><img src={Check}  />Anyone can use Sitarri free of charge Really, we mean it.</li>
          </ul>
          </div>
          </div>

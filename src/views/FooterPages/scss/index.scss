@@ -13,11 +13,11 @@
   .ContactContent{
     display: flex;
     .ContactText{ 
-    padding: 100px 0px 220px 60px;
+    padding: 80px 0px 371px 60px;
     width: 45%;
       h3{
         font-weight: 700;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
         color: #fff;
         font-size: 48px;
       }
@@ -30,25 +30,25 @@
       width: 55%;
       position: relative;
       .FormContent{
-        width: 92%;
+        width: 100%;
         position: absolute;
-        top: 40px;
+        top: 48px;
         .formTypography{
-          background-color: #eff4f8de;
-          padding: 35px 30px 35px 30px;
-          margin-bottom: 20px;
+          background-color: #eff4f8eb;
+          padding: 42px 50px 50px 32px;
+          margin-bottom: 24px;
           border-radius: 8px;
-          box-shadow: 3px 6px 15px #7090b02e;
-          -webkit-box-shadow: 3px 6px 15px #7090b02e;
+          box-shadow: 3.178px 6.237px 23px #7090b04d;
+          -webkit-box-shadow: 3.178px 6.237px 23px #7090b04d;
           .FormTitle{
             font-weight: 700;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             color: #09253F;
             font-size: 32px;
           }
           .FormQuestion{
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             // font-size: 15px;
             color: #FBC73C;
             font-size: 18px;
@@ -63,6 +63,9 @@
             color: #647EDE;
             font-size: 14px;
           }
+        }
+        .lastBox{
+          margin-bottom: 0px !important;
         }
       }
     }
@@ -82,7 +85,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    margin-bottom: 120px;
+    margin-bottom: 370px;
   .addBusiness{
     display: flex;
     .BusinessContent{
@@ -95,7 +98,7 @@
           margin-bottom: 25px;
         }
         color: #fff;
-        padding: 100px 0px 150px 0px;
+        padding: 100px 0px 220px 0px;
         
         }
       }
@@ -114,8 +117,8 @@
         }
         .mobile{
           position: absolute;
-          right: 250px;
-          top: 105px;
+          right: 355px;
+          top: 150px;
         }
       }
     }
@@ -123,14 +126,14 @@
 // Add-Business
 .FormQuestion{
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: #FBC73C;
   font-size: 18px;
 }
 .JoinTitle{
   font-weight: 700;
   color: #09253F;
-  margin: 15px 0px;
+  margin: 18px 0px 32px;
   // padding: 0px 5px;
   font-size: 32px;
 }
@@ -149,7 +152,7 @@
   text-align: center;
   .boxHeading{
     color: #09253F;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-size: 18px;
   }
   .joinBoxestext{
@@ -172,10 +175,10 @@
     width: 100%;
     margin-top: -120px;
     .partnerContent{
-      padding: 250px 0px 140px;
+      padding: 295px 0px 200px;
       .partnerTitle{
         color: #fff;
-        margin-bottom: 45px;
+        margin-bottom: 48px;
         font-weight: 700;
         font-size: 32px;
       }
@@ -183,20 +186,23 @@
         color: #fff;
         font-size: 18px;
         font-weight: 700;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+        padding: 0px 8px;
       }
       .partnerList{
         margin-top: 20px;
         li{
           position: relative;
-          margin-bottom: 30px;
-          padding-left: 50px;
+          margin-bottom: 8px;
+          padding-left: 25px;
           color: #8899A9;
           font-size: 14px;
           img{
             position: absolute;
             left: 0;
-            top: -5px;
+            top: 1px;
+            height: 16px;
+            width: 16px;
           }
         }
       }
@@ -209,7 +215,7 @@
 .WorkContent{
   display: flex;
   justify-content: space-between;
-  margin-top: 30PX;
+  margin-top: 32px;
   background-color: #EAF0F5;
   border-radius: 5px;
   box-shadow: 3px 2px 5px #7090b02e;
@@ -217,7 +223,7 @@
   
 .joinBoxes{
   width: 30%;
-  padding: 20px 20px;
+  padding: 16px 20px;
   border-radius: 5px;
   text-align: center;
   .boxHeading{
@@ -245,9 +251,9 @@
     align-items: center;
     justify-content: space-between;
     background-image: linear-gradient(to right, #F5A521 , #FAC73B);
-    padding: 30px 40px;
+    padding: 32px 48px;
     border-radius: 5px;
-    margin: 70px 0px 0px;
+    margin: 107px 0px 0px;
     .ContactusTitle{
       color: #fff;
       font-weight: 700;
@@ -257,7 +263,7 @@
       background-color: #0A2540;
       color: #fff;
       padding: 8px 20px;
-      border-radius: 50px;
+      border-radius: 21px;
       display: inline-block;
       svg{
         margin-left: 20px;
@@ -286,7 +292,7 @@
     display: initial;
 }
 .homePage .ContactContent .ContactText {
-  padding: 45px 5px 350px 15px;
+  padding: 45px 5px 350px 16px;
   // text-align: center;
   width: 100%;
 
@@ -303,7 +309,7 @@ h2{
   .FormContent{
     width: 100%;
     top: -340px;
-    padding: 35px 5px 5px 5px;
+    padding: 35px 8px 5px 8px;
   }
 } 
 .homePage .ContactContent .ContactFrom .FormContent{
@@ -329,7 +335,7 @@ h2{
     display: initial;
     .BusinessContent{
       width: 100%;
-      padding: 0px 5px;
+      padding: 0px 16px;
       .BusinessForm {
         display: block;
       .BusinessBtns{
@@ -351,14 +357,14 @@ h2{
           width: 85%;
         }
         .food{
-          margin-top: -35px;
+          margin-top: -80px;
         }
       }
     }
   }
 }
 .Businessbg .addBusiness .BusinessContent .BusinessText{
-  padding: 40px 10px 220px 10px;
+  padding: 40px 0px 220px 0px;
   h3{
   line-height: 35px;
 }
@@ -390,6 +396,12 @@ h2{
 }
 
 @media(max-width: 540px){
+  .homePage .ContactContent .ContactText h3{
+    font-size: 38px;
+  }
+  .homePage .ContactContent .ContactText p {
+    margin-bottom: 21px;
+  }
   .partner {
     margin-top: -150px;
     .partnerContent {
@@ -397,7 +409,7 @@ h2{
   }
 }
   .Businessbg{
-    margin-bottom: 285%;
+    margin-bottom: 270%;
   }
   .BusinessText{
     h3{
@@ -408,7 +420,7 @@ h2{
     line-height: 35px;
   }
   .joinSitarri{
-    padding: 0px 15px;
+    padding: 0px 8px;
   }
   .food{
     width: 100%;
@@ -421,7 +433,7 @@ h2{
     padding: 0px 15px;
   }
   .BecomeTypography{
-    padding: 0px 8px;
+    padding: 0px 16px;
   }
   .partnerTitle{
     font-size: 33px !important;
@@ -440,7 +452,7 @@ h2{
   }
 }
 .Businessbg {
-  margin-bottom: 285%;
+  margin-bottom: 260%;
 }
 .BusinessText h3{
   font-size: 40px !important;
@@ -449,7 +461,7 @@ h2{
   }
   @media (max-width: 375px){
     .Businessbg {
-      margin-bottom: 280%;
+      margin-bottom: 255%;
     }  
     .BusinessText h3{
       font-size: 36px !important;
@@ -467,7 +479,7 @@ h2{
     }
   }
   .Businessbg{
-    margin-bottom: 270%;
+    margin-bottom: 255%;
   }
   .BusinessText h3{
     font-size: 30px !important;
@@ -523,10 +535,11 @@ h2{
   }
   .SignupBtn, .SigninBtn{
     text-align: center;
-    padding: 8px 0px;
+    padding: 10.5px 0px;
     display: block;
     border-radius: 50px;
     width: 45%;
+    font-size: 16px;
     svg{
       margin-left: 20px;
     }
@@ -542,4 +555,11 @@ h2{
 .joinText{
   font-size: 14px;
   color: #435365;
+}
+@media(min-width: 1200px){
+  .Businessbg{
+    .container{
+      width: 1366px;
+    }
+  }
 }
