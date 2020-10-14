@@ -86,7 +86,7 @@ export const Shops = styled.div`
       text-align: center !important;
       padding: 0px;
       svg{
-        margin-top: 12px !important;
+        margin-top: 16px !important;
       }
     }
     @media(max-width: 768px){

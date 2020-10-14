@@ -30,7 +30,7 @@ const ContactUs: React.FC = () => (
                         <a className="FormLink" href="mailto:partner@sitarri.co.uk">partner@sitarri.co.uk</a>
                      </div>
 
-                     <div className="formTypography">
+                     <div className="formTypography lastBox">
                      <p className="FormQuestion">From the press?</p>
                         <h3 className="FormTitle">Press Enquiries</h3>
                        

@@ -440,18 +440,33 @@
     }
   }
 }
+.Shop-page {
 .slider-control-centerright{
   right: -23px !important;
   .carousel__control{
     padding: 0.1rem 0.5rem;
     height: 48px;
     width: 48px;
+    svg{
+      transform: rotate(180deg);
+      margin-top: 16px;
+      width: 15px;
+      margin-left: 9px;
+    }
   }
 }
 .slider-control-centerleft{
   left: -23px !important;
   height: 48px;
   width: 48px;
+  .carousel__control{
+    svg{
+      margin-top: 14px;
+      width: 15px;
+      margin-left: 6px !important;
+    }
+  }
+}
 }
 .SocialContent{
   display: flex;
