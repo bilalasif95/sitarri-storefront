@@ -68,7 +68,7 @@
       .swiper-wrapper{        
         .swiper-slide{
           >img{
-            width: 100%;
+            width: 424px;
             height: 165px;
             object-fit: cover;
           }
@@ -440,6 +440,12 @@
 }
 }
 @media (max-width: 540px){
+  .swiper-button-next{
+    display: none;
+  }
+  .swiper-button-prev{
+    display: none;
+  }
   .categoryCarousel{
     padding: 5px 0px 0px 12px !important;
     .pro-list{

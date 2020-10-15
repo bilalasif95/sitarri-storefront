@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
       .swiper-wrapper{        
         .swiper-slide{
           >img{
-            width: 100%;
+            width: 424px;
             height: 165px;
             object-fit: cover;
           }
@@ -39,6 +39,9 @@ export const Wrapper = styled.div`
           font-weight: 900;
           color: #FF4B13;
         }
+        @media(max-width: 540px){
+          display: none;
+        }
       } 
 
 
@@ -57,6 +60,9 @@ export const Wrapper = styled.div`
           font-size: 16px;
           font-weight: 900;
           color: #FF4B13;
+        }
+        @media(max-width: 540px){
+          display: none;
         }
       } 
       >.swiper-pagination-bullets{
@@ -219,6 +225,16 @@ export const Image = styled.div`
   align-items: center;
   cursor: pointer;
   background: #f1f5f5;
+  // .swiper-container-horizontal{
+  //   .swiper-slide{
+  //    >img{
+  //      width: 424px;
+  //      object-fit: cover;
+  //      height: 165px;
+  //    }
+  //   }
+  // }
+
   .slider-control-bottomcenter {
     width: 100%;
     text-align: center;

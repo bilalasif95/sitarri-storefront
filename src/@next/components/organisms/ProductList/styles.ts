@@ -119,6 +119,12 @@ export const Shops = styled.div`
   }
 `;
 export const ProductsShop = styled.div`
+.swiper-button-prev{
+  top: 40% !important;
+}
+.swiper-button-next{
+  top: 40% !important;
+}
 .slider-control-centerright{
   top:45%;
   right: -20px;
@@ -128,10 +134,11 @@ export const Slider = styled.div`
   padding-left: 12px;
   position: relative;
   .swiper-container-horizontal{
+    margin-left: inherit;
     .swiper-wrapper{        
       .swiper-slide{
         >img{
-          width: 100%;
+          width: 424px;
           height: 165px;
           object-fit: cover;
         }
@@ -160,6 +167,9 @@ export const Slider = styled.div`
         width: 25px;
         // line-height: 17px;
       }
+      @media(max-width: 540px){
+        display: none;
+      }
     } 
 
 
@@ -185,6 +195,9 @@ export const Slider = styled.div`
         /* height: 15px; */
         width: 30px;
         // line-height: 16px;
+      }
+      @media(max-width: 540px){
+        display: none;
       }
     } 
     >.swiper-pagination-bullets{
