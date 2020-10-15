@@ -59,7 +59,7 @@ export const AllShops = styled.div`
   }
   @media (max-width: 540px){
     grid-template-columns: 1fr;
-    padding 0px 5px;
+    // padding 0px 5px;
   }
 `
 export const hrBorder =styled.div`
@@ -125,7 +125,7 @@ export const ProductsShop = styled.div`
 }
 `;
 export const Slider = styled.div`
-  padding-left: 12px;
+  padding-left: 8px;
   position: relative;
   .swiper-container-horizontal{
     .swiper-wrapper{        
@@ -209,9 +209,6 @@ export const Slider = styled.div`
         padding-bottom: 12px !important;
       }
   }
-  @media(max-width: 540px){
-    padding-left: 10px;
-  }
 `;
 // export const ProductsSlider = styled.div`
 
@@ -228,7 +225,7 @@ export const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0;
-
+  margin-left: 8px;
   ${media.largeScreen`
     grid-template-columns: 1fr 1fr;
     grid-gap: ;
@@ -237,6 +234,7 @@ export const List = styled.div`
   ${media.smallScreen`
     grid-template-columns: 1fr;
     grid-gap: ;
+    margin-left: 0px;
   `}
 `;
 

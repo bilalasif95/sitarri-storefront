@@ -29,6 +29,7 @@ const search: React.FC = (props: any) => {
     const [longitude, setLongitude] = useState(0)
     const SeeDetails = (searchWord) => {
         setSearch("");
+        overlay.hide();
         props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
     }
 

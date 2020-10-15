@@ -20,8 +20,8 @@ export const Wrapper = styled.div`
   ${media.smallScreen`
   margin: 0;
   min-height: 362px;
-  margin-top: 5px;
-  margin-right: 5px;
+  margin-top: 6px;
+  margin-right: 8px;
 `}
 `;
 export const Top = styled.div`

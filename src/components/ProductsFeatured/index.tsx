@@ -204,8 +204,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
               },
             },
             navigation: {
-              nextEl: '#js-prev1',
-              prevEl: '#js-next1',
+              nextEl: '#js-next1',
+              prevEl: '#js-prev1',
             },
             slidesPerView: 2.5,
           };
@@ -225,8 +225,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
               },
             },
             navigation: {
-              nextEl: '#js-prev2',
-              prevEl: '#js-next2',
+              nextEl: '#js-next2',
+              prevEl: '#js-prev2',
             },
             slidesPerView: 2.5,
           }

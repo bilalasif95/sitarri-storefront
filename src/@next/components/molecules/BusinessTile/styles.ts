@@ -82,8 +82,8 @@ export const Wrapper = styled.div`
     outline: none;
   }
   ${media.smallScreen`
-  margin: 5px 0;
-  margin-right: 5px;
+  margin: 6px 0;
+  margin-right: 8px;
   min-height: 275px;
 `}
 `;
@@ -103,6 +103,7 @@ export const Top = styled.div`
   background: #fff;
   transition: 0.3s;
   position: relative;
+  z-index: 1;
 `;
 export const Brand = styled.div`
   position: absolute;
