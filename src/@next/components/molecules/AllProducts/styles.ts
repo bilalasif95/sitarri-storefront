@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
+  
   ${media.smallScreen`
   margin: 10px;
 `}
@@ -31,7 +32,7 @@ export const Brand = styled.div`
   left: 8px;
   border-radius: 60px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   > img {
     height: 50px;
     width: 50px;

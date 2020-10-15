@@ -48,7 +48,7 @@ export const OnlyCarousel = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-`
+`;
 
 export const AllShops = styled.div`
   display: grid;
@@ -126,6 +126,78 @@ export const ProductsShop = styled.div`
 `;
 export const Slider = styled.div`
   padding-left: 12px;
+  position: relative;
+  .swiper-container-horizontal{
+    .swiper-wrapper{        
+      .swiper-slide{
+        >img{
+          width: 100%;
+          height: 165px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+    .swiper-button-next{
+      background: #fff !important;
+      height: 48px;
+      width: 48px;
+      border-radius: 25px;
+      box-shadow: 0px 3px 6px #0000000D;
+      -webkit-box-shadow: 0px 3px 6px #0000000D;
+      top: 30%;
+      right: -25px;
+      z-index: 1;
+      &:after{
+        font-size: 16px;
+        font-weight: 900;
+        color: transparent;
+        background-image: url("../../../../images/iconmonstr-arrow-64.svg");
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        /* background-size: contain; */
+        /* height: 15px; */
+        width: 25px;
+        // line-height: 17px;
+      }
+    } 
+
+
+    .swiper-button-prev{
+      background: #fff !important;
+      height: 48px;
+      width: 48px;
+      border-radius: 25px;
+      box-shadow: 0px 3px 6px #0000000D;
+      -webkit-box-shadow: 0px 3px 6px #0000000D;
+      top: 30%;
+      left: -15px;
+      z-index: 1;
+          opacity: inherit;
+      &:after{
+        font-size: 16px;
+        font-weight: 900;
+        color: transparent;
+        background-image: url("../../../../images/iconmonstr-arrow-64.svg");
+        background-repeat: no-repeat;
+        // transform: rotate(180deg);
+        /* background-size: contain; */
+        /* height: 15px; */
+        width: 30px;
+        // line-height: 16px;
+      }
+    } 
+    >.swiper-pagination-bullets{
+      bottom: 8px !important;
+      span{
+        background: #fff !important;
+      }
+      @media(max-width: 540px){
+        bottom: 25px !important;
+      }
+    }
+
+
   .slider-frame{
       padding-bottom: 19px !important;
       ul{

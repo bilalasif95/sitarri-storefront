@@ -14,6 +14,70 @@ export const Wrapper = styled.div`
   overflow: hidden;
   background: #fff;
   min-height: 304px;
+
+  .swiper-container-horizontal{
+      .swiper-wrapper{        
+        .swiper-slide{
+          >img{
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+          }
+        }
+      }
+      .swiper-button-next{
+        background: #fff !important;
+        height: 48px;
+        width: 48px;
+        border-radius: 25px;
+        box-shadow: 0px 3px 6px #0000000D;
+        -webkit-box-shadow: 0px 3px 6px #0000000D;
+        top: 30%;
+        right: 0px;
+        &:after{
+          font-size: 16px;
+          font-weight: 900;
+          color: #FF4B13;
+        }
+      } 
+
+
+      .swiper-button-prev{
+        background: #fff !important;
+        height: 48px;
+        width: 48px;
+        border-radius: 25px;
+        box-shadow: 0px 3px 6px #0000000D;
+        -webkit-box-shadow: 0px 3px 6px #0000000D;
+        top: 30%;
+        left: 0px;
+        z-index: 2;
+            opacity: inherit;
+        &:after{
+          font-size: 16px;
+          font-weight: 900;
+          color: #FF4B13;
+        }
+      } 
+      >.swiper-pagination-bullets{
+        bottom: 8px !important;
+        span{
+          background: #fff !important;
+        }
+        @media(max-width: 540px){
+          bottom: 25px !important;
+        }
+      }
+    }
+  
+  // .swiper-container-horizontal{
+  //   >.swiper-pagination-bullets{
+  //     bottom: 8px !important;
+  //     span{
+  //       background: #fff !important;
+  //     }
+  //   }
+  // }
   div:focus{
     outline: none;
   }
@@ -48,7 +112,7 @@ export const Brand = styled.div`
   left: 8px;
   border-radius: 60px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   > img {
     height: 50px;
     width: 50px;

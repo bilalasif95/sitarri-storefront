@@ -72,6 +72,10 @@ export const ProductList: React.FC<IProps> = ({
         slidesPerView: 1.04,
       },
     },
+    navigation: {
+      nextEl: '#js-prev1',
+      prevEl: '#js-next1',
+    },
     slidesPerView: 2.5,
   };
   const ProductsHorizontalSwiperParams = {
@@ -88,6 +92,10 @@ export const ProductList: React.FC<IProps> = ({
       320: {
         slidesPerView: 1.04,
       },
+    },
+    navigation: {
+      nextEl: '#js-prev2',
+      prevEl: '#js-next2',
     },
     slidesPerView: 2.5,
   }
@@ -115,13 +123,16 @@ export const ProductList: React.FC<IProps> = ({
                     <S.Slider>
                       {!showShopResults ?
                         <S.OnlyCarousel>
-                          <Swiper navigation {...HorizontalSwiperParams}>
+                          
+                          <Swiper {...HorizontalSwiperParams}>
                             {/* <Carousel length={stores.length} dragging={false} productDetails={"productList"}> */}
                             {stores && stores.map(product => (
                               <SwiperSlide><BusinessTile redirectToShopPage={redirectToShopPage} product={product} /></SwiperSlide>
                             ))}
                           </Swiper>
                           {/* </Carousel> */}
+                          <div id="js-prev1" className="swiper-button-prev"  role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                          <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                         </S.OnlyCarousel>
                         : <S.AllShops>
                           {stores && stores.map(product => (
@@ -149,13 +160,17 @@ export const ProductList: React.FC<IProps> = ({
                       <S.Slider>
                         {!showProductsResults ?
                           <S.OnlyCarousel>
-                            <Swiper navigation {...ProductsHorizontalSwiperParams}>
+                            
+                            <Swiper {...ProductsHorizontalSwiperParams}>
                               {/* <Carousel length={products.length} dragging={false} productDetails={"productList"}> */}
                               {products.map(product => (
                                 <SwiperSlide><ProductTile redirectToProductPage={redirectToProductPage} product={product} /></SwiperSlide>
                               ))}
                             </Swiper>
                             {/* </Carousel> */}
+
+                            <div id="js-prev2" className="swiper-button-prev"  role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                            <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                           </S.OnlyCarousel>
                           : <S.AllShops>
                             {products.map(product => (

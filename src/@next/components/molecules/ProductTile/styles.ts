@@ -158,6 +158,63 @@ export const Image = styled.div`
   align-items: center;
   cursor: pointer;
   background: #f1f5f5;
+
+  .swiper-container-horizontal{
+    .swiper-wrapper{        
+      .swiper-slide{
+        >img{
+          width: 100%;
+          height: 165px;
+          object-fit: cover;
+        }
+      }
+    }
+    .swiper-button-next{
+      background: #fff !important;
+      height: 48px;
+      width: 48px;
+      border-radius: 25px;
+      box-shadow: 0px 3px 6px #0000000D;
+      -webkit-box-shadow: 0px 3px 6px #0000000D;
+      top: 30%;
+      right: 0px;
+      &:after{
+        font-size: 16px;
+        font-weight: 900;
+        color: #FF4B13;
+      }
+    } 
+
+
+    .swiper-button-prev{
+      background: #fff !important;
+      height: 48px;
+      width: 48px;
+      border-radius: 25px;
+      box-shadow: 0px 3px 6px #0000000D;
+      -webkit-box-shadow: 0px 3px 6px #0000000D;
+      top: 30%;
+      left: 0px;
+      z-index: 2;
+          opacity: inherit;
+      &:after{
+        font-size: 16px;
+        font-weight: 900;
+        color: #FF4B13;
+      }
+    } 
+    >.swiper-pagination-bullets{
+      bottom: 8px !important;
+      span{
+        background: #fff !important;
+      }
+      @media(max-width: 540px){
+        bottom: 25px !important;
+      }
+    }
+  }
+
+
   .slider-control-bottomcenter {
     width: 100%;
     text-align: center;
