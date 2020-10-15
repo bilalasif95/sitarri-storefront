@@ -134,7 +134,6 @@ export const Slider = styled.div`
   padding-left: 8px;
   position: relative;
   .swiper-container-horizontal{
-    margin-left: inherit;
     .swiper-wrapper{        
       .swiper-slide{
         >img{
@@ -183,7 +182,6 @@ export const Slider = styled.div`
       top: 30%;
       left: -15px;
       z-index: 1;
-          opacity: inherit;
       &:after{
         font-size: 16px;
         font-weight: 900;
@@ -315,7 +313,7 @@ export const Loadingskeleton = styled.div`
   border-radius: 10px;
 }
 .SkeletonCardsCont{
-  width: 33%;
+  width: 33.3%;
 }
 .SkeletonCardsbody{
   width: 99%;

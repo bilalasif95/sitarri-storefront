@@ -5,6 +5,21 @@
   .categoryCarousel{
     padding: 1px 0px 16px 8px;
     background-color: #fff !important;
+    .customSlider{
+      .slider-frame{
+        &:focus{
+          outline: none;
+        }
+        .slider-list{
+          &:focus{
+            outline: none;
+          }
+          li:focus{
+            outline: none;
+          }
+        }
+      }
+    }
   }
 
   .shopsCarousel{
@@ -251,14 +266,14 @@
 
 // Skeleton
 .Loadingskeleton{
-  padding: 2rem 10px;
+  padding: 0rem 10px;
 }
 .Skeletonbar{
   height: 20px;
   width: 18%;
   background-color: #EEF2F5;
   border-radius: 10px;
-  margin: 27px 0 55px;
+  margin: 32px 0 55px;
 }
 .Topboxes{
   display: flex;
@@ -307,7 +322,7 @@
   border-radius: 10px;
 }
 .SkeletonCardsCont{
-  width: 33%;
+  width: 33.3%;
 }
 .SkeletonCardsbody{
   width: 99%;

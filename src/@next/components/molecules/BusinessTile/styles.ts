@@ -55,7 +55,6 @@ export const Wrapper = styled.div`
         top: 30%;
         left: 0px;
         z-index: 2;
-            opacity: inherit;
         &:after{
           font-size: 16px;
           font-weight: 900;

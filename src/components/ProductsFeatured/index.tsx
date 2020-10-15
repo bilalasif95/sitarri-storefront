@@ -74,7 +74,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                 <div className="Selectboxes">
                   <div className="Skeletonbar">
                   </div>
-                  <div className="container">
+                  <div>
                     <ul className="Topboxes">
                       <li className="TopSkeletonboxes">
                         <div className="Skeletonbox"></div>
