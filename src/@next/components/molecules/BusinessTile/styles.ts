@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
-  min-height: 304px;
+  min-height: 310px;
 
   .swiper-container-horizontal{
       .swiper-wrapper{        
