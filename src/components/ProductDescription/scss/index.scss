@@ -9,6 +9,7 @@
     .Nos{
       display: flex;
       font-weight: 700;
+      line-height: 1.5rem;
       .star{
         margin: 3px 5px 0px;
         svg{
@@ -20,7 +21,7 @@
       .Close{
         color: #8799A9 !important;
         font-weight: normal;
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }

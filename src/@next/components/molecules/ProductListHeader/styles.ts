@@ -82,9 +82,10 @@ export const Submenu = styled.div`
   background: #fff;
   width: 240px;
   border-radius: 5px;
-  z-index: 1;
-  box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
-  -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px #7090b02e;
+  z-index: 2;
+  min-height: 248px;
+  box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
+  -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.3), 0 8px 10px -4px rgba(67, 90, 111, 0.47);
   transform: scale(1);
   transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
   @media(max-width: 540px){
@@ -167,6 +168,8 @@ export const SubmenuBox = styled.div`
         .css-1gl4k7y{
           padding: 8px 55px;
           text-align: inherit;
+          font-size: 12px;
+          color: #8799a9;
           @media(max-width: 540px){
             padding: 8px 90px;
           }
