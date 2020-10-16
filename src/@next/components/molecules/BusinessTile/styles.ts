@@ -87,7 +87,7 @@ export const Wrapper = styled.div`
     outline: none;
   }
   ${media.smallScreen`
-  margin: 6px 0;
+  margin: 8px 0;
   margin-right: 8px;
   min-height: 275px;
 `}
@@ -193,20 +193,16 @@ export const Title = styled.h4`
 `;
 
 export const Desc = styled.p`
-font-weight: normal;
-font-size: 14px;
-text-align: left;
-color: #40464A;
-line-height: normal;
-max-height: 34px;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-width: 55%;
-}
-@media (max-width: 767px){
-  font-size: 11px;
-}
+  font-weight: normal;
+  font-size: 14px;
+  text-align: left;
+  color: #40464A;
+  line-height: normal;
+  max-height: 34px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 55%;
 `;
 
 export const Price = styled.p`
@@ -410,9 +406,6 @@ margin: 3px 5px 0px;
       fill: #FFCE2E;
     }
   }
-  @media(max-width: 540px){
-    margin-top: 5px;
-  }
 `;
 export const Nos = styled.p`
   font-size: 14px
@@ -449,7 +442,7 @@ justify-content: flex-start;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
-padding: 0px 3px;
+padding: 0px 4px;
 // width: 60%;
 svg{
   margin: -1px 5px 0 0;

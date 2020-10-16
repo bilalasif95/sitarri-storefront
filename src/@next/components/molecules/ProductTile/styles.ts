@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
   ${media.smallScreen`
   margin: 0;
   min-height: 362px;
-  margin-top: 6px;
+  margin-top: 8px;
   margin-right: 8px;
 `}
 `;
@@ -93,9 +93,6 @@ export const Title = styled.h4`
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 18px;
-  @media(max-width: 767px){
-    font-size: 18px;
-  }
 `;
 export const StoreTitle = styled.h4`
   font-weight: 700;
@@ -132,9 +129,6 @@ overflow: hidden;
 // white-space: nowrap;
 text-overflow: ellipsis;
 margin-bottom: 10px;
-@media(max-width: 767px){
-  font-size: 12px;
-}
 `;
 
 export const Price = styled.p`
@@ -438,7 +432,7 @@ justify-content: center;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
-padding: 0px 3px;
+padding: 0px 4px;
 // padding: 1px 5px;
 // width: 70%;
 margin-left: auto;
@@ -456,9 +450,6 @@ margin: 3px 5px 0px;
     path{
       fill: #FFCE2E;
     }
-  }
-  @media(max-width: 540px){
-    margin-top: 5px;
   }
 `;
 

@@ -87,7 +87,7 @@
           line-height: normal;
           margin-right: 5px;
           margin-bottom: 4px;
-          height: 35px;
+          min-height: 35px;
           div {
             p {
               white-space: nowrap;
@@ -152,7 +152,7 @@
       // }
 
       @media (max-width: $small-screen) {
-        padding: 5px 8px;
+        padding: 8px;
         margin: 0 0 7px;
       }
 
@@ -202,7 +202,7 @@
         position: absolute;
         width: 60px;
         transform: rotate(90deg);
-        left: 137px;
+        left: 160px;
         }
       }
       .deliveryItem{
@@ -852,7 +852,7 @@ svg{
   line-height: normal;
   margin-right: 5px;
   margin-bottom: 4px;
-  height: 35px;
+  min-height: 35px;
 }
 .EmptySpace {
   min-height: 16px;

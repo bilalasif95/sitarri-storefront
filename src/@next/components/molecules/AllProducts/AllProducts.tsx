@@ -210,7 +210,7 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
               <Link to={generateProductUrl(item.node.id, item.node.name)} key={item.node.id}>
                 <S.Bottom>
                   <S.Left>
-                    <S.Title>{item.node.name}</S.Title>
+                    <S.ProductTitle>{item.node.name}</S.ProductTitle>
                     {/* <S.Desc><RichTextContent descriptionJson={item.node.descriptionJson} /></S.Desc> */}
                     {item.node.description === "" ? <S.EmptySpace></S.EmptySpace> : <S.Desc>{item.node.description}</S.Desc>}
                     <S.Price>

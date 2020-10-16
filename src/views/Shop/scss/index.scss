@@ -125,7 +125,7 @@
           line-height: normal;
           margin-right: 5px;
           margin-bottom: 4px;
-          height: 35px;
+          min-height: 35px;
           div {
             p {
               white-space: nowrap;
@@ -239,7 +239,7 @@
         position: absolute;
         width: 60px;
         transform: rotate(90deg);
-        left: 137px;
+        left: 160px;
         }
       }
       .deliveryItem{
@@ -721,7 +721,7 @@
   }
   .product-description{ 
   .Instore {
-    width: 20% !important;
+    width: 55px !important;
 }
 .desc{
   width: 100% !important;
@@ -942,7 +942,7 @@
   .useful-links{
     .item{
       &:after{
-        left: 90px !important;
+        left: 96px !important;
       }
     }
   }
@@ -961,7 +961,7 @@
   .useful-links{
     .item{
       &:after{
-        left: 66px !important;
+        left: 83px !important;
       }
     }
   }
@@ -970,7 +970,7 @@
   .useful-links{
     .item{
       &:after{
-        left: 56px !important;
+        left: 70px !important;
       }
     }
   }
@@ -979,7 +979,7 @@
     .useful-links{
       .item{
         &:after{
-          left: 44px !important;
+          left: 56px !important;
         }
       }
     }
@@ -988,7 +988,7 @@
     .useful-links{
       .item{
         &:after{
-          left: 34px !important;
+          left: 45px !important;
         }
       }
     }
@@ -1004,7 +1004,7 @@
 }
 .makeReservation{
   background-color: #fff;
-  padding: 10px 10px;
+  padding: 8px;
 }
 .ReservationBox{
   padding: 0px 8px;
