@@ -6,8 +6,8 @@ import ReactSVG from "react-svg";
 
 import { useCart } from "@sdk/react";
 // MetaWrapper
-import { NotFound, OfflinePlaceholder } from "../../components";
-import NetworkStatus from "../../components/NetworkStatus";
+// import { NotFound, OfflinePlaceholder } from "../../components";
+// import NetworkStatus from "../../components/NetworkStatus";
 import { generatePhotoGalleryUrl, getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import Page from "./Page";
@@ -403,29 +403,34 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history })
 
         }
         else {
+          const { store } = data;
+          return (
+            // <>
+            // <NetworkStatus>
+            //   {isOnline => {
 
-          return <NetworkStatus>
-            {isOnline => {
-
-              const { store } = data;
-
-
-              return (
-                // <MetaWrapper meta={extractMeta(product)}>
-                <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
-                // </MetaWrapper>
-              );
+            //     const { store } = data;
 
 
-              if (store === null) {
-                return <NotFound />;
-              }
+            //     return (
 
-              if (!isOnline) {
-                return <OfflinePlaceholder />;
-              }
-            }}
-          </NetworkStatus>
+            // <MetaWrapper meta={extractMeta(product)}>
+            <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
+            // </MetaWrapper>
+            //     );
+
+
+            //     if (store === null) {
+            //       return <NotFound />;
+            //     }
+
+            //     if (!isOnline) {
+            //       return <OfflinePlaceholder />;
+            //     }
+            //   }}
+            // </NetworkStatus>
+            // </>
+          )
         }
       }}
     </TypedProductDetailsQuery>

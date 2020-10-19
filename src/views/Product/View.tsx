@@ -7,7 +7,7 @@ import ReactSVG from "react-svg";
 import { useCart } from "@sdk/react";
 // MetaWrapper
 // import { NotFound, OfflinePlaceholder } from "../../components";
-import NetworkStatus from "../../components/NetworkStatus";
+// import NetworkStatus from "../../components/NetworkStatus";
 import { getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import Page from "./Page";
@@ -363,26 +363,28 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
         }
 
         else {
-          return <NetworkStatus>
-            {isOnline => {
+          return (
+            // <NetworkStatus>
+            //   {isOnline => {
 
 
-              return (
-                // <MetaWrapper meta={extractMeta(product)}>
-                <Page product={data} add={addItem} items={items} />
-                // </MetaWrapper>
-              );
+            //     return (
+            // <MetaWrapper meta={extractMeta(product)}>
+            <Page product={data} add={addItem} items={items} />
+            // </MetaWrapper>
+            // );
 
 
-              // if (store === null) {
-              //   return <NotFound />;
-              // }
+            // if (store === null) {
+            //   return <NotFound />;
+            // }
 
-              // if (!isOnline) {
-              //   return <OfflinePlaceholder />;
-              // }
-            }}
-          </NetworkStatus>
+            // if (!isOnline) {
+            //   return <OfflinePlaceholder />;
+            // }
+            //   }}
+            // </NetworkStatus>
+          )
         }
       }}
     </TypedProductDetailsQuery>
