@@ -402,30 +402,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history })
           </h3>
 
         }
+        else {
+
+          return <NetworkStatus>
+            {isOnline => {
+
+              const { store } = data;
 
 
-        return <NetworkStatus>
-          {isOnline => {
-
-            const { store } = data;
-
-
-            return (
-              // <MetaWrapper meta={extractMeta(product)}>
-              <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
-              // </MetaWrapper>
-            );
+              return (
+                // <MetaWrapper meta={extractMeta(product)}>
+                <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
+                // </MetaWrapper>
+              );
 
 
-            if (store === null) {
-              return <NotFound />;
-            }
+              if (store === null) {
+                return <NotFound />;
+              }
 
-            if (!isOnline) {
-              return <OfflinePlaceholder />;
-            }
-          }}
-        </NetworkStatus>
+              if (!isOnline) {
+                return <OfflinePlaceholder />;
+              }
+            }}
+          </NetworkStatus>
+        }
       }}
     </TypedProductDetailsQuery>
   );

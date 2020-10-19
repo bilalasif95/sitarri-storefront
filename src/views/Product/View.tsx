@@ -362,27 +362,28 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
 
         }
 
-
-        return <NetworkStatus>
-          {isOnline => {
-
-
-            return (
-              // <MetaWrapper meta={extractMeta(product)}>
-              <Page product={data} add={addItem} items={items} />
-              // </MetaWrapper>
-            );
+        else {
+          return <NetworkStatus>
+            {isOnline => {
 
 
-            // if (store === null) {
-            //   return <NotFound />;
-            // }
+              return (
+                // <MetaWrapper meta={extractMeta(product)}>
+                <Page product={data} add={addItem} items={items} />
+                // </MetaWrapper>
+              );
 
-            // if (!isOnline) {
-            //   return <OfflinePlaceholder />;
-            // }
-          }}
-        </NetworkStatus>
+
+              // if (store === null) {
+              //   return <NotFound />;
+              // }
+
+              // if (!isOnline) {
+              //   return <OfflinePlaceholder />;
+              // }
+            }}
+          </NetworkStatus>
+        }
       }}
     </TypedProductDetailsQuery>
   );
