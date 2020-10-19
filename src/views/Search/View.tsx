@@ -2,8 +2,8 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router";
 import { withRouter } from "react-router-dom";
 import { StringParam, useQueryParam } from "use-query-params";
-import { NotFound, OfflinePlaceholder } from "../../components";
-import NetworkStatus from "../../components/NetworkStatus";
+// import { NotFound, OfflinePlaceholder } from "../../components";
+// import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
 import {
   convertSortByFromString,
@@ -79,96 +79,93 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
   };
 
   return (
-    <NetworkStatus>
-      {isOnline => (
-        <TypedSearchProductsQuery
-          variables={variables}
-          errorPolicy="all"
-          loaderFull
-        >
-          {({ loading, data, loadMore, refetch }) => {
-            const CallApi = () => {
-              refetch()
-            }
-            return (
-              <Page
-                displayLoader={loading}
-                setSearch={setSearch}
-                search={search}
-                redirectToShopPage={redirectToShopPage}
-                redirectToProductPage={redirectToProductPage}
-                activeSortOption={sortPriceBase.label}
-                activeSortBusinessType={sortBusinessBase.label}
-                activeSortedField={sorting.label}
-                showShopResults={showShopResults}
-                showProductsResults={showProductsResults}
-                activeSortTypeBase={sortTypeBase.label}
-                acitveSortDistanceBase={sortDistanceBase.label}
-                products={data.search && data.search.products}
-                stores={data.search && data.search.stores}
-                onOrder={(value, type) => {
-                  if (type === "PriceBase") {
-                    setSortPriceBase(value)
-                    CallApi()
-                  }
-                  else if (type === "BusinessBase") {
-                    setSortBusinessBase(value)
-                    CallApi()
-                  }
-                  else if (type === "showType") {
-                    if (value.value === "products") {
-                      setSortTypeBase(value)
-                      setShowProductsResults(true)
-                      setShowShopResults(false)
-                    }
-                    else if (value.value === "stores") {
-                      setSortTypeBase(value)
-                      setShowShopResults(true)
-                      setShowProductsResults(false)
-                    }
-                    else {
-                      setSortTypeBase(value)
-                      setShowShopResults(false)
-                      setShowProductsResults(false)
-                    }
-                  }
-                  else if (type === "sorting") {
-                    setSorting(value)
-                    setSort(value.value)
-                  }
-                  else if (type === "DistanceBase") {
-                    // getCurrentLocation()
-                    setSortDistanceBase(value)
-                    CallApi()
-                  }
-                  else if (type === "none") {
-                    setSortBusinessBase({
-                      label: "", value: "",
-                    })
-                    setSortDistanceBase({
-                      label: "",
-                      value: { value: -1, symbol: "KILOMETER" },
-                    })
-                    setSortPriceBase({
-                      label: "", value: { gte: 0, lte: 0 },
-                    })
-                  }
-                }}
-              />
-            );
-
-
-            if (data && data.products === null) {
-              return <NotFound />;
-            }
-
-            if (!isOnline) {
-              return <OfflinePlaceholder />;
-            }
-          }}
-        </TypedSearchProductsQuery>
-      )}
-    </NetworkStatus>
+    // <NetworkStatus>
+    //   {isOnline => (
+    <TypedSearchProductsQuery
+      variables={variables}
+      errorPolicy="all"
+      loaderFull
+    >
+      {({ loading, data, loadMore, refetch }) => {
+        const CallApi = () => {
+          refetch()
+        }
+        return (
+          <Page
+            displayLoader={loading}
+            setSearch={setSearch}
+            search={search}
+            redirectToShopPage={redirectToShopPage}
+            redirectToProductPage={redirectToProductPage}
+            activeSortOption={sortPriceBase.label}
+            activeSortBusinessType={sortBusinessBase.label}
+            activeSortedField={sorting.label}
+            showShopResults={showShopResults}
+            showProductsResults={showProductsResults}
+            activeSortTypeBase={sortTypeBase.label}
+            acitveSortDistanceBase={sortDistanceBase.label}
+            products={data.search && data.search.products}
+            stores={data.search && data.search.stores}
+            onOrder={(value, type) => {
+              if (type === "PriceBase") {
+                setSortPriceBase(value)
+                CallApi()
+              }
+              else if (type === "BusinessBase") {
+                setSortBusinessBase(value)
+                CallApi()
+              }
+              else if (type === "showType") {
+                if (value.value === "products") {
+                  setSortTypeBase(value)
+                  setShowProductsResults(true)
+                  setShowShopResults(false)
+                }
+                else if (value.value === "stores") {
+                  setSortTypeBase(value)
+                  setShowShopResults(true)
+                  setShowProductsResults(false)
+                }
+                else {
+                  setSortTypeBase(value)
+                  setShowShopResults(false)
+                  setShowProductsResults(false)
+                }
+              }
+              else if (type === "sorting") {
+                setSorting(value)
+                setSort(value.value)
+              }
+              else if (type === "DistanceBase") {
+                // getCurrentLocation()
+                setSortDistanceBase(value)
+                CallApi()
+              }
+              else if (type === "none") {
+                setSortBusinessBase({
+                  label: "", value: "",
+                })
+                setSortDistanceBase({
+                  label: "",
+                  value: { value: -1, symbol: "KILOMETER" },
+                })
+                setSortPriceBase({
+                  label: "", value: { gte: 0, lte: 0 },
+                })
+              }
+            }}
+          />
+        );
+        // if (data && data.products === null) {
+        //   return <NotFound />;
+        // }
+        // if (!isOnline) {
+        //   return <OfflinePlaceholder />;
+        // }
+      }}
+    </TypedSearchProductsQuery>
+    //   )}
+    // </NetworkStatus>
   );
 };
 

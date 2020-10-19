@@ -84,7 +84,6 @@ const search: React.FC = (props: any) => {
                 <div className="searchfield">
                     <input autoFocus ref={ref} type="txt" placeholder="Search" value={search} onChange={(e) => SetSearchEvent(e)} className="form-control" />
                     {(!loadingState || search === "") &&
-
                         <svg onClick={() => overlayContext.hide()} className="BackArrow" xmlns="https://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 24">
                             <g id="Group_961" data-name="Group 961" transform="translate(17940 12803)">
                                 <g id="Group_960" data-name="Group 960">
@@ -105,13 +104,10 @@ const search: React.FC = (props: any) => {
                                 </g>
                             </g>
                         </svg>}
-
                     {search !== null && search !== "" ?
-
                         <svg onClick={() => setSearch("")} className="CloseIcon" width="12" height="12" viewBox="0 0 15 15" fill="none" xmlns="https://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M7.07104 5.65674L1.41431 0L0 1.41418L5.65674 7.07104L0 12.7279L1.41406 14.1421L7.07104 8.48511L12.728 14.1421L14.1423 12.7279L8.48535 7.07092L14.1421 1.41418L12.7278 0L7.07104 5.65674Z" fill="#C4C4C4" />
                         </svg>
-
                         :
                         <span className="searchicon" onClick={() => {
                             if (search !== null && search !== "") {
@@ -121,7 +117,6 @@ const search: React.FC = (props: any) => {
                                 return null
                             }
                         }}>
-
                             <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                                 <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" /></svg>
                             {/* <ReactSVG path={searchicon} /> */}
@@ -142,16 +137,11 @@ const search: React.FC = (props: any) => {
                                     <ReactSVG path={loader} />
                                 </h6>
                             }
-
                             else {
-
                                 if (data.search && data.search.products.edges.length > 0 || data.search && data.search.categories.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
                                     return (
-
                                         <div className="SearchDropdown">
-
                                             {data.search.stores.edges.map((store: any) => (
-
                                                 <div className="items" onClick={() => SeeDetails(store.node.name)}>
                                                     <div className="ShopAddress">
                                                         <p>{store.node.name}</p>
@@ -162,17 +152,14 @@ const search: React.FC = (props: any) => {
                                                                     <p>{store.node.distance}</p>
                                                                 </div>
                                                             </div>}
-
                                                     </div>
                                                     {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
                                                         <div className="shop-address">
                                                             <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
                                                         </div>}
                                                 </div>
-
                                             ))}
                                             {data.search.products.edges.map((product: any) => (
-
                                                 <div className="items" onClick={() => SeeDetails(product.node.name)}>
                                                     <div className="ShopAddress">
                                                         <p>{product.node.name}</p>
@@ -183,27 +170,21 @@ const search: React.FC = (props: any) => {
                                                                     <p>{product.node.store.distance}</p>
                                                                 </div>
                                                             </div>}
-
                                                     </div>
                                                     {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
                                                         <div className="shop-address">
                                                             <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
                                                         </div>}
-
                                                 </div>
-
                                             ))}
                                             {/* {data.search.categories.edges.map((cat: any) => (
-
                                         <div className="items" onClick={() => SeeDetails(cat.node.name)}>
                                             <p>{cat.node.name}</p>
                                         </div>
 
                                     ))} */}
-
                                         </div>
                                     )
-
                                 }
                                 else {
                                     return (
@@ -223,12 +204,8 @@ const search: React.FC = (props: any) => {
                                             </ul>
                                         </div>
                                     )
-
                                 }
                             }
-
-
-
                         }}
                     </TypedSearchResults> : ""}
                 </div>
