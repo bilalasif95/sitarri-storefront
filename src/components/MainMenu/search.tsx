@@ -137,7 +137,7 @@ const search: React.FC = (props: any) => {
                                     <ReactSVG path={loader} />
                                 </h6>
                             }
-                            else {
+                            if(data.search) {
                                 if (data.search && data.search.products.edges.length > 0 || data.search && data.search.categories.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
                                     return (
                                         <div className="SearchDropdown">

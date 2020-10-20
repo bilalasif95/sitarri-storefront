@@ -59,123 +59,125 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
       }}
     >
       {({ data, loading }) => {
-        if (loading || Object.values(data).length <= 0) {
-          return <h3 className="ShopSkeleton">
-            <div className="container">
-              <div className="Loadingskeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbody">
+        if (loading) {
+          return (
+            <h3 className="ShopSkeleton">
+              <div className="container">
+                <div className="Loadingskeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbody">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="SkeletonHeader">
+                  <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
+                  <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
+                </div>
+                <div className="LoadingBars">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ProductSkeleton">
+                  <div className="Selectboxes">
+                    <div className="Skeletoncards">
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="ProductSkeletonBox">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="SkeletonHeader">
-                <div className="SkeletonbackIcon"><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
-                <div className="SkeletonbackIcon"><ReactSVG path={Search} onClick={() => { window.history.go(-1); return false; }} /></div>
-              </div>
-              <div className="LoadingBars">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="ProductSkeleton">
-                <div className="Selectboxes">
-                  <div className="Skeletoncards">
-                    <div className="SkeletonCardsCont">
-                      <div className="SkeletonCardsbar">
-                      </div>
-                      <div className="SkeletonCardtext">
-                      </div>
-                    </div>
-                    <div className="ProductSkeletonBox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </h3>
+            </h3>
+          )
         }
-        else {
+        if (Object.values(data).length > 0) {
           return (
             // <NetworkStatus>
             //   {isOnline => {
