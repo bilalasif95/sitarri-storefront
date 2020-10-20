@@ -67,7 +67,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
           () => data.shop.homepageCollection.products.edges,
           []
         );
-        if (!loading) {
+        if (loading) {
           return (
             <div className="container">
               <div className="Loadingskeleton">
