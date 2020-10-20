@@ -278,7 +278,7 @@
 .Topboxes{
   display: flex;
   width: 100%;
-  justify-content: center;
+  // justify-content: center;
 }
 .TopSkeletonboxes{
   margin-right: 20px;
@@ -501,6 +501,9 @@
   width: 46%;
   margin: 10px 0 38px;
 }
+.categoriesSkeletonbar {
+  margin: 38px 0 38px;
+}
 .Skeletoncards {
   margin-top: 50px;
 }
@@ -548,6 +551,7 @@
 @media (max-width: 768px){
   .container{
     padding: 0px 0px !important;
+    margin: 0 !important;
   }
   .customSlider{
     .image-gallery-bullets{

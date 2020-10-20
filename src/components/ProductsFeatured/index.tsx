@@ -67,15 +67,15 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
           () => data.shop.homepageCollection.products.edges,
           []
         );
-        if (loading) {
+        if (!loading) {
           return (
             <div className="container">
               <div className="Loadingskeleton">
                 <div className="Selectboxes">
-                  <div className="Skeletonbar">
+                  <div className="Skeletonbar categoriesSkeletonbar">
                   </div>
                   <div>
-                    <ul className="Topboxes">
+                    <ul className="Topboxes categoriesTopboxes">
                       <li className="TopSkeletonboxes">
                         <div className="Skeletonbox"></div>
                         <div className="SkeletonTitle"></div>

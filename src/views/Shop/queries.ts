@@ -150,8 +150,6 @@ export const productVariantFragment = gql`
 export const productDetailsQuery = gql`
  query StoreDetails ($id:ID!, $longitude: Float, $latitude: Float){
    store(id:$id){
-    privateMetadata
-    metadata
     id
     name
     description
@@ -159,8 +157,6 @@ export const productDetailsQuery = gql`
     tags{name}
     images{url}
     address {
-      privateMetadata
-      metadata
       id
       streetAddress
       city
