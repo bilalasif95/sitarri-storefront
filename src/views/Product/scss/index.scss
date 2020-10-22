@@ -117,6 +117,7 @@
           img {
             width: 100%;
             border-radius: 5px;
+            height: 72px;
           }
         }
       }
@@ -129,7 +130,10 @@
       @media (max-width: 575px) {
         .item {
           width: 100%;
-          padding: 8px 16px;
+          padding: 6px 24px 6px 16px;
+          .descr{
+            min-height: 23px;
+          }
         }
         .item:nth-child(odd) {
           margin: 0 0 0 0;
@@ -153,7 +157,7 @@
 
       @media (max-width: $small-screen) {
         padding: 8px;
-        margin: 0 0 7px;
+        margin: 0 0 8px;
       }
 
       // > div {
@@ -324,6 +328,7 @@
           display: block;
           background: #435365;
           margin: 0 0.3rem 0 1rem;
+          border-radius: 100px;
         }
       }
       p {
@@ -430,9 +435,9 @@
 }
 .brand{
   background: #fff;
-  top: -25px;
-  height: 50px;
-  width: 50px;
+  top: -33px;
+  height: 64px;
+  width: 64px;
   border-radius: 60px;
   left: 13px;
   // border: 1px solid #B2BEC7;
@@ -452,7 +457,7 @@
   .icon{
     margin-right: 30px;
     svg{
-      width: 20px;
+      width: 16px;
       transition: all .4s;
       &:hover{
         opacity: .9;
@@ -563,10 +568,11 @@
     height: 24px;
     border-radius: 50px;
     width: 24px;
-    padding: 6px 7px;
+    // padding: 6px 7px;
     svg{
       margin: 0px auto;
       display: block;
+      margin: 4px;
       path{
         fill: #fff;
       }
@@ -660,10 +666,11 @@
       height: 24px;
       border-radius: 50px;
       width: 24px;
-      padding: 6px 7px;
+      // padding: 6px 7px;
       svg{
         margin: 0px auto;
         display: block;
+        margin: 4px;
         path{
           fill: #fff;
         }
@@ -757,6 +764,7 @@
     display: block;
     background: #435365;
     margin: 0 0.3rem 0 0rem;
+    border-radius: 100px;
   }
 }
 .Star{
@@ -879,6 +887,23 @@ svg{
 }
 
 @media(max-width: 540px){
+  .item{
+    .desc{
+      h4{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .descr{
+      min-height: 23px;
+    div{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
   .deliveryItem{
     text-align: center;
     icon{
@@ -898,7 +923,7 @@ svg{
     width: 83%;
   }
   .shop-at{
-    margin-bottom: 7px !important;
+    margin-bottom: 8px !important;
   }
 }
 .image-gallery-bullets{

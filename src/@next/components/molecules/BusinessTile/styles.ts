@@ -382,6 +382,7 @@ export const Close = styled.p`
     display: block;
     background: #435365;
     margin: 0 0.3rem 0 0rem;
+    borderRadius: 100px;
   }
 `;
 
@@ -456,12 +457,13 @@ export const Tags = styled.div`
   margin-top: 10px;
 `;
 export const Subtag = styled.div`
-  margin-right: 10px;
-  font-size: 10px;
+  margin-right: 8px;
+  font-size: 11px;
   background-color: #F7F7F8;
   border-radius: 3px;
   padding: 0px 4px;
   color: #99A9B4;
+  height: 19px;
 `;
 export const Miles = styled.p`
   display: flex;

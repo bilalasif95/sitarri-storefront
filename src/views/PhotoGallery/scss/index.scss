@@ -29,9 +29,10 @@ body{
     height: 24px;
     border-radius: 50px;
     width: 24px;
-    padding: 3px 7px;
+    // padding: 3px 7px;
     cursor: pointer;
     svg{
+      margin: 4px;
       path{
         fill: #fff;
       }
@@ -48,9 +49,11 @@ body{
   display: flex;
   -ms-flex-wrap: wrap; /* IE10 */
   flex-wrap: wrap;
+  margin-top: 4px;
   // padding: 0 4px;
   // margin-bottom: 50px;
 }
+
 
 /* Create four equal columns that sits next to each other */
 .column {
@@ -59,11 +62,11 @@ body{
   // max-width: 50%;
   padding: 0 4px;
   columns: 2 auto;
-  column-gap: 8px;
+  column-gap: 4px;
 }
 
 .column img {
-  margin-top: 8px;
+  margin-top: 4px;
   vertical-align: middle;
   width: 100%;
   cursor: pointer;
@@ -193,11 +196,15 @@ body{
 }
 @media(max-width: 540px){
   
+  .column {
+    column-gap: 2px;
+  }
+
   .Galleryheader{
     margin-top: 0px !important;
   }
   .row{
-    margin-top: -4px;
+    margin-top: -2px;
   }
   .header{
     padding: 0px;
@@ -215,7 +222,7 @@ body{
     padding: 0 2px;
   }
   .column img {
-    margin-top: 4px;
+    margin-top: 2px;
   }
   .GallerySkeleton{
   .SkeletonCardsbody{
@@ -265,11 +272,11 @@ body{
 .ModalContent{
   position: fixed;
   top: 86.5%;
-  left: 17.5%;
+  left: 16.9%;
   z-index: 9999;
   p, .modalLink{
     color: #fff;
-    font-size: 13px;
+    font-size: 10px;
   }
 }
 }
@@ -279,13 +286,13 @@ body{
     padding-left: 25px;
     margin-top: 3px;
       a{
-        font-size: 16px !important;
+        font-size: 12px !important;
       }
     img{
       position: absolute;
       left: 0;
       vertical-align: middle;
-      top: -2px;
+      top: 0px;
       height: 18px;
       width: 18px;
     }

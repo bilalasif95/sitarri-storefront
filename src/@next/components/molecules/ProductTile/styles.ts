@@ -373,6 +373,7 @@ export const Close = styled.p`
     display: block;
     background: #435365;
     margin: 0 0.3rem 0 0rem;
+    borderRadius: 100px;
   }
   @media (max-width: 767px){
     // font-size: 12px
