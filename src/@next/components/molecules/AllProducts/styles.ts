@@ -27,15 +27,15 @@ export const Top = styled.div`
 export const Brand = styled.div`
   position: absolute;
   top: 107px;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   left: 8px;
   border-radius: 60px;
   overflow: hidden;
   z-index: 1;
   > img {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     // border: 1px solid #B2BEC7;
     border-radius: 60px;
     background: #fff;
@@ -355,7 +355,7 @@ align-items: center;
 
 export const Nos = styled.p`
   font-size: 14px
-  color: #40464A;
+  color: #09253F;
   font-weight: 700;
   text-align: left;
   margin: 0 0.5rem 0 0;
@@ -392,6 +392,7 @@ align-items: center;
 background: #FDECD1;
 border-radius: 3px;
 padding: 0px 4px;
+height: 19px;
 // width: 60%;
 svg{
   margin: -1px 5px 0 0;

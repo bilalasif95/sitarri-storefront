@@ -87,7 +87,7 @@
           line-height: normal;
           margin-right: 5px;
           margin-bottom: 4px;
-          min-height: 35px;
+          // min-height: 35px;
           div {
             p {
               white-space: nowrap;
@@ -131,9 +131,9 @@
         .item {
           width: 100%;
           padding: 6px 24px 6px 16px;
-          .descr{
-            min-height: 23px;
-          }
+          // .descr{
+          //   min-height: 23px;
+          // }
         }
         .item:nth-child(odd) {
           margin: 0 0 0 0;
@@ -455,7 +455,7 @@
     width: 40px;
   }
   .icon{
-    margin-right: 30px;
+    // margin-right: 30px;
     svg{
       width: 16px;
       transition: all .4s;
@@ -574,7 +574,7 @@
       display: block;
       margin: 4px;
       path{
-        fill: #fff;
+        // fill: #fff;
       }
     }
   }
@@ -672,7 +672,7 @@
         display: block;
         margin: 4px;
         path{
-          fill: #fff;
+          // fill: #fff;
         }
       }
     }
@@ -803,7 +803,8 @@ justify-content: center;
 align-items: center;
 background: #FDECD1;
 border-radius: 3px;
-padding: 0px 3px;
+padding: 0px 4px;
+height: 19px;
 // padding: 1px 5px;
 // width: 70%;
 margin-left: auto;
@@ -860,7 +861,7 @@ svg{
   line-height: normal;
   margin-right: 5px;
   margin-bottom: 4px;
-  min-height: 35px;
+  // min-height: 35px;
 }
 .EmptySpace {
   min-height: 16px;
@@ -896,7 +897,7 @@ svg{
       }
     }
     .descr{
-      min-height: 23px;
+      // min-height: 23px;
     div{
         white-space: nowrap;
         overflow: hidden;

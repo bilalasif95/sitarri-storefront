@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   }
   ${media.smallScreen`
   margin: 0;
-  min-height: 362px;
+  min-height: 345px;
   margin-top: 8px;
   margin-right: 8px;
 `}
@@ -314,7 +314,7 @@ export const ModalImage = styled.div`
 
 export const Left = styled.div`
   width: 85%;
-  padding: 0px 10px;
+  padding: 0px 0px 0px 8px;
   // @media (max-width: 767px){
   //   width: 67%;
   //   margin-top: 5px;
@@ -333,12 +333,12 @@ export const Right = styled.div`
 `;
 export const Imgbox = styled.div`
   // overflow: hidden;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   border-radius: 60px;
   img{
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 60px;
     background: #fff;
     // border: 1px solid #B2BEC7;
@@ -399,7 +399,7 @@ align-items: center;
 
 export const Nos = styled.p`
   font-size: 14px
-  color: #40464A;
+  color: #09253F;
   font-weight: 700;
   text-align: left;
   // margin: 0 0.5rem 0 0;
@@ -434,6 +434,7 @@ align-items: center;
 background: #FDECD1;
 border-radius: 3px;
 padding: 0px 4px;
+height: 19px;
 // padding: 1px 5px;
 // width: 70%;
 margin-left: auto;
