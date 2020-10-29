@@ -9,7 +9,7 @@ const textProps = css`
 export const Wrapper = styled.div`
   margin: 6px 16px 13px 0px;
   -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
-  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  box-shadow: 0px 3px 6px rgba(112,144,176,0.1);
   border-radius: 10px;
   overflow: hidden;
   min-height: 387px;
@@ -86,7 +86,7 @@ export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #40464A;
+  color: #09253F;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
@@ -98,7 +98,7 @@ export const StoreTitle = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #435365;
+  color: #09253F;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;

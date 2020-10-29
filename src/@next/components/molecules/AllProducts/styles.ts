@@ -9,7 +9,7 @@ const textProps = css`
 export const Wrapper = styled.div`
   margin: 6px 16px 13px 0px;
   -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
-  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  box-shadow: 0px 3px 6px rgba(112,144,176,0.1);
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
