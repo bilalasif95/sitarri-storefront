@@ -517,8 +517,13 @@
     width: 42px;
   }
   .icon{
-    margin-right: 10px;
+    // margin-right: 10px;
     border-right: 1px solid #F5F5F5;
+    width: 48px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     svg{
       width: 16px;
       transition: all .4s;
@@ -717,7 +722,7 @@
         display: block;
         margin: 4px;
         path{
-          fill: #fff;
+          // fill: #fff;
         }
       }
     }
@@ -776,7 +781,7 @@
       display: block;
       margin: 4px;
       path{
-        fill: #fff;
+        // fill: #fff;
       }
     }
   }

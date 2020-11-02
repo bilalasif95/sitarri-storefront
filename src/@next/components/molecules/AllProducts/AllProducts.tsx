@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { TaxedMoney } from "@components/containers";
 // import { Thumbnail } from "@components/molecules";
@@ -10,7 +12,7 @@ import { TaxedMoney } from "@components/containers";
 
 // import { Modal } from "@components/organisms/Modal";
 
-import Carousel from "../../../../components/Carousel";
+// import Carousel from "../../../../components/Carousel";
 
 import noPhotoImg from "../../../../images/no-photo.svg";
 
@@ -22,6 +24,8 @@ import * as S from "./styles";
 // import Rating from 'react-rating';
 
 import { generateProductUrl, generateShopUrl } from "../../../../core/utils";
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { product: any, redirectToShopPage: any }) => {
   // const price =
@@ -75,33 +79,13 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
               : ""}
           </S.Brand>
           <S.Image>
-            {tempArray.length > 0 ?
-              <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
-                renderBottomCenterControls={props => {
-                  const indexes = [];
-                  for (let i = 0; i < props.slideCount; i++) {
-                    indexes.push(i);
-                  }
-                  return (
-                    <ul className="product-page__product__gallery__nav">
-                      {indexes.map(index => (
-                        <li
-                          key={index}
-                          onClick={props.goToSlide.bind(null, index)}
-                          className={props.currentSlide === index ? "active" : ""}
-                        >
-                          <span />
-                        </li>
-                      ))}
-                    </ul>
-                  );
-                }}>
-                {tempArray.map((img: any) => (
-                  <img onClick={() => redirectToShopPage(product.id, product.name)} src={img.original} />
-                ))}
-              </Carousel>
-              // <ImageGallery onClick={() => redirectToShopPage(product.id, product.name)} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
-              : <img src={noPhotoImg} className="noImg" />}
+          {product.images.length > 0 ?
+            <Swiper pagination={{ clickable: true, dynamicBullets: true }} slidesPerView={1}>
+              {product.images.map((img: any) => (
+                <SwiperSlide><img onClick={() => redirectToShopPage(product.id, product.name)} src={img.url} /></SwiperSlide>
+              ))}
+            </Swiper>
+            : <img src={noPhotoImg} className="noImg" />}
           </S.Image>
           <Link to={generateShopUrl(product.id, product.name)} key={product.id}>
             <S.Content>

@@ -41,7 +41,7 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
         </S.Brand>
         <S.Image>
           {product.images.length > 0 ?
-            <Swiper pagination={{ clickable: true }} slidesPerView={1}>
+            <Swiper pagination={{ clickable: true, dynamicBullets: true }} slidesPerView={1}>
               {product.images.map((img: any) => (
                 <SwiperSlide><img onClick={() => redirectToShopPage(product.id, product.name)} src={img.url} /></SwiperSlide>
               ))}

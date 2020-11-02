@@ -261,10 +261,10 @@ class Page extends React.PureComponent<
                     <div className="desc">
                       <h4>{productInfo.name}</h4>
                       <p className="descr">
-                        {productInfo.description === "" ? <div className="EmptySpace"></div> :
-                          // <RichTextContent descriptionJson={productInfo.descriptionJson} />
+                        {/* {productInfo.description === "" ? <div className="EmptySpace"></div> : */}
+                          {/* <RichTextContent descriptionJson={productInfo.descriptionJson} /> */}
                           <div>{productInfo.description}</div>
-                        }
+                        {/* } */}
                       </p>
                       <p className="price"><span><TaxedMoney taxedMoney={productInfo.pricing && productInfo.pricing.priceRange && productInfo.pricing.priceRange.start ? productInfo.pricing.priceRange.start : undefined} /></span>
                       </p>

@@ -220,18 +220,18 @@
   // }
   @media (max-width:768px) {
     .modalDiv {
-      padding-right: 5px;
+      // padding-right: 5px;
       width: 100%;
     }
     
     .shopsCarousel{
       background-color: #fff !important;
-      padding: 5px 0px 5px 8px;
+      padding: 0px 0px 0px 8px;
     }
     .productCarousel{
       .shopsCarousel{
         background-color: #fff !important;
-        padding: 5px 0px 5px 8px;
+        padding: 0px 0px 0px 8px;
         .slider-frame{
           height: 375px !important;
         }
@@ -595,7 +595,7 @@
   }
   .productCarousel{
     .shopsCarousel{
-      padding-bottom: 2px !important;
+      padding-bottom: 8px !important;
     }
     .image-gallery-bullets{
       top: 71%;

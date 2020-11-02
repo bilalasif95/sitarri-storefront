@@ -4,6 +4,8 @@ import * as React from "react";
 
 const ContactUs: React.FC = () => (
    <div className="homePage">
+      <p className="ContactV-line"></p>
+      <p className="ContactBoxV-line"></p>
       <div className="Contactbg">
       <div className="container">
          <div className="ContactContent">

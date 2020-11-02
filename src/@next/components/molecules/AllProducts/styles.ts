@@ -9,7 +9,7 @@ const textProps = css`
 export const Wrapper = styled.div`
   margin: 6px 16px 13px 0px;
   -webkit-box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
-  box-shadow: 0px 3px 3.5px rgba(112,144,176,0.1);
+  box-shadow: 0px 3px 6px rgba(112,144,176,0.1);
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
@@ -27,15 +27,15 @@ export const Top = styled.div`
 export const Brand = styled.div`
   position: absolute;
   top: 107px;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   left: 8px;
   border-radius: 60px;
   overflow: hidden;
   z-index: 1;
   > img {
-    height: 50px;
-    width: 50px;
+    height: 48px;
+    width: 48px;
     // border: 1px solid #B2BEC7;
     border-radius: 60px;
     background: #fff;
@@ -355,7 +355,7 @@ align-items: center;
 
 export const Nos = styled.p`
   font-size: 14px
-  color: #40464A;
+  color: #09253F;
   font-weight: 700;
   text-align: left;
   margin: 0 0.5rem 0 0;
@@ -392,6 +392,7 @@ align-items: center;
 background: #FDECD1;
 border-radius: 3px;
 padding: 0px 4px;
+height: 19px;
 // width: 60%;
 svg{
   margin: -1px 5px 0 0;

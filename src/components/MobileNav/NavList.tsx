@@ -4,8 +4,8 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
-import { baseUrl } from "../../app/routes";
-import { ADMIN_PANEL_LINK } from "../../core/config";
+import { baseUrl,businessResourceCenterUrl } from "../../app/routes";
+// import { ADMIN_PANEL_LINK } from "../../core/config";
 import NavItem, { INavItem } from "./NavItem";
 
 import backImg from "../../images/arrow-back.svg";
@@ -125,7 +125,7 @@ class NavList extends React.PureComponent<NavListProps, NavListState> {
                     className="regBtn"
                   >Signin or Register</Button>
                 )} */}
-              <Button className="regBtn" onClick={() => window.open(ADMIN_PANEL_LINK)}>Sitarri for Business</Button>
+              <Link to={businessResourceCenterUrl}><Button className="regBtn">Sitarri for Business</Button></Link>
               {/* <Button className="bcBtn">Business Resource Center</Button> */}
               {displayedItems.map(item => (
                 <NavItem
