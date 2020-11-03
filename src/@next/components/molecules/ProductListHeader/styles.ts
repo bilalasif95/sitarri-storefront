@@ -137,11 +137,11 @@ export const Input = styled.div`
   svg{
     position: absolute;
     z-index: 2;
-    margin-top: 10px;
+    margin-top: 9px;
     left: 15px;
-    path{
-      fill: #8e8e8f;
-    }
+    // path{
+    //   fill: #8e8e8f;
+    // }
   }
     input{
       width: 100%;

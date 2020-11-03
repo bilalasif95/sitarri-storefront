@@ -7,7 +7,7 @@ import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
 import * as S from "./styles";
 import { IProps } from "./types";
 
-import SearchIcon from "src/images/search.svg"
+import SearchIcon from "src/images/FilterSearch.svg"
 
 import { useHandlerWhenClickedOutside } from "../../../hooks";
 
