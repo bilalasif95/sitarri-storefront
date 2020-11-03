@@ -10,7 +10,7 @@ import { ADMIN_PANEL_LINK } from "../../core/config";
 
 import Card from "../../images/Card.svg";
 import Check from "../../images/Check.svg";
-import Discover from "../../images/Discover.svg";
+import Discover from "../../images/discoverImage.svg";
 import ManImg from "../../images/food.svg";
 import Free from "../../images/Free.png";
 import Phone from "../../images/phone.svg";

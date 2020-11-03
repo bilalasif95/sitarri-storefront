@@ -6,6 +6,8 @@ import * as React from "react";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 // import { Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import webShare from 'react-web-share-api';
 // import Media from "react-media";
 
@@ -44,12 +46,14 @@ import {
   // MenuDropdown,
   // Offline,
   // Online,
-  Carousel,
+  // Carousel,
   OverlayContext,
   OverlayTheme,
   OverlayType,
   ProductDescription,
 } from "../../components";
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 class Page extends React.PureComponent<
   {
@@ -183,7 +187,7 @@ class Page extends React.PureComponent<
     return <OverlayContext.Consumer>
       {overlayContext => (
         <>
-          
+
           <div className="Shop-page">
             <div className="container">
               <div className="product-page__shop">
@@ -205,30 +209,37 @@ class Page extends React.PureComponent<
                       <GalleryCarousel redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} productInfo={productInfo} images={this.getImages()} />
                       // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
                       :
-                      <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
-                        renderBottomCenterControls={props => {
-                          const indexes = [];
-                          for (let i = 0; i < props.slideCount; i++) {
-                            indexes.push(i);
-                          }
-                          return (
-                            <ul className="product-page__product__gallery__nav">
-                              {indexes.map(index => (
-                                <li
-                                  key={index}
-                                  onClick={props.goToSlide.bind(null, index)}
-                                  className={props.currentSlide === index ? "active" : ""}
-                                >
-                                  <span />
-                                </li>
-                              ))}
-                            </ul>
-                          );
-                        }}>
-                        {tempArray.map((img: any) => (
-                          <img onClick={() => redirectToPhotoGalleryPage(productInfo.id, productInfo.name)} src={img.original} />
-                        ))}
-                      </Carousel>
+                      <div className="swipperImages">
+                        <Swiper pagination={{ clickable: true, dynamicBullets: true }} slidesPerView={1}>
+                          {tempArray.map((img: any) => (
+                            <SwiperSlide><img onClick={() => redirectToPhotoGalleryPage(product.id, product.name)} src={img.original} /></SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
+                      // <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                      //   renderBottomCenterControls={props => {
+                      //     const indexes = [];
+                      //     for (let i = 0; i < props.slideCount; i++) {
+                      //       indexes.push(i);
+                      //     }
+                      //     return (
+                      //       <ul className="product-page__product__gallery__nav">
+                      //         {indexes.map(index => (
+                      //           <li
+                      //             key={index}
+                      //             onClick={props.goToSlide.bind(null, index)}
+                      //             className={props.currentSlide === index ? "active" : ""}
+                      //           >
+                      //             <span />
+                      //           </li>
+                      //         ))}
+                      //       </ul>
+                      //     );
+                      //   }}>
+                      //   {tempArray.map((img: any) => (
+                      //     <img onClick={() => redirectToPhotoGalleryPage(productInfo.id, productInfo.name)} src={img.original} />
+                      //   ))}
+                      // </Carousel>
                       // : <Link to={generatePhotoGalleryUrl(productInfo.id, productInfo.name)}><ImageGallery items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} /></Link>
                     }
                   </>
@@ -308,44 +319,72 @@ class Page extends React.PureComponent<
                   >
                     {productDescription}
                   </div>
-                  <div className="useful-links">
-                    {productInfo.phone !== "" &&
-                      <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
-                        <div className="icon">
-                          <ReactSVG path={phone} />
-                        </div>
-                        <p>Call</p>
-                      </a>}
-                    {productInfo.websiteUrl !== "" &&
-                      <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
-                        <div className="icon">
-                          <ReactSVG path={website} />
-                        </div>
-                        <p>Website</p>
-                      </a>
-                    }
-                    {productInfo.address &&
-                      <a className="item"
-                        href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
-                        target="_blank" rel="noopener noreferrer">
-                        <div className="icon">
-                          <ReactSVG path={direction} />
-                        </div>
-                        <p>Direction</p>
-                      </a>
-                    }
-
-
-
-                    {productInfo.deliverooUrl !== "" &&
-                      <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
-                        <div className="icon">
-                          <ReactSVG path={delivery} />
-                        </div>
-                        <p>Delivery</p>
-                      </a>
-                    }
-                  </div>
+                  {productInfo.phone !== "" && productInfo.websiteUrl !== "" && productInfo.address && productInfo.deliverooUrl === "" &&
+                    <div className="useful-links">
+                      {productInfo.phone !== "" &&
+                        <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={phone} />
+                          </div>
+                          <p>Call</p>
+                        </a>}
+                      {productInfo.websiteUrl !== "" &&
+                        <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={website} />
+                          </div>
+                          <p>Website</p>
+                        </a>
+                      }
+                      {productInfo.address &&
+                        <a className="item"
+                          href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                          target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={direction} />
+                          </div>
+                          <p>Direction</p>
+                        </a>
+                      }
+                    </div>
+                  }
+                  {productInfo.phone !== "" && productInfo.websiteUrl !== "" && productInfo.address && productInfo.deliverooUrl !== "" &&
+                    <div className="four-useful-links">
+                      {productInfo.phone !== "" &&
+                        <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={phone} />
+                          </div>
+                          <p>Call</p>
+                        </a>}
+                      {productInfo.websiteUrl !== "" &&
+                        <a className="item" href={productInfo.websiteUrl} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={website} />
+                          </div>
+                          <p>Website</p>
+                        </a>
+                      }
+                      {productInfo.address &&
+                        <a className="item"
+                          href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                          target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={direction} />
+                          </div>
+                          <p>Direction</p>
+                        </a>
+                      }
+                      {productInfo.deliverooUrl !== "" &&
+                        <a className="item" href={productInfo.deliverooUrl} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={delivery} />
+                          </div>
+                          <p>Delivery</p>
+                        </a>
+                      }
+                    </div>
+                  }
                 </div>
 
 

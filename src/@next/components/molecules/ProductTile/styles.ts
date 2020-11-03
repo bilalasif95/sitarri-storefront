@@ -40,11 +40,17 @@ export const Bottom = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   align-items: center;
-  border-top:  1px solid #f5f5f5;
+  // border-top:  1px solid #f5f5f5;
   @media(max-width: 767px) {
     padding: 8px 16px 8px 16px;
     align-items: flex-end;
   }
+`;
+
+export const DividerSpan = styled.span`
+  margin: 0px 16px;
+  display: block;
+  border-bottom:  1px solid #f5f5f5;
 `;
 
 export const Content = styled.div`
@@ -86,7 +92,7 @@ export const Title = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #09253F;
+  color: #40464A;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
@@ -98,7 +104,7 @@ export const StoreTitle = styled.h4`
   font-weight: 700;
   ${textProps}
   margin: 0 0 0.3rem;
-  color: #09253F;
+  color: #435365;
   margin-bottom: 10px;
   max-width: 280px;
   overflow: hidden;
@@ -328,7 +334,7 @@ export const Right = styled.div`
   align-items: center;
   @media(max-width:767px){
     width: 17%;
-    margin-top: 5px;
+    // margin-top: 5px;
   }
 `;
 export const Imgbox = styled.div`
