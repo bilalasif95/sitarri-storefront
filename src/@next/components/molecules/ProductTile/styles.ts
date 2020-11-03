@@ -411,9 +411,9 @@ export const Nos = styled.p`
   // margin: 0 0.5rem 0 0;
   display: flex;
   align-items: end;
-  @media (max-width: 767px){
-    font-size: 12px
-   }
+  // @media (max-width: 767px){
+  //   font-size: 12px
+  //  }
   
 `;
 

@@ -247,11 +247,11 @@ header {
   color: #09253F !important;
 }
 @media(max-width:540px){
-  #root {
-    & > div:first-of-type {
+  // #root {
+    // & > div:first-of-type {
       // margin: 0 !important;
-    }
-  }
+    // }
+  // }
   .cookie-message{
     margin-right: initial !important;
   }

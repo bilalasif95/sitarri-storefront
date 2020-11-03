@@ -99,10 +99,10 @@ module.exports = ({ sourceDir, distDir }) => ({
     }),
     // PWA plugins
     new WebappWebpackPlugin({
-      logo: `${sourceDir}/images/favicon.svg`,
+      logo: `${sourceDir}/images/Sittari_Logo_Splash.svg`,
       prefix: "images/favicons/",
       favicons: {
-        appName: "Sitarri",
+        // appName: "Sitarri",
         appDescription: "Storefront for the Sitarri e-commerce platform",
         display: "standalone",
         developerURL: null, // prevent retrieving from the nearest package.json
