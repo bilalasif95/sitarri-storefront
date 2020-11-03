@@ -71,6 +71,7 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
         </S.Content>
       </S.Top>
       {product.store && <Link to={generateShopUrl(product.store.id, product.store.name)} key={product.store.id}>
+        <S.DividerSpan></S.DividerSpan>
         <S.Bottom>
           <S.Right>
             <S.Imgbox>

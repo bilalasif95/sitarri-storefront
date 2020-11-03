@@ -106,8 +106,8 @@ module.exports = ({ sourceDir, distDir }) => ({
         appDescription: "Storefront for the Sitarri e-commerce platform",
         display: "standalone",
         developerURL: null, // prevent retrieving from the nearest package.json
-        background: "#ddd",
-        theme_color: "#333",
+        background: "#140823",
+        theme_color: "#FFFFFF",
       },
     }),
     new webpack.EnvironmentPlugin({

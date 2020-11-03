@@ -192,6 +192,7 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
                 : undefined;
             return (
               <Link to={generateProductUrl(item.node.id, item.node.name)} key={item.node.id}>
+                <S.DividerSpan></S.DividerSpan>
                 <S.Bottom>
                   <S.Left>
                     <S.ProductTitle>{item.node.name}</S.ProductTitle>
