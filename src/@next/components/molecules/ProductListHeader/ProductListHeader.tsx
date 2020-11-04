@@ -190,6 +190,7 @@ export const ProductListHeader: React.FC<IProps> = ({
             {menuIsOpen &&
               <S.menuDropdown>
                 <S.Submenu>
+                  <S.Menuborder></S.Menuborder>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox>
                     <S.MenuLink>
@@ -275,7 +276,7 @@ export const ProductListHeader: React.FC<IProps> = ({
         <S.Element>
           <S.Sort data-cy="dropdown-select" ref={setSortElementRef()}>
             <SelectMenu
-              title="Sort by"
+              title="Sort By"
               closeOnSelect
               hasFilter={false}
               options={sorting}
