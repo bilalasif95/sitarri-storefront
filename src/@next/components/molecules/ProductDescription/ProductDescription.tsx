@@ -145,7 +145,7 @@ export const ProductDescription: React.FC<IProps> = ({
                   )}
                 </S.TabList>
                 {window.innerWidth > 540 ?
-                  storeCategory.edges.length > 11 ?
+                  storeCategory.edges.length >= 11 ?
                     // <button onClick={() => seeMoreCat()}>
                     //   More
 
