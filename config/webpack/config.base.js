@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const webpack = require("webpack");
+const { basename } = require("path");
 
 if (!process.env.API_URI) {
   throw new Error("Environment variable API_URI not set");
@@ -93,13 +94,19 @@ module.exports = ({ sourceDir, distDir }) => ({
       template: `${sourceDir}/index.html`,
       API_URI: process.env.API_URI,
     }),
+    new HtmlWebpackPlugin({
+      filename: `${distDir}/splashScreen.html`,
+      template: `${sourceDir}/splashScreen.html`,
+      API_URI: process.env.API_URI,
+    }),
     new ForkTsCheckerWebpackPlugin({
       tslint: true,
       exclude: "node_modules",
     }),
     // PWA plugins
     new WebappWebpackPlugin({
-      logo: `${sourceDir}/images/Sittari_Logo_Splash.svg`,
+      inject: htmlPlugin => basename(htmlPlugin.options.filename) === `${sourceDir}/splashScreen.html`,
+      logo: `${sourceDir}/images/favicon.svg`,
       prefix: "images/favicons/",
       favicons: {
         appName: "",
