@@ -8,15 +8,15 @@ import * as appPaths from "../../app/routes";
 
 import { ADMIN_PANEL_LINK } from "../../core/config";
 
-import Card from "../../images/Card.svg";
 import Check from "../../images/Check.svg";
-import Discover from "../../images/discoverImage.svg";
 import ManImg from "../../images/food.svg";
-import Free from "../../images/Free.png";
+import Free from "../../images/Free.svg";
+import Discover from "../../images/Get_Discovered.svg";
+import Speaker from "../../images/Megaphone.svg";
 import Phone from "../../images/phone.svg";
+import Card from "../../images/Sales_Growth.svg";
 import Setup from "../../images/Setup.svg";
-import Signup from "../../images/Signup.svg";
-import Speaker from "../../images/Speaker.svg";
+import Signup from "../../images/Sign_Up.svg";
 // import Next from "../../images/next.svg";
 
 const ContactUs: React.FC = () => (
@@ -160,7 +160,7 @@ const ContactUs: React.FC = () => (
 
                <div className="joinBoxes workFoodV-line">
                   <h4 className="boxHeading">Get Discovered</h4>
-                  <img src={Discover} />
+                  <img style={{marginBottom: "5px"}} src={Discover} />
                   <p className="joinBoxestext">Go live and get discovered by customers.</p>
                </div>
             </div>
