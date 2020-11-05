@@ -7,7 +7,8 @@ import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
 import * as S from "./styles";
 import { IProps } from "./types";
 
-import SearchIcon from "src/images/FilterSearch.svg"
+import defaultIcon from "src/images/Default Icon.svg";
+import SearchIcon from "src/images/FilterSearch.svg";
 
 import { useHandlerWhenClickedOutside } from "../../../hooks";
 
@@ -107,6 +108,7 @@ const sortOptionsByRating: any = [
 
 const sorting: any = [
   {
+    icon: defaultIcon,
     label: "Default",
     value: null,
   },
