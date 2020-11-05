@@ -119,7 +119,7 @@ export const Menuborder = styled.div`
   width: 40px;
   height: 0px;
   border: 4px solid var(--text-light);
-  border: 4px solid #8899A9;
+  border-bottom: 4px solid #8899A9;
   opacity: 1;
   margin: 0px auto;
   border-radius: 100px;
@@ -218,12 +218,22 @@ export const SubmenuBox = styled.div<{ type: string }>`
           font-size:12px;
           width: ${props =>
             props.type === "" ? "57px" : "100%"};
-            border: ${props =>
+            border-top: ${props =>
               props.type === "" ? "1px solid #F5F5F5" : ""};
-          
+              border-bottom: ${props =>
+                props.type === "" ? "1px solid #F5F5F5" : ""};
+                position: relative;
           min-height: 30px !important;
           margin: 0px !important;
           cursor: pointer;
+          // &:after{
+          //   border-bottom: 1px solid #000;
+          //   position: absolute;
+          //   content: '';
+          //   width: 10px;
+          //   transform: rotate(90deg);
+          //   right: 0;
+          // }
           &:hover{
             background-color: #435a6f0f;
           }

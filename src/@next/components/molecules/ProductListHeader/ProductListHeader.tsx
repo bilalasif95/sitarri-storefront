@@ -7,8 +7,15 @@ import { DropdownSelect, Icon, IconButton, Label } from "@components/atoms";
 import * as S from "./styles";
 import { IProps } from "./types";
 
+import AllIcon from "src/images/All Icon.svg";
 import defaultIcon from "src/images/Default Icon.svg";
+import Distance from "src/images/Distance Icon.svg";
+import PriceLow from "src/images/Price L to H Icon.svg";
+import PriceHigh from "src/images/Price H to L Icon.svg";
+import ProductIcon from "src/images/Products Icon.svg";
+import RatingsIcon from "src/images/Ratings icon.svg";
 import SearchIcon from "src/images/FilterSearch.svg";
+import ShopsIcon from "src/images/Shops Icons.svg";
 
 import { useHandlerWhenClickedOutside } from "../../../hooks";
 
@@ -75,14 +82,17 @@ const sortOptionsByDistance = [
 ];
 const sortOptionsByType: any = [
   {
+    icon: AllIcon,
     label: "All",
     value: null,
   },
   {
+    icon: ProductIcon,
     label: "Products",
     value: "products",
   },
   {
+    icon: ShopsIcon,
     label: "Shops",
     value: "stores",
   },
@@ -113,19 +123,23 @@ const sorting: any = [
     value: null,
   },
   {
+    icon: PriceHigh,
     label: "Price: High to Low",
     value: "-price",
   },
   {
+    icon: PriceLow,
     label: "Price: Low to High",
     value: "price",
   },
   {
+    icon: RatingsIcon,
     disabled: true,
     label: "Rating",
     value: "rating",
   },
   {
+    icon: Distance,
     disabled: true,
     label: "Distance",
     value: "distance",

@@ -273,15 +273,31 @@ header {
   font-size: 14px;
 }
 .ClearBtn{
-  color: red;
+  color: #FF2F2D;
+  position: relative;
   &:after{
     content: '';
     border-bottom: 1px solid #F5F5F5;
-    width: 10px;
+    width: 15px;
     display: block;
+    transform: rotate(90deg);
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
 
   }
-}
 .ApplyBtn{
-  color: green;
+  color: #53C865;
+}
+.ub-flx-drct_column{
+  .css-b5v4p5{
+    img{
+      margin: 0px 16px;
+    }
+    div{
+      padding: 0px!important;
+      // height: 56px;
+    }
+  }
 }
