@@ -105,9 +105,25 @@ export const SubmenuTitle = styled.div`
     font-size: 18px;
     border-bottom: 1px solid #E4E7EB;
     position: relative;
+    
     // .jlQsbh{
     //   top: 0 !important;
     // }
+    @media(max-width: 540px){
+      text-align: center;
+    }
+`;
+export const Menuborder = styled.div`
+@media(max-width: 540px){
+  width: 40px;
+  height: 0px;
+  border: 4px solid var(--text-light);
+  border: 4px solid #8899A9;
+  opacity: 1;
+  margin: 0px auto;
+  border-radius: 100px;
+  margin-top: 16px !important;
+}
 `;
 export const SubmenuList = styled.div<{ categoriesMenu: boolean }>`
   border-bottom: 1px solid #EDF0F2;
@@ -221,6 +237,7 @@ export const Top = styled.div`
     border-radius: 3px;
     width: 24px;
     height: 24px;
+    display: none !important;
     &:hover{
       background-color: rgba(67, 90, 111, 0.06);
       }
