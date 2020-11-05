@@ -272,3 +272,16 @@ header {
   color: #8899A9;
   font-size: 14px;
 }
+.ClearBtn{
+  color: red;
+  &:after{
+    content: '';
+    border-bottom: 1px solid #F5F5F5;
+    width: 10px;
+    display: block;
+
+  }
+}
+.ApplyBtn{
+  color: green;
+}

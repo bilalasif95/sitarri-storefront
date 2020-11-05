@@ -13,6 +13,10 @@ import { useHandlerWhenClickedOutside } from "../../../hooks";
 
 const sortOptionsByPrice = [
   {
+    label: "Any",
+    value: null,
+  },
+  {
     label: "£0-10",
     value: { gte: 0, lte: 10 },
   },
@@ -39,6 +43,10 @@ const sortOptionsByPrice = [
 
 ];
 const sortOptionsByDistance = [
+  {
+    label: "Any",
+    value: null,
+  },
   {
     label: "<100m",
     value: { value: 100, symbol: "METER" },
@@ -78,6 +86,24 @@ const sortOptionsByType: any = [
     value: "stores",
   },
 ];
+const sortOptionsByRating: any = [
+  {
+    label: "Any",
+    value: null,
+  },
+  {
+    label: "3.5",
+    value: "3.5",
+  },
+  {
+    label: "4.0",
+    value: "4.0",
+  },
+  {
+    label: "4.5",
+    value: "4.5",
+  },
+];
 
 const sorting: any = [
   {
@@ -92,14 +118,16 @@ const sorting: any = [
     label: "Price: Low to High",
     value: "price",
   },
-  // {
-  //   label: "Rating",
-  //   value: "rating",
-  // },
-  // {
-  //   label: "Distance",
-  //   value: "distance",
-  // },
+  {
+    disabled: true,
+    label: "Rating",
+    value: "rating",
+  },
+  {
+    disabled: true,
+    label: "Distance",
+    value: "distance",
+  },
 ];
 
 export const ProductListHeader: React.FC<IProps> = ({
@@ -115,38 +143,38 @@ export const ProductListHeader: React.FC<IProps> = ({
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
   const [isResultsMenuOpened, setResultsMenuIsOpen] = React.useState(false);
   const [isSortMenuOpened, setSortMenuIsOpen] = React.useState(false);
-  const [categoriesMenu, setCategoriesMenu] = React.useState(false);
-  const [distanceMenu, setDistanceMenu] = React.useState(false);
-  const [priceMenu, setPriceMenu] = React.useState(false);
+  const [categoriesMenu, setCategoriesMenu] = React.useState(true);
+  const [distanceMenu, setDistanceMenu] = React.useState(true);
+  const [priceMenu, setPriceMenu] = React.useState(true);
   const [search, setSearch] = React.useState("");
   const [filtered, setFiltered] = React.useState(categories);
 
-  const onCategoriesMenuClick = () => {
-    if (categoriesMenu) {
-      return setCategoriesMenu(false)
-    }
-    setCategoriesMenu(true);
-    setDistanceMenu(false);
-    setPriceMenu(false);
-  }
+  // const onCategoriesMenuClick = () => {
+  //   if (categoriesMenu) {
+  //     return setCategoriesMenu(false)
+  //   }
+  //   setCategoriesMenu(true);
+  //   setDistanceMenu(false);
+  //   setPriceMenu(false);
+  // }
 
-  const onDistanceMenuClick = () => {
-    if (distanceMenu) {
-      return setDistanceMenu(false)
-    }
-    setDistanceMenu(true);
-    setCategoriesMenu(false);
-    setPriceMenu(false);
-  }
+  // const onDistanceMenuClick = () => {
+  //   if (distanceMenu) {
+  //     return setDistanceMenu(false)
+  //   }
+  //   setDistanceMenu(true);
+  //   setCategoriesMenu(false);
+  //   setPriceMenu(false);
+  // }
 
-  const onPriceMenuClick = () => {
-    if (priceMenu) {
-      return setPriceMenu(false)
-    }
-    setPriceMenu(true);
-    setDistanceMenu(false);
-    setCategoriesMenu(false);
-  }
+  // const onPriceMenuClick = () => {
+  //   if (priceMenu) {
+  //     return setPriceMenu(false)
+  //   }
+  //   setPriceMenu(true);
+  //   setDistanceMenu(false);
+  //   setCategoriesMenu(false);
+  // }
 
   const { setElementRef } = useHandlerWhenClickedOutside(() => {
     setMenuIsOpen(false);
@@ -192,8 +220,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                 <S.Submenu>
                   <S.Menuborder></S.Menuborder>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
-                  <S.SubmenuBox>
-                    <S.MenuLink>
+                  <S.SubmenuBox type="categories">
+                    {/* <S.MenuLink>
                       <S.SubmenuList categoriesMenu={false} onClick={() => {
                         setMenuIsOpen(!menuIsOpen);
                         onChange("", "none");
@@ -203,11 +231,13 @@ export const ProductListHeader: React.FC<IProps> = ({
                         setDistanceMenu(false);
                         setPriceMenu(false);
                       }}>None</S.SubmenuList>
-                    </S.MenuLink>
+                    </S.MenuLink> */}
 
-                    <S.MenuLink><S.SubmenuList categoriesMenu={categoriesMenu} onClick={onCategoriesMenuClick}>Categories</S.SubmenuList></S.MenuLink>
-                    {categoriesMenu &&
-                      <>
+                    <S.MenuLink><S.SubmenuList categoriesMenu={categoriesMenu} 
+                    // onClick={onCategoriesMenuClick}
+                    >Categories</S.SubmenuList></S.MenuLink>
+                    {/* {categoriesMenu &&
+                      <> */}
                         <S.Input>
                           <ReactSVG path={SearchIcon} />
                           <input type="text" placeholder="Categories" value={search} onChange={(e) => {
@@ -239,10 +269,29 @@ export const ProductListHeader: React.FC<IProps> = ({
                             (option: any) => option.label === activeSortBusinessType
                           )}
                         />
-                      </>
-                    }
-                    <S.MenuLink><S.SubmenuList categoriesMenu={distanceMenu} onClick={onDistanceMenuClick}>Distance</S.SubmenuList></S.MenuLink>
-                    {distanceMenu &&
+                      {/* </>
+                    } */}
+                    </S.SubmenuBox>
+                    <S.SubmenuBox type="">
+                    <S.MenuLink><S.SubmenuList categoriesMenu={distanceMenu} 
+                    // onClick={onDistanceMenuClick}
+                    >Ratings</S.SubmenuList></S.MenuLink>
+                    {/* {distanceMenu && */}
+                      <DropdownSelect
+                        sortBy="Sort by"
+                        type="DistanceBase"
+                        onChange={onChange}
+                        menuIsOpen={distanceMenu}
+                        options={sortOptionsByRating}
+                        value={sortOptionsByRating.find(
+                          option => option.label === acitveSortDistanceBase
+                        )}
+                      />
+                    {/* } */}
+                    <S.MenuLink><S.SubmenuList categoriesMenu={distanceMenu} 
+                    // onClick={onDistanceMenuClick}
+                    >Distance</S.SubmenuList></S.MenuLink>
+                    {/* {distanceMenu && */}
                       <DropdownSelect
                         sortBy="Sort by"
                         type="DistanceBase"
@@ -253,9 +302,11 @@ export const ProductListHeader: React.FC<IProps> = ({
                           option => option.label === acitveSortDistanceBase
                         )}
                       />
-                    }
-                    <S.MenuLink><S.SubmenuList categoriesMenu={priceMenu} onClick={onPriceMenuClick}>Price</S.SubmenuList></S.MenuLink>
-                    {priceMenu &&
+                    {/* } */}
+                    <S.MenuLink><S.SubmenuList categoriesMenu={priceMenu} 
+                    // onClick={onPriceMenuClick}
+                    >Price</S.SubmenuList></S.MenuLink>
+                    {/* {priceMenu && */}
                       <DropdownSelect
                         sortBy="Filters"
                         type="PriceBase"
@@ -266,8 +317,12 @@ export const ProductListHeader: React.FC<IProps> = ({
                           option => option.label === activeSortOption
                         )}
                       />
-                    }
+                    {/* } */}
                   </S.SubmenuBox>
+                  <S.MobileSheet>
+                   <button className="ClearBtn btn btn-default">Clear </button>
+                   <button className="ApplyBtn btn btn-default">Apply </button>
+                  </S.MobileSheet>
                 </S.Submenu>
               </S.menuDropdown>
             }
