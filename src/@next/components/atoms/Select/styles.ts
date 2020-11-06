@@ -6,8 +6,13 @@ export const Wrapper = styled.div<{isIcon: boolean | undefined}>`
     .css-11unzgr{
       ${props => props.isIcon && 
       `.css-19ni769-option {
-        background-image: url('images/Ratings icon.svg');
-        background-repeat: no-repeat;
+        &:after{
+          content:url("../../../../images/stargit .svg") !important;
+          position:absolute !important; 
+          z-index:100000; 
+          left:0px;
+          top:0px;
+        }
       }`}
       .css-qtgvzc-option:active{
         background-color: transparent !important;
