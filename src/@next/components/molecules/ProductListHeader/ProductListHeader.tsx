@@ -10,11 +10,11 @@ import { IProps } from "./types";
 import AllIcon from "src/images/All Icon.svg";
 import defaultIcon from "src/images/Default Icon.svg";
 import Distance from "src/images/Distance Icon.svg";
-import PriceLow from "src/images/Price L to H Icon.svg";
+import SearchIcon from "src/images/FilterSearch.svg";
 import PriceHigh from "src/images/Price H to L Icon.svg";
+import PriceLow from "src/images/Price L to H Icon.svg";
 import ProductIcon from "src/images/Products Icon.svg";
 import RatingsIcon from "src/images/Ratings icon.svg";
-import SearchIcon from "src/images/FilterSearch.svg";
 import ShopsIcon from "src/images/Shops Icons.svg";
 
 import { useHandlerWhenClickedOutside } from "../../../hooks";
@@ -133,14 +133,14 @@ const sorting: any = [
     value: "price",
   },
   {
-    icon: RatingsIcon,
     disabled: true,
+    icon: RatingsIcon,
     label: "Rating",
     value: "rating",
   },
   {
-    icon: Distance,
     disabled: true,
+    icon: Distance,
     label: "Distance",
     value: "distance",
   },
@@ -278,6 +278,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                         <DropdownSelect
                           sortBy="Sort by"
                           type="BusinessBase"
+                          isIcon={false}
                           onChange={onChange}
                           menuIsOpen={categoriesMenu}
                           options={filtered}
@@ -297,10 +298,11 @@ export const ProductListHeader: React.FC<IProps> = ({
                         sortBy="Sort by"
                         type="DistanceBase"
                         onChange={onChange}
+                        isIcon={true}
                         menuIsOpen={distanceMenu}
                         options={sortOptionsByRating}
                         value={sortOptionsByRating.find(
-                          option => option.label === acitveSortDistanceBase
+                          (option:any) => option.label === acitveSortDistanceBase
                         )}
                       />
                     {/* } */}
@@ -311,6 +313,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                       <DropdownSelect
                         sortBy="Sort by"
                         type="DistanceBase"
+                        isIcon={false}
                         onChange={onChange}
                         menuIsOpen={distanceMenu}
                         options={sortOptionsByDistance}
@@ -326,6 +329,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                       <DropdownSelect
                         sortBy="Filters"
                         type="PriceBase"
+                        isIcon={false}
                         onChange={onChange}
                         menuIsOpen={priceMenu}
                         options={sortOptionsByPrice}

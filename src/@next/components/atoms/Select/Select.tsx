@@ -46,6 +46,7 @@ export const Select: React.FC<IProps> = ({
   clearable,
   clearValue,
   name,
+  isIcon,
   options,
   isOptionDisabled,
   customComponents,
@@ -65,7 +66,7 @@ export const Select: React.FC<IProps> = ({
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper isIcon={isIcon}>
       <ReactSelect
         defaultValue={defaultValue}
         onChange={handleChange}

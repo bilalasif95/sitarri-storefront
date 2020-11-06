@@ -20,6 +20,7 @@ export const DropdownSelect: React.FC<IProps> = ({
   menuIsOpen,
   options,
   name,
+  isIcon,
   value,
   onChange,
 }: IProps) => {
@@ -71,6 +72,7 @@ export const DropdownSelect: React.FC<IProps> = ({
       <Select
         options={options}
         value={value}
+        isIcon={isIcon}
         onChange={value => {
           // setMenuIsOpen(false);
           onChange(value, type);

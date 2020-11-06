@@ -3,6 +3,7 @@ export interface IProps {
   value: any;
   options: any;
   name?: any;
+  isIcon?: boolean;
   type?: string;
   sortBy?: string;
   menuIsOpen?: boolean;

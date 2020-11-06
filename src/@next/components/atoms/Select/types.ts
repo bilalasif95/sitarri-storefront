@@ -10,6 +10,7 @@ export interface IProps {
   optionLabelKey?: string;
   menuIsOpen?: boolean;
   customStyles?: any;
+  isIcon?: boolean;
   optionValueKey?: string;
   onChange: (value: any, name?: any) => void;
   clearable?: boolean;
