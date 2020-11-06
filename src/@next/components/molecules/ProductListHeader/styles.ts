@@ -91,7 +91,7 @@ export const Submenu = styled.div`
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
-    top: 0.5%;
+    top: 7.5%;
     width: 100%;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
@@ -126,30 +126,44 @@ export const Menuborder = styled.div`
   margin-top: 16px !important;
 }
 `;
-export const SubmenuList = styled.div<{ categoriesMenu: boolean }>`
-  border-bottom: 1px solid #EDF0F2;
+export const SubmenuList = styled.div<{ categoriesMenu: boolean,type:string }>`
+  border-bottom: 1px solid #EDF0F2 !important;
   cursor: pointer;
   color: #8799a9;
   font-size: 12px;
+  img{
+    vertical-align: middle;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
   color: ${props =>
     props.categoriesMenu ? "#09253F" : "#8799a9"};
     border-bottom: ${props =>
-      props.categoriesMenu ? "none" : "    border-bottom: 1px solid #EDF0F2;"};
+      props.categoriesMenu ? "none" : "border-bottom: 1px solid #EDF0F2;"};
     padding: 6px 0px 0px 0px;
-    margin-left: 18px;
+    height: 33px;
+    @media(max-width:540px){
+      height: auto;
+      font-size: 18px;
+      padding: ${props =>
+        props.type === "categories" ? "18px 0px 17px 0px" : "18px 0px 0px 0px"};
+      color: #435365 !important;
+    }
 `;
 
 export const MenuLink = styled.div`
-&:last-child{
-  div{
-    border-bottom: none;
+@media(max-width: 540px){
+  &:last-child{
+    div{
+      border-bottom: none;
+    }
   }
 }
+
   &:hover{
     background-color: rgba(67, 90, 111, 0.06);
     cursor: pointer;
   }
-
 `;
 
 export const Input = styled.div`
@@ -164,7 +178,7 @@ export const Input = styled.div`
   }
     input{
       width: 100%;
-      height: 31px;
+      height: 32px;
       padding-left: 35px;
       border: none;
       background: #F5F6F7;
@@ -182,15 +196,20 @@ export const SubmenuBox = styled.div<{ type: string }>`
       box-shadow: inherit;
       margin: 0px 0px;
       .css-11unzgr {
-        display: ${props =>
-          props.type === "" ? "flex" : "block"};
-          justify-content: ${props =>
-            props.type === "" ? "center" : "block"};
-            padding: ${props =>
-              props.type === "" ? "24px 30px" : "0px 0px 0px 30px"};
-        max-height: 115px;
+        padding: 0px 0px;
+        @media(max-width:540px){
+          display: ${props =>
+            props.type === "" || props.type === "price"  ? "flex" : "block"};
+            justify-content: ${props =>
+              props.type === "" || props.type === "price" ? "center" : "block"};
+              padding: ${props =>
+                props.type === "" || props.type === "price" ? "25px 15px" : "0px 0px 0px 30px"};
+        }
+       
+        max-height: 94px;
         // padding: 24px 0px 24px 30px;
-        border-bottom: 1px solid #EDF0F2;
+        border-bottom: ${props =>
+          props.type === "price" ? "none !important" : "1px solid #EDF0F2"};
         .css-1gl4k7y{
           padding: 8px 55px;
           text-align: inherit;
@@ -207,52 +226,78 @@ export const SubmenuBox = styled.div<{ type: string }>`
           display: none;
         }
         .css-19ni769-option{
+          color: #8799a9;
+          border-bottom: none;
+          border-top: 1px solid #EDF0F2;
+          font-size: 12px;
+          width: 100% !important;
+          position: relative;
+          min-height: 30px !important;
+          margin-left: 30px !important;
+          cursor: pointer;
+          @media(max-width:540px){
           // padding: 6px 0px;
+          justify-content: ${props =>
+          props.type === ""  || props.type === "price"  ? "center" : ""};
+          padding: ${props =>
+          props.type === "" || props.type === "price"  ? "4px 6px" : "5.5px 12px"};
+              font-size: ${props =>
+                props.type === "" || props.type === "price"  ? "12px" : "14px !important"};
+                border-bottom: ${props =>
+                  props.type === "" || props.type === "price"  ? "none" : "none"};
+                  border-top: ${props =>
+                  props.type === "" || props.type === "price"  ? "none" : "1px solid #EDF0F2"};
+                  width: ${props =>
+                    props.type === "" || props.type === "price"  ? "57px !important" : "100%"};
+                    border-top: ${props =>
+                    props.type === "" || props.type === "price"  ? "1px solid #F5F5F5" : ""};
+                    border-bottom: ${props => props.type === "" || props.type === "price"  ? "1px solid #F5F5F5" : ""};
+              }
           color: #8799a9;
           // border-bottom: 1px solid #EDF0F2;
-          border-bottom: ${props =>
-            props.type === "" ? "none" : "1px solid #EDF0F2"};
-          border-top: ${props =>
-              props.type === "" ? "none" : "1px solid #EDF0F2"};
+          
           // border: 1px solid #F5F5F5;
           font-size:12px;
-          width: ${props =>
-            props.type === "" ? "57px" : "100%"};
-            border-top: ${props =>
-              props.type === "" ? "1px solid #F5F5F5" : ""};
-              border-bottom: ${props =>
-                props.type === "" ? "1px solid #F5F5F5" : ""};
-                position: relative;
+          position: relative;
           min-height: 30px !important;
-          margin: 0px !important;
+          // margin: 0px !important;
           cursor: pointer;
-          // &:after{
-          //   border-bottom: 1px solid #000;
-          //   position: absolute;
-          //   content: '';
-          //   width: 10px;
-          //   transform: rotate(90deg);
-          //   right: 0;
-          // }
+          ${props => props.type === "" && `&:after{
+            border-bottom: 1px solid #f5f5f5;
+            position: absolute;
+            content: '';
+            width: 15px;
+            transform: rotate(90deg);
+            right: -7px;
+          }`};
           &:hover{
             background-color: #435a6f0f;
           }
+          @media(max-width: 540px){
+            color: ${props =>
+              props.type === "" || props.type === "price"  ? "#09253F" : ""};
+          }
         }
         .css-19ni769-option:first-child{
+          &:after{
+            display: none;
+          }
           // padding: 6px 0px;
           color: #8799a9;
+          @media(max-width:540px){
           width: ${props =>
-            props.type === "" ? "44px" : "100%"};
+            props.type === "" || props.type === "price"  ? "44px !important" : "100%"};
           padding: ${props =>
-                props.type === "" ? "4px 12px" : ""};
+                props.type === "" || props.type === "price"  ? "4px 12px" : ""};
           border: ${props =>
-                  props.type === "" ? "1px solid #53C865" : ""};
+                  props.type === "" || props.type === "price"  ? "1px solid #53C865" : ""};
           color: ${props =>
-                    props.type === "" ? "#53C865" : ""};
+                    props.type === "" || props.type === "price"  ? "#53C865" : ""};
           border-top-left-radius: ${props =>
-                      props.type === "" ? "50px" : ""};
+                      props.type === "" || props.type === "price"  ? "50px" : ""};
                       border-bottom-left-radius: ${props =>
-                        props.type === "" ? "50px" : ""};
+                        props.type === "" || props.type === "price"  ? "50px" : ""};
+                      }
           // border-bottom: 1px solid #EDF0F2;
           font-size:12px;
           min-height: 30px;
@@ -262,16 +307,25 @@ export const SubmenuBox = styled.div<{ type: string }>`
           }
         }
         .css-19ni769-option:last-child{
+          @media(max-width: 540px){
+            color: ${props =>
+              props.type === ""  || props.type === "price" ? "#09253F" : ""};
+              width: ${props =>
+                props.type === "" || props.type === "price"  ? "57px !important" : "100%"};
+              padding: ${props =>
+                    props.type === "" || props.type === "price"  ? "4px 6px" : ""};
+              border-top-right-radius: ${props =>
+                          props.type === "" || props.type === "price"  ? "50px" : ""};
+                          border-bottom-right-radius: ${props =>
+                            props.type === "" || props.type === "price"  ? "50px" : ""};
+          }
+          
+          &:after{
+            display: none;
+          }
           // padding: 6px 0px;
           color: #8799a9;
-          width: ${props =>
-            props.type === "" ? "44px" : "100%"};
-          padding: ${props =>
-                props.type === "" ? "4px 12px" : ""};
-          border-top-right-radius: ${props =>
-                      props.type === "" ? "50px" : ""};
-                      border-bottom-right-radius: ${props =>
-                        props.type === "" ? "50px" : ""};
+ 
           // border-bottom: 1px solid #EDF0F2;
           font-size:12px;
           min-height: 30px;
@@ -326,6 +380,7 @@ export const Top = styled.div`
   .gsBHXN{
     position: relative;
   }
+  
   .css-kj6f9i-menu{
     .css-19ni769-option{
       border-bottom: 1px solid #fafafa;
@@ -336,6 +391,7 @@ export const Top = styled.div`
     .css-19ni769-option:active, .css-r59xpm-option:active{
       // background: #fff;
     }
+    
   }
   @media(max-width:768px){
     justify-content: space-between;
@@ -438,11 +494,14 @@ export const FiltersChipsWrapper = styled.div`
   }
 `;
 export const MobileSheet = styled.div`
-display: flex;
-box-shadow: 0px -3px 6px #7090B01A;
-height: 32px;
-width: 100%;
-margin-top: 10px;
+  display: none;
+  @media(max-width:540px){
+  display: block;
+  display: flex;
+  box-shadow: 0px -3px 6px #7090B01A;
+  height: 32px;
+  width: 100%;
+  margin-top: 10px;
   button{
     display: inline-block;
     width: 50%;
@@ -450,5 +509,6 @@ margin-top: 10px;
     font-size: 14px;
     padding: 8px 32px;
     -webkit-tap-highlight-color: transparent;
+  }
   }
 `;
