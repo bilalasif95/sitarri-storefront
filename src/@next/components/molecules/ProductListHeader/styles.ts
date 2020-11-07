@@ -339,7 +339,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
           }
         }
         .css-r59xpm-option{
-          padding-left: 42px;
+          padding-left: 40px;
           // font-weight: 400;
           // min-height: 30px;
             // border: 1px solid #F5F5F5;
@@ -347,6 +347,54 @@ export const SubmenuBox = styled.div<{ type: string }>`
             // width: inherit;
           // font-size: 12px;
           // padding: 0px;
+          ${props => props.type === "" || props.type === "price"  ?
+          `@media(max-width: 540px){
+            &:first-child{
+              width: 44px !important;
+              padding: 4px 12px;
+              border: 1px solid #53C865;
+              color: #53C865;
+              border-top-left-radius: 50px;
+              border-bottom-left-radius: 50px;
+              &:before{
+                display: none;
+              }
+            }
+            width: 57px;
+            margin: inherit !important;
+            border-top: 1px solid #F5F5F5;
+            border-bottom: 1px solid #F5F5F5;
+            font-size: 12px;
+            position: relative;
+            justify-content: start !important;
+            -webkit-box-pack: initial;
+            padding: 4px 12px;
+            min-height: 30px;
+            // padding-left: 0px;
+            :after {
+              border-bottom: 1px solid #f5f5f5;
+              position: absolute;
+              content: '';
+              width: 15px;
+              -webkit-transform: rotate(90deg);
+              -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+              right: -7px;
+          }
+          &:last-child{
+            border-right: 1px solid #F5F5F5;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            &:after{
+              display: none;
+            }
+          }
+          }`
+          : `@media(max-width: 540px){
+            padding-left: 12px;
+            border-top: 1px solid #EDF0F2;
+          }`
+        }
         }
         @media(max-width: 540px){
           position: inherit;

@@ -104,6 +104,7 @@ export const ProductDescription: React.FC<IProps> = ({
 
   const sortOptionsByPrice: any = [];
   storeCategory.edges.map((cat: any, index: number) => sortOptionsByPrice.push({
+    icon: "",
     index,
     label: cat.node.name,
     products: cat.node.products,
@@ -114,7 +115,7 @@ export const ProductDescription: React.FC<IProps> = ({
 
     {overlayContext => (
       <>
-        <S.Wrapper>
+        <S.Wrapper className="MoreCategories">
 
           <S.fixed isSticky={isSticky} ref={ref}>
             {isSticky && <div>
@@ -148,23 +149,25 @@ export const ProductDescription: React.FC<IProps> = ({
                   storeCategory.edges.length >= 11 ?
                     // <button onClick={() => seeMoreCat()}>
                     //   More
+                    <div className="MoreMenu">
+                      <SelectMenu
+                        title="Categories"
+                        onFilterChange={value => {
+                          setSortPriceBase(value)
+                        }}
+                        closeOnSelect
+                        filterPlaceholder="Categories"
+                        options={sortOptionsByPrice}
+                        selected={sortPriceBase.label}
+                        onSelect={(value: any) => {
+                          setSortPriceBase(value)
+                          setTabProduct(value.label, value.index)
+                        }}
+                      >
 
-                    <SelectMenu
-                      title="Categories"
-                      onFilterChange={value => {
-                        setSortPriceBase(value)
-                      }}
-                      closeOnSelect
-                      filterPlaceholder="Categories"
-                      options={sortOptionsByPrice}
-                      selected={sortPriceBase.label}
-                      onSelect={(value: any) => {
-                        setSortPriceBase(value)
-                        setTabProduct(value.label, value.index)
-                      }}
-                    >
-                      <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#40464A"} width={8} height={8} /></S.Indicator></S.ButtonSpan></Button>
-                    </SelectMenu>
+                        <Button><S.ButtonSpan onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>More<S.Indicator rotate={String(isResultsMenuOpened)}><Icon name="select_arrow" color={"#40464A"} width={8} height={8} /></S.Indicator></S.ButtonSpan></Button>
+                      </SelectMenu>
+                    </div>
                     // <DropdownSelect
                     //   sortBy="More"
                     //   type="PriceBase"
@@ -185,6 +188,7 @@ export const ProductDescription: React.FC<IProps> = ({
                     : "" :
                   storeCategory.edges.length > 3 ?
                     <S.Select>
+                      <div className="MoreMenu">
                       <SelectMenu
                         title="Categories"
                         onFilterChange={value => {
@@ -201,7 +205,7 @@ export const ProductDescription: React.FC<IProps> = ({
                       >
                         <Button><S.ButtonSpan onClick={() => setMoreMenuIsOpen(!isMoreMenuOpened)}>More<S.Indicator rotate={String(isMoreMenuOpened)}><Icon name="select_arrow" color={"#40464A"} width={8} height={8} /></S.Indicator></S.ButtonSpan></Button>
                       </SelectMenu>
-
+                      </div>
                     </S.Select>
                     // <DropdownSelect
                     //   sortBy="More"
