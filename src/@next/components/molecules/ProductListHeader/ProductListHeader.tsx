@@ -251,7 +251,7 @@ export const ProductListHeader: React.FC<IProps> = ({
             </S.SortLine>
             {menuIsOpen &&
               <S.menuDropdown>
-                <S.Submenu>
+                <S.Submenu ref={setElementRef()}>
                   <S.Menuborder></S.Menuborder>
                   <S.SubmenuTitle>Filters<IconButton name="x" size={8} onClick={() => setMenuIsOpen(!menuIsOpen)} /></S.SubmenuTitle>
                   <S.SubmenuBox type="categories">
@@ -360,8 +360,12 @@ export const ProductListHeader: React.FC<IProps> = ({
                     {/* } */}
                   </S.SubmenuBox>
                   <S.MobileSheet>
-                   <button className="ClearBtn btn btn-default">Clear </button>
-                   <button className="ApplyBtn btn btn-default">Apply </button>
+                   <button onClick={() => {
+                     onChange("", "none");
+                     setFiltered(categories);
+                     setSearch("");
+                   }} className="ClearBtn btn btn-default">Clear</button>
+                   <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
                   </S.MobileSheet>
                 </S.Submenu>
               </S.menuDropdown>
@@ -379,7 +383,6 @@ export const ProductListHeader: React.FC<IProps> = ({
               onSelect={(value: any) => {
                 onChange(value, "sorting")
                 setSortMenuIsOpen(false)
-
               }}
             >
               <span onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>
@@ -561,8 +564,12 @@ export const ProductListHeader: React.FC<IProps> = ({
                     }
                   </S.SubmenuBox>
                   <S.MobileSheet>
-                   <button className="ClearBtn btn btn-default">Clear </button>
-                   <button className="ApplyBtn btn btn-default">Apply </button>
+                   <button onClick={() => {
+                     onChange("", "none");
+                     setFiltered(categories);
+                     setSearch("");
+                   }} className="ClearBtn btn btn-default">Clear</button>
+                   <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
                   </S.MobileSheet>
                 </S.Submenu>
               </S.menuDropdown>
@@ -580,7 +587,6 @@ export const ProductListHeader: React.FC<IProps> = ({
               onSelect={(value: any) => {
                 onChange(value, "sorting")
                 setSortMenuIsOpen(false)
-
               }}
             >
               <span onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>
