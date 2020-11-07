@@ -308,6 +308,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                     } */}
                     </S.SubmenuBox>
                     <S.SubmenuBox type="">
+                    <div className="MobileRating">
                     <S.MenuLink><S.SubmenuList type="" categoriesMenu={true} 
                     // onClick={onDistanceMenuClick}
                     ><img src={RatingsIcon} />Ratings</S.SubmenuList></S.MenuLink>
@@ -323,6 +324,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                           (option:any) => option.label === acitveSortDistanceBase
                         )}
                       />
+                      </div>
                     {/* } */}
                     <S.MenuLink><S.SubmenuList type="" categoriesMenu={true} 
                     // onClick={onDistanceMenuClick}

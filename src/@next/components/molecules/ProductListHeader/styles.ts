@@ -136,13 +136,15 @@ export const SubmenuList = styled.div<{ categoriesMenu: boolean,type:string }>`
     margin-right: 16px;
     margin-left: 16px;
   }
-  color: ${props =>
-    props.categoriesMenu ? "#09253F" : "#8799a9"};
-    border-bottom: ${props =>
-      props.categoriesMenu ? "none" : "border-bottom: 1px solid #EDF0F2;"};
+  
     padding: 6px 0px 0px 0px;
     height: 33px;
     @media(max-width:540px){
+      border-bottom: none !important;
+      color: ${props =>
+        props.categoriesMenu ? "#09253F" : "#8799a9"};
+        border-bottom: ${props =>
+          props.categoriesMenu ? "none" : "1px solid #EDF0F2"};
       height: auto;
       font-size: 18px;
       padding: ${props =>
@@ -204,9 +206,9 @@ export const SubmenuBox = styled.div<{ type: string }>`
               props.type === "" || props.type === "price" ? "center" : "block"};
               padding: ${props =>
                 props.type === "" || props.type === "price" ? "25px 15px" : "0px 0px 0px 30px"};
+                max-height: 94px;
         }
-       
-        max-height: 94px;
+        max-height: 150px;
         // padding: 24px 0px 24px 30px;
         border-bottom: ${props =>
           props.type === "price" ? "none !important" : "1px solid #EDF0F2"};
@@ -230,12 +232,13 @@ export const SubmenuBox = styled.div<{ type: string }>`
           border-bottom: none;
           border-top: 1px solid #EDF0F2;
           font-size: 12px;
-          width: 100% !important;
+          width: auto !important;
           position: relative;
           min-height: 30px !important;
           margin-left: 30px !important;
           cursor: pointer;
           @media(max-width:540px){
+            margin-left: 0px !important;
           // padding: 6px 0px;
           justify-content: ${props =>
           props.type === ""  || props.type === "price"  ? "center" : ""};
@@ -254,7 +257,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
                     border-bottom: ${props => props.type === "" || props.type === "price"  ? "1px solid #F5F5F5" : ""};
               }
           color: #8799a9;
-          // border-bottom: 1px solid #EDF0F2;
+          border-bottom: 1px solid #EDF0F2;
           
           // border: 1px solid #F5F5F5;
           font-size:12px;
@@ -276,6 +279,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
           @media(max-width: 540px){
             color: ${props =>
               props.type === "" || props.type === "price"  ? "#09253F" : ""};
+              margin: 0px ;
           }
         }
         .css-19ni769-option:first-child{
@@ -335,12 +339,62 @@ export const SubmenuBox = styled.div<{ type: string }>`
           }
         }
         .css-r59xpm-option{
+          padding-left: 40px;
           // font-weight: 400;
           // min-height: 30px;
-            border: 1px solid #F5F5F5;
-            width: inherit;
+            // border: 1px solid #F5F5F5;
+            // border-top: 2px solid #F5F5F5;
+            // width: inherit;
           // font-size: 12px;
           // padding: 0px;
+          ${props => props.type === "" || props.type === "price"  ?
+          `@media(max-width: 540px){
+            &:first-child{
+              width: 44px !important;
+              padding: 4px 12px;
+              border: 1px solid #53C865;
+              color: #53C865;
+              border-top-left-radius: 50px;
+              border-bottom-left-radius: 50px;
+              &:before{
+                display: none;
+              }
+            }
+            width: 57px;
+            margin: inherit !important;
+            border-top: 1px solid #F5F5F5;
+            border-bottom: 1px solid #F5F5F5;
+            font-size: 12px;
+            position: relative;
+            justify-content: start !important;
+            -webkit-box-pack: initial;
+            padding: 4px 12px;
+            min-height: 30px;
+            // padding-left: 0px;
+            :after {
+              border-bottom: 1px solid #f5f5f5;
+              position: absolute;
+              content: '';
+              width: 15px;
+              -webkit-transform: rotate(90deg);
+              -ms-transform: rotate(90deg);
+              transform: rotate(90deg);
+              right: -7px;
+          }
+          &:last-child{
+            border-right: 1px solid #F5F5F5;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            &:after{
+              display: none;
+            }
+          }
+          }`
+          : `@media(max-width: 540px){
+            padding-left: 12px;
+            border-top: 1px solid #EDF0F2;
+          }`
+        }
         }
         @media(max-width: 540px){
           position: inherit;
@@ -384,12 +438,13 @@ export const Top = styled.div`
   .css-kj6f9i-menu{
     .css-19ni769-option{
       border-bottom: 1px solid #fafafa;
+      border-top: 1px solid #fafafa;
     }
     .css-19ni769-option:focus, .css-r59xpm-option:focus{
       outline: none;
     }
     .css-19ni769-option:active, .css-r59xpm-option:active{
-      // background: #fff;
+      background: #fff;
     }
     
   }

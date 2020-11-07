@@ -4,11 +4,15 @@ export const Wrapper = styled.div<{isIcon: boolean | undefined}>`
   // margin-bottom: 0.7rem;
   .css-kj6f9i-menu{
     .css-11unzgr{
-      ${props => props.isIcon && 
-      `.css-19ni769-option {
-        background-image: url('images/Ratings icon.svg');
-        background-repeat: no-repeat;
-      }`}
+     .css-19ni769-option {
+        // &:after{
+        //   content:url("../../../../images/star.svg") !important;
+        //   position:absolute !important; 
+        //   z-index:100000; 
+        //   left:0px;
+        //   top:0px;
+        // }
+      }
       .css-qtgvzc-option:active{
         background-color: transparent !important;
       }

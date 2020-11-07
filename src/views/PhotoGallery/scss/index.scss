@@ -218,12 +218,18 @@ body{
     left: 0;
     }
   }
-  .ub-b-btm_1px-solid-E4E7EB {
-    height: 62px !important;
-    padding: 12px 12px !important;
-    >div{
-      height: 62px !important;
-    }
+  // .ub-b-btm_1px-solid-E4E7EB {
+    // height: 62px !important;
+    // padding: 12px 12px !important;
+    // >div{
+      // height: 62px !important;
+    // }
+// }
+.ub-min-h_248px .ub-w_240px>div{
+  height: 62px !important;
+  // >div{
+    // height: 62px !important;
+  // }
 }
   
   .column {
