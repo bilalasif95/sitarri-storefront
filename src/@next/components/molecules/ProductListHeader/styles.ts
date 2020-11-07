@@ -421,7 +421,10 @@ export const Top = styled.div`
     border-radius: 3px;
     width: 24px;
     height: 24px;
-    display: none !important;
+    @media(max-width: 540px){
+      display: none !important;
+    }
+    
     &:hover{
       background-color: rgba(67, 90, 111, 0.06);
       }

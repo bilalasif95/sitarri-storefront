@@ -226,8 +226,8 @@ header {
   }
 }
 }
+
 .css-1ii3p2c{
-  display: none !important;
       div{
         svg{
           path{
@@ -304,6 +304,9 @@ header {
 }
 
 @media(max-width: 540px){
+  .css-1ii3p2c{
+    display: none !important;
+  }
   // .css-11unzgr .css-r59xpm-option{
     // width: 57px;
     // margin: inherit !important;
