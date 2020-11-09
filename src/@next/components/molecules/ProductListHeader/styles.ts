@@ -91,18 +91,19 @@ export const Submenu = styled.div`
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
-    top: 7.5%;
+    top: 30.5%;
     width: 100%;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
     border-radius: inherit;
     overflow-y: scroll;
+    // height: 634px !important;
   }
 `;
 export const SubmenuTitle = styled.div`
     font-weight: 700;
     color: #09253f;
-    padding: 10px 10px;
+    padding: 12px 12px;
     font-size: 18px;
     border-bottom: 1px solid #E4E7EB;
     position: relative;
@@ -166,6 +167,9 @@ export const MenuLink = styled.div`
     background-color: rgba(67, 90, 111, 0.06);
     cursor: pointer;
   }
+  @media(max-width: 540px){
+    background-color: inherit !important;
+  }
 `;
 
 export const Input = styled.div`
@@ -201,11 +205,11 @@ export const SubmenuBox = styled.div<{ type: string }>`
         padding: 0px 0px;
         @media(max-width:540px){
           display: ${props =>
-            props.type === "" || props.type === "price"  ? "flex" : "block"};
+            props.type === "" || props.type === "price"  || props.type === "distance" ? "flex" : "block"};
             justify-content: ${props =>
-              props.type === "" || props.type === "price" ? "center" : "block"};
+              props.type === "" || props.type === "price" || props.type === "distance" ? "center" : "block"};
               padding: ${props =>
-                props.type === "" || props.type === "price" ? "25px 15px" : "0px 0px 0px 30px"};
+                props.type === "" || props.type === "price" || props.type === "distance" ? "25px 24px" : "0px 0px 0px 30px"};
                 max-height: 94px;
         }
         max-height: 150px;
@@ -241,20 +245,20 @@ export const SubmenuBox = styled.div<{ type: string }>`
             margin-left: 0px !important;
           // padding: 6px 0px;
           justify-content: ${props =>
-          props.type === ""  || props.type === "price"  ? "center" : ""};
+          props.type === ""  || props.type === "price" || props.type === "distance"  ? "center" : ""};
           padding: ${props =>
-          props.type === "" || props.type === "price"  ? "4px 6px" : "5.5px 12px"};
+          props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 3px" : "5.5px 12px"};
               font-size: ${props =>
-                props.type === "" || props.type === "price"  ? "12px" : "14px !important"};
+                props.type === "" || props.type === "price" || props.type === "distance"  ? "12px" : "14px !important"};
                 border-bottom: ${props =>
-                  props.type === "" || props.type === "price"  ? "none" : "none"};
+                  props.type === "" || props.type === "price" || props.type === "distance"  ? "none" : "none"};
                   border-top: ${props =>
-                  props.type === "" || props.type === "price"  ? "none" : "1px solid #EDF0F2"};
+                  props.type === "" || props.type === "price" || props.type === "distance"  ? "none" : "1px solid #EDF0F2"};
                   width: ${props =>
-                    props.type === "" || props.type === "price"  ? "57px !important" : "100%"};
+                    props.type === "" || props.type === "price" || props.type === "distance"  ? "57px !important" : "100%"};
                     border-top: ${props =>
-                    props.type === "" || props.type === "price"  ? "1px solid #F5F5F5" : ""};
-                    border-bottom: ${props => props.type === "" || props.type === "price"  ? "1px solid #F5F5F5" : ""};
+                    props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #F5F5F5" : ""};
+                    border-bottom: ${props => props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #F5F5F5" : ""};
               }
           color: #8799a9;
           border-bottom: 1px solid #EDF0F2;
@@ -278,7 +282,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
           }
           @media(max-width: 540px){
             color: ${props =>
-              props.type === "" || props.type === "price"  ? "#09253F" : ""};
+              props.type === "" || props.type === "price" || props.type === "distance"  ? "#09253F" : ""};
               margin: 0px ;
           }
         }
@@ -290,17 +294,17 @@ export const SubmenuBox = styled.div<{ type: string }>`
           color: #8799a9;
           @media(max-width:540px){
           width: ${props =>
-            props.type === "" || props.type === "price"  ? "44px !important" : "100%"};
+            props.type === "" || props.type === "price" || props.type === "distance"  ? "44px !important" : "100%"};
           padding: ${props =>
-                props.type === "" || props.type === "price"  ? "4px 12px" : ""};
+                props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 12px" : ""};
           border: ${props =>
-                  props.type === "" || props.type === "price"  ? "1px solid #53C865" : ""};
+                  props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #53C865" : ""};
           color: ${props =>
-                    props.type === "" || props.type === "price"  ? "#53C865" : ""};
+                    props.type === "" || props.type === "price" || props.type === "distance"  ? "#53C865" : ""};
           border-top-left-radius: ${props =>
-                      props.type === "" || props.type === "price"  ? "50px" : ""};
+                      props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
                       border-bottom-left-radius: ${props =>
-                        props.type === "" || props.type === "price"  ? "50px" : ""};
+                        props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
                       }
           // border-bottom: 1px solid #EDF0F2;
           font-size:12px;
@@ -313,15 +317,15 @@ export const SubmenuBox = styled.div<{ type: string }>`
         .css-19ni769-option:last-child{
           @media(max-width: 540px){
             color: ${props =>
-              props.type === ""  || props.type === "price" ? "#09253F" : ""};
+              props.type === ""  || props.type === "price" || props.type === "distance" ? "#09253F" : ""};
               width: ${props =>
-                props.type === "" || props.type === "price"  ? "57px !important" : "100%"};
+                props.type === "" || props.type === "price" || props.type === "distance"  ? "57px !important" : "100%"};
               padding: ${props =>
-                    props.type === "" || props.type === "price"  ? "4px 6px" : ""};
+                    props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 6px" : ""};
               border-top-right-radius: ${props =>
-                          props.type === "" || props.type === "price"  ? "50px" : ""};
+                          props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
                           border-bottom-right-radius: ${props =>
-                            props.type === "" || props.type === "price"  ? "50px" : ""};
+                            props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
           }
           
           &:after{
@@ -347,7 +351,8 @@ export const SubmenuBox = styled.div<{ type: string }>`
             // width: inherit;
           // font-size: 12px;
           // padding: 0px;
-          ${props => props.type === "" || props.type === "price"  ?
+          font-weight: 500 !important;
+          ${props => props.type === "" || props.type === "price"  || props.type === "distance" ?
           `@media(max-width: 540px){
             &:first-child{
               width: 44px !important;
@@ -360,18 +365,18 @@ export const SubmenuBox = styled.div<{ type: string }>`
                 display: none;
               }
             }
-            width: 57px;
+            
+            max-width: 57px;
             margin: inherit !important;
             border-top: 1px solid #F5F5F5;
             border-bottom: 1px solid #F5F5F5;
             font-size: 12px;
             position: relative;
-            justify-content: start !important;
             -webkit-box-pack: initial;
             padding: 4px 12px;
             min-height: 30px;
             // padding-left: 0px;
-            :after {
+            &:after {
               border-bottom: 1px solid #f5f5f5;
               position: absolute;
               content: '';
@@ -393,8 +398,19 @@ export const SubmenuBox = styled.div<{ type: string }>`
           : `@media(max-width: 540px){
             padding-left: 12px;
             border-top: 1px solid #EDF0F2;
+            
           }`
         }
+        ${props => props.type === "price"  || props.type === "distance" ?
+          `@media(max-width: 540px){
+            justify-content: center !important;
+            padding: 4px 0px;
+          }`
+          : `
+          @media(max-width: 540px){
+          justify-content: start !important;
+          padding: 4px 12px;
+        }`}
         }
         @media(max-width: 540px){
           position: inherit;

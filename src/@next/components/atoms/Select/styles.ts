@@ -12,6 +12,16 @@ export const Wrapper = styled.div<{isIcon: boolean | undefined}>`
         //   left:0px;
         //   top:0px;
         // }
+        &:after {
+          border-bottom: 1px solid #f5f5f5;
+          position: absolute;
+          content: '';
+          width: 15px;
+          -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+          right: -7px;
+        }
       }
       .css-qtgvzc-option:active{
         background-color: transparent !important;

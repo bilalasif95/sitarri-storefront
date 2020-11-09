@@ -326,6 +326,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                       />
                       </div>
                     {/* } */}
+                    </S.SubmenuBox>
+                    <S.SubmenuBox type="distance">
                     <S.MenuLink><S.SubmenuList type="" categoriesMenu={true} 
                     // onClick={onDistanceMenuClick}
                     ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
@@ -529,6 +531,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                         )}
                       />
                     }
+                    </S.SubmenuBox>
+                    <S.SubmenuBox type="distance">
                     <S.MenuLink><S.SubmenuList type="" categoriesMenu={distanceMenu} 
                     onClick={onDistanceMenuClick}
                     ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
@@ -545,6 +549,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                         )}
                       />
                     }
+                    </S.SubmenuBox>
+                    <S.SubmenuBox type="price">
                     <S.MenuLink><S.SubmenuList type="" categoriesMenu={priceMenu} 
                     onClick={onPriceMenuClick}
                     ><img src={PriceIcon} />Price</S.SubmenuList></S.MenuLink>
