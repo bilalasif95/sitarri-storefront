@@ -325,7 +325,6 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       </div>
-<<<<<<< HEAD
                     {/* } */}
                     </S.SubmenuBox>
                     <S.SubmenuBox type="distance">
@@ -333,13 +332,6 @@ export const ProductListHeader: React.FC<IProps> = ({
                     // onClick={onDistanceMenuClick}
                     ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
                     {/* {distanceMenu && */}
-=======
-                      {/* } */}
-                      <S.MenuLink><S.SubmenuList type="" categoriesMenu={true}
-                      // onClick={onDistanceMenuClick}
-                      ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
-                      {/* {distanceMenu && */}
->>>>>>> d2dd1c3c1bbca60989bfb33ed15fc3c326be8ffa
                       <DropdownSelect
                         sortBy="Sort by"
                         type="DistanceBase"
@@ -542,6 +534,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       }
+                      </S.SubmenuBox>
+                    <S.SubmenuBox type="distance">
                       <S.MenuLink><S.SubmenuList type="" categoriesMenu={distanceMenu}
                         onClick={onDistanceMenuClick}
                       ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
@@ -558,6 +552,8 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       }
+                       </S.SubmenuBox>
+                    <S.SubmenuBox type="price">
                       <S.MenuLink><S.SubmenuList type="" categoriesMenu={priceMenu}
                         onClick={onPriceMenuClick}
                       ><img src={PriceIcon} />Price</S.SubmenuList></S.MenuLink>
@@ -575,136 +571,6 @@ export const ProductListHeader: React.FC<IProps> = ({
                         />
                       }
                     </S.SubmenuBox>
-<<<<<<< HEAD
-                    <S.SubmenuBox type="">
-                    <S.MenuLink><S.SubmenuList type="" categoriesMenu={ratingMenu} 
-                    onClick={onRatingMenuClick}
-                    ><img src={RatingsIcon} />Ratings</S.SubmenuList></S.MenuLink>
-                    {ratingMenu &&
-                      <DropdownSelect
-                        sortBy="Sort by"
-                        type="DistanceBase"
-                        onChange={onChange}
-                        isIcon={true}
-                        menuIsOpen={ratingMenu}
-                        options={sortOptionsByRating}
-                        value={sortOptionsByRating.find(
-                          (option:any) => option.label === acitveSortDistanceBase
-                        )}
-                      />
-                    }
-                    </S.SubmenuBox>
-                    <S.SubmenuBox type="distance">
-                    <S.MenuLink><S.SubmenuList type="" categoriesMenu={distanceMenu} 
-                    onClick={onDistanceMenuClick}
-                    ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
-                    {distanceMenu &&
-                      <DropdownSelect
-                        sortBy="Sort by"
-                        type="DistanceBase"
-                        onChange={onChange}
-                        isIcon={false}
-                        menuIsOpen={distanceMenu}
-                        options={sortOptionsByDistance}
-                        value={sortOptionsByDistance.find(
-                          option => option.label === acitveSortDistanceBase
-                        )}
-                      />
-                    }
-                    </S.SubmenuBox>
-                    <S.SubmenuBox type="price">
-                    <S.MenuLink><S.SubmenuList type="" categoriesMenu={priceMenu} 
-                    onClick={onPriceMenuClick}
-                    ><img src={PriceIcon} />Price</S.SubmenuList></S.MenuLink>
-                    {priceMenu &&
-                      <DropdownSelect
-                        sortBy="Filters"
-                        type="PriceBase"
-                        isIcon={false}
-                        onChange={onChange}
-                        menuIsOpen={priceMenu}
-                        options={sortOptionsByPrice}
-                        value={sortOptionsByPrice.find(
-                          option => option.label === activeSortOption
-                        )}
-                      />
-                    }
-                  </S.SubmenuBox>
-                  <S.MobileSheet>
-                   <button className="ClearBtn btn btn-default">Clear </button>
-                   <button className="ApplyBtn btn btn-default">Apply </button>
-                  </S.MobileSheet>
-                </S.Submenu>
-              </S.menuDropdown>
-            }
-          </S.Sort>
-        </S.Element>
-        <S.Element>
-          <S.Sort data-cy="dropdown-select" ref={setSortElementRef()}>
-            <SelectMenu
-              title="Sort By"
-              closeOnSelect
-              hasFilter={false}
-              options={sorting}
-              selected={activeSortedField.label}
-              onSelect={(value: any) => {
-                onChange(value, "sorting")
-                setSortMenuIsOpen(false)
-
-              }}
-            >
-              <span onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}>
-                <S.SortLine
-                  sortby=""
-                  data-cy="dropdown-select-input"
-                  onClick={() => setSortMenuIsOpen(!isSortMenuOpened)}
-                >
-                  <Label>
-                    <div><svg id="Layer_1" data-name="Layer 1" xmlns="https://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 20 20"><defs><style>.cls-1</style></defs><title>filter</title><g id="filter"><path className="cls-1" d="M.11,16.59h4.4v-2.2H.11Zm0-13.18v2.2H19.89V3.41Zm0,7.69H13.3V8.9H.11Z" /></g></svg></div>
-                  </Label>
-                  <Label>Sort by</Label>
-                  <S.Indicator rotate={String(isSortMenuOpened)}>
-                  <Icon name="select_arrow" color={"#40464A"} width={8} height={8} />
-                  </S.Indicator>
-                </S.SortLine>
-              </span>
-            </SelectMenu>
-          </S.Sort>
-        </S.Element>
-        <S.ResultElement>
-          <S.Sort data-cy="dropdown-select" ref={setResultsElementRef()}>
-            <SelectMenu
-              title="Results"
-              closeOnSelect
-              hasFilter={false}
-              options={sortOptionsByType}
-              selected={activeSortTypeBase.label}
-              onSelect={(value: any) => {
-                onChange(value, "showType")
-                setResultsMenuIsOpen(false)
-              }}
-            >
-              <span onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}>
-                <S.SortLine
-                  sortby="Results:"
-                  data-cy="dropdown-select-input"
-                  onClick={() => setResultsMenuIsOpen(!isResultsMenuOpened)}
-                >
-                  <Label>
-                    <div><svg xmlns="https://www.w3.org/2000/svg" height="15px" width="13px" className="SearchIcon" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" /></svg></div>
-                  </Label>
-                  <Label>Results: {resultType.label}</Label>
-                  <S.Indicator rotate={String(isResultsMenuOpened)}>
-                    <Icon name="select_arrow" color={"#40464A"} width={8} height={8} />
-                  </S.Indicator>
-                </S.SortLine>
-              </span>
-            </SelectMenu>
-          </S.Sort>
-        </S.ResultElement>
-      </S.Top>
-}
-=======
                     <S.MobileSheet>
                       <button onClick={() => {
                         onChange("", "none");
@@ -782,7 +648,6 @@ export const ProductListHeader: React.FC<IProps> = ({
           </S.ResultElement>
         </S.Top>
       }
->>>>>>> d2dd1c3c1bbca60989bfb33ed15fc3c326be8ffa
     </S.Wrapper>
   );
 };
