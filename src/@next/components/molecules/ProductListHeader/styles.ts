@@ -241,6 +241,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
           min-height: 30px !important;
           margin-left: 30px !important;
           cursor: pointer;
+          padding: 5.5px 12px;
           @media(max-width:540px){
             margin-left: 0px !important;
           // padding: 6px 0px;
@@ -345,12 +346,12 @@ export const SubmenuBox = styled.div<{ type: string }>`
         .css-r59xpm-option{
           padding-left: 40px;
           // font-weight: 400;
-          // min-height: 30px;
+          min-height: 33px;
             // border: 1px solid #F5F5F5;
             // border-top: 2px solid #F5F5F5;
             // width: inherit;
-          // font-size: 12px;
-          // padding: 0px;
+          font-size: 12px;
+          padding: 5.5px 0px 5.5px 42px;
           font-weight: 500 !important;
           ${props => props.type === "" || props.type === "price"  || props.type === "distance" ?
           `@media(max-width: 540px){
