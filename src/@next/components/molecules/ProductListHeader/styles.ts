@@ -91,7 +91,8 @@ export const Submenu = styled.div`
   @media(max-width: 540px){
     position: fixed;
     bottom: 0;
-    top: 30.5%;
+    top: 22.5%;
+    bottom: 31px;
     width: 100%;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
@@ -571,10 +572,16 @@ export const FiltersChipsWrapper = styled.div`
 export const MobileSheet = styled.div`
   display: none;
   @media(max-width:540px){
-  display: block;
-  display: flex;
-  box-shadow: 0px -3px 6px #7090B01A;
-  height: 32px;
+    display: flex;
+    box-shadow: 0px -3px 6px #7090B01A;
+    -webkit-box-shadow: 0px -3px 6px #7090B01A;
+    height: 32px;
+    width: 100%;
+    margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    background-color: #fff;
   width: 100%;
   margin-top: 10px;
   button{

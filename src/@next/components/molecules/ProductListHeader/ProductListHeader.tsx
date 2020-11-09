@@ -363,7 +363,10 @@ export const ProductListHeader: React.FC<IProps> = ({
                       />
                       {/* } */}
                     </S.SubmenuBox>
-                    <S.MobileSheet>
+                    
+                  </S.Submenu>
+
+                  <S.MobileSheet>
                       <button onClick={() => {
                         onChange("", "none");
                         setFiltered(categories);
@@ -371,7 +374,6 @@ export const ProductListHeader: React.FC<IProps> = ({
                       }} className="ClearBtn btn btn-default">Clear</button>
                       <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
                     </S.MobileSheet>
-                  </S.Submenu>
                 </S.menuDropdown>
               }
             </S.Sort>
@@ -571,7 +573,9 @@ export const ProductListHeader: React.FC<IProps> = ({
                         />
                       }
                     </S.SubmenuBox>
-                    <S.MobileSheet>
+                   
+                  </S.Submenu>
+                  <S.MobileSheet>
                       <button onClick={() => {
                         onChange("", "none");
                         setFiltered(categories);
@@ -579,7 +583,6 @@ export const ProductListHeader: React.FC<IProps> = ({
                       }} className="ClearBtn btn btn-default">Clear</button>
                       <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
                     </S.MobileSheet>
-                  </S.Submenu>
                 </S.menuDropdown>
               }
             </S.Sort>
