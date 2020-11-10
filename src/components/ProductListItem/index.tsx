@@ -3,10 +3,12 @@ import "./scss/index.scss";
 // import isEqual from "lodash/isEqual";
 import * as React from "react";
 
-import { Thumbnail } from "@components/molecules";
+// import { Thumbnail } from "@components/molecules";
 
 // import { TaxedMoney } from "../../@next/components/containers";
 import { BasicProductFields } from "../../views/Product/gqlTypes/BasicProductFields";
+
+import noImage from "../../images/no-photo.svg";
 
 export interface Product extends BasicProductFields {
   category?: {
@@ -68,7 +70,12 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   return (
     <div className="product-list-item">
       <div className="product-list-item__image">
-        <Thumbnail source={product} />
+        {product.backgroundImage ?
+          <img src={noImage} />
+          :
+          <img src={product.backgroundImage && product.backgroundImage.url} alt={product.backgroundImage && product.backgroundImage.alt} />
+        }
+        {/* <Thumbnail source={product} /> */}
       </div>
       <h4 className="product-list-item__title">{product.name}</h4>
       {/* <p className="product-list-item__category">{category.name}</p> */}

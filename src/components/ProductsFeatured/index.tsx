@@ -64,7 +64,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
     <TypedFeaturedProductsQuery displayError={false}>
       {({ data, loading }) => {
         const products = maybe(
-          () => data.shop.homepageCollection.products.edges,
+          () => data.businessCategories.edges,
           []
         );
         if (loading) {
@@ -254,8 +254,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                     <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
                   </div>
                   < div className="hrBorder"></div>
-                  <div  className="pro-list">
-                  
+                  <div className="pro-list">
+
                     <Swiper {...HorizontalSwiperParams}>
                       {/* {products.map(({ node: product }) => ( */}
                       <SwiperSlide>
@@ -435,8 +435,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                         </div>
                       </SwiperSlide>
                     </Swiper>
-                    <div id="js-prev1" className="swiper-button-prev"  role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
-                  <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
+                    <div id="js-prev1" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                    <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                   </div>
                 </div>
                 <div className="productCarousel">
@@ -447,7 +447,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                     </div>
                     <div className="hrBorder"></div>
                     <div className="pro-list ProductsSwiper">
-                    
+
                       <Swiper {...ProductsHorizontalSwiperParams}>
                         <SwiperSlide>
                           <div className="modalDiv">
@@ -938,8 +938,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                           </div>
                         </SwiperSlide>
                       </Swiper>
-                      <div id="js-prev2" className="swiper-button-prev"  role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
-                    <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
+                      <div id="js-prev2" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                      <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                     </div>
                   </div>
                 </div>
