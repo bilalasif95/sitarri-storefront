@@ -70,7 +70,7 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   return (
     <div className="product-list-item">
       <div className="product-list-item__image">
-        {product.backgroundImage ?
+        {!product.backgroundImage ?
           <img src={noImage} />
           :
           <img src={product.backgroundImage && product.backgroundImage.url} alt={product.backgroundImage && product.backgroundImage.alt} />
