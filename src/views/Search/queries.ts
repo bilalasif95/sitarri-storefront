@@ -163,6 +163,33 @@ export const searchProductsQuery = gql`
             id
             address
           }
+          mondayOpeningTime
+          mondayClosingTime
+          tuesdayOpeningTime
+          tuesdayClosingTime
+          wednesdayOpeningTime
+          wednesdayClosingTime
+          thursdayOpeningTime
+          thursdayClosingTime
+          fridayOpeningTime
+          fridayClosingTime
+          saturdayOpeningTime
+          saturdayClosingTime
+          sundayOpeningTime
+          sundayClosingTime
+          mondayOpeningStatus
+          tuesdayOpeningStatus
+          wednesdayOpeningStatus
+          thursdayOpeningStatus
+          fridayOpeningStatus
+          saturdayOpeningStatus
+          sundayOpeningStatus
+          business{
+            logo
+            businesscategory{
+              name
+            }
+          }
           category
           description
             totalReviews

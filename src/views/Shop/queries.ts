@@ -152,7 +152,41 @@ export const productDetailsQuery = gql`
    store(id:$id){
     id
     name
+    status
     description
+    mondayOpeningTime
+    mondayClosingTime
+    tuesdayOpeningTime
+    tuesdayClosingTime
+    wednesdayOpeningTime
+    wednesdayClosingTime
+    thursdayOpeningTime
+    thursdayClosingTime
+    fridayOpeningTime
+    fridayClosingTime
+    saturdayOpeningTime
+    saturdayClosingTime
+    sundayOpeningTime
+    sundayClosingTime
+    mondayOpeningStatus
+    tuesdayOpeningStatus
+    wednesdayOpeningStatus
+    thursdayOpeningStatus
+    fridayOpeningStatus
+    saturdayOpeningStatus
+    sundayOpeningStatus
+    business{
+      logo
+      websiteUrl
+      facebookUrl
+      twitterUrl
+      deliverooUrl
+      uberEatsUrl
+      instagramUrl
+      businesscategory{
+        name
+      }
+    }
     distance(longitude: $longitude, latitude: $latitude)
     tags{name}
     images{url}

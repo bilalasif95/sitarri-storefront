@@ -17,26 +17,166 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { product: any; redirectToShopPage: any }) => {
   const today = new Date();
-  const start = new Date();
-  const end = new Date();
-  const [openTime, openFormat] = product.openingHours.split(" ")
-  const openHoursMinutes = openTime.split(":")
-  const openHours = openFormat === "PM" && Number(openHoursMinutes[0]) < 12 ? Number(openHoursMinutes[0]) + 12 : Number(openHoursMinutes[0])
-  const openMinutes = Number(openHoursMinutes[1])
-  const [closingTime, closingFormat] = product.closingHours.split(" ")
-  const closingHoursMinutes = closingTime.split(":")
-  const closingHours = closingFormat === "PM" && Number(closingHoursMinutes[0]) < 12 ? Number(closingHoursMinutes[0]) + 12 : Number(closingHoursMinutes[0])
-  const closingMinutes = Number(closingHoursMinutes[1])
-  start.setHours(openHours);
-  start.setMinutes(openMinutes);
-  end.setHours(closingHours);
-  end.setMinutes(closingMinutes);
+  const mondayStart = new Date();
+  const mondayEnd = new Date();
+  const tuesdayStart = new Date();
+  const tuesdayEnd = new Date();
+  const wednesdayStart = new Date();
+  const wednesdayEnd = new Date();
+  const thursdayStart = new Date();
+  const thursdayEnd = new Date();
+  const fridayStart = new Date();
+  const fridayEnd = new Date();
+  const saturdayStart = new Date();
+  const saturdayEnd = new Date();
+  const sundayStart = new Date();
+  const sundayEnd = new Date();
+
+  const days = new Array(7);
+  days[0] = "Sunday";
+  days[1] = "Monday";
+  days[2] = "Tuesday";
+  days[3] = "Wednesday";
+  days[4] = "Thursday";
+  days[5] = "Friday";
+  days[6] = "Saturday";
+  const todayDay = days[today.getDay()];
+
+  const mondayOpeningTime = secondsToHms(product.mondayOpeningTime);
+  const [mondayOpenTime] = mondayOpeningTime.split(" ")
+  const mondayOpenHoursMinutes = mondayOpenTime.split(":")
+  const mondayOpenHours = Number(mondayOpenHoursMinutes[0])
+  const mondayOpenMinutes = Number(mondayOpenHoursMinutes[1])
+
+  const mondayClosingTime = secondsToHms(product.mondayClosingTime);
+  const [mondayCloseTime] = mondayClosingTime.split(" ")
+  const mondayClosingHoursMinutes = mondayCloseTime.split(":")
+  const mondayClosingHours = Number(mondayClosingHoursMinutes[0])
+  const mondayClosingMinutes = Number(mondayClosingHoursMinutes[1])
+  mondayStart.setHours(mondayOpenHours);
+  mondayStart.setMinutes(mondayOpenMinutes);
+  mondayEnd.setHours(mondayClosingHours);
+  mondayEnd.setMinutes(mondayClosingMinutes);
+
+
+  const tuesdayOpeningTime = secondsToHms(product.tuesdayOpeningTime);
+  const [tuesdayOpenTime] = tuesdayOpeningTime.split(" ")
+  const tuesdayOpenHoursMinutes = tuesdayOpenTime.split(":")
+  const tuesdayOpenHours = Number(tuesdayOpenHoursMinutes[0])
+  const tuesdayOpenMinutes = Number(tuesdayOpenHoursMinutes[1])
+
+  const tuesdayClosingTime = secondsToHms(product.tuesdayClosingTime);
+  const [tuesdayCloseTime] = tuesdayClosingTime.split(" ")
+  const tuesdayClosingHoursMinutes = tuesdayCloseTime.split(":")
+  const tuesdayClosingHours = Number(tuesdayClosingHoursMinutes[0])
+  const tuesdayClosingMinutes = Number(tuesdayClosingHoursMinutes[1])
+  tuesdayStart.setHours(tuesdayOpenHours);
+  tuesdayStart.setMinutes(tuesdayOpenMinutes);
+  tuesdayEnd.setHours(tuesdayClosingHours);
+  tuesdayEnd.setMinutes(tuesdayClosingMinutes);
+
+
+  const wednesdayOpeningTime = secondsToHms(product.wednesdayOpeningTime);
+  const [wednesdayOpenTime] = wednesdayOpeningTime.split(" ")
+  const wednesdayOpenHoursMinutes = wednesdayOpenTime.split(":")
+  const wednesdayOpenHours = Number(wednesdayOpenHoursMinutes[0])
+  const wednesdayOpenMinutes = Number(wednesdayOpenHoursMinutes[1])
+
+  const wednesdayClosingTime = secondsToHms(product.wednesdayClosingTime);
+  const [wednesdayCloseTime] = wednesdayClosingTime.split(" ")
+  const wednesdayClosingHoursMinutes = wednesdayCloseTime.split(":")
+  const wednesdayClosingHours = Number(wednesdayClosingHoursMinutes[0])
+  const wednesdayClosingMinutes = Number(wednesdayClosingHoursMinutes[1])
+  wednesdayStart.setHours(wednesdayOpenHours);
+  wednesdayStart.setMinutes(wednesdayOpenMinutes);
+  wednesdayEnd.setHours(wednesdayClosingHours);
+  wednesdayEnd.setMinutes(wednesdayClosingMinutes);
+
+
+  const thursdayOpeningTime = secondsToHms(product.thursdayOpeningTime);
+  const [thursdayOpenTime] = thursdayOpeningTime.split(" ")
+  const thursdayOpenHoursMinutes = thursdayOpenTime.split(":")
+  const thursdayOpenHours = Number(thursdayOpenHoursMinutes[0])
+  const thursdayOpenMinutes = Number(thursdayOpenHoursMinutes[1])
+
+  const thursdayClosingTime = secondsToHms(product.thursdayClosingTime);
+  const [thursdayCloseTime] = thursdayClosingTime.split(" ")
+  const thursdayClosingHoursMinutes = thursdayCloseTime.split(":")
+  const thursdayClosingHours = Number(thursdayClosingHoursMinutes[0])
+  const thursdayClosingMinutes = Number(thursdayClosingHoursMinutes[1])
+  thursdayStart.setHours(thursdayOpenHours);
+  thursdayStart.setMinutes(thursdayOpenMinutes);
+  thursdayEnd.setHours(thursdayClosingHours);
+  thursdayEnd.setMinutes(thursdayClosingMinutes);
+
+
+  const fridayOpeningTime = secondsToHms(product.fridayOpeningTime);
+  const [fridayOpenTime] = fridayOpeningTime.split(" ")
+  const fridayOpenHoursMinutes = fridayOpenTime.split(":")
+  const fridayOpenHours = Number(fridayOpenHoursMinutes[0])
+  const fridayOpenMinutes = Number(fridayOpenHoursMinutes[1])
+
+  const fridayClosingTime = secondsToHms(product.fridayClosingTime);
+  const [fridayCloseTime] = fridayClosingTime.split(" ")
+  const fridayClosingHoursMinutes = fridayCloseTime.split(":")
+  const fridayClosingHours = Number(fridayClosingHoursMinutes[0])
+  const fridayClosingMinutes = Number(fridayClosingHoursMinutes[1])
+  fridayStart.setHours(fridayOpenHours);
+  fridayStart.setMinutes(fridayOpenMinutes);
+  fridayEnd.setHours(fridayClosingHours);
+  fridayEnd.setMinutes(fridayClosingMinutes);
+
+
+  const saturdayOpeningTime = secondsToHms(product.saturdayOpeningTime);
+  const [saturdayOpenTime] = saturdayOpeningTime.split(" ")
+  const saturdayOpenHoursMinutes = saturdayOpenTime.split(":")
+  const saturdayOpenHours = Number(saturdayOpenHoursMinutes[0])
+  const saturdayOpenMinutes = Number(saturdayOpenHoursMinutes[1])
+
+  const saturdayClosingTime = secondsToHms(product.saturdayClosingTime);
+  const [saturdayCloseTime] = saturdayClosingTime.split(" ")
+  const saturdayClosingHoursMinutes = saturdayCloseTime.split(":")
+  const saturdayClosingHours = Number(saturdayClosingHoursMinutes[0])
+  const saturdayClosingMinutes = Number(saturdayClosingHoursMinutes[1])
+  saturdayStart.setHours(saturdayOpenHours);
+  saturdayStart.setMinutes(saturdayOpenMinutes);
+  saturdayEnd.setHours(saturdayClosingHours);
+  saturdayEnd.setMinutes(saturdayClosingMinutes);
+
+
+  const sundayOpeningTime = secondsToHms(product.sundayOpeningTime);
+  const [sundayOpenTime] = sundayOpeningTime.split(" ")
+  const sundayOpenHoursMinutes = sundayOpenTime.split(":")
+  const sundayOpenHours = Number(sundayOpenHoursMinutes[0])
+  const sundayOpenMinutes = Number(sundayOpenHoursMinutes[1])
+
+  const sundayClosingTime = secondsToHms(product.sundayClosingTime);
+  const [sundayCloseTime] = sundayClosingTime.split(" ")
+  const sundayClosingHoursMinutes = sundayCloseTime.split(":")
+  const sundayClosingHours = Number(sundayClosingHoursMinutes[0])
+  const sundayClosingMinutes = Number(sundayClosingHoursMinutes[1])
+  sundayStart.setHours(sundayOpenHours);
+  sundayStart.setMinutes(sundayOpenMinutes);
+  sundayEnd.setHours(sundayClosingHours);
+  sundayEnd.setMinutes(sundayClosingMinutes);
+
+  function secondsToHms(d: any) {
+    d = Number(d);
+    const h = Math.floor(d / 3600);
+    const m = Math.floor(d % 3600 / 60);
+    const s = Math.floor(d % 3600 % 60);
+
+    const hDisplay = h > 0 ? h + (h === 1 ? ":" : ":") : "";
+    const mDisplay = m > 0 ? m < 10 ? "0" + m + ":" : m + ":" : "00:";
+    const sDisplay = s > 0 ? s < 10 ? "0" + s : s : "00";
+    return hDisplay + mDisplay + sDisplay;
+  }
   return (
     <S.Wrapper data-cy="product-tile">
       <S.Top>
         <S.Brand>
-          {product.logo ?
-            <img onClick={() => redirectToShopPage(product.id, product.name)} src={product.logo} className="noImg" />
+          {product && product.business && product.business.logo ?
+            <img onClick={() => redirectToShopPage(product.id, product.name)} src={product && product.business && product.business.logo} className="noImg" />
             : ""}
         </S.Brand>
         <S.Image>
@@ -54,7 +194,7 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
               <S.Title>{product.name}</S.Title>
               <S.Nos>{product.rating}
                 {product.rating === 0 ?
-                  <S.star style={{marginTop: '1px'}}>
+                  <S.star style={{ marginTop: '1px' }}>
                     <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z" /></svg>
                   </S.star>
                   : <S.star >
@@ -66,7 +206,7 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
               </S.Nos>
             </S.CardDetails>
             <S.CardDetails>
-              <S.Desc>{product.category}</S.Desc>
+              <S.Desc>{product && product.business && product.business.businesscategory && product.business.businesscategory.name}</S.Desc>
               {product.distance &&
                 <S.Location>
                   <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
@@ -75,14 +215,15 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
                   </S.Miles>
                 </S.Location>}
             </S.CardDetails>
-            {product.openingHours !== "" && product.closingHours !== "" &&
-              <>
-                {(today.getTime() >= start.getTime() && today.getTime() <= end.getTime()) ?
+
+            {todayDay === "Monday" && (
+              product.mondayOpeningStatus ?
+                (today.getTime() >= mondayStart.getTime() && today.getTime() <= mondayEnd.getTime()) ?
                   <S.Timing>
                     <S.Open style={{ color: "#58C829" }}>Open </S.Open>
                     <S.Close>
                       <span />
-                          Closes {product.closingHours}
+                          Closes {product.mondayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.mondayClosingTime)}
                     </S.Close>
                   </S.Timing>
                   :
@@ -90,11 +231,151 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
                     <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
                     <S.Close>
                       <span />
-                          Opens {product.openingHours}
+                          Opens {product.mondayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.mondayOpeningTime)}
                     </S.Close>
                   </S.Timing>
-                }
-              </>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Tuesday" && (
+              product.tuesdayOpeningStatus ?
+                (today.getTime() >= tuesdayStart.getTime() && today.getTime() <= tuesdayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.tuesdayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.tuesdayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.tuesdayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.tuesdayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Wednesday" && (
+              product.wednesdayOpeningStatus ?
+                (today.getTime() >= wednesdayStart.getTime() && today.getTime() <= wednesdayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.wednesdayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.wednesdayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.wednesdayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.wednesdayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Thursday" && (
+              product.thursdayOpeningStatus ?
+                (today.getTime() >= thursdayStart.getTime() && today.getTime() <= thursdayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.thursdayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.thursdayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.thursdayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.thursdayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Friday" && (
+              product.fridayOpeningStatus ?
+                (today.getTime() >= fridayStart.getTime() && today.getTime() <= fridayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.fridayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.fridayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.fridayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.fridayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Saturday" && (
+              product.saturdayOpeningStatus ?
+                (today.getTime() >= saturdayStart.getTime() && today.getTime() <= saturdayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.saturdayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.saturdayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.saturdayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.saturdayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
+            }
+            {todayDay === "Sunday" && (
+              product.sundayOpeningStatus ?
+                (today.getTime() >= sundayStart.getTime() && today.getTime() <= sundayEnd.getTime()) ?
+                  <S.Timing>
+                    <S.Open style={{ color: "#58C829" }}>Open </S.Open>
+                    <S.Close>
+                      <span />
+                          Closes {product.sundayClosingTime <= 0 ? <>00:00</> : secondsToHms(product.sundayClosingTime)}
+                    </S.Close>
+                  </S.Timing>
+                  :
+                  <S.Timing>
+                    <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                    <S.Close>
+                      <span />
+                          Opens {product.sundayOpeningTime <= 0 ? <>00:00</> : secondsToHms(product.sundayOpeningTime)}
+                    </S.Close>
+                  </S.Timing>
+                : <S.Timing>
+                  <S.Open style={{ color: "#FF2F2D" }}>Closed </S.Open>
+                </S.Timing>
+            )
             }
             <S.Likes>
             </S.Likes>
