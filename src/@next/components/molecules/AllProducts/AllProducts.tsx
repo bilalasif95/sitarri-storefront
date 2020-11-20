@@ -422,7 +422,7 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
 
 
               <S.Tags>
-                {product && product.tags.map((tag: any) => <S.Subtag>{tag.name}</S.Subtag>)}
+                {product && product.tags && product.tags.map((tag: any) => <S.Subtag>{tag.name}</S.Subtag>)}
                 {/* <S.Subtag>Mexican</S.Subtag>
                 <S.Subtag>Taco</S.Subtag>
                 <S.Subtag>Tequila</S.Subtag> */}

@@ -380,7 +380,7 @@ export const BusinessTile: React.FC<any> = ({ product, redirectToShopPage }: { p
             <S.Likes>
             </S.Likes>
             <S.Tags>
-              {product && product.tags.map((tag: any) => <S.Subtag>{tag.name}</S.Subtag>)}
+              {product && product.tags && product.tags.map((tag: any) => <S.Subtag>{tag.name}</S.Subtag>)}
             </S.Tags>
           </S.Content>
         </Link>
