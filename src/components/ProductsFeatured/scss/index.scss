@@ -79,6 +79,18 @@
     flex-wrap: wrap;
     margin-top: 0px;
     position: relative;
+    &:focus{
+      outline: none;
+      }
+    .slider{
+      &:focus{
+      outline: none;
+      }
+      .slider-frame:focus, .slider-list:focus, .slider-slide{
+        outline: none;
+      }
+    }
+    
     .swiper-container-horizontal{
       .swiper-wrapper{        
         .swiper-slide{
