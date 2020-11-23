@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
   overflow: hidden;
   background: #fff;
   min-height: 310px;
-
+  &:focus{
+    outline: none;
+  }
   .swiper-container-horizontal{
       .swiper-wrapper{        
         .swiper-slide{
