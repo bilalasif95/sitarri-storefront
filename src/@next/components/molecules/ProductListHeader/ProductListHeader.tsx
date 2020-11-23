@@ -102,7 +102,7 @@ const sortOptionsByType: any = [
 const sortOptionsByRating: any = [
   {
     label: "Any",
-    value: null,
+    value: "0",
   },
   {
     label: "3.5",
@@ -154,6 +154,7 @@ export const ProductListHeader: React.FC<IProps> = ({
   activeSortTypeBase,
   activeSortedField,
   acitveSortDistanceBase,
+  activeRatingFilter,
   onChange,
 }: IProps) => {
 
@@ -314,13 +315,13 @@ export const ProductListHeader: React.FC<IProps> = ({
                         {/* {distanceMenu && */}
                         <DropdownSelect
                           sortBy="Sort by"
-                          type="DistanceBase"
+                          type="RatingBase"
                           onChange={onChange}
                           isIcon={true}
                           menuIsOpen={true}
                           options={sortOptionsByRating}
                           value={sortOptionsByRating.find(
-                            (option: any) => option.label === acitveSortDistanceBase
+                            (option: any) => option.label === activeRatingFilter
                           )}
                         />
                       </div>
@@ -525,13 +526,13 @@ export const ProductListHeader: React.FC<IProps> = ({
                       {ratingMenu &&
                         <DropdownSelect
                           sortBy="Sort by"
-                          type="DistanceBase"
+                          type="RatingBase"
                           onChange={onChange}
                           isIcon={true}
                           menuIsOpen={ratingMenu}
                           options={sortOptionsByRating}
                           value={sortOptionsByRating.find(
-                            (option: any) => option.label === acitveSortDistanceBase
+                            (option: any) => option.label === activeRatingFilter
                           )}
                         />
                       }

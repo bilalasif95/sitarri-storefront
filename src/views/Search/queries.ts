@@ -83,6 +83,7 @@ export const searchProductsQuery = gql`
     $after: String
     $longitude: Float
     $latitude: Float
+    $rating: Float
     $Price:PriceRangeInput
     $businessCategory:String
     $location: LocationFilterInput
@@ -155,7 +156,7 @@ export const searchProductsQuery = gql`
         }
       }
     }
-    stores(filter: {location: $location} sortBy: $sortByRating first: $pageSize ) {
+    stores(filter: {location: $location, rating: $rating} sortBy: $sortByRating first: $pageSize ) {
       edges {
         node {
           name

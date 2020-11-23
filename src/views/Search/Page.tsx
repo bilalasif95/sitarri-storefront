@@ -26,6 +26,7 @@ interface PageProps {
   activeSortTypeBase: any;
   activeSortedField: any;
   acitveSortDistanceBase: any;
+  activeRatingFilter: any;
   // activeFilters: number;
   // attributes: IFilterAttributes[];
   activeSortOption: any;
@@ -56,6 +57,7 @@ const Page: React.FC<PageProps> = ({
   activeSortTypeBase,
   activeSortedField,
   acitveSortDistanceBase,
+  activeRatingFilter,
   displayLoader,
   redirectToShopPage,
   redirectToProductPage,
@@ -71,25 +73,26 @@ const Page: React.FC<PageProps> = ({
 
   return (
     <div className="category">
-      
-        <div className="FilterHeader">
-          <div className="container">
-        <BusinessesQuery>
-          {({ data }) =>
-            <ProductListHeader
-              activeSortOption={activeSortOption}
-              activeSortBusinessType={activeSortBusinessType}
-              activeSortTypeBase={activeSortTypeBase}
-              acitveSortDistanceBase={acitveSortDistanceBase}
-              activeSortedField={activeSortedField}
-              categories={data && data.storesCategories}
-              onChange={onOrder}
-            />
-          }
-        </BusinessesQuery>
-        </div>
-        </div>
+
+      <div className="FilterHeader">
         <div className="container">
+          <BusinessesQuery>
+            {({ data }) =>
+              <ProductListHeader
+                activeSortOption={activeSortOption}
+                activeSortBusinessType={activeSortBusinessType}
+                activeSortTypeBase={activeSortTypeBase}
+                acitveSortDistanceBase={acitveSortDistanceBase}
+                activeRatingFilter={activeRatingFilter}
+                activeSortedField={activeSortedField}
+                categories={data && data.storesCategories}
+                onChange={onOrder}
+              />
+            }
+          </BusinessesQuery>
+        </div>
+      </div>
+      <div className="container">
         {canDisplayProducts && (
           <ProductList
             activeSortTypeBase={activeSortTypeBase}

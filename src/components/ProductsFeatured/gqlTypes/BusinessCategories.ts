@@ -52,6 +52,7 @@ export interface RootCategories_categories {
 export interface RootCategories {
   businessCategories: RootCategories_categories | null;
   stores: any;
+  products: any;
 }
 
 export interface RootCategoriesVariables {

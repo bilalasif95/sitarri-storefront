@@ -24,6 +24,7 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
   const [sortBusinessBase, setSortBusinessBase] = React.useState({ label: "", value: "" });
   const [sortTypeBase, setSortTypeBase] = React.useState({ label: "All", value: null });
   const [sorting, setSorting] = React.useState({ label: "", value: "" });
+  const [ratingFilter, setRatingFilter] = React.useState({ label: "", value: "0" });
   const [sortDistanceBase, setSortDistanceBase] = React.useState({
     label: "",
     value: { value: -1, symbol: "KILOMETER" },
@@ -76,6 +77,7 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
     Price: sortPriceBase.value,
 
     query: search || null,
+    rating: ratingFilter.value,
     sortBy: convertSortByFromString(sort),
     sortByRating: convertSortByFromStringForRating(sort),
   };
@@ -106,6 +108,7 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
             showProductsResults={showProductsResults}
             activeSortTypeBase={sortTypeBase.label}
             acitveSortDistanceBase={sortDistanceBase.label}
+            activeRatingFilter={ratingFilter.label}
             products={data.search && data.search.products}
             stores={data.search && data.search.stores}
             onOrder={(value, type) => {
@@ -143,6 +146,11 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
                 setSortDistanceBase(value)
                 CallApi()
               }
+              else if (type === "RatingBase") {
+                // getCurrentLocation()
+                setRatingFilter(value)
+                CallApi()
+              }
               else if (type === "none") {
                 setSortBusinessBase({
                   label: "", value: "",
@@ -153,6 +161,10 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
                 })
                 setSortPriceBase({
                   label: "", value: { gte: 0, lte: 0 },
+                })
+                setRatingFilter({
+                  label: "",
+                  value: "0",
                 })
               }
             }}

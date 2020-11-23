@@ -19,10 +19,11 @@ export interface IProps {
   // onCloseFilterAttribute: (attributeSlug: string, valueSlug: string) => void;
   // openFiltersMenu: () => void;
   // clearFilters: () => void;
-  activeSortOption?:any;
+  activeSortOption?: any;
   categories?: any;
-  activeSortBusinessType:any;
-  activeSortTypeBase:any;
+  activeSortBusinessType: any;
+  activeSortTypeBase: any;
   activeSortedField: any;
-  acitveSortDistanceBase:any;
+  activeRatingFilter: any;
+  acitveSortDistanceBase: any;
 }

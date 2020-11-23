@@ -79,6 +79,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
           []
         );
         const popularShops = maybe(() => data.stores.edges, []);
+        const popularProducts = maybe(() => data.products.edges, []);
         if (loading) {
           return (
             <div className="container">
@@ -380,504 +381,69 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                 <div className="shopsCarousel">
                   <div className="Carouseltitle">
                     <h3>Popular Products</h3>
-                    <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
+                    <p>{popularProducts.length ? <Link to={`${searchUrl}?${searchQs("a")}`}>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </Link> : <>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
                   </div>
-                  <div className="hrBorder"></div>
-                  <div className="pro-list ProductsSwiper">
-
-                    <Swiper {...ProductsHorizontalSwiperParams}>
-                      <SwiperSlide>
-                        <div className="modalDiv">
-                          <ProductTile redirectToProductPage={redirectToProductPage} product={{
-                            __typename: "Product",
-                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            description: "Our regular two-patty burger with two slices of melted american cheese added.",
-                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "Our regular two-patty burger with two slices of melted american cheese added.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
-                            id: "UHJvZHVjdDozMQ==",
-                            images: [{
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            },
-                            {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            }, {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            }],
-                            name: "Cheeseburger",
-                            pricing: {
-                              __typename: "ProductPricingInfo",
-                              onSale: false,
-                              priceRange: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                              priceRangeUndiscounted: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                            },
-                            store: {
-                              __typename: "Store",
-                              closingHours: "12:42 PM",
-                              distance: "5 mi",
-                              id: "U3RvcmU6NTk=",
-                              images: [
-                                {
-                                  __typename: "StoreImage",
-                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                                },
-                              ],
-                              logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
-                              name: "Five Guys",
-                              openingHours: "09:00 AM",
-                              rating: 4.6,
-                              tags: [
-                                {
-                                  name: "Vegetables",
-                                },
-                                {
-                                  name: "Food",
-                                },
-                                {
-                                  name: "Drinks",
-                                },
-                              ],
-                              totalReviews: 395,
-                            },
-                            thumbnail: {
-                              __typename: "Image",
-                              alt: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            thumbnail2x: {
-                              __typename: "Image",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                          }} />
+                  {popularProducts.length ?
+                    <>
+                      {window.innerWidth >= 540 && popularProducts.length > 2 ?
+                        <>
+                          <div className="hrBorder"></div>
+                          <div className="pro-list ProductsSwiper">
+                            <Swiper {...ProductsHorizontalSwiperParams}>
+                              {popularProducts && popularProducts.map(({ node: product }) => (
+                                <SwiperSlide>
+                                  <div className="modalDiv">
+                                    <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
+                                  </div>
+                                </SwiperSlide>
+                              ))}
+                            </Swiper>
+                            <div id="js-prev2" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                            <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
+                          </div>
+                        </>
+                        :
+                        <>
+                          <div className="hrBorder"></div>
+                          <div className="pro-list">
+                            <Carousel length={popularProducts.length} dragging={false} productDetails={"productList"}>
+                              {popularProducts && popularProducts.map(({ node: product }) => (
+                                <div className="modalDiv">
+                                  <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
+                                </div>
+                              ))}
+                            </Carousel>
+                          </div>
+                        </>
+                      }
+                    </>
+                    : <div className="Skeletoncards" style={{ marginTop: 0 }}>
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
                         </div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div className="modalDiv">
-                          <ProductTile redirectToProductPage={redirectToProductPage} product={{
-                            __typename: "Product",
-                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            description: "This is such a great product and you should definitely buy it cause it is so great.",
-                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "This is such a great product and you should definitely buy it cause it is so great.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
-                            id: "UHJvZHVjdDozMQ==",
-                            images: [{
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            },
-                            {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            }, {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            }],
-                            name: "Black Bean Tostada (V)",
-                            pricing: {
-                              __typename: "ProductPricingInfo",
-                              onSale: false,
-                              priceRange: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                              priceRangeUndiscounted: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                            },
-                            store: {
-                              __typename: "Store",
-                              closingHours: "12:42 PM",
-                              distance: "5 mi",
-                              id: "U3RvcmU6NTk=",
-                              images: [
-                                {
-                                  __typename: "StoreImage",
-                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                                },
-                              ],
-                              logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
-                              name: "Taqueria",
-                              openingHours: "09:00 AM",
-                              rating: 4.0,
-                              tags: [
-                                {
-                                  name: "Vegetables",
-                                },
-                                {
-                                  name: "Food",
-                                },
-                                {
-                                  name: "Drinks",
-                                },
-                              ],
-                              totalReviews: 600,
-                            },
-                            thumbnail: {
-                              __typename: "Image",
-                              alt: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            thumbnail2x: {
-                              __typename: "Image",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                          }} />
+                        <div className="SkeletonCardsbar">
                         </div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div className="modalDiv">
-                          <ProductTile redirectToProductPage={redirectToProductPage} product={{
-                            __typename: "Product",
-                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            description: "Our regular two-patty burger with two slices of melted american cheese added.",
-                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "Our regular two-patty burger with two slices of melted american cheese added.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
-                            id: "UHJvZHVjdDozMQ==",
-                            images: [{
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            },
-                            {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            }, {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            }],
-                            name: "Cheeseburger",
-                            pricing: {
-                              __typename: "ProductPricingInfo",
-                              onSale: false,
-                              priceRange: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                              priceRangeUndiscounted: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 9.95,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                            },
-                            store: {
-                              __typename: "Store",
-                              closingHours: "12:42 PM",
-                              distance: "5 mi",
-                              id: "U3RvcmU6NTk=",
-                              images: [
-                                {
-                                  __typename: "StoreImage",
-                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                                },
-                              ],
-                              logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
-                              name: "Five Guys",
-                              openingHours: "09:00 AM",
-                              rating: 4.6,
-                              tags: [
-                                {
-                                  name: "Vegetables",
-                                },
-                                {
-                                  name: "Food",
-                                },
-                                {
-                                  name: "Drinks",
-                                },
-                              ],
-                              totalReviews: 395,
-                            },
-                            thumbnail: {
-                              __typename: "Image",
-                              alt: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            thumbnail2x: {
-                              __typename: "Image",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                          }} />
+                        <div className="SkeletonCardtext">
                         </div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div className="modalDiv">
-                          <ProductTile redirectToProductPage={redirectToProductPage} product={{
-                            __typename: "Product",
-                            category: { id: "Q2F0ZWdvcnk6MTE=", name: "Summer Cloths", __typename: "Category" },
-                            description: "This is such a great product and you should definitely buy it cause it is so great.",
-                            descriptionJson: '{"blocks": [{"key": "eud25", "data": {}, "text": "This is such a great product and you should definitely buy it cause it is so great.", "type": "unstyled", "depth": 0, "entityRanges": [], "inlineStyleRanges": []}], "entityMap": {}}',
-                            id: "UHJvZHVjdDozMQ==",
-                            images: [{
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            },
-                            {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/item-image.png",
-                            }, {
-                              id: "",
-                              url: "https://dev-backend.sitarri.co.uk/media/products/image_1_2.png",
-                            }],
-                            name: "Black Bean Tostada (V)",
-                            pricing: {
-                              __typename: "ProductPricingInfo",
-                              onSale: false,
-                              priceRange: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                              priceRangeUndiscounted: {
-                                __typename: "TaxedMoneyRange",
-                                start: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                                stop: {
-                                  __typename: "TaxedMoney",
-                                  gross: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                  net: {
-                                    __typename: "Money",
-                                    amount: 4.20,
-                                    currency: "GBP",
-                                  },
-                                },
-                              },
-                            },
-                            store: {
-                              __typename: "Store",
-                              closingHours: "12:42 PM",
-                              distance: "5 mi",
-                              id: "U3RvcmU6NTk=",
-                              images: [
-                                {
-                                  __typename: "StoreImage",
-                                  url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                                },
-                              ],
-                              logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
-                              name: "Taqueria",
-                              openingHours: "09:00 AM",
-                              rating: 4.0,
-                              tags: [
-                                {
-                                  name: "Vegetables",
-                                },
-                                {
-                                  name: "Food",
-                                },
-                                {
-                                  name: "Drinks",
-                                },
-                              ],
-                              totalReviews: 600,
-                            },
-                            thumbnail: {
-                              __typename: "Image",
-                              alt: "",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                            thumbnail2x: {
-                              __typename: "Image",
-                              url: "https://lh5.googleusercontent.com/p/AF1QipOubwoQei4d1cUQd8oWDUZOzoP0YszGv4tioXHZ=w515-k-no",
-                            },
-                          }} />
+                      </div>
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
                         </div>
-                      </SwiperSlide>
-                    </Swiper>
-                    <div id="js-prev2" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
-                    <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
-                  </div>
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                      <div className="SkeletonCardsCont">
+                        <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
+                        </div>
+                        <div className="SkeletonCardsbar">
+                        </div>
+                        <div className="SkeletonCardtext">
+                        </div>
+                      </div>
+                    </div>
+                  }
                 </div>
               </div>
             </div>
