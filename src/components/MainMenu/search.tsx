@@ -137,7 +137,7 @@ const search: React.FC = (props: any) => {
                                     <ReactSVG path={loader} />
                                 </h6>
                             }
-                            if(data.search) {
+                            if (data.search) {
                                 if (data.search && data.search.products.edges.length > 0 || data.search && data.search.categories.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
                                     return (
                                         <div className="SearchDropdown">
@@ -153,9 +153,9 @@ const search: React.FC = (props: any) => {
                                                                 </div>
                                                             </div>}
                                                     </div>
-                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
+                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
                                                         <div className="shop-address">
-                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
+                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
                                                         </div>}
                                                 </div>
                                             ))}
@@ -171,9 +171,9 @@ const search: React.FC = (props: any) => {
                                                                 </div>
                                                             </div>}
                                                     </div>
-                                                    {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
+                                                    {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.streetAddress2 || product.node.store.address.city || product.node.store.address.country.country) &&
                                                         <div className="shop-address">
-                                                            <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
+                                                            <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.streetAddress2 + " , " + product.node.store.address.city + " , " + product.node.store.address.country.country}</p>
                                                         </div>}
                                                 </div>
                                             ))}

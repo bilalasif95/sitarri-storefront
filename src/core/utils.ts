@@ -40,8 +40,8 @@ export const shopGetDBIdFromGraphqlId = (
   const rawId = Base64.decode(graphqlId);
   const regexp = /(\w+):(\d+)/;
   const arr = regexp.exec(rawId);
- 
-   return parseInt(arr![2], 10);
+
+  return parseInt(arr![2], 10);
 };
 
 export const getGraphqlIdFromDBId = (id: string, schema: string): string =>
@@ -77,7 +77,7 @@ export const generateCollectionUrl = (id: string, name: string) =>
 
 export const generatePageUrl = (slug: string) => `/page/${slug}/`;
 
-export const generatePhotoGalleryUrl = (id: string,name: string) => `/photoGallery/${slugify(name)}/${getDBIdFromGraphqlId(id, "Store")}/`;
+export const generatePhotoGalleryUrl = (id: string, name: string) => `/photoGallery/${slugify(name)}/${getDBIdFromGraphqlId(id, "Store")}/`;
 
 interface AttributeDict {
   [attributeSlug: string]: string[];
@@ -127,6 +127,28 @@ export const convertSortByFromString = (sortBy: string) => {
 
     case "updated_at":
       field = ProductOrderField.DATE;
+      break;
+
+    default:
+      return null;
+  }
+  return { field, direction };
+};
+
+export const convertSortByFromStringForRating = (sortBy: string) => {
+  if (!sortBy) {
+    return null;
+  }
+  const direction = OrderDirection.DESC;
+
+  let field;
+  switch (sortBy.replace(/^-/, "")) {
+    case "name":
+      field = ProductOrderField.NAME;
+      break;
+
+    case "rating":
+      field = ProductOrderField.RATING;
       break;
 
     default:

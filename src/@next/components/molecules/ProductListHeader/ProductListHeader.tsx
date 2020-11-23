@@ -135,7 +135,6 @@ const sorting: any = [
     value: "price",
   },
   {
-    disabled: true,
     icon: RatingsIcon,
     label: "Rating",
     value: "rating",
@@ -325,13 +324,13 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       </div>
-                    {/* } */}
+                      {/* } */}
                     </S.SubmenuBox>
                     <S.SubmenuBox type="distance">
-                    <S.MenuLink><S.SubmenuList type="" categoriesMenu={true} 
-                    // onClick={onDistanceMenuClick}
-                    ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
-                    {/* {distanceMenu && */}
+                      <S.MenuLink><S.SubmenuList type="" categoriesMenu={true}
+                      // onClick={onDistanceMenuClick}
+                      ><img src={Distance} />Distance</S.SubmenuList></S.MenuLink>
+                      {/* {distanceMenu && */}
                       <DropdownSelect
                         sortBy="Sort by"
                         type="DistanceBase"
@@ -363,17 +362,17 @@ export const ProductListHeader: React.FC<IProps> = ({
                       />
                       {/* } */}
                     </S.SubmenuBox>
-                    
+
                   </S.Submenu>
 
                   <S.MobileSheet>
-                      <button onClick={() => {
-                        onChange("", "none");
-                        setFiltered(categories);
-                        setSearch("");
-                      }} className="ClearBtn btn btn-default">Clear</button>
-                      <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
-                    </S.MobileSheet>
+                    <button onClick={() => {
+                      onChange("", "none");
+                      setFiltered(categories);
+                      setSearch("");
+                    }} className="ClearBtn btn btn-default">Clear</button>
+                    <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
+                  </S.MobileSheet>
                 </S.menuDropdown>
               }
             </S.Sort>
@@ -536,7 +535,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       }
-                      </S.SubmenuBox>
+                    </S.SubmenuBox>
                     <S.SubmenuBox type="distance">
                       <S.MenuLink><S.SubmenuList type="" categoriesMenu={distanceMenu}
                         onClick={onDistanceMenuClick}
@@ -554,7 +553,7 @@ export const ProductListHeader: React.FC<IProps> = ({
                           )}
                         />
                       }
-                       </S.SubmenuBox>
+                    </S.SubmenuBox>
                     <S.SubmenuBox type="price">
                       <S.MenuLink><S.SubmenuList type="" categoriesMenu={priceMenu}
                         onClick={onPriceMenuClick}
@@ -573,16 +572,16 @@ export const ProductListHeader: React.FC<IProps> = ({
                         />
                       }
                     </S.SubmenuBox>
-                   
+
                   </S.Submenu>
                   <S.MobileSheet>
-                      <button onClick={() => {
-                        onChange("", "none");
-                        setFiltered(categories);
-                        setSearch("");
-                      }} className="ClearBtn btn btn-default">Clear</button>
-                      <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
-                    </S.MobileSheet>
+                    <button onClick={() => {
+                      onChange("", "none");
+                      setFiltered(categories);
+                      setSearch("");
+                    }} className="ClearBtn btn btn-default">Clear</button>
+                    <button onClick={() => setMenuIsOpen(!menuIsOpen)} className="ApplyBtn btn btn-default">Apply</button>
+                  </S.MobileSheet>
                 </S.menuDropdown>
               }
             </S.Sort>

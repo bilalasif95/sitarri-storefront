@@ -193,9 +193,13 @@ export const productDetailsQuery = gql`
     address {
       id
       streetAddress
+      streetAddress2
       city
       longitude
       latitude
+      country {
+        country
+      }
     }
      storeCategory(first:100) {
           edges{

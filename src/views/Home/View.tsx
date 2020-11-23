@@ -46,12 +46,12 @@ const View: React.FC = (props: any) => {
     props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
   }
 
-  const redirectToShopPage = (id,name) => {
-    props.history.push(generateShopUrl(id,name))
+  const redirectToShopPage = (id, name) => {
+    props.history.push(generateShopUrl(id, name))
   }
 
-  const redirectToProductPage = (id,name) => {
-    props.history.push(generateProductUrl(id,name))
+  const redirectToProductPage = (id, name) => {
+    props.history.push(generateProductUrl(id, name))
   }
 
   const SetSearchEvent = (e) => {
@@ -170,14 +170,14 @@ const View: React.FC = (props: any) => {
 
                         <div className="items" onClick={() => SeeDetails(store.node.name)}>
                           <p>{store.node.name}</p>
-                          {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
+                          {store.node.address && (store.node.address.streetAddress || store.node.address.city || store.node.address.streetAddress2 || store.node.address.country.country) &&
                             <div className="shop-address">
-                              <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
+                              <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
                             </div>}
                           <div className="SearchLocation">
                             {store.node.distance &&
                               <div className="SearchLocation">
-                              <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
                                 <div>
                                   <p>{store.node.distance}</p>
                                 </div>
@@ -190,9 +190,9 @@ const View: React.FC = (props: any) => {
 
                         <div className="items" onClick={() => SeeDetails(product.node.name)}>
                           <p>{product.node.name}</p>
-                          {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
+                          {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city || product.node.store.address.streetAddress2 || product.node.store.address.country.country) &&
                             <div className="shop-address">
-                              <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
+                              <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.streetAddress2 + " , " + product.node.store.address.city + " , " + product.node.store.address.country.country}</p>
                             </div>}
                           {product.node.store && product.node.store.distance &&
                             <>

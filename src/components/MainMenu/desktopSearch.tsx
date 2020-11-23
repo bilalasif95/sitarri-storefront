@@ -136,9 +136,9 @@ const desktopSearch: React.FC<any> = (props: any) => {
                                                             </div>}
 
                                                     </div>
-                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.city) &&
+                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
                                                         <div className="shop-address">
-                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.city}</p>
+                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
                                                         </div>}
                                                 </div>
                                             ))}
@@ -155,9 +155,9 @@ const desktopSearch: React.FC<any> = (props: any) => {
                                                             </div>}
 
                                                     </div>
-                                                    {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city) &&
+                                                    {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.streetAddress2 || product.node.store.address.city || product.node.store.address.country.country) &&
                                                         <div className="shop-address">
-                                                            <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.city}</p>
+                                                            <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.streetAddress2 + " , " + product.node.store.address.city + " , " + product.node.store.address.country.country}</p>
                                                         </div>}
                                                 </div>
                                             ))}

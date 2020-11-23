@@ -7,6 +7,7 @@ import { StringParam, useQueryParam } from "use-query-params";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
 import {
   convertSortByFromString,
+  convertSortByFromStringForRating,
   generateProductUrl,
   generateShopUrl,
   getGraphqlIdFromDBId,
@@ -76,6 +77,7 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
 
     query: search || null,
     sortBy: convertSortByFromString(sort),
+    sortByRating: convertSortByFromStringForRating(sort),
   };
 
   return (

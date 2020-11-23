@@ -296,6 +296,7 @@ export enum ProductOrderField {
   PRICE = "PRICE",
   PUBLISHED = "PUBLISHED",
   TYPE = "TYPE",
+  RATING = "RATING",
 }
 
 export interface AttributeInput {

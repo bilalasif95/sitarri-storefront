@@ -51,6 +51,7 @@ export interface RootCategories_categories {
 
 export interface RootCategories {
   businessCategories: RootCategories_categories | null;
+  stores: any;
 }
 
 export interface RootCategoriesVariables {
@@ -58,6 +59,10 @@ export interface RootCategoriesVariables {
   after?: string | null;
   last?: number | null;
   before?: string | null;
-//   filter?: CategoryFilterInput | null;
-//   sort?: CategorySortingInput | null;
+  filter?: any | null;
+  longitude: any;
+  latitude: any;
+  rating: any;
+  location: any;
+  //   sort?: CategorySortingInput | null;
 }

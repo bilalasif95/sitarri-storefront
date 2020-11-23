@@ -60,13 +60,25 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
   React.useEffect(() => {
     getCurrentLocation()
   }, [])
+
+  const variables = {
+    latitude,
+    location: {
+      distance: { value: -1, symbol: "KILOMETER" },
+      latitude,
+      longitude,
+    },
+    longitude,
+    rating: "4.5",
+  }
   return (
-    <TypedFeaturedProductsQuery displayError={false}>
+    <TypedFeaturedProductsQuery variables={variables} displayError={false}>
       {({ data, loading }) => {
         const products = maybe(
           () => data.businessCategories.edges,
           []
         );
+        const popularShops = maybe(() => data.stores.edges, []);
         if (loading) {
           return (
             <div className="container">
@@ -300,193 +312,69 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
               <div className="shopsCarousel">
                 <div className="Carouseltitle">
                   <h3>Popular Shops</h3>
-                  <p><Link to={`${searchUrl}?${searchQs("a")}`}>123 results </Link><img src={Next} alt="next" /></p>
+                  <p>{popularShops.length ? <Link to={`${searchUrl}?${searchQs("a")}`}>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </Link> : <>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
                 </div>
-                < div className="hrBorder"></div>
-                <div className="pro-list">
-
-                  <Swiper {...HorizontalSwiperParams}>
-                    {/* {products.map(({ node: product }) => ( */}
-                    <SwiperSlide>
-                      <div className="modalDiv">
-                        <BusinessTile redirectToShopPage={redirectToShopPage} product={{
-                          __typename: "Store",
-                          address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
-                          category: "Mexican Resturant . ££",
-                          closingHours: "12:42 PM",
-                          description: "Mexican Resturant . ££",
-                          distance: "5 mi",
-                          id: "U3RvcmU6Njg=",
-                          images: [{
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          },
-                          {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          }, {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          }],
-                          logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
-                          name: "Taqueria",
-                          openingHours: "09:00 AM",
-                          rating: 4.0,
-                          storeProduct: {
-                            __typename: "ProductCountableConnection",
-                            edges: [],
-                          },
-                          tags: [
-                            {
-                              name: "Mexican",
-                            },
-                            {
-                              name: "Taco",
-                            },
-                            {
-                              name: "Tequila",
-                            },
-                          ],
-                          totalReviews: 600,
-                        }} />
+                {popularShops.length ?
+                  <>
+                    {window.innerWidth >= 540 && popularShops.length > 2 ?
+                      <>
+                        <div className="hrBorder"></div>
+                        <div className="pro-list">
+                          <Swiper {...HorizontalSwiperParams}>
+                            {popularShops && popularShops.map(({ node: product }) => (
+                              <SwiperSlide>
+                                <div className="modalDiv">
+                                  <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
+                                </div>
+                              </SwiperSlide>
+                            ))}
+                          </Swiper>
+                          <div id="js-prev1" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
+                          <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
+                        </div>
+                      </>
+                      :
+                      <>
+                        <div className="hrBorder"></div>
+                        <div className="pro-list">
+                          <Carousel length={popularShops.length} dragging={false} productDetails={"productList"}>
+                            {popularShops && popularShops.map(({ node: product }) => (
+                              <div className="modalDiv">
+                                <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
+                              </div>
+                            ))}
+                          </Carousel>
+                        </div>
+                      </>
+                    }
+                  </>
+                  : <div className="Skeletoncards" style={{ marginTop: 0 }}>
+                    <div className="SkeletonCardsCont">
+                      <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="modalDiv">
-                        <BusinessTile redirectToShopPage={redirectToShopPage} product={{
-                          __typename: "Store",
-                          address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
-                          category: "Burger Resturant . ££",
-                          closingHours: "12:42 PM",
-                          description: "Burger Resturant . ££",
-                          distance: "5.9 mi",
-                          id: "U3RvcmU6Njg=",
-                          images: [{
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          },
-                          {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          }, {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          }],
-                          logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
-                          name: "Five Guys",
-                          openingHours: "09:00 AM",
-                          rating: 4.6,
-                          storeProduct: {
-                            __typename: "ProductCountableConnection",
-                            edges: [],
-                          },
-                          tags: [
-                            {
-                              name: "Burger",
-                            },
-                            {
-                              name: "American",
-                            },
-                            {
-                              name: "Milkshakes",
-                            },
-                          ],
-                          totalReviews: 578,
-                        }} />
+                      <div className="SkeletonCardsbar">
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="modalDiv">
-                        <BusinessTile redirectToShopPage={redirectToShopPage} product={{
-                          __typename: "Store",
-                          address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
-                          category: "Mexican Resturant . ££",
-                          closingHours: "12:42 PM",
-                          description: "Mexican Resturant . ££",
-                          distance: "5 mi",
-                          id: "U3RvcmU6Njg=",
-                          images: [{
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          },
-                          {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          }, {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          }],
-                          logo: "https://dev-backend.sitarri.co.uk/media/products/54277565_2025471117576200_2283093649778540544_n.png",
-                          name: "Taqueria",
-                          openingHours: "09:00 AM",
-                          rating: 4.0,
-                          storeProduct: {
-                            __typename: "ProductCountableConnection",
-                            edges: [],
-                          },
-                          tags: [
-                            {
-                              name: "Mexican",
-                            },
-                            {
-                              name: "Taco",
-                            },
-                            {
-                              name: "Tequila",
-                            },
-                          ],
-                          totalReviews: 600,
-                        }} />
+                      <div className="SkeletonCardtext">
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div className="modalDiv">
-                        <BusinessTile redirectToShopPage={redirectToShopPage} product={{
-                          __typename: "Store",
-                          address: { id: "U3RvcmVBZGRyZXNzOjE2", address: null, __typename: "StoreAddress" },
-                          category: "Burger Resturant . ££",
-                          closingHours: "12:42 PM",
-                          description: "Burger Resturant . ££",
-                          distance: "5.9 mi",
-                          id: "U3RvcmU6Njg=",
-                          images: [{
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          },
-                          {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/image_bNIIwsF.png",
-                          }, {
-                            id: "",
-                            url: "https://dev-backend.sitarri.co.uk/media/products/header-image.png",
-                          }],
-                          logo: "https://dev-backend.sitarri.co.uk/media/products/12940200_1057056874332958_365933657_a.png",
-                          name: "Five Guys",
-                          openingHours: "09:00 AM",
-                          rating: 4.6,
-                          storeProduct: {
-                            __typename: "ProductCountableConnection",
-                            edges: [],
-                          },
-                          tags: [
-                            {
-                              name: "Burger",
-                            },
-                            {
-                              name: "American",
-                            },
-                            {
-                              name: "Milkshakes",
-                            },
-                          ],
-                          totalReviews: 578,
-                        }} />
+                    </div>
+                    <div className="SkeletonCardsCont">
+                      <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
                       </div>
-                    </SwiperSlide>
-                  </Swiper>
-                  <div id="js-prev1" className="swiper-button-prev" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-1ca5facc7b3713ec" aria-disabled="true"></div>
-                  <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
-                </div>
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      <div className="SkeletonCardtext">
+                      </div>
+                    </div>
+                    <div className="SkeletonCardsCont">
+                      <div className="SkeletonCardsbody" style={{ marginTop: 0 }}>
+                      </div>
+                      <div className="SkeletonCardsbar">
+                      </div>
+                      <div className="SkeletonCardtext">
+                      </div>
+                    </div>
+                  </div>
+                }
               </div>
               <div className="productCarousel">
                 <div className="shopsCarousel">

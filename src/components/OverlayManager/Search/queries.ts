@@ -48,7 +48,11 @@ query SearchResults($query: String!, $longitude: Float, $latitude: Float){
             distance(longitude: $longitude, latitude: $latitude)
             address {
               streetAddress
+              streetAddress2
               city
+              country{
+                country
+              }
             }
           }
         }
@@ -68,7 +72,11 @@ query SearchResults($query: String!, $longitude: Float, $latitude: Float){
           distance(longitude: $longitude, latitude: $latitude)
             address {
               streetAddress
+              streetAddress2
               city
+              country{
+                country
+              }
             }
         }
       }

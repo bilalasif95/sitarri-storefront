@@ -79,6 +79,7 @@ export const searchProductsQuery = gql`
     $attributes: [AttributeInput]
     $pageSize: Int
     $sortBy: ProductOrder
+    $sortByRating: StoreOrder
     $after: String
     $longitude: Float
     $latitude: Float
@@ -154,7 +155,7 @@ export const searchProductsQuery = gql`
         }
       }
     }
-    stores(filter: {location: $location} first: $pageSize ) {
+    stores(filter: {location: $location} sortBy: $sortByRating first: $pageSize ) {
       edges {
         node {
           name

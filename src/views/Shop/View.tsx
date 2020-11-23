@@ -7,6 +7,7 @@ import ReactSVG from "react-svg";
 import { useCart } from "@sdk/react";
 // MetaWrapper
 // import { NotFound, OfflinePlaceholder } from "../../components";
+import { NotFound } from "../../components";
 // import NetworkStatus from "../../components/NetworkStatus";
 import { generatePhotoGalleryUrl, getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
@@ -192,26 +193,31 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history })
         }
         if (Object.values(data).length > 0) {
           const { store } = data;
-          return (
-            // <>
-            // <NetworkStatus>
-            //   {isOnline => {
-            //     const { store } = data;
-            //     return (
-            // <MetaWrapper meta={extractMeta(product)}>
-            <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
-            // </MetaWrapper>
-            //     );
-            //     if (store === null) {
-            //       return <NotFound />;
-            //     }
-            //     if (!isOnline) {
-            //       return <OfflinePlaceholder />;
-            //     }
-            //   }}
-            // </NetworkStatus>
-            // </>
-          )
+          if (store === null) {
+            return <NotFound />;
+          }
+          else {
+            return (
+              // <>
+              // <NetworkStatus>
+              //   {isOnline => {
+              //     const { store } = data;
+              //     return (
+              // <MetaWrapper meta={extractMeta(product)}>
+              <Page product={store} redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} add={addItem} items={items} />
+              // </MetaWrapper>
+              //     );
+              //     if (store === null) {
+              //       return <NotFound />;
+              //     }
+              //     if (!isOnline) {
+              //       return <OfflinePlaceholder />;
+              //     }
+              //   }}
+              // </NetworkStatus>
+              // </>
+            )
+          }
         }
       }}
     </TypedProductDetailsQuery>

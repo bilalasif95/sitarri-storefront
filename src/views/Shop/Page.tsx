@@ -143,7 +143,7 @@ class Page extends React.PureComponent<
   }
   render() {
     const { product, redirectToPhotoGalleryPage } = this.props;
-    const productInfo = product;
+    const productInfo = product && product;
     const productDescription = (
       <ProductDescription
         items={productInfo}
@@ -178,13 +178,13 @@ class Page extends React.PureComponent<
     days[6] = "Saturday";
     const todayDay = days[today.getDay()];
 
-    const mondayOpeningTime = secondsToHms(productInfo.mondayOpeningTime);
+    const mondayOpeningTime = secondsToHms(productInfo && productInfo.mondayOpeningTime);
     const [mondayOpenTime] = mondayOpeningTime.split(" ")
     const mondayOpenHoursMinutes = mondayOpenTime.split(":")
     const mondayOpenHours = Number(mondayOpenHoursMinutes[0])
     const mondayOpenMinutes = Number(mondayOpenHoursMinutes[1])
 
-    const mondayClosingTime = secondsToHms(productInfo.mondayClosingTime);
+    const mondayClosingTime = secondsToHms(productInfo && productInfo.mondayClosingTime);
     const [mondayCloseTime] = mondayClosingTime.split(" ")
     const mondayClosingHoursMinutes = mondayCloseTime.split(":")
     const mondayClosingHours = Number(mondayClosingHoursMinutes[0])
@@ -195,13 +195,13 @@ class Page extends React.PureComponent<
     mondayEnd.setMinutes(mondayClosingMinutes);
 
 
-    const tuesdayOpeningTime = secondsToHms(productInfo.tuesdayOpeningTime);
+    const tuesdayOpeningTime = secondsToHms(productInfo && productInfo.tuesdayOpeningTime);
     const [tuesdayOpenTime] = tuesdayOpeningTime.split(" ")
     const tuesdayOpenHoursMinutes = tuesdayOpenTime.split(":")
     const tuesdayOpenHours = Number(tuesdayOpenHoursMinutes[0])
     const tuesdayOpenMinutes = Number(tuesdayOpenHoursMinutes[1])
 
-    const tuesdayClosingTime = secondsToHms(productInfo.tuesdayClosingTime);
+    const tuesdayClosingTime = secondsToHms(productInfo && productInfo.tuesdayClosingTime);
     const [tuesdayCloseTime] = tuesdayClosingTime.split(" ")
     const tuesdayClosingHoursMinutes = tuesdayCloseTime.split(":")
     const tuesdayClosingHours = Number(tuesdayClosingHoursMinutes[0])
@@ -212,13 +212,13 @@ class Page extends React.PureComponent<
     tuesdayEnd.setMinutes(tuesdayClosingMinutes);
 
 
-    const wednesdayOpeningTime = secondsToHms(productInfo.wednesdayOpeningTime);
+    const wednesdayOpeningTime = secondsToHms(productInfo && productInfo.wednesdayOpeningTime);
     const [wednesdayOpenTime] = wednesdayOpeningTime.split(" ")
     const wednesdayOpenHoursMinutes = wednesdayOpenTime.split(":")
     const wednesdayOpenHours = Number(wednesdayOpenHoursMinutes[0])
     const wednesdayOpenMinutes = Number(wednesdayOpenHoursMinutes[1])
 
-    const wednesdayClosingTime = secondsToHms(productInfo.wednesdayClosingTime);
+    const wednesdayClosingTime = secondsToHms(productInfo && productInfo.wednesdayClosingTime);
     const [wednesdayCloseTime] = wednesdayClosingTime.split(" ")
     const wednesdayClosingHoursMinutes = wednesdayCloseTime.split(":")
     const wednesdayClosingHours = Number(wednesdayClosingHoursMinutes[0])
@@ -229,13 +229,13 @@ class Page extends React.PureComponent<
     wednesdayEnd.setMinutes(wednesdayClosingMinutes);
 
 
-    const thursdayOpeningTime = secondsToHms(productInfo.thursdayOpeningTime);
+    const thursdayOpeningTime = secondsToHms(productInfo && productInfo.thursdayOpeningTime);
     const [thursdayOpenTime] = thursdayOpeningTime.split(" ")
     const thursdayOpenHoursMinutes = thursdayOpenTime.split(":")
     const thursdayOpenHours = Number(thursdayOpenHoursMinutes[0])
     const thursdayOpenMinutes = Number(thursdayOpenHoursMinutes[1])
 
-    const thursdayClosingTime = secondsToHms(productInfo.thursdayClosingTime);
+    const thursdayClosingTime = secondsToHms(productInfo && productInfo.thursdayClosingTime);
     const [thursdayCloseTime] = thursdayClosingTime.split(" ")
     const thursdayClosingHoursMinutes = thursdayCloseTime.split(":")
     const thursdayClosingHours = Number(thursdayClosingHoursMinutes[0])
@@ -246,13 +246,13 @@ class Page extends React.PureComponent<
     thursdayEnd.setMinutes(thursdayClosingMinutes);
 
 
-    const fridayOpeningTime = secondsToHms(productInfo.fridayOpeningTime);
+    const fridayOpeningTime = secondsToHms(productInfo && productInfo.fridayOpeningTime);
     const [fridayOpenTime] = fridayOpeningTime.split(" ")
     const fridayOpenHoursMinutes = fridayOpenTime.split(":")
     const fridayOpenHours = Number(fridayOpenHoursMinutes[0])
     const fridayOpenMinutes = Number(fridayOpenHoursMinutes[1])
 
-    const fridayClosingTime = secondsToHms(productInfo.fridayClosingTime);
+    const fridayClosingTime = secondsToHms(productInfo && productInfo.fridayClosingTime);
     const [fridayCloseTime] = fridayClosingTime.split(" ")
     const fridayClosingHoursMinutes = fridayCloseTime.split(":")
     const fridayClosingHours = Number(fridayClosingHoursMinutes[0])
@@ -263,13 +263,13 @@ class Page extends React.PureComponent<
     fridayEnd.setMinutes(fridayClosingMinutes);
 
 
-    const saturdayOpeningTime = secondsToHms(productInfo.saturdayOpeningTime);
+    const saturdayOpeningTime = secondsToHms(productInfo && productInfo.saturdayOpeningTime);
     const [saturdayOpenTime] = saturdayOpeningTime.split(" ")
     const saturdayOpenHoursMinutes = saturdayOpenTime.split(":")
     const saturdayOpenHours = Number(saturdayOpenHoursMinutes[0])
     const saturdayOpenMinutes = Number(saturdayOpenHoursMinutes[1])
 
-    const saturdayClosingTime = secondsToHms(productInfo.saturdayClosingTime);
+    const saturdayClosingTime = secondsToHms(productInfo && productInfo.saturdayClosingTime);
     const [saturdayCloseTime] = saturdayClosingTime.split(" ")
     const saturdayClosingHoursMinutes = saturdayCloseTime.split(":")
     const saturdayClosingHours = Number(saturdayClosingHoursMinutes[0])
@@ -280,13 +280,13 @@ class Page extends React.PureComponent<
     saturdayEnd.setMinutes(saturdayClosingMinutes);
 
 
-    const sundayOpeningTime = secondsToHms(productInfo.sundayOpeningTime);
+    const sundayOpeningTime = secondsToHms(productInfo && productInfo.sundayOpeningTime);
     const [sundayOpenTime] = sundayOpeningTime.split(" ")
     const sundayOpenHoursMinutes = sundayOpenTime.split(":")
     const sundayOpenHours = Number(sundayOpenHoursMinutes[0])
     const sundayOpenMinutes = Number(sundayOpenHoursMinutes[1])
 
-    const sundayClosingTime = secondsToHms(productInfo.sundayClosingTime);
+    const sundayClosingTime = secondsToHms(productInfo && productInfo.sundayClosingTime);
     const [sundayCloseTime] = sundayClosingTime.split(" ")
     const sundayClosingHoursMinutes = sundayCloseTime.split(":")
     const sundayClosingHours = Number(sundayClosingHoursMinutes[0])
@@ -331,7 +331,7 @@ class Page extends React.PureComponent<
                 <script className="structured-data-list" type="application/ld+json">
                   {/* {structuredData(product)} */}
                 </script>
-                {productInfo.images.length > 0 ?
+                {productInfo && productInfo.images.length > 0 ?
                   <>
                     {window.innerWidth >= 540 ?
                       <GalleryCarousel redirectToPhotoGalleryPage={redirectToPhotoGalleryPage} productInfo={productInfo} images={this.getImages()} />
@@ -390,8 +390,8 @@ class Page extends React.PureComponent<
 
                   <OtherProducts config={{
                     params: {
-                      text: productInfo.description,
-                      title: productInfo.name,
+                      text: productInfo && productInfo.description,
+                      title: productInfo && productInfo.name,
                       url: window.location.href,
                     },
                     /* tslint:disable-next-line:no-console */
@@ -447,7 +447,7 @@ class Page extends React.PureComponent<
                   >
                     {productDescription}
                   </div>
-                  {productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl === "" &&
+                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl === "" &&
                     <div className="useful-links">
                       {productInfo.phone !== "" &&
                         <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
@@ -476,7 +476,7 @@ class Page extends React.PureComponent<
                       }
                     </div>
                   }
-                  {productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl !== "" &&
+                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl !== "" &&
                     <div className="four-useful-links">
                       {productInfo.phone !== "" &&
                         <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
@@ -527,14 +527,14 @@ class Page extends React.PureComponent<
                 </div>
                 }
 
-                {productInfo.address ?
+                {productInfo && productInfo.address ?
                   <div className="shop-at">
-                    {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+                    {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city || productInfo.address.streetAddress2 || productInfo.address.country.country) &&
                       <div className="shop-address m-0">
                         <ReactSVG path={location} />
                         <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                           position: toast.POSITION.TOP_RIGHT,
-                        })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
+                        })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.streetAddress2 + " , " + productInfo.address.city + " , " + productInfo.address.country.country}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.streetAddress2 + " , " + productInfo.address.city + " , " + productInfo.address.country.country}</span></CopyToClipboard></p>
                       </div>}
 
                     <div className="hrBorder"></div>
@@ -714,13 +714,13 @@ class Page extends React.PureComponent<
                     }
                   </div>
                   : <>
-                    {productInfo.address && (productInfo.address.streetAddress || productInfo.address.city) &&
+                    {productInfo && productInfo.address && (productInfo.address.streetAddress || productInfo.address.city || productInfo.address.streetAddress2 || productInfo.address.country.country) &&
                       <div className="shop-at">
                         <div className="shop-address m-0">
                           <ReactSVG path={location} />
                           <p><CopyToClipboard onCopy={() => toast.success("Address Copied", {
                             position: toast.POSITION.TOP_RIGHT,
-                          })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.city}</span></CopyToClipboard></p>
+                          })} text={productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.streetAddress2 + " , " + productInfo.address.city + " , " + productInfo.address.country.country}><span>{productInfo.address && productInfo.address.streetAddress + " , " + productInfo.address.streetAddress2 + " , " + productInfo.address.city + " , " + productInfo.address.country.country}</span></CopyToClipboard></p>
                         </div></div>}</>
                 }
                 {/* {productInfo.instagramUrl !== "" && productInfo.facebookUrl !== "" && productInfo.twitterUrl !== "" &&
@@ -749,7 +749,7 @@ class Page extends React.PureComponent<
                   </div>} */}
               </div>
             </div>
-            {productInfo.storeCategory.edges.length !== 0 &&
+            {productInfo && productInfo.storeCategory.edges.length !== 0 &&
               <div className="container">
                 <div className="product-page__product__description">
                   <NewProductDescription

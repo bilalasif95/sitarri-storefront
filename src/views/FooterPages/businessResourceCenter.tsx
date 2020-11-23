@@ -27,7 +27,7 @@ const ContactUs: React.FC = () => (
                <div className="BusinessContent">
                   <div className="BusinessText">
                      <h3>Get Discovered by your ideal customers</h3>
-                     <p>Thousands of businesses of all sizes-from loacal stores to large enterprises-use Sitarri platform to get discovered by new customers and keep them coming back.</p>
+                     <p>Thousands of businesses of all sizes-from local stores to large enterprises-use Sitarri platform to get discovered by new customers and keep them coming back.</p>
 
                      <div className="BusinessForm">
                         <div className="BusinessBtns">
@@ -139,10 +139,10 @@ const ContactUs: React.FC = () => (
       {/* join-sitarri */}
       <div className="joinSitarri">
          <div className="container">
-         <div className="JoinBoxTypography">
-            <p className="FormQuestion">Designed For Businesses</p>
-            <h3 className="JoinTitle">How does Sitarri work?</h3>
-            <p className="ProfileText">Set up your Sitarri Profile in Three easy steps.</p>
+            <div className="JoinBoxTypography">
+               <p className="FormQuestion">Designed For Businesses</p>
+               <h3 className="JoinTitle">How does Sitarri work?</h3>
+               <p className="ProfileText">Set up your Sitarri Profile in Three easy steps.</p>
             </div>
             <div className="WorkContent">
                <div className="joinBoxes workV-line">
@@ -160,7 +160,7 @@ const ContactUs: React.FC = () => (
 
                <div className="joinBoxes workFoodV-line">
                   <h4 className="boxHeading">Get Discovered</h4>
-                  <img style={{marginBottom: "5px"}} src={Discover} />
+                  <img style={{ marginBottom: "5px" }} src={Discover} />
                   <p className="joinBoxestext">Go live and get discovered by customers.</p>
                </div>
             </div>

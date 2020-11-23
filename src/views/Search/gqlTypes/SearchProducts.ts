@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { AttributeInput, ProductOrder } from "./../../../../gqlTypes/globalTypes";
+import { AttributeInput } from "./../../../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL query operation: SearchProducts
@@ -237,7 +237,7 @@ export interface SearchProducts_products_edges_node {
    */
   id: string;
   name: string;
-  images:  imagesArray[];
+  images: imagesArray[];
   /**
    * The main thumbnail for a product.
    */
@@ -340,13 +340,13 @@ export interface SearchProducts {
    * List of the shop's attributes.
    */
   attributes: SearchProducts_attributes | null;
-  search:any;
+  search: any;
 }
 
 export interface SearchProductsVariables {
   query: string;
   attributes?: (AttributeInput | null)[] | null;
   pageSize?: number | null;
-  sortBy?: ProductOrder | null;
+  sortBy?: any;
   after?: string | null;
 }

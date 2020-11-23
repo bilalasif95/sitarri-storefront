@@ -6,7 +6,7 @@ import { TypedQuery } from "../../core/queries";
 //   productPricingFragment,
 // } from "../../views/Product/queries";
 // import { FeaturedProducts } from "./gqlTypes/FeaturedProducts";
-import { RootCategories } from "./gqlTypes/BusinessCategories";
+import { RootCategories, RootCategoriesVariables } from "./gqlTypes/BusinessCategories";
 
 // export const featuredProducts = gql`
 //   ${basicProductFragment}
@@ -37,7 +37,12 @@ import { RootCategories } from "./gqlTypes/BusinessCategories";
 // );
 
 export const businessCategories = gql`
-  query BusinessCategories {
+  query BusinessCategories(
+    $latitude: Float,
+    $location: LocationFilterInput,
+    $longitude: Float,
+    $rating: Float,
+  ) {
     businessCategories(first: 100) {
       edges {
         node {
@@ -53,9 +58,72 @@ export const businessCategories = gql`
         }
       }
     }
+    stores(first:100,filter: {
+      location: $location
+      rating: $rating
+    }
+    sortBy: {
+      direction: DESC
+      field: RATING
+    }
+    ){
+      edges {
+        node {
+          id
+          name
+          mondayOpeningTime
+          mondayClosingTime
+          tuesdayOpeningTime
+          tuesdayClosingTime
+          wednesdayOpeningTime
+          wednesdayClosingTime
+          thursdayOpeningTime
+          thursdayClosingTime
+          fridayOpeningTime
+          fridayClosingTime
+          saturdayOpeningTime
+          saturdayClosingTime
+          sundayOpeningTime
+          sundayClosingTime
+          mondayOpeningStatus
+          tuesdayOpeningStatus
+          wednesdayOpeningStatus
+          thursdayOpeningStatus
+          fridayOpeningStatus
+          saturdayOpeningStatus
+          sundayOpeningStatus
+          business{
+            logo
+            businesscategory{
+              name
+            }
+          }
+          category
+          description
+          totalReviews
+          distance(longitude: $longitude, latitude: $latitude)
+          address{
+            id
+            address
+            longitude
+            latitude
+          }
+          rating
+          images{
+            url
+          }
+          logo
+          openingHours
+          tags{
+            name
+          }
+          closingHours
+        }
+      }
+    }
   }
 `;
 
-export const TypedFeaturedProductsQuery = TypedQuery<RootCategories, {}>(
+export const TypedFeaturedProductsQuery = TypedQuery<RootCategories, RootCategoriesVariables>(
   businessCategories
 );
