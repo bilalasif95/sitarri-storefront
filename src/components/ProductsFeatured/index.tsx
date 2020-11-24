@@ -313,7 +313,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
               <div className="shopsCarousel">
                 <div className="Carouseltitle">
                   <h3>Popular Shops</h3>
-                  <p>{popularShops.length ? <Link to={`${searchUrl}?${searchQs("a")}`}>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </Link> : <>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
+                  <p>{popularShops.length ? <Link to={`${searchUrl}?${searchQs("")}`}>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </Link> : <>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
                 </div>
                 {popularShops.length ?
                   <>

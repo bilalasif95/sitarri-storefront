@@ -168,39 +168,66 @@ query($id: ID!, $longitude: Float, $latitude: Float) {
         }
       }
     }
-    store {
-      id
-      name
-      logo
-      openingHours
-      closingHours
-      rating
-      totalReviews
-      distance(longitude: $longitude, latitude: $latitude)
-      storeCategory(first: 100) {
-        edges {
-          node {
-            id
-            name
-            products(first: 100) {
-              edges {
-                node {
+    storess(first:100) {
+      edges{
+        node{
+          id
+          name
+          rating
+          distance(longitude: $longitude, latitude: $latitude)
+          totalReviews
+          mondayOpeningTime
+          mondayClosingTime
+          tuesdayOpeningTime
+          tuesdayClosingTime
+          wednesdayOpeningTime
+          wednesdayClosingTime
+          thursdayOpeningTime
+          thursdayClosingTime
+          fridayOpeningTime
+          fridayClosingTime
+          saturdayOpeningTime
+          saturdayClosingTime
+          sundayOpeningTime
+          sundayClosingTime
+          mondayOpeningStatus
+          tuesdayOpeningStatus
+          wednesdayOpeningStatus
+          thursdayOpeningStatus
+          fridayOpeningStatus
+          saturdayOpeningStatus
+          sundayOpeningStatus
+          business{
+            logo
+            businesscategory{
+              name
+            }
+            productCategoryBusiness(first:100){
+              edges{
+                node{
                   id
                   name
-                  pricing {
-                    priceRange {
-                      start {
-                        gross {
-                          currency
-                          amount
+                  products(first:100){
+                    edges{
+                      node{
+                        id
+                        name
+                        description
+                        images{
+                          url
+                        }
+                        pricing{
+                          priceRange{
+                            start{
+                              gross{
+                                currency
+                                amount
+                              }
+                            }
+                          }
                         }
                       }
                     }
-                  }
-                  descriptionJson
-                  description
-                  images {
-                    url
                   }
                 }
               }

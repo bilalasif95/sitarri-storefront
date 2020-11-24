@@ -749,12 +749,12 @@ class Page extends React.PureComponent<
                   </div>} */}
               </div>
             </div>
-            {productInfo && productInfo.storeCategory.edges.length !== 0 &&
+            {productInfo && productInfo.business.productCategoryBusiness.edges.length !== 0 &&
               <div className="container">
                 <div className="product-page__product__description">
                   <NewProductDescription
                     categoryName={productInfo.name}
-                    storeCategory={productInfo.storeCategory}
+                    storeCategory={productInfo.business.productCategoryBusiness}
                   />
                 </div>
               </div>

@@ -114,21 +114,72 @@ export const searchProductsQuery = gql`
             url
             alt
           }
-          store{
-            id
-            name
-            totalReviews
-            logo
-            tags{
-              name
+          storess(first:$pageSize){
+            edges {
+              node {
+                name
+               id
+                address{
+                  id
+                  address
+                }
+                mondayOpeningTime
+                mondayClosingTime
+                tuesdayOpeningTime
+                tuesdayClosingTime
+                wednesdayOpeningTime
+                wednesdayClosingTime
+                thursdayOpeningTime
+                thursdayClosingTime
+                fridayOpeningTime
+                fridayClosingTime
+                saturdayOpeningTime
+                saturdayClosingTime
+                sundayOpeningTime
+                sundayClosingTime
+                mondayOpeningStatus
+                tuesdayOpeningStatus
+                wednesdayOpeningStatus
+                thursdayOpeningStatus
+                fridayOpeningStatus
+                saturdayOpeningStatus
+                sundayOpeningStatus
+                business{
+                  logo
+                  businesscategory{
+                    name
+                  }
+                }
+                category
+                description
+                  totalReviews
+                  distance(longitude: $longitude, latitude: $latitude)
+                  rating
+                  images{
+                    url
+                  }
+                  logo
+                openingHours
+                tags{
+                  name
+                }
+                  closingHours
+                productss(first: $pageSize) {
+                   edges {
+                    node {
+                      id
+                      name
+                descriptionJson
+                description
+                images{
+                  url
+                }
+                      ...ProductPricingField
+                    }
+                  }
+                }
+              }
             }
-            distance(longitude: $longitude, latitude: $latitude)
-            rating
-            images{
-              url
-            }
-            openingHours
-            closingHours
           }
           thumbnail2x: thumbnail(size: 510) {
             url
@@ -206,7 +257,7 @@ export const searchProductsQuery = gql`
             name
           }
             closingHours
-          storeProduct(first: $pageSize, filter: { search: $query }) {
+          productss(first: $pageSize) {
              edges {
               node {
                 id

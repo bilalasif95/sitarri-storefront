@@ -186,6 +186,36 @@ export const productDetailsQuery = gql`
       businesscategory{
         name
       }
+      productCategoryBusiness(first:100){
+        edges{
+          node{
+            id
+            name
+            products(first:100){
+              edges{
+                node{
+                  id
+                  name
+                  description
+                  images{
+                    url
+                  }
+                  pricing{
+                    priceRange{
+                      start{
+                        gross{
+                          currency
+                          amount
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
     distance(longitude: $longitude, latitude: $latitude)
     tags{name}

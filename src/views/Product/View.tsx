@@ -7,6 +7,7 @@ import ReactSVG from "react-svg";
 import { useCart } from "@sdk/react";
 // MetaWrapper
 // import { NotFound, OfflinePlaceholder } from "../../components";
+import { NotFound } from "../../components";
 // import NetworkStatus from "../../components/NetworkStatus";
 import { getGraphqlIdFromDBId } from "../../core/utils";
 // import { ProductDetails_product } from "./gqlTypes/ProductDetails";
@@ -178,23 +179,29 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
           )
         }
         if (Object.values(data).length > 0) {
-          return (
-            // <NetworkStatus>
-            //   {isOnline => {
-            //     return (
-            // <MetaWrapper meta={extractMeta(product)}>
-            <Page product={data} add={addItem} items={items} />
-            // </MetaWrapper>
-            // );
-            // if (store === null) {
-            //   return <NotFound />;
-            // }
-            // if (!isOnline) {
-            //   return <OfflinePlaceholder />;
-            // }
-            //   }}
-            // </NetworkStatus>
-          )
+          const { product } = data
+          if (product === null) {
+            return <NotFound />;
+          }
+          else {
+            return (
+              // <NetworkStatus>
+              //   {isOnline => {
+              //     return (
+              // <MetaWrapper meta={extractMeta(product)}>
+              <Page product={data} add={addItem} items={items} />
+              // </MetaWrapper>
+              // );
+              // if (store === null) {
+              //   return <NotFound />;
+              // }
+              // if (!isOnline) {
+              //   return <OfflinePlaceholder />;
+              // }
+              //   }}
+              // </NetworkStatus>
+            )
+          }
         }
       }}
     </TypedProductDetailsQuery>

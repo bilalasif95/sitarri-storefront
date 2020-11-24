@@ -76,7 +76,7 @@ export const View: React.FC<ViewProps> = ({ match, history }) => {
 
     Price: sortPriceBase.value,
 
-    query: search || null,
+    query: search || "",
     rating: ratingFilter.value,
     sortBy: convertSortByFromString(sort),
     sortByRating: convertSortByFromStringForRating(sort),

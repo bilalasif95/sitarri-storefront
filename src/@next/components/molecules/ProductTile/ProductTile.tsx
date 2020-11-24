@@ -51,13 +51,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   days[6] = "Saturday";
   const todayDay = days[today.getDay()];
 
-  const mondayOpeningTime = secondsToHms(product.storess.edges[0].node.mondayOpeningTime);
+  const mondayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.mondayOpeningTime);
   const [mondayOpenTime] = mondayOpeningTime.split(" ")
   const mondayOpenHoursMinutes = mondayOpenTime.split(":")
   const mondayOpenHours = Number(mondayOpenHoursMinutes[0])
   const mondayOpenMinutes = Number(mondayOpenHoursMinutes[1])
 
-  const mondayClosingTime = secondsToHms(product.storess.edges[0].node.mondayClosingTime);
+  const mondayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.mondayClosingTime);
   const [mondayCloseTime] = mondayClosingTime.split(" ")
   const mondayClosingHoursMinutes = mondayCloseTime.split(":")
   const mondayClosingHours = Number(mondayClosingHoursMinutes[0])
@@ -68,13 +68,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   mondayEnd.setMinutes(mondayClosingMinutes);
 
 
-  const tuesdayOpeningTime = secondsToHms(product.storess.edges[0].node.tuesdayOpeningTime);
+  const tuesdayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.tuesdayOpeningTime);
   const [tuesdayOpenTime] = tuesdayOpeningTime.split(" ")
   const tuesdayOpenHoursMinutes = tuesdayOpenTime.split(":")
   const tuesdayOpenHours = Number(tuesdayOpenHoursMinutes[0])
   const tuesdayOpenMinutes = Number(tuesdayOpenHoursMinutes[1])
 
-  const tuesdayClosingTime = secondsToHms(product.storess.edges[0].node.tuesdayClosingTime);
+  const tuesdayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.tuesdayClosingTime);
   const [tuesdayCloseTime] = tuesdayClosingTime.split(" ")
   const tuesdayClosingHoursMinutes = tuesdayCloseTime.split(":")
   const tuesdayClosingHours = Number(tuesdayClosingHoursMinutes[0])
@@ -85,13 +85,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   tuesdayEnd.setMinutes(tuesdayClosingMinutes);
 
 
-  const wednesdayOpeningTime = secondsToHms(product.storess.edges[0].node.wednesdayOpeningTime);
+  const wednesdayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.wednesdayOpeningTime);
   const [wednesdayOpenTime] = wednesdayOpeningTime.split(" ")
   const wednesdayOpenHoursMinutes = wednesdayOpenTime.split(":")
   const wednesdayOpenHours = Number(wednesdayOpenHoursMinutes[0])
   const wednesdayOpenMinutes = Number(wednesdayOpenHoursMinutes[1])
 
-  const wednesdayClosingTime = secondsToHms(product.storess.edges[0].node.wednesdayClosingTime);
+  const wednesdayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.wednesdayClosingTime);
   const [wednesdayCloseTime] = wednesdayClosingTime.split(" ")
   const wednesdayClosingHoursMinutes = wednesdayCloseTime.split(":")
   const wednesdayClosingHours = Number(wednesdayClosingHoursMinutes[0])
@@ -102,13 +102,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   wednesdayEnd.setMinutes(wednesdayClosingMinutes);
 
 
-  const thursdayOpeningTime = secondsToHms(product.storess.edges[0].node.thursdayOpeningTime);
+  const thursdayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.thursdayOpeningTime);
   const [thursdayOpenTime] = thursdayOpeningTime.split(" ")
   const thursdayOpenHoursMinutes = thursdayOpenTime.split(":")
   const thursdayOpenHours = Number(thursdayOpenHoursMinutes[0])
   const thursdayOpenMinutes = Number(thursdayOpenHoursMinutes[1])
 
-  const thursdayClosingTime = secondsToHms(product.storess.edges[0].node.thursdayClosingTime);
+  const thursdayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.thursdayClosingTime);
   const [thursdayCloseTime] = thursdayClosingTime.split(" ")
   const thursdayClosingHoursMinutes = thursdayCloseTime.split(":")
   const thursdayClosingHours = Number(thursdayClosingHoursMinutes[0])
@@ -119,13 +119,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   thursdayEnd.setMinutes(thursdayClosingMinutes);
 
 
-  const fridayOpeningTime = secondsToHms(product.storess.edges[0].node.fridayOpeningTime);
+  const fridayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.fridayOpeningTime);
   const [fridayOpenTime] = fridayOpeningTime.split(" ")
   const fridayOpenHoursMinutes = fridayOpenTime.split(":")
   const fridayOpenHours = Number(fridayOpenHoursMinutes[0])
   const fridayOpenMinutes = Number(fridayOpenHoursMinutes[1])
 
-  const fridayClosingTime = secondsToHms(product.storess.edges[0].node.fridayClosingTime);
+  const fridayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.fridayClosingTime);
   const [fridayCloseTime] = fridayClosingTime.split(" ")
   const fridayClosingHoursMinutes = fridayCloseTime.split(":")
   const fridayClosingHours = Number(fridayClosingHoursMinutes[0])
@@ -136,13 +136,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   fridayEnd.setMinutes(fridayClosingMinutes);
 
 
-  const saturdayOpeningTime = secondsToHms(product.storess.edges[0].node.saturdayOpeningTime);
+  const saturdayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.saturdayOpeningTime);
   const [saturdayOpenTime] = saturdayOpeningTime.split(" ")
   const saturdayOpenHoursMinutes = saturdayOpenTime.split(":")
   const saturdayOpenHours = Number(saturdayOpenHoursMinutes[0])
   const saturdayOpenMinutes = Number(saturdayOpenHoursMinutes[1])
 
-  const saturdayClosingTime = secondsToHms(product.storess.edges[0].node.saturdayClosingTime);
+  const saturdayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.saturdayClosingTime);
   const [saturdayCloseTime] = saturdayClosingTime.split(" ")
   const saturdayClosingHoursMinutes = saturdayCloseTime.split(":")
   const saturdayClosingHours = Number(saturdayClosingHoursMinutes[0])
@@ -153,13 +153,13 @@ export const ProductTile: React.FC<any> = ({ product, redirectToProductPage }: {
   saturdayEnd.setMinutes(saturdayClosingMinutes);
 
 
-  const sundayOpeningTime = secondsToHms(product.storess.edges[0].node.sundayOpeningTime);
+  const sundayOpeningTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.sundayOpeningTime);
   const [sundayOpenTime] = sundayOpeningTime.split(" ")
   const sundayOpenHoursMinutes = sundayOpenTime.split(":")
   const sundayOpenHours = Number(sundayOpenHoursMinutes[0])
   const sundayOpenMinutes = Number(sundayOpenHoursMinutes[1])
 
-  const sundayClosingTime = secondsToHms(product.storess.edges[0].node.sundayClosingTime);
+  const sundayClosingTime = secondsToHms(product.storess && product.storess.edges && product.storess.edges[0] && product.storess.edges[0].node.sundayClosingTime);
   const [sundayCloseTime] = sundayClosingTime.split(" ")
   const sundayClosingHoursMinutes = sundayCloseTime.split(":")
   const sundayClosingHours = Number(sundayClosingHoursMinutes[0])

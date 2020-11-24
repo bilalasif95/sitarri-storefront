@@ -461,7 +461,7 @@ export const AllProducts: React.FC<any> = ({ product, redirectToShopPage }: { pr
         </S.Top>
         {
 
-          product.storeProduct.edges.slice(0, 2).map((item: any) => {
+          product.productss.edges.slice(0, 2).map((item: any) => {
 
             const price =
               item.node.pricing &&

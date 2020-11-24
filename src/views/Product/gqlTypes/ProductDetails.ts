@@ -725,6 +725,7 @@ export interface ProductDetails {
    */
   stores: ProductDetails_product | null;
   store: ProductDetails_product | null;
+  product: any | null;
 }
 
 export interface ProductDetailsVariables {
