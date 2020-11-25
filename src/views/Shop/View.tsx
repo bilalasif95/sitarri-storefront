@@ -46,7 +46,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history })
   React.useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 2000)
+    }, 1500)
   }, [])
   React.useEffect(() => {
     getCurrentLocation()

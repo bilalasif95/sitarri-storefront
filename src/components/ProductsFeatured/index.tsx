@@ -65,7 +65,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
   React.useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 2000)
+    }, 1500)
   }, [])
 
   const variables = {

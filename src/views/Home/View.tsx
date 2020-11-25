@@ -119,7 +119,7 @@ const View: React.FC = (props: any) => {
   React.useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 2000)
+    }, 1500)
   }, [])
   return <OverlayContext.Consumer>
 

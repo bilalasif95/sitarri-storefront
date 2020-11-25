@@ -53,7 +53,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   React.useEffect(() => {
     setTimeout(() => {
       setLoad(false)
-    }, 2000)
+    }, 1500)
   }, [])
   return (
     <TypedProductDetailsQuery

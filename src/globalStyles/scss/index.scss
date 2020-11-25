@@ -377,3 +377,11 @@ header {
     padding: 0px 0px !important;
   }
 }
+
+.swiper-button-next, .swiper-button-prev {
+  transition: opacity .5s;
+}
+
+.swiper-button-disabled {
+   opacity: 0 !important;
+}
