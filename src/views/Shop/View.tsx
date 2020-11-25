@@ -65,7 +65,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match, history })
       }}
     >
       {({ data, loading }) => {
-        if (loading) {
+        if (!!loading) {
           return (
             <h3 className="ShopSkeleton">
               <div className="container">
