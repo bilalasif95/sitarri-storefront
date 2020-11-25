@@ -262,7 +262,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                       <Carousel renderCenterLeftControls={() => null} renderCenterRightControls={() => null} className="customSlider" productDetails={"categoryList"}>
                         {products.map(({ node: product }) => (
                           <div className="modalDivcategories"
-                          // onClick={() => SeeDetails(product.name)}
+                            onClick={() => SeeDetails(product.name)}
                           >
                             <ProductListItem product={product} />
                           </div>
