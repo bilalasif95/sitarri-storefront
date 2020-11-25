@@ -41,6 +41,7 @@ const View: React.FC = (props: any) => {
   const { ref, isComponentVisible } = useComponentVisible(true);
   const [latitude, setLatitude] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
+  const [load, setLoad] = React.useState(true)
   const SeeDetails = (searchWord) => {
     setSearch("")
     props.history.push(`${searchUrl}?${searchQs(searchWord)}`);
@@ -115,6 +116,11 @@ const View: React.FC = (props: any) => {
   const showError = () => {
     // console.log("not allowed.")
   }
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoad(false)
+    }, 2000)
+  }, [])
   return <OverlayContext.Consumer>
 
     {overlayContext => (
@@ -154,7 +160,7 @@ const View: React.FC = (props: any) => {
             errorPolicy="all"
             variables={{ query: search, latitude, longitude }}
           >
-            {({ data, error, loading }) => {
+            {({ data, loading }) => {
               if (loading) {
                 return <h6></h6>
               }
@@ -237,7 +243,7 @@ const View: React.FC = (props: any) => {
         </div>
       </div> */}
         <TypedHomePageQuery alwaysRender displayLoader={false} errorPolicy="all">
-          {({ data, loading }) => {
+          {({ data }) => {
             return (
               <MetaWrapper
                 meta={{
@@ -249,7 +255,7 @@ const View: React.FC = (props: any) => {
                   SeeDetails={SeeDetails}
                   redirectToShopPage={redirectToShopPage}
                   redirectToProductPage={redirectToProductPage}
-                  loading={loading}
+                  loading={load}
                   backgroundImage={
                     data.shop &&
                     data.shop.homepageCollection &&

@@ -115,7 +115,7 @@ const desktopSearch: React.FC<any> = (props: any) => {
                         errorPolicy="all"
                         variables={{ query: search, latitude, longitude }}
                     >
-                        {({ data, error, loading }) => {
+                        {({ data, loading }) => {
                             if (loading) {
                                 return <h6 className="loaderIcon"></h6>
                             }

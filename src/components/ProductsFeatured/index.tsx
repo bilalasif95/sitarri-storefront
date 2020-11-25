@@ -35,6 +35,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirectToShopPage, redirectToProductPage, title }) => {
   const [latitude, setLatitude] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
+  const [load, setLoad] = React.useState(true)
   const searchQs = (searchWord) => {
     return stringify({ q: searchWord, lat: latitude, long: longitude });
   }
@@ -61,6 +62,12 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
     getCurrentLocation()
   }, [])
 
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoad(false)
+    }, 2000)
+  }, [])
+
   const variables = {
     latitude,
     location: {
@@ -73,14 +80,14 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
   }
   return (
     <TypedFeaturedProductsQuery variables={variables} displayError={false}>
-      {({ data, loading }) => {
+      {({ data }) => {
         const products = maybe(
           () => data.businessCategories.edges,
           []
         );
         const popularShops = maybe(() => data.stores.edges, []);
         const popularProducts = maybe(() => data.products.edges, []);
-        if (loading) {
+        if (load) {
           return (
             <div className="container">
               <div className="Loadingskeleton">

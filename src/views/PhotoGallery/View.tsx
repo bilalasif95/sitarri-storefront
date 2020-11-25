@@ -12,7 +12,12 @@ import { TypedProductDetailsQuery } from "./queries";
 
 
 const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
-
+  const [load, setLoad] = React.useState(true)
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoad(false)
+    }, 2000)
+  }, [])
   return (
     <TypedProductDetailsQuery
       loaderFull
@@ -20,10 +25,10 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
         id: getGraphqlIdFromDBId(match.params.id, "Store"),
       }}
     >
-      {({ data, loading }) => {
+      {({ data }) => {
         const { store } = data;
         return (
-          <Page product={store} loading={loading} />
+          <Page product={store} loading={load} />
         );
       }}
     </TypedProductDetailsQuery>

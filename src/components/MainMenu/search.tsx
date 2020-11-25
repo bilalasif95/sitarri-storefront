@@ -129,7 +129,7 @@ const search: React.FC = (props: any) => {
                         errorPolicy="all"
                         variables={{ query: search, latitude, longitude }}
                     >
-                        {({ data, error, loading }) => {
+                        {({ data, loading }) => {
                             setLoadingState(false)
                             if (loading) {
                                 setLoadingState(true)

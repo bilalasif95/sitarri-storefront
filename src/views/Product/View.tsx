@@ -23,6 +23,7 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   const { addItem, items } = useCart();
   const [latitude, setLatitude] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
+  const [load, setLoad] = React.useState(true)
   const getCurrentLocation = () => {
     navigator.geolocation.watchPosition(
       (position) => {
@@ -49,6 +50,11 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
     getCurrentLocation()
   }, [])
 
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoad(false)
+    }, 2000)
+  }, [])
   return (
     <TypedProductDetailsQuery
       loaderFull
@@ -59,8 +65,8 @@ const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
         longitude,
       }}
     >
-      {({ data, loading }) => {
-        if (loading) {
+      {({ data }) => {
+        if (load) {
           return (
             <h3 className="ShopSkeleton">
               <div className="container">
