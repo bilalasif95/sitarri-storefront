@@ -1,13 +1,14 @@
-import { DefaultTheme, styled } from "@styles";
+// import { DefaultTheme, styled } from "@styles";
+import { styled } from "@styles";
 
 import { IProps } from "./types";
 
-const borderColors = (theme: DefaultTheme) => ({
-  action: theme.colors.error,
-  error: theme.colors.error,
-  neutral: theme.colors.primaryDark,
-  success: theme.colors.success,
-});
+// const borderColors = (theme: DefaultTheme) => ({
+//   action: theme.colors.error,
+//   error: theme.colors.error,
+//   neutral: theme.colors.primaryDark,
+//   success: theme.colors.success,
+// });
 
 export const Wrapper = styled.div<{ status: IProps["status"] }>`
   width: ${props => props.theme.message.width};
@@ -16,10 +17,10 @@ export const Wrapper = styled.div<{ status: IProps["status"] }>`
   box-shadow: 0px 6px 15px 3px #7090b02e;
   -webkit-box-shadow: 0px 6px 15px 3px #7090b02e;
   position: fixed;
-  bottom: ${props => props.theme.spacing.spacer};
+  bottom: 3.6rem;
   right: ${props => props.theme.spacing.spacer};
   border-left: 0.4rem solid;
-  border-color: ${props => borderColors(props.theme)[props.status!]};
+  border-color: #FF4B13;
   
   @media(max-width: 424px){
     width: 18rem;
