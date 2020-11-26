@@ -43,15 +43,19 @@ query SearchResults($query: String!, $longitude: Float, $latitude: Float){
      edges{
         node{
           name
-          store{
-            name
-            distance(longitude: $longitude, latitude: $latitude)
-            address {
-              streetAddress
-              streetAddress2
-              city
-              country{
-                country
+          storess(first:100){
+            edges{
+              node{
+                name
+                distance(longitude: $longitude, latitude: $latitude)
+                address {
+                  streetAddress
+                  streetAddress2
+                  city
+                  country{
+                    country
+                  }
+                }
               }
             }
           }

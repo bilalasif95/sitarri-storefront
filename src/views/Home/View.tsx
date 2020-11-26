@@ -173,7 +173,6 @@ const View: React.FC = (props: any) => {
                     <div>
 
                       {data.search.stores.edges.map((store: any) => (
-
                         <div className="items" onClick={() => SeeDetails(store.node.name)}>
                           <p>{store.node.name}</p>
                           {store.node.address && (store.node.address.streetAddress || store.node.address.city || store.node.address.streetAddress2 || store.node.address.country.country) &&
@@ -193,18 +192,17 @@ const View: React.FC = (props: any) => {
 
                       ))}
                       {data.search.products.edges.map((product: any) => (
-
                         <div className="items" onClick={() => SeeDetails(product.node.name)}>
                           <p>{product.node.name}</p>
-                          {product.node.store && product.node.store.address && (product.node.store.address.streetAddress || product.node.store.address.city || product.node.store.address.streetAddress2 || product.node.store.address.country.country) &&
+                          {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && (product.node.storess.edges[0].node.address.streetAddress || product.node.storess.edges[0].node.address.streetAddress2 || product.node.storess.edges[0].node.address.city || product.node.storess.edges[0].node.country.country) &&
                             <div className="shop-address">
-                              <p>{product.node.store.address && product.node.store.address.streetAddress + " , " + product.node.store.address.streetAddress2 + " , " + product.node.store.address.city + " , " + product.node.store.address.country.country}</p>
+                              <p>{product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && product.node.storess.edges[0].node.address.streetAddress + " , " + product.node.storess.edges[0].node.address.streetAddress2 + " , " + product.node.storess.edges[0].node.address.city + " , " + product.node.storess.edges[0].node.address.country.country}</p>
                             </div>}
-                          {product.node.store && product.node.store.distance &&
+                          {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.distance &&
                             <>
                               <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
                               <div>
-                                <p>{product.node.store.distance}</p>
+                                <p>{product.node.storess.edges[0].node.distance}</p>
                               </div>
                             </>}
                         </div>
