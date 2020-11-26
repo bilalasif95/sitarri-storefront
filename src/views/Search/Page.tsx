@@ -9,7 +9,7 @@ import { ProductListHeader } from "../../@next/components/molecules";
 import { ProductList } from "../../@next/components/organisms";
 // import { FilterSidebar } from "../../@next/components/organisms/FilterSidebar";
 
-import { maybe } from "../../core/utils";
+// import { maybe } from "../../core/utils";
 
 import { SearchProducts_products } from "./gqlTypes/SearchProducts";
 
@@ -67,10 +67,9 @@ const Page: React.FC<PageProps> = ({
   stores,
   onOrder,
 }) => {
-  const canDisplayProducts = maybe(
-    () => !!products.edges && products.totalCount !== undefined
-  );
-
+  // const canDisplayProducts = maybe(
+  //   () => !!products.edges && products.totalCount !== undefined
+  // );
   return (
     <div className="category">
 
@@ -93,19 +92,19 @@ const Page: React.FC<PageProps> = ({
         </div>
       </div>
       <div className="container">
-        {canDisplayProducts && (
-          <ProductList
-            activeSortTypeBase={activeSortTypeBase}
-            showShopResults={showShopResults}
-            redirectToShopPage={redirectToShopPage}
-            redirectToProductPage={redirectToProductPage}
-            showProductsResults={showProductsResults}
-            products={products.edges.map(edge => edge.node)}
-            stores={stores && stores.edges.map(edge => edge.node)}
-            loading={displayLoader}
-            onChange={onOrder}
-          />
-        )}
+        {/* {canDisplayProducts && ( */}
+        <ProductList
+          activeSortTypeBase={activeSortTypeBase}
+          showShopResults={showShopResults}
+          redirectToShopPage={redirectToShopPage}
+          redirectToProductPage={redirectToProductPage}
+          showProductsResults={showProductsResults}
+          products={products.edges.map(edge => edge.node)}
+          stores={stores && stores.edges.map(edge => edge.node)}
+          loading={displayLoader}
+          onChange={onOrder}
+        />
+        {/* )} */}
       </div>
     </div>
   );

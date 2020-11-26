@@ -202,6 +202,20 @@ export const businessCategories = gql`
           images{
             url
           }
+          productss(first: 100) {
+            edges {
+             node {
+                id
+                name
+                descriptionJson
+                description
+                images{
+                  url
+                }
+                ...ProductPricingField
+              }
+            }
+          }
           logo
           openingHours
           tags{

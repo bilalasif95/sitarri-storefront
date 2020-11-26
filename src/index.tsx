@@ -87,21 +87,22 @@ const startApp = async () => {
 
       React.useEffect(() => {
         if (updateAvailable) {
-          alert.show(
-            {
-              actionText: "Refresh",
-              content:
-                "To update the application to the latest version, please refresh the page!",
-              title: "New version is available!",
-            },
-            {
-              onClose: () => {
-                location.reload();
-              },
-              timeout: 0,
-              type: "success",
-            }
-          );
+          location.reload();
+          // alert.show(
+          //   {
+          //     actionText: "Refresh",
+          //     content:
+          //       "To update the application to the latest version, please refresh the page!",
+          //     title: "New version is available!",
+          //   },
+          //   {
+          //     onClose: () => {
+          //       location.reload();
+          //     },
+          //     timeout: 0,
+          //     type: "success",
+          //   }
+          // );
         }
       }, [updateAvailable]);
 
@@ -121,7 +122,7 @@ const startApp = async () => {
       // const showError = () => {
       //   // console.log("not allowed.")
       // }
-      
+
       useAuth((authenticated: boolean) => {
         if (authenticated) {
           alert.show(

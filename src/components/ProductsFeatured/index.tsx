@@ -320,7 +320,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
               <div className="shopsCarousel">
                 <div className="Carouseltitle">
                   <h3>Popular Shops</h3>
-                  <p>{popularShops.length ? <Link to={`${searchUrl}?${searchQs("")}`}>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </Link> : <>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
+                  <p>{popularShops.length ? <Link to={`${searchUrl}?${searchQs("")}&popular=shops`}>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </Link> : <>{popularShops && popularShops.length} {popularShops.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
                 </div>
                 {popularShops.length ?
                   <>
@@ -388,7 +388,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                 <div className="shopsCarousel">
                   <div className="Carouseltitle">
                     <h3>Popular Products</h3>
-                    <p>{popularProducts.length ? <Link to={`${searchUrl}?${searchQs("a")}`}>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </Link> : <>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
+                    <p>{popularProducts.length ? <Link to={`${searchUrl}?${searchQs("")}&popular=products`}>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </Link> : <>{popularProducts && popularProducts.length} {popularProducts.length === 1 ? "result" : "results"} </>}<img src={Next} alt="next" /></p>
                   </div>
                   {popularProducts.length ?
                     <>
