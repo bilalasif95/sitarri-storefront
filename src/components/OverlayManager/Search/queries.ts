@@ -62,13 +62,6 @@ query SearchResults($query: String!, $longitude: Float, $latitude: Float){
         }
       }
     }
-    categories(first:100){
-     edges{
-        node{
-          name
-        }
-      }
-    }
     stores(first:100){
      edges{
         node{
@@ -92,3 +85,87 @@ export const TypedSearchResults = TypedQuery<
   SearchResults,
   SearchResultsVariables
 >(searchResultsQuery);
+
+const searchResultsQueryByRating = gql`
+query SearchResultsByRating($longitude: Float, $latitude: Float){
+    stores(first:100, sortBy: {direction: DESC, field: RATING}){
+     edges{
+        node{
+          name
+          distance(longitude: $longitude, latitude: $latitude)
+            address {
+              streetAddress
+              streetAddress2
+              city
+              country{
+                country
+              }
+            }
+        }
+      }
+    }
+}`;
+
+export const TypedSearchResultsByRating = TypedQuery<
+  SearchResults,
+  SearchResultsVariables
+>(searchResultsQueryByRating);
+
+const searchResultsQueryByDistance = gql`
+query SearchResultsByDistance($location: LocationFilterInput, $longitude: Float, $latitude: Float){
+    stores(first:100, filter: {
+      location: $location
+    }){
+     edges{
+        node{
+          name
+          distance(longitude: $longitude, latitude: $latitude)
+            address {
+              streetAddress
+              streetAddress2
+              city
+              country{
+                country
+              }
+            }
+        }
+      }
+    }
+}`;
+
+export const TypedSearchResultsByDistance = TypedQuery<
+  SearchResults,
+  SearchResultsVariables
+>(searchResultsQueryByDistance);
+
+const searchResultsQueryByPrice = gql`
+query SearchResultsByPrice($longitude: Float, $latitude: Float){
+    products (first:100, sortBy: {direction: ASC, field: PRICE}){
+     edges{
+        node{
+          name
+          storess(first:100){
+            edges{
+              node{
+                name
+                distance(longitude: $longitude, latitude: $latitude)
+                address {
+                  streetAddress
+                  streetAddress2
+                  city
+                  country{
+                    country
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}`;
+
+export const TypedSearchResultsByPrice = TypedQuery<
+  SearchResults,
+  SearchResultsVariables
+>(searchResultsQueryByPrice);

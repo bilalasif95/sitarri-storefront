@@ -139,16 +139,24 @@ export const convertSortByFromStringForRating = (sortBy: string) => {
   if (!sortBy) {
     return null;
   }
-  const direction = OrderDirection.DESC;
+  // const direction = OrderDirection.DESC;
 
   let field;
+  let direction;
   switch (sortBy.replace(/^-/, "")) {
     case "name":
       field = ProductOrderField.NAME;
+      direction = OrderDirection.ASC;
       break;
 
     case "rating":
       field = ProductOrderField.RATING;
+      direction = OrderDirection.DESC;
+      break;
+
+    case "distance":
+      field = ProductOrderField.DISTANCE;
+      direction = OrderDirection.ASC;
       break;
 
     default:

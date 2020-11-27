@@ -447,7 +447,7 @@ class Page extends React.PureComponent<
                   >
                     {productDescription}
                   </div>
-                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl === "" &&
+                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address &&
                     <div className="useful-links">
                       {productInfo.phone !== "" &&
                         <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">

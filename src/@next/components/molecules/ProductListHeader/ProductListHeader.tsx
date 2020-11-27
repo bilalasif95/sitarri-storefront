@@ -139,12 +139,11 @@ const sorting: any = [
     label: "Rating",
     value: "rating",
   },
-  // {
-  //   disabled: true,
-  //   icon: Distance,
-  //   label: "Distance",
-  //   value: "distance",
-  // },
+  {
+    icon: Distance,
+    label: "Distance",
+    value: "distance",
+  },
 ];
 
 export const ProductListHeader: React.FC<IProps> = ({

@@ -9,7 +9,7 @@ import loader from "../../../src/images/loader.svg";
 // import Arrow from "../../../src/images/Back_arrow.svg";
 // import Close from "../../../src/images/x.svg";
 
-import { TypedSearchResults } from "../OverlayManager/Search/queries";
+import { TypedSearchResults, TypedSearchResultsByDistance, TypedSearchResultsByPrice, TypedSearchResultsByRating } from "../OverlayManager/Search/queries";
 
 import { searchUrl } from "../../app/routes";
 
@@ -123,43 +123,45 @@ const search: React.FC = (props: any) => {
                         </span>}
                 </div>
                 <div className="searchedlist">
-                    {search ? <TypedSearchResults
-                        renderOnError
-                        displayError={false}
-                        errorPolicy="all"
-                        variables={{ query: search, latitude, longitude }}
-                    >
-                        {({ data, loading }) => {
-                            setLoadingState(false)
-                            if (loading) {
-                                setLoadingState(true)
-                                return <h6 className="loaderIcon">
-                                    <ReactSVG path={loader} />
-                                </h6>
-                            }
-                            if (data.search) {
-                                if (data.search && data.search.products.edges.length > 0 || data.search && data.search.categories.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
-                                    return (
-                                        <div className="SearchDropdown">
-                                            {data.search.stores.edges.map((store: any) => (
-                                                <div className="items" onClick={() => SeeDetails(store.node.name)}>
-                                                    <div className="ShopAddress">
-                                                        <p>{store.node.name}</p>
-                                                        {store.node.distance &&
-                                                            <div className="SearchLocation">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
-                                                                <div>
-                                                                    <p>{store.node.distance}</p>
-                                                                </div>
-                                                            </div>}
-                                                    </div>
-                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
-                                                        <div className="shop-address">
-                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
-                                                        </div>}
-                                                </div>
-                                            ))}
-                                            {data.search.products.edges.map((product: any) => (
+                    {search ?
+                        search && search.includes("best") ?
+                            <TypedSearchResultsByRating
+                                renderOnError
+                                displayError={false}
+                                errorPolicy="all"
+                                variables={{ latitude, longitude }}
+                            >
+                                {({ data, loading }) => {
+                                    setLoadingState(false)
+                                    if (loading) {
+                                        setLoadingState(true)
+                                        return <h6 className="loaderIcon">
+                                            <ReactSVG path={loader} />
+                                        </h6>
+                                    }
+                                    else {
+                                        if (data && data.stores.edges.length > 0) {
+                                            return (
+                                                <div className="SearchDropdown">
+                                                    {data.stores.edges.map((store: any) => (
+                                                        <div className="items" onClick={() => SeeDetails(store.node.name)}>
+                                                            <div className="ShopAddress">
+                                                                <p>{store.node.name}</p>
+                                                                {store.node.distance &&
+                                                                    <div className="SearchLocation">
+                                                                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                        <div>
+                                                                            <p>{store.node.distance}</p>
+                                                                        </div>
+                                                                    </div>}
+                                                            </div>
+                                                            {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
+                                                                <div className="shop-address">
+                                                                    <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
+                                                                </div>}
+                                                        </div>
+                                                    ))}
+                                                    {/* {data.search.products.edges.map((product: any) => (
                                                 <div className="items" onClick={() => SeeDetails(product.node.name)}>
                                                     <div className="ShopAddress">
                                                         <p>{product.node.name}</p>
@@ -176,38 +178,308 @@ const search: React.FC = (props: any) => {
                                                             <p>{product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && product.node.storess.edges[0].node.address.streetAddress + " , " + product.node.storess.edges[0].node.address.streetAddress2 + " , " + product.node.storess.edges[0].node.address.city + " , " + product.node.storess.edges[0].node.address.country.country}</p>
                                                         </div>}
                                                 </div>
-                                            ))}
-                                            {/* {data.search.categories.edges.map((cat: any) => (
+                                            ))} */}
+                                                    {/* {data.search.categories.edges.map((cat: any) => (
                                         <div className="items" onClick={() => SeeDetails(cat.node.name)}>
                                             <p>{cat.node.name}</p>
                                         </div>
 
                                     ))} */}
+                                                </div>
+                                            )
+                                        }
+                                        else {
+                                            return (
+                                                <div>
+                                                    <ul className="NoResults">
+                                                        <li>
+                                                            <span>
+                                                                <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                                                    <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" />
+                                                                </svg>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            No results for <span>"{search}"</span>
+                                                            <li>Try search for another term</li>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            )
+                                        }
+                                    }
+                                }}
+                            </TypedSearchResultsByRating>
+                            :
+                            search && search.includes("near me") ?
+                                <TypedSearchResultsByDistance
+                                    renderOnError
+                                    displayError={false}
+                                    errorPolicy="all"
+                                    variables={{
+                                        latitude,
+                                        location: {
+                                            distance: { value: 1, symbol: "KILOMETER" },
+                                            latitude,
+                                            longitude,
+                                        },
+                                        longitude,
+                                    }}
+                                >
+                                    {({ data, loading }) => {
+                                        setLoadingState(false)
+                                        if (loading) {
+                                            setLoadingState(true)
+                                            return <h6 className="loaderIcon">
+                                                <ReactSVG path={loader} />
+                                            </h6>
+                                        }
+                                        else {
+                                            if (data && data.stores.edges.length > 0) {
+                                                return (
+                                                    <div className="SearchDropdown">
+                                                        {data.stores.edges.map((store: any) => (
+                                                            <div className="items" onClick={() => SeeDetails(store.node.name)}>
+                                                                <div className="ShopAddress">
+                                                                    <p>{store.node.name}</p>
+                                                                    {store.node.distance &&
+                                                                        <div className="SearchLocation">
+                                                                            <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                            <div>
+                                                                                <p>{store.node.distance}</p>
+                                                                            </div>
+                                                                        </div>}
+                                                                </div>
+                                                                {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
+                                                                    <div className="shop-address">
+                                                                        <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
+                                                                    </div>}
+                                                            </div>
+                                                        ))}
+                                                        {/* {data.search.products.edges.map((product: any) => (
+                                                    <div className="items" onClick={() => SeeDetails(product.node.name)}>
+                                                        <div className="ShopAddress">
+                                                            <p>{product.node.name}</p>
+                                                            {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.distance &&
+                                                                <div className="SearchLocation">
+                                                                    <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                    <div>
+                                                                        <p>{product.node.storess.edges[0].node.distance}</p>
+                                                                    </div>
+                                                                </div>}
+                                                        </div>
+                                                        {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && (product.node.storess.edges[0].node.address.streetAddress || product.node.storess.edges[0].node.address.streetAddress2 || product.node.storess.edges[0].node.address.city || product.node.storess.edges[0].node.country.country) &&
+                                                            <div className="shop-address">
+                                                                <p>{product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && product.node.storess.edges[0].node.address.streetAddress + " , " + product.node.storess.edges[0].node.address.streetAddress2 + " , " + product.node.storess.edges[0].node.address.city + " , " + product.node.storess.edges[0].node.address.country.country}</p>
+                                                            </div>}
+                                                    </div>
+                                                ))} */}
+                                                        {/* {data.search.categories.edges.map((cat: any) => (
+                                            <div className="items" onClick={() => SeeDetails(cat.node.name)}>
+                                                <p>{cat.node.name}</p>
+                                            </div>
+    
+                                        ))} */}
+                                                    </div>
+                                                )
+                                            }
+                                            else {
+                                                return (
+                                                    <div>
+                                                        <ul className="NoResults">
+                                                            <li>
+                                                                <span>
+                                                                    <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                                                        <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" />
+                                                                    </svg>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                No results for <span>"{search}"</span>
+                                                                <li>Try search for another term</li>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                )
+                                            }
+                                        }
+                                    }}
+                                </TypedSearchResultsByDistance>
+                                :
+                                search && search.includes("cheap") ?
+                                    <TypedSearchResultsByPrice
+                                        renderOnError
+                                        displayError={false}
+                                        errorPolicy="all"
+                                        variables={{
+                                            latitude,
+                                            longitude,
+                                        }}
+                                    >
+                                        {({ data, loading }) => {
+                                            if (loading) {
+                                                return <h6 className="loaderIcon"></h6>
+                                            }
+                                            else {
+                                                if (data && data.products.edges.length > 0) {
+                                                    return (
+                                                        <div className="SearchDropdown">
+                                                            {/* {data.stores.edges.map((store: any) => (
+                                                        <div className="items" onClick={() => SeeDetails(store.node.name)}>
+                                                            <div className="ShopAddress">
+                                                                <p>{store.node.name}</p>
+                                                                {store.node.distance &&
+                                                                    <div className="SearchLocation">
+                                                                        <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                        <div>
+                                                                            <p>{store.node.distance}</p>
+                                                                        </div>
+                                                                    </div>}
+
+                                                            </div>
+                                                            {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
+                                                                <div className="shop-address">
+                                                                    <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
+                                                                </div>}
+                                                        </div>
+                                                    ))} */}
+                                                            {data.products && data.products.edges.map((product: any) => (
+                                                                <div className="items" onClick={() => SeeDetails(product.node.name)}>
+                                                                    <div className="ShopAddress">
+                                                                        <p>{product.node.name}</p>
+                                                                        {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.distance &&
+                                                                            <div className="SearchLocation">
+                                                                                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                                <div>
+                                                                                    <p>{product.node.storess.edges[0].node.distance}</p>
+                                                                                </div>
+                                                                            </div>}
+
+                                                                    </div>
+                                                                    {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && (product.node.storess.edges[0].node.address.streetAddress || product.node.storess.edges[0].node.address.streetAddress2 || product.node.storess.edges[0].node.address.city || product.node.storess.edges[0].node.country.country) &&
+                                                                        <div className="shop-address">
+                                                                            <p>{product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && product.node.storess.edges[0].node.address.streetAddress + " , " + product.node.storess.edges[0].node.address.streetAddress2 + " , " + product.node.storess.edges[0].node.address.city + " , " + product.node.storess.edges[0].node.address.country.country}</p>
+                                                                        </div>}
+                                                                </div>
+                                                            ))}
+                                                            {/* {data.search.categories.edges.map((cat: any) => (
+
+                                <div className="items" onClick={() => SeeDetails(cat.node.name)}>
+                                    <p>{cat.node.name}</p>
+                                </div>
+
+                            ))} */}
+                                                        </div>
+                                                    )
+                                                }
+                                                else {
+                                                    return (
+                                                        <div>
+                                                            <ul className="NoResults">
+                                                                <li>
+                                                                    <span>
+                                                                        <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                                                            <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    No results for <span>"{search}"</span>
+                                                                    <li>Try search for another term</li>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    )
+                                                }
+                                            }
+                                        }}
+                                    </TypedSearchResultsByPrice>
+                                    :
+                                    <TypedSearchResults
+                                        renderOnError
+                                        displayError={false}
+                                        errorPolicy="all"
+                                        variables={{ query: search, latitude, longitude }}
+                                    >
+                                        {({ data, loading }) => {
+                                            setLoadingState(false)
+                                            if (loading) {
+                                                setLoadingState(true)
+                                                return <h6 className="loaderIcon">
+                                                    <ReactSVG path={loader} />
+                                                </h6>
+                                            }
+                                            else {
+                                                if (data.search && data.search.products.edges.length > 0 || data.search && data.search.stores.edges.length > 0) {
+                                                    return (
+                                                        <div className="SearchDropdown">
+                                                            {data.search.stores.edges.map((store: any) => (
+                                                                <div className="items" onClick={() => SeeDetails(store.node.name)}>
+                                                                    <div className="ShopAddress">
+                                                                        <p>{store.node.name}</p>
+                                                                        {store.node.distance &&
+                                                                            <div className="SearchLocation">
+                                                                                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                                <div>
+                                                                                    <p>{store.node.distance}</p>
+                                                                                </div>
+                                                                            </div>}
+                                                                    </div>
+                                                                    {store.node.address && (store.node.address.streetAddress || store.node.address.streetAddress2 || store.node.address.city || store.node.address.country.country) &&
+                                                                        <div className="shop-address">
+                                                                            <p>{store.node.address && store.node.address.streetAddress + " , " + store.node.address.streetAddress2 + " , " + store.node.address.city + " , " + store.node.address.country.country}</p>
+                                                                        </div>}
+                                                                </div>
+                                                            ))}
+                                                            {data.search.products.edges.map((product: any) => (
+                                                                <div className="items" onClick={() => SeeDetails(product.node.name)}>
+                                                                    <div className="ShopAddress">
+                                                                        <p>{product.node.name}</p>
+                                                                        {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.distance &&
+                                                                            <div className="SearchLocation">
+                                                                                <svg xmlns="https://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" /></svg>
+                                                                                <div>
+                                                                                    <p>{product.node.storess.edges[0].node.distance}</p>
+                                                                                </div>
+                                                                            </div>}
+                                                                    </div>
+                                                                    {product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && (product.node.storess.edges[0].node.address.streetAddress || product.node.storess.edges[0].node.address.streetAddress2 || product.node.storess.edges[0].node.address.city || product.node.storess.edges[0].node.country.country) &&
+                                                                        <div className="shop-address">
+                                                                            <p>{product.node.storess && product.node.storess.edges && product.node.storess.edges[0] && product.node.storess.edges[0].node.address && product.node.storess.edges[0].node.address.streetAddress + " , " + product.node.storess.edges[0].node.address.streetAddress2 + " , " + product.node.storess.edges[0].node.address.city + " , " + product.node.storess.edges[0].node.address.country.country}</p>
+                                                                        </div>}
+                                                                </div>
+                                                            ))}
+                                                            {/* {data.search.categories.edges.map((cat: any) => (
+                                        <div className="items" onClick={() => SeeDetails(cat.node.name)}>
+                                            <p>{cat.node.name}</p>
                                         </div>
-                                    )
-                                }
-                                else {
-                                    return (
-                                        <div>
-                                            <ul className="NoResults">
-                                                <li>
-                                                    <span>
-                                                        <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                                                            <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" />
-                                                        </svg>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    No results for <span>"{search}"</span>
-                                                    <li>Try search for another term</li>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    )
-                                }
-                            }
-                        }}
-                    </TypedSearchResults> : ""}
+
+                                    ))} */}
+                                                        </div>
+                                                    )
+                                                }
+                                                else {
+                                                    return (
+                                                        <div>
+                                                            <ul className="NoResults">
+                                                                <li>
+                                                                    <span>
+                                                                        <svg xmlns="https://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                                                            <path fill="#6c6d6d" d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z" />
+                                                                        </svg>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    No results for <span>"{search}"</span>
+                                                                    <li>Try search for another term</li>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    )
+                                                }
+                                            }
+                                        }}
+                                    </TypedSearchResults> : ""}
                 </div>
             </>
         )}

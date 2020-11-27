@@ -104,11 +104,14 @@ export interface SearchResults {
    * List of the shop's products.
    */
   products: SearchResults_products | null;
-  search: SearchResult
+  search: SearchResult;
+  categories: any;
+  stores: any;
 }
 
 export interface SearchResultsVariables {
-  query: string;
+  query?: string;
   latitude: any;
   longitude: any;
+  location?: any;
 }
