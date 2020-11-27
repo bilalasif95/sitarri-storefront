@@ -27,7 +27,7 @@ import { ProductDescription as NewProductDescription } from "../../@next/compone
 import noPhotoImg from "../../images/no-photo.svg";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
-import { BACKEND_LINK } from "../../core/config";
+// import { BACKEND_LINK } from "../../core/config";
 import { generateShopUrl } from "../../core/utils";
 // import { structuredData } from "../../core/SEO/Product/structuredData";
 
@@ -148,13 +148,14 @@ class Page extends React.PureComponent<
     // })
     const tempArray2: any = []
     this.props.product.product.images.map(img => {
-      this.setState({
+      tempArray2.push({
+        alt: img.alt,
         imageFavicon: img.favicon,
         imageFaviconAlt: img.faviconAlt,
         imageSourceURL: img.imageUrl,
         imageTitle: img.title,
+        url: img.url,
       })
-      tempArray2.push(img.url)
     })
     this.setState({
       modalImagesArray: tempArray2,
@@ -662,15 +663,15 @@ class Page extends React.PureComponent<
                 <div className="GalleryModal">
 
                   <div className="ModalContent">
-                    <p>{this.state.imageTitle}</p>
+                    <p>{this.state.modalImagesArray[this.state.photoIndex].imageTitle}</p>
                     <ul className="modalList">
-                      <li><span className="ModalImg">{this.state.imageFavicon !== "" && <img src={BACKEND_LINK + "/media/" + this.state.imageFavicon} alt={this.state.imageFaviconAlt} />}</span> <a className="modalLink" target="_blank" href={this.state.imageSourceURL}>{this.state.imageSourceURL}</a></li>
+                      <li><span className="ModalImg">{this.state.modalImagesArray[this.state.photoIndex].imageFavicon !== "" && <img src={this.state.modalImagesArray[this.state.photoIndex].imageFavicon} alt={this.state.modalImagesArray[this.state.photoIndex].imageFaviconAlt} />}</span> <a className="modalLink" target="_blank" href={this.state.modalImagesArray[this.state.photoIndex].imageSourceURL}>{this.state.modalImagesArray[this.state.photoIndex].imageSourceURL}</a></li>
                     </ul>
                   </div>
                   <Lightbox
-                    mainSrc={this.state.modalImagesArray[this.state.photoIndex]}
-                    nextSrc={this.state.modalImagesArray[(this.state.photoIndex + 1) % this.state.modalImagesArray.length]}
-                    prevSrc={this.state.modalImagesArray[(this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length]}
+                    mainSrc={this.state.modalImagesArray[this.state.photoIndex].url}
+                    nextSrc={this.state.modalImagesArray[(this.state.photoIndex + 1) % this.state.modalImagesArray.length].url}
+                    prevSrc={this.state.modalImagesArray[(this.state.photoIndex + this.state.modalImagesArray.length - 1) % this.state.modalImagesArray.length].url}
                     onCloseRequest={() => this.setState({ displayNewModal: false })}
                     onMovePrevRequest={() =>
                       this.setState({
