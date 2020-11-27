@@ -4,6 +4,7 @@ export const BASE_URL = "/";
 export const PRODUCTS_PER_PAGE = 100;
 export const SUPPORT_EMAIL = "support@example.com";
 export const ADMIN_PANEL_LINK = "https://dev-dashboard.sitarri.co.uk/";
+export const BACKEND_LINK = "https://dev-backend.sitarri.co.uk";
 export const PROVIDERS = {
   BRAINTREE: {
     label: "Braintree",

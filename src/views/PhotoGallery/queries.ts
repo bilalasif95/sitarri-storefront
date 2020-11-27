@@ -153,8 +153,13 @@ query($id:ID!){
    id
    name
    images{
-     id
-     url
+    id
+    alt
+    url
+    title
+    imageUrl
+    favicon
+    faviconAlt
    }
  }
 }

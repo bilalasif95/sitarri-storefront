@@ -219,7 +219,15 @@ export const productDetailsQuery = gql`
     }
     distance(longitude: $longitude, latitude: $latitude)
     tags{name}
-    images{url}
+    images{
+      id
+      url
+      alt
+      favicon
+      faviconAlt
+      imageUrl
+      title
+    }
     address {
       id
       streetAddress

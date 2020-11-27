@@ -23,13 +23,14 @@ import { CachedImage, Thumbnail } from "@components/molecules";
 
 import { ICheckoutModelLine } from "@sdk/repository";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
-import ModalIcon from "../../images/favicon.svg";
+// import ModalIcon from "../../images/favicon.svg";
 import noPhotoImg from "../../images/no-photo.svg";
 // import { ProductGallery } from "../../@next/components/organisms/";
 
+import { BACKEND_LINK } from "../../core/config";
 import { generateShopUrl } from "../../core/utils";
-
 // import { structuredData } from "../../core/SEO/Product/structuredData";
+
 import {
   // MenuDropdown,
   // Offline,
@@ -49,7 +50,7 @@ class Page extends React.PureComponent<
     add: (variantId: string, quantity: number) => any;
     items: ICheckoutModelLine[];
   },
-  { displayNewModal: boolean, photoIndex: number, show: boolean, modalImagesArray: any, variantId: string }
+  { displayNewModal: boolean, photoIndex: number, imageTitle: string, imageSourceURL: string, imageFavicon: string, imageFaviconAlt: string, show: boolean, modalImagesArray: any, variantId: string }
   > {
   fixedElement: React.RefObject<HTMLDivElement> = React.createRef();
   productGallery: React.RefObject<HTMLDivElement> = React.createRef();
@@ -58,6 +59,10 @@ class Page extends React.PureComponent<
     super(props);
     this.state = {
       displayNewModal: false,
+      imageFavicon: "",
+      imageFaviconAlt: "",
+      imageSourceURL: "",
+      imageTitle: "",
       modalImagesArray: [],
       photoIndex: 0,
       show: true,
@@ -142,7 +147,15 @@ class Page extends React.PureComponent<
     //   tempArray: tempArray2,
     // })
     const tempArray2: any = []
-    this.props.product.product.images.map(img => tempArray2.push(img.url))
+    this.props.product.product.images.map(img => {
+      this.setState({
+        imageFavicon: img.favicon,
+        imageFaviconAlt: img.faviconAlt,
+        imageSourceURL: img.imageUrl,
+        imageTitle: img.title,
+      })
+      tempArray2.push(img.url)
+    })
     this.setState({
       modalImagesArray: tempArray2,
     })
@@ -169,7 +182,7 @@ class Page extends React.PureComponent<
     //   />
     // );
     const tempArray: any = [];
-    productInfo.images.map((image: any) => tempArray.push({ original: image.url }));
+    productInfo.images.map((image: any) => tempArray.push({ alt: image.alt, original: image.url }));
 
     return <OverlayContext.Consumer>
       {overlayContext => (
@@ -214,7 +227,7 @@ class Page extends React.PureComponent<
                       );
                     }}>
                     {tempArray.map((img: any) => (
-                      <img onClick={() => this.onModalClicked()} src={img.original} />
+                      <img onClick={() => this.onModalClicked()} src={img.original} alt={img.alt} />
                     ))}
                   </Carousel>
                   // <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
@@ -649,9 +662,9 @@ class Page extends React.PureComponent<
                 <div className="GalleryModal">
 
                   <div className="ModalContent">
-                    <p>TAQUERIA delivery from Notting Hill - Order with Deliveroo</p>
+                    <p>{this.state.imageTitle}</p>
                     <ul className="modalList">
-                      <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" target="_blank" href="https://deliveroo.co.uk/">Deliveroo.co.uk/taqueria</a></li>
+                      <li><span className="ModalImg">{this.state.imageFavicon !== "" && <img src={BACKEND_LINK + "/media/" + this.state.imageFavicon} alt={this.state.imageFaviconAlt} />}</span> <a className="modalLink" target="_blank" href={this.state.imageSourceURL}>{this.state.imageSourceURL}</a></li>
                     </ul>
                   </div>
                   <Lightbox

@@ -54,7 +54,7 @@ export const SortLine = styled.div<{ sortby: any }>`
     padding: ${props => props.sortby === "Results:" ? "3px 10px" : "4px 10px"};
    margin-right: 10px;
 }
-`; 
+`;
 
 
 export const Indicator = styled.div<{ rotate: string }>`
@@ -128,7 +128,7 @@ export const Menuborder = styled.div`
   margin-top: 16px !important;
 }
 `;
-export const SubmenuList = styled.div<{ categoriesMenu: boolean,type:string }>`
+export const SubmenuList = styled.div<{ categoriesMenu: boolean, type: string }>`
   border-bottom: 1px solid #EDF0F2 !important;
   cursor: pointer;
   color: #8799a9;
@@ -144,13 +144,13 @@ export const SubmenuList = styled.div<{ categoriesMenu: boolean,type:string }>`
     @media(max-width:540px){
       border-bottom: none !important;
       color: ${props =>
-        props.categoriesMenu ? "#09253F" : "#8799a9"};
+    props.categoriesMenu ? "#09253F" : "#8799a9"};
         border-bottom: ${props =>
-          props.categoriesMenu ? "none" : "1px solid #EDF0F2"};
+    props.categoriesMenu ? "none" : "1px solid #EDF0F2"};
       height: auto;
       font-size: 18px;
       padding: ${props =>
-        props.type === "categories" ? "18px 0px 17px 0px" : "18px 0px 0px 0px"};
+    props.type === "categories" ? "18px 0px 17px 0px" : "18px 0px 0px 0px"};
       color: #435365 !important;
     }
 `;
@@ -206,17 +206,17 @@ export const SubmenuBox = styled.div<{ type: string }>`
         padding: 0px 0px;
         @media(max-width:540px){
           display: ${props =>
-            props.type === "" || props.type === "price"  || props.type === "distance" ? "flex" : "block"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "flex" : "block"};
             justify-content: ${props =>
-              props.type === "" || props.type === "price" || props.type === "distance" ? "center" : "block"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "center" : "block"};
               padding: ${props =>
-                props.type === "" || props.type === "price" || props.type === "distance" ? "25px 24px" : "0px 0px 0px 30px"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "25px 24px" : "0px 0px 0px 30px"};
                 max-height: 94px;
         }
         max-height: 150px;
         // padding: 24px 0px 24px 30px;
         border-bottom: ${props =>
-          props.type === "price" ? "none !important" : "1px solid #EDF0F2"};
+    props.type === "price" ? "none !important" : "1px solid #EDF0F2"};
         .css-1gl4k7y{
           padding: 8px 55px;
           text-align: inherit;
@@ -247,20 +247,20 @@ export const SubmenuBox = styled.div<{ type: string }>`
             margin-left: 0px !important;
           // padding: 6px 0px;
           justify-content: ${props =>
-          props.type === ""  || props.type === "price" || props.type === "distance"  ? "center" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "center" : ""};
           padding: ${props =>
-          props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 3px" : "5.5px 12px"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "4px 3px" : "5.5px 12px"};
               font-size: ${props =>
-                props.type === "" || props.type === "price" || props.type === "distance"  ? "12px" : "14px !important"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "12px" : "14px !important"};
                 border-bottom: ${props =>
-                  props.type === "" || props.type === "price" || props.type === "distance"  ? "none" : "none"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "none" : "none"};
                   border-top: ${props =>
-                  props.type === "" || props.type === "price" || props.type === "distance"  ? "none" : "1px solid #EDF0F2"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "none" : "1px solid #EDF0F2"};
                   width: ${props =>
-                    props.type === "" || props.type === "price" || props.type === "distance"  ? "57px !important" : "100%"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "57px !important" : "100%"};
                     border-top: ${props =>
-                    props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #F5F5F5" : ""};
-                    border-bottom: ${props => props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #F5F5F5" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "1px solid #F5F5F5" : ""};
+                    border-bottom: ${props => props.type === "" || props.type === "price" || props.type === "distance" ? "1px solid #F5F5F5" : ""};
               }
           color: #8799a9;
           border-bottom: 1px solid #EDF0F2;
@@ -284,7 +284,7 @@ export const SubmenuBox = styled.div<{ type: string }>`
           }
           @media(max-width: 540px){
             color: ${props =>
-              props.type === "" || props.type === "price" || props.type === "distance"  ? "#09253F" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "#09253F" : ""};
               margin: 0px ;
           }
         }
@@ -296,17 +296,17 @@ export const SubmenuBox = styled.div<{ type: string }>`
           color: #8799a9;
           @media(max-width:540px){
           width: ${props =>
-            props.type === "" || props.type === "price" || props.type === "distance"  ? "44px !important" : "100%"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "44px !important" : "100%"};
           padding: ${props =>
-                props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 12px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "4px 12px" : ""};
           border: ${props =>
-                  props.type === "" || props.type === "price" || props.type === "distance"  ? "1px solid #53C865" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "1px solid #53C865" : ""};
           color: ${props =>
-                    props.type === "" || props.type === "price" || props.type === "distance"  ? "#53C865" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "#53C865" : ""};
           border-top-left-radius: ${props =>
-                      props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "50px" : ""};
                       border-bottom-left-radius: ${props =>
-                        props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "50px" : ""};
                       }
           // border-bottom: 1px solid #EDF0F2;
           font-size:12px;
@@ -319,15 +319,15 @@ export const SubmenuBox = styled.div<{ type: string }>`
         .css-19ni769-option:last-child{
           @media(max-width: 540px){
             color: ${props =>
-              props.type === ""  || props.type === "price" || props.type === "distance" ? "#09253F" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "#09253F" : ""};
               width: ${props =>
-                props.type === "" || props.type === "price" || props.type === "distance"  ? "57px !important" : "100%"};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "57px !important" : "100%"};
               padding: ${props =>
-                    props.type === "" || props.type === "price" || props.type === "distance"  ? "4px 6px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "4px 6px" : ""};
               border-top-right-radius: ${props =>
-                          props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "50px" : ""};
                           border-bottom-right-radius: ${props =>
-                            props.type === "" || props.type === "price" || props.type === "distance"  ? "50px" : ""};
+    props.type === "" || props.type === "price" || props.type === "distance" ? "50px" : ""};
           }
           
           &:after{
@@ -354,8 +354,8 @@ export const SubmenuBox = styled.div<{ type: string }>`
           font-size: 12px;
           padding: 5.5px 0px 5.5px 42px;
           font-weight: 500 !important;
-          ${props => props.type === "" || props.type === "price"  || props.type === "distance" ?
-          `@media(max-width: 540px){
+          ${props => props.type === "" || props.type === "price" || props.type === "distance" ?
+    `@media(max-width: 540px){
             &:first-child{
               width: 44px !important;
               padding: 4px 12px;
@@ -397,18 +397,18 @@ export const SubmenuBox = styled.div<{ type: string }>`
             }
           }
           }`
-          : `@media(max-width: 540px){
+    : `@media(max-width: 540px){
             padding-left: 12px;
             border-top: 1px solid #EDF0F2;
             
           }`
-        }
-        ${props => props.type === "price"  || props.type === "distance" ?
-          `@media(max-width: 540px){
+  }
+        ${props => props.type === "price" || props.type === "distance" ?
+    `@media(max-width: 540px){
             justify-content: center !important;
             padding: 4px 0px;
           }`
-          : `
+    : `
           @media(max-width: 540px){
           justify-content: start !important;
           padding: 4px 12px;
@@ -434,19 +434,21 @@ export const Top = styled.div`
   .jlQsbh{
     position: absolute;
     z-index: 2;
-    top: 8px;
-    right: 3px;
+    top: -14px;
+    right: 4px;
     border-radius: 3px;
     width: 24px;
     height: 24px;
-    @media(max-width: 540px){
-      display: none !important;
-    }
+    // @media(max-width: 540px){
+    //   display: none !important;
+    // }
     
     &:hover{
       background-color: rgba(67, 90, 111, 0.06);
       }
     svg{
+      height: 7.5px;
+      width: 7.5px;
       path{
         fill: #0e2a43;
       }

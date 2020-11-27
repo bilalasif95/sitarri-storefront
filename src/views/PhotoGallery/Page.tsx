@@ -4,7 +4,8 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import ReactSVG from "react-svg";
 // import { Link } from "react-router-dom";
-import ModalIcon from "src/images/favicon.svg"
+// import ModalIcon from "src/images/favicon.svg"
+import { BACKEND_LINK } from "../../core/config";
 
 import { CachedImage, Thumbnail } from "@components/molecules";
 // import { Modal } from "@components/organisms/Modal";
@@ -23,13 +24,17 @@ class Page extends React.PureComponent<
     product: any;
     loading: boolean;
   },
-  { displayNewModal: boolean, show: boolean, tempArray: any, photoIndex: number }
+  { displayNewModal: boolean, imageTitle: string, imageSourceURL: string, imageFavicon: string, imageFaviconAlt: string, show: boolean, tempArray: any, photoIndex: number }
   > {
 
   constructor(props) {
     super(props);
     this.state = {
       displayNewModal: false,
+      imageFavicon: "",
+      imageFaviconAlt: "",
+      imageSourceURL: "",
+      imageTitle: "",
       photoIndex: 0,
       show: true,
       tempArray: [],
@@ -59,14 +64,22 @@ class Page extends React.PureComponent<
     return <CachedImage />;
   };
   onModalClicked = (index) => {
-    this.setState({photoIndex: 0})
+    this.setState({ photoIndex: 0 })
     const image = this.props.product.images[index]
     const filteredImages = this.props.product.images.filter(img => {
       return img.id !== image.id ? img : ""
     })
     filteredImages.unshift(image)
     const tempArray2 = []
-    filteredImages.map(img => tempArray2.push(img.url))
+    filteredImages.map(img => {
+      this.setState({
+        imageFavicon: img.favicon,
+        imageFaviconAlt: img.faviconAlt,
+        imageSourceURL: img.imageUrl,
+        imageTitle: img.title,
+      })
+      tempArray2.push(img.url)
+    })
     this.setState({
       tempArray: tempArray2,
     })
@@ -178,7 +191,7 @@ class Page extends React.PureComponent<
                 <div className="row">
                   <div className="column">
                     {productInfo && productInfo.images.length > 0 && productInfo.images.map((image, index) =>
-                      <img onClick={() => this.onModalClicked(index)} src={image.url} />
+                      <img onClick={() => this.onModalClicked(index)} src={image.url} alt={image.alt} />
                     )}
                   </div>
                   {/* <div className="column">
@@ -209,14 +222,14 @@ class Page extends React.PureComponent<
                 <div className="GalleryModal">
 
                   <div className="ModalContent">
-                      <p>TAQUERIA delivery from Notting Hill - Order with Deliveroo</p>
-                      <ul className="modalList">
-                        <li><span className="ModalImg"><img src={ModalIcon} /></span> <a className="modalLink" href="#">Deliveroo.co.uk/taqueria</a></li>
-                      </ul>
+                    <p>{this.state.imageTitle}</p>
+                    <ul className="modalList">
+                      <li><span className="ModalImg">{this.state.imageFavicon !== "" && <img src={BACKEND_LINK + "/media/" + this.state.imageFavicon} alt={this.state.imageFaviconAlt} />}</span> <a className="modalLink" href={this.state.imageSourceURL}>{this.state.imageSourceURL}</a></li>
+                    </ul>
                   </div>
 
                   <Lightbox
-                  
+
                     mainSrc={this.state.tempArray[this.state.photoIndex]}
                     nextSrc={this.state.tempArray[(this.state.photoIndex + 1) % this.state.tempArray.length]}
                     prevSrc={this.state.tempArray[(this.state.photoIndex + this.state.tempArray.length - 1) % this.state.tempArray.length]}
@@ -232,7 +245,7 @@ class Page extends React.PureComponent<
                         photoIndex: (this.state.photoIndex + 1) % this.state.tempArray.length,
                       })
                     }
-                    
+
                   />
                   {/* <Modal
                   title=""

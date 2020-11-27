@@ -157,6 +157,10 @@ query($id: ID!, $longitude: Float, $latitude: Float) {
       id
       alt
       url
+      title
+      imageUrl
+      favicon
+      faviconAlt
     }
     pricing {
       priceRange {
