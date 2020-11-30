@@ -447,36 +447,7 @@ class Page extends React.PureComponent<
                   >
                     {productDescription}
                   </div>
-                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address &&
-                    <div className="useful-links">
-                      {productInfo.phone !== "" &&
-                        <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
-                          <div className="icon">
-                            <ReactSVG path={phone} />
-                          </div>
-                          <p>Call</p>
-                        </a>}
-                      {productInfo && productInfo.business && productInfo.business.websiteUrl !== "" &&
-                        <a className="item" href={productInfo && productInfo.business && productInfo.business.websiteUrl} target="_blank" rel="noopener noreferrer">
-                          <div className="icon">
-                            <ReactSVG path={website} />
-                          </div>
-                          <p>Website</p>
-                        </a>
-                      }
-                      {productInfo.address &&
-                        <a className="item"
-                          href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
-                          target="_blank" rel="noopener noreferrer">
-                          <div className="icon">
-                            <ReactSVG path={direction} />
-                          </div>
-                          <p>Direction</p>
-                        </a>
-                      }
-                    </div>
-                  }
-                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl !== "" &&
+                  {productInfo && productInfo.phone !== "" && productInfo && productInfo.business && productInfo.business.websiteUrl !== "" && productInfo && productInfo.address && productInfo && productInfo.business && productInfo.business.deliverooUrl !== "" ?
                     <div className="four-useful-links">
                       {productInfo.phone !== "" &&
                         <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
@@ -509,6 +480,35 @@ class Page extends React.PureComponent<
                             <ReactSVG path={delivery} />
                           </div>
                           <p>Delivery</p>
+                        </a>
+                      }
+                    </div>
+                    :
+                    ((productInfo && productInfo.phone !== "") || (productInfo && productInfo.business && productInfo.business.websiteUrl !== "") || (productInfo && productInfo.address)) &&
+                    <div className="useful-links">
+                      {productInfo.phone !== "" &&
+                        <a className="item" href={`tel:${productInfo.phone}`} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={phone} />
+                          </div>
+                          <p>Call</p>
+                        </a>}
+                      {productInfo && productInfo.business && productInfo.business.websiteUrl !== "" &&
+                        <a className="item" href={productInfo && productInfo.business && productInfo.business.websiteUrl} target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={website} />
+                          </div>
+                          <p>Website</p>
+                        </a>
+                      }
+                      {productInfo.address &&
+                        <a className="item"
+                          href={`https://www.google.com/maps/place/${productInfo.address.latitude},${productInfo.address.longitude}`}
+                          target="_blank" rel="noopener noreferrer">
+                          <div className="icon">
+                            <ReactSVG path={direction} />
+                          </div>
+                          <p>Direction</p>
                         </a>
                       }
                     </div>
