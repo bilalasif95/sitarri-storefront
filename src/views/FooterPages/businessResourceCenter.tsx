@@ -77,6 +77,9 @@ const ContactUs: React.FC = () => (
          </div>
       </div>
 
+
+      
+
       {/* join-sitarri */}
       <div className="joinSitarri">
          <div className="container">
@@ -225,7 +228,9 @@ const ContactUs: React.FC = () => (
 
 
 
-
+      <div className="MblVerticalLine1"></div>
+      <div className="MblVerticalLine2"></div>
+      <div className="MblHorizontalLine"></div>
    </div>
 );
 
