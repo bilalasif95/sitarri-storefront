@@ -340,7 +340,7 @@ class Page extends React.PureComponent<
                       <div className="swipperImages">
                         <Swiper pagination={{ clickable: true, dynamicBullets: true }} slidesPerView={1}>
                           {tempArray.map((img: any) => (
-                            <SwiperSlide><img onClick={() => redirectToPhotoGalleryPage(product.id, product.name)} src={img.original} /></SwiperSlide>
+                            <SwiperSlide><img onClick={() => redirectToPhotoGalleryPage(product.id, product.name)} src={img.original} alt={img.alt} /></SwiperSlide>
                           ))}
                         </Swiper>
                       </div>

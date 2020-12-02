@@ -7,6 +7,8 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
+import SwiperCore, { A11y, Navigation, Pagination, Scrollbar } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import Media from "react-media";
 
 // import { RichTextContent } from "@components/atoms";
@@ -35,7 +37,7 @@ import {
   // MenuDropdown,
   // Offline,
   // Online,
-  Carousel,
+  // Carousel,
   OverlayContext,
   OverlayTheme,
   OverlayType,
@@ -43,6 +45,8 @@ import {
 
 import backIcon from "../../images/back.svg";
 import Search from "../../images/search.svg";
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 class Page extends React.PureComponent<
   {
@@ -207,33 +211,45 @@ class Page extends React.PureComponent<
                   <div className="SkeletonbackIcon" onClick={() => { window.history.go(-1); return false; }}><ReactSVG path={backIcon} onClick={() => { window.history.go(-1); return false; }} /></div>
                 </div>
                 {productInfo && productInfo.images.length > 0 ?
-                  <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
-                    renderBottomCenterControls={props => {
-                      const indexes = [];
-                      for (let i = 0; i < props.slideCount; i++) {
-                        indexes.push(i);
-                      }
-                      return (
-                        <ul className="product-page__product__gallery__nav">
-                          {indexes.map(index => (
-                            <li
-                              key={index}
-                              onClick={props.goToSlide.bind(null, index)}
-                              className={props.currentSlide === index ? "active" : ""}
-                            >
-                              <span />
-                            </li>
-                          ))}
-                        </ul>
-                      );
-                    }}>
-                    {tempArray.map((img: any) => (
-                      <img onClick={() => this.onModalClicked()} src={img.original} alt={img.alt} />
-                    ))}
-                  </Carousel>
+                  // <>
+                  //   {window.innerWidth >= 540 ?
+                  //     <Carousel productDetails={"Tiles"} length={tempArray.length} renderCenterLeftControls={() => null} renderCenterRightControls={() => null}
+                  //       renderBottomCenterControls={props => {
+                  //         const indexes = [];
+                  //         for (let i = 0; i < props.slideCount; i++) {
+                  //           indexes.push(i);
+                  //         }
+                  //         return (
+                  //           <ul className="product-page__product__gallery__nav">
+                  //             {indexes.map(index => (
+                  //               <li
+                  //                 key={index}
+                  //                 onClick={props.goToSlide.bind(null, index)}
+                  //                 className={props.currentSlide === index ? "active" : ""}
+                  //               >
+                  //                 <span />
+                  //               </li>
+                  //             ))}
+                  //           </ul>
+                  //         );
+                  //       }}>
+                  //       {tempArray.map((img: any) => (
+                  //         <img onClick={() => this.onModalClicked()} src={img.original} alt={img.alt} />
+                  //       ))}
+                  //     </Carousel>
                   // <ImageGallery onClick={() => this.onModalClicked()} items={tempArray} showFullscreenButton={false} showThumbnails={false} showBullets={true} showPlayButton={false} showNav={false} />
                   // <GalleryCarousel images={this.getImages()} />
                   // {productInfo.logo && productInfo.logo ? <GalleryCarousel images={this.getImages()} />
+                  // :
+                  <div className="swipperImages">
+                    <Swiper pagination={{ clickable: true, dynamicBullets: true }} slidesPerView={1}>
+                      {tempArray.map((img: any) => (
+                        <SwiperSlide><img onClick={() => this.onModalClicked()} src={img.original} alt={img.alt} /></SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                  //   }
+                  // </>
                   : <div className="noPicText"></div>}
 
               </div>

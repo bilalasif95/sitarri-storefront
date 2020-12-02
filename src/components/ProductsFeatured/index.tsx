@@ -259,15 +259,26 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                   <>
                     <div className="hrBorder"></div>
                     <div className="pro-list">
-                      <Carousel renderCenterLeftControls={() => null} renderCenterRightControls={() => null} className="customSlider" productDetails={"categoryList"}>
-                        {products.map(({ node: product }) => (
-                          <div className="modalDivcategories"
-                            onClick={() => SeeDetails(product.name)}
-                          >
-                            <ProductListItem product={product} />
-                          </div>
-                        ))}
-                      </Carousel>
+                      {window.innerWidth >= 540 ?
+                        <Carousel renderCenterLeftControls={() => null} renderCenterRightControls={() => null} className="customSlider" productDetails={"categoryList"}>
+                          {products.map(({ node: product }) => (
+                            <div className="modalDivcategories"
+                              onClick={() => SeeDetails(product.name)}
+                            >
+                              <ProductListItem product={product} />
+                            </div>
+                          ))}
+                        </Carousel>
+                        :
+                        <>
+                          {products.map(({ node: product }) => (
+                            <div className="modalDivcategories"
+                              onClick={() => SeeDetails(product.name)}
+                            >
+                              <ProductListItem product={product} />
+                            </div>
+                          ))}</>
+                      }
                     </div>
                   </>
                   :

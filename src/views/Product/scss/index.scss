@@ -13,7 +13,156 @@
   &__product {
     // display: flex;
     // margin: 0 0 50px;
+    .swipperImages {
+      width: 100%;
+      height: 539px;
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      cursor: pointer;
+      background: #f1f5f5;
+      @media(max-width: 540px){
+        width: 100%;
+        height: 211px !important;
+        max-width: 100%;
+      }
+      .slider-control-bottomcenter {
+        width: 100%;
+        text-align: center;
+      }
+      .slider-slide {
+        img {
+          object-fit: cover;
+          height: 211px;
+        }
+      }
+      .product-page__product__gallery__nav {
+        li {
+          width: inherit !important;
+          span {
+            border: 1px solid #fff;
+          }
+        }
+        li:hover span {
+          background-color: #fff;
+        }
+        li.active span {
+          background-color: #fff;
+          border-color: #fff;
+        }
+      }
+      @media(max-width:540px){
+        // height: 130px;
+      .image-gallery-bullets {
+        top: 50% !important;
+      }
+      }
+      // img {
+      //   margin: 0 2px 0 0;
+      //   max-width: 255px;
+      //   height: 100%;
+      // }
+      .noImg {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+        height: auto;
+      }
+      .image-gallery{
+        width: 100%;
+        .image-gallery-icon{
+          z-index:2;
+        }
+        .image-gallery-left-nav .image-gallery-svg, 
+        .image-gallery-right-nav .image-gallery-svg {
+          height: 20px;
+          width: 10px;
+        }
+        .image-gallery-slide{
+          width: 100%;
+          //  padding:0 2px 0 0;
+        }
+        .image-gallery-content 
+        .image-gallery-bullets {
+          top: 85%;
+          .image-gallery-bullet {
+            padding: 3px;
+        }
+        .image-gallery-slide
+         .image-gallery-image{
+           max-height: 100% !important;
+         }
+      }
+    }
+    .swiper-container-horizontal{
+      .swiper-wrapper{        
+        .swiper-slide img {
+            width: 100%;
+            height: 539px;
+            object-fit: cover;
+            @media(max-width: 540px){
+              width: 100%;
+              height: 211px !important;
+              max-width: 100%;
+            }
+        }
+      }
+      .swiper-button-next{
+        background: #fff !important;
+        height: 48px;
+        width: 48px;
+        border-radius: 25px;
+        box-shadow: 0px 3px 6px #0000000D;
+        -webkit-box-shadow: 0px 3px 6px #0000000D;
+        top: 30%;
+        right: 0px;
+        &:after{
+          font-size: 16px;
+          font-weight: 900;
+          color: #FF4B13;
+        }
+        @media(max-width: 540px){
+          display: none;
+        }
+      } 
 
+
+      
+
+
+      .swiper-button-prev{
+        background: #fff !important;
+        height: 48px;
+        width: 48px;
+        border-radius: 25px;
+        box-shadow: 0px 3px 6px #0000000D;
+        -webkit-box-shadow: 0px 3px 6px #0000000D;
+        top: 30%;
+        left: 0px;
+        z-index: 2;
+        &:after{
+          font-size: 16px;
+          font-weight: 900;
+          color: #FF4B13;
+        }
+        @media(max-width: 540px){
+          display: none;
+        }
+      } 
+      .swiper-pagination-bullets{
+        bottom: 8px !important;
+        span{
+          background: #fff !important;
+        }
+        // @media(max-width: 540px){
+        //   bottom: 25px !important;
+        // }
+      }
+    }
+  }
     @media (max-width: $small-screen) {
       display: block;
       // margin-bottom: $spacer;
@@ -274,9 +423,10 @@
         content: '';
         border: 1px solid #F5F5F5;
         position: absolute;
-        width: 60px;
+        width: 50px;
         transform: rotate(90deg);
         left: 160px;
+        top: 30px;
         }
       }
       .deliveryItem{
@@ -886,7 +1036,7 @@ height: 19px;
 // width: 70%;
 margin-left: auto;
 svg{
-  margin: -1px 5px 0 0;
+  margin: 0px 5px 0 0;
   fill: #F39721;
   width: 10px;
 }
@@ -903,7 +1053,8 @@ svg{
 }
 .Imgbox{
   overflow: hidden;
-  height: 51px;
+  height: 48px;
+  width: 48px;
   border-radius: 100px;
   img{
     width: 100%;

@@ -119,7 +119,7 @@ export const Brand = styled.div`
     cursor: pointer;
   }
   @media(max-width: 767px){
-    top: 64px;
+    top: 70px;
   }
   
 `;
@@ -477,7 +477,7 @@ padding: 0px 4px;
 height: 19px;
 // width: 60%;
 svg{
-  margin: -1px 5px 0 0;
+  margin: 0px 5px 0 0;
   fill: #F39721;
   width: 10px;
 

@@ -57,7 +57,7 @@ const Carousel: React.FC<CarouselType> = ({ children, productDetails, length, ..
         matches ?
           productDetails === "categoryList" ? carousel(3.5) :
             productDetails === "Tiles" ? carousel(1) : (
-              carousel(1.04)
+              carousel(1.02)
             ) : (
             productDetails === "productList" ?
               <Media query={{ maxWidth: mediumScreen }}>

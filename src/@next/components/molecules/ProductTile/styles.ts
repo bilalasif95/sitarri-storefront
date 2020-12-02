@@ -445,7 +445,7 @@ height: 19px;
 // width: 70%;
 margin-left: auto;
 svg{
-  margin: -1px 5px 0 0;
+  margin: 0px 5px 0 0;
   fill: #F39721;
   width: 10px;
 
