@@ -203,9 +203,9 @@ export const Slider = styled.div`
       span{
         background: #fff !important;
       }
-      @media(max-width: 540px){
-        bottom: 25px !important;
-      }
+      // @media(max-width: 540px){
+      //   bottom: 25px !important;
+      // }
     }
 
 

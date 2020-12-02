@@ -50,7 +50,7 @@ export const META_DEFAULTS = {
   description:
     "Sitarri Technologies Inc.",
   image: `${window.location.origin}${require("../images/sittari.svg")}`,
-  title: "Sitarri",
+  title: "",
   type: "website",
   url: window.location.origin,
 };
