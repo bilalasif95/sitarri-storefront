@@ -279,7 +279,7 @@ export const Image = styled.div`
      }
   }
   ${media.smallScreen`
-  height: 130px;
+  // height: 130px;
   .image-gallery-bullets {
     top: 70% !important;
   }

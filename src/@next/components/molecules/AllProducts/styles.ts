@@ -119,7 +119,7 @@ export const Brand = styled.div`
     cursor: pointer;
   }
   @media(max-width: 767px){
-    top: 70px;
+    top: 109px;
   }
   
 `;
@@ -278,7 +278,7 @@ export const Image = styled.div`
     }
   }
   @media(max-width:540px){
-    height: 125px;
+    height: 165px;
   }
   > img {
     margin: 0 2px 0 0;
@@ -319,7 +319,7 @@ export const Image = styled.div`
      }
   }
   ${media.smallScreen`
-  height: 130px;
+  // height: 130px;
   .image-gallery-bullets {
     top:50% !important;
   }
