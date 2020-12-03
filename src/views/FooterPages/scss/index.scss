@@ -1068,6 +1068,9 @@ h2{
   .workFoodV-line:after, .workBoxV-line::after, .workV-line:after, .workV-line:before, .ContactV-line:before, .ContactV-line:after, .ContactBoxV-line:before, .ContactBoxV-line:after, .V-line:before, .V-line:after, .BoxV-line:after, .FoodV-line:after{
     display: none
   }
+  .BgLine1, .BgLine2{
+    display: none
+  }
   
 }
 @media(max-width:475px){
@@ -1075,7 +1078,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4861px;
+    height: 4845px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1087,7 +1090,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4911px;
+    height: 4895px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1115,7 +1118,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4710px;
+    height: 4695px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1127,7 +1130,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4759px;
+    height: 4744px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1155,7 +1158,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4497px;
+    height: 4481px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1167,7 +1170,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4553px;
+    height: 4537px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1198,7 +1201,8 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4276px;
+    height: 4260px;
+    
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1210,7 +1214,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4350px;
+    height: 4334px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
