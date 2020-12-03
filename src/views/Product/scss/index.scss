@@ -423,10 +423,10 @@
         content: '';
         border: 1px solid #F5F5F5;
         position: absolute;
-        width: 50px;
+        width: 45px;
         transform: rotate(90deg);
         left: 160px;
-        top: 30px;
+        top: 23px;
         }
       }
       .deliveryItem{
@@ -931,6 +931,7 @@
     text-align: center;
     p{
       font-size: 12px;
+      margin-bottom: -10px;
     }
   }
   // .product-page__product .useful-links .item:after{
