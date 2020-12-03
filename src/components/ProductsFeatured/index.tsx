@@ -36,6 +36,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
   const [latitude, setLatitude] = React.useState(0)
   const [longitude, setLongitude] = React.useState(0)
   const [load, setLoad] = React.useState(true)
+  const ref = React.useRef(null);
   const searchQs = (searchWord) => {
     return stringify({ q: searchWord, lat: latitude, long: longitude });
   }
@@ -67,6 +68,34 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
       setLoad(false)
     }, 1500)
   }, [])
+
+  React.useEffect(() => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    window.addEventListener('mousedown', (e: any) => {
+      isDown = true;
+      ref.current.classList.add('active');
+      startX = e.pageX - ref.current.offsetLeft;
+      scrollLeft = ref.current.scrollLeft;
+    });
+    window.addEventListener('mouseleave', () => {
+      isDown = false;
+      ref.current.classList.remove('active');
+    });
+    window.addEventListener('mouseup', () => {
+      isDown = false;
+      ref.current.classList.remove('active');
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDown) { return };
+      e.preventDefault();
+      const x = e.pageX - ref.current.offsetLeft;
+      const walk = (x - startX) * 3;
+      ref.current.scrollLeft = scrollLeft - walk;
+    });
+  }, [ref])
 
   const variables = {
     latitude,
@@ -260,7 +289,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                     <div className="hrBorder"></div>
                     <div className="pro-list">
                       {window.innerWidth >= 540 ?
-                        <Carousel renderCenterLeftControls={() => null} renderCenterRightControls={() => null} className="customSlider" productDetails={"categoryList"}>
+                        // <Carousel renderCenterLeftControls={() => null} renderCenterRightControls={() => null} className="customSlider" productDetails={"categoryList"}>
+                        <div className="customSlider" ref={ref}>
                           {products.map(({ node: product }) => (
                             <div className="modalDivcategories"
                               onClick={() => SeeDetails(product.name)}
@@ -268,7 +298,8 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                               <ProductListItem product={product} />
                             </div>
                           ))}
-                        </Carousel>
+                        </div>
+                        // </Carousel>
                         :
                         <>
                           {products.map(({ node: product }) => (

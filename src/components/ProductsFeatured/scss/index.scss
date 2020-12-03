@@ -6,6 +6,8 @@
     padding: 1px 0px 16px 8px;
     background-color: #fff !important;
     .customSlider{
+      display: flex;
+      overflow: hidden;
       .slider-frame{
         &:focus{
           outline: none;
@@ -218,6 +220,7 @@
     outline: none;
   }
   .modalDivcategories{
+    margin-right: 35px;
     color: $base-font-color;
     display: inline-block;
     // max-width: 255px;
