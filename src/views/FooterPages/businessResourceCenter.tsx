@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import * as appPaths from "../../app/routes";
 
-import { ADMIN_PANEL_LINK } from "../../core/config";
+// import { ADMIN_PANEL_LINK } from "../../core/config";
 
 import Check from "../../images/Check.svg";
 import ManImg from "../../images/food.svg";
@@ -30,8 +30,8 @@ const ContactUs: React.FC = () => (
                      <p>Thousands of businesses of all sizes-from local stores to large enterprises-use Sitarri platform to get discovered by new customers and keep them coming back.</p>
 
                      {/* <div className="BusinessForm"> */}
-                        {/* <div className="BusinessBtns"> */}
-                           {/* <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up
+                     {/* <div className="BusinessBtns"> */}
+                     {/* <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                                  <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -42,7 +42,7 @@ const ContactUs: React.FC = () => (
                               </svg>
 
                            </a> */}
-                           {/* <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
+                     {/* <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                                  <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -53,7 +53,7 @@ const ContactUs: React.FC = () => (
                               </svg>
 
                            </a> */}
-                        {/* </div> */}
+                     {/* </div> */}
                      {/* </div> */}
 
                   </div>
@@ -78,7 +78,7 @@ const ContactUs: React.FC = () => (
       </div>
 
 
-      
+
 
       {/* join-sitarri */}
       <div className="joinSitarri">
