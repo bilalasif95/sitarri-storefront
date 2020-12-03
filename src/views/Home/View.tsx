@@ -246,7 +246,7 @@ const View: React.FC = (props: any) => {
               <MetaWrapper
                 meta={{
                   description: data.shop ? data.shop.description : "",
-                  title: data.shop ? data.shop.name : "",
+                  title: data.shop ? data.shop.name : "Sitarri",
                 }}
               >
                 <Page

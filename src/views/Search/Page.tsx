@@ -99,7 +99,7 @@ const Page: React.FC<PageProps> = ({
           redirectToShopPage={redirectToShopPage}
           redirectToProductPage={redirectToProductPage}
           showProductsResults={showProductsResults}
-          products={products.edges.map(edge => edge.node)}
+          products={products && products.edges.map(edge => edge.node)}
           stores={stores && stores.edges.map(edge => edge.node)}
           loading={displayLoader}
           onChange={onOrder}

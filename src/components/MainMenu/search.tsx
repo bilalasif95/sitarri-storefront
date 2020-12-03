@@ -39,6 +39,7 @@ const search: React.FC = (props: any) => {
 
     const SetSearchEvent = (e) => {
         setSearch(e.target.value)
+        setLoadingState(true)
     }
 
     const getCurrentLocation = () => {
@@ -131,10 +132,11 @@ const search: React.FC = (props: any) => {
                                 errorPolicy="all"
                                 variables={{ latitude, longitude }}
                             >
-                                {({ data, loading }) => {
-                                    setLoadingState(false)
-                                    if (loading) {
-                                        setLoadingState(true)
+                                {({ data }) => {
+                                    setTimeout(() => {
+                                        setLoadingState(false)
+                                    }, 500)
+                                    if (loadingState) {
                                         return <h6 className="loaderIcon">
                                             <ReactSVG path={loader} />
                                         </h6>
@@ -226,10 +228,11 @@ const search: React.FC = (props: any) => {
                                         longitude,
                                     }}
                                 >
-                                    {({ data, loading }) => {
-                                        setLoadingState(false)
-                                        if (loading) {
-                                            setLoadingState(true)
+                                    {({ data }) => {
+                                        setTimeout(() => {
+                                            setLoadingState(false)
+                                        }, 500)
+                                        if (loadingState) {
                                             return <h6 className="loaderIcon">
                                                 <ReactSVG path={loader} />
                                             </h6>
@@ -316,9 +319,14 @@ const search: React.FC = (props: any) => {
                                             longitude,
                                         }}
                                     >
-                                        {({ data, loading }) => {
-                                            if (loading) {
-                                                return <h6 className="loaderIcon"></h6>
+                                        {({ data }) => {
+                                            setTimeout(() => {
+                                                setLoadingState(false)
+                                            }, 500)
+                                            if (loadingState) {
+                                                return <h6 className="loaderIcon">
+                                                    <ReactSVG path={loader} />
+                                                </h6>
                                             }
                                             else {
                                                 if (data && data.products.edges.length > 0) {
@@ -401,10 +409,11 @@ const search: React.FC = (props: any) => {
                                         errorPolicy="all"
                                         variables={{ query: search, latitude, longitude }}
                                     >
-                                        {({ data, loading }) => {
-                                            setLoadingState(false)
-                                            if (loading) {
-                                                setLoadingState(true)
+                                        {({ data }) => {
+                                            setTimeout(() => {
+                                                setLoadingState(false)
+                                            }, 500)
+                                            if (loadingState) {
                                                 return <h6 className="loaderIcon">
                                                     <ReactSVG path={loader} />
                                                 </h6>

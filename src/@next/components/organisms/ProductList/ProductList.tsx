@@ -103,7 +103,7 @@ export const ProductList: React.FC<IProps> = ({
     <>
       {!loading ?
         <>
-          {(products.length > 0 || stores && stores.length > 0) ?
+          {(products && products.length > 0 || stores && stores.length > 0) ?
 
             <S.ProductList>
               {/* first condition for filter */}
