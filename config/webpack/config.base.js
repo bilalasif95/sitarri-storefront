@@ -102,12 +102,11 @@ module.exports = ({ sourceDir, distDir }) => ({
       logo: `${sourceDir}/images/favicon.svg`,
       prefix: "images/favicons/",
       favicons: {
-        appName: "",
         appDescription: "Storefront for the Sitarri e-commerce platform",
         display: "standalone",
         developerURL: null, // prevent retrieving from the nearest package.json
         background: "#140823",
-        theme_color: "#140823",
+        theme_color: "#FFFFFF",
       },
     }),
     new webpack.EnvironmentPlugin({
