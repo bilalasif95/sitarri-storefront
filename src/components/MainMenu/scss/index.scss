@@ -11,6 +11,9 @@
   &:focus{
     outline: none;
   }
+  @media(max-width: 540px){
+    padding: 10px 0px 8px;
+  }
 }
 
 .main-menu {
@@ -238,8 +241,8 @@
         height: 100%;
         justify-content: center;
         position: absolute;
-        right: 10px;
-        top: 1px;
+        right: 8px;
+        top: 0px;
         width: 35px;
         svg {
           fill: #09253F;
@@ -590,9 +593,9 @@
   .CloseIcon {
     right: -16px;
 }
-  .main-menu{
-    padding: 0px 15.66px !important;
-  }
+  // .main-menu{
+  //   padding: 0px 15.66px !important;
+  // }
   .searchedlist{
     width: 99.7% !important;
     margin-top: 0px !important;

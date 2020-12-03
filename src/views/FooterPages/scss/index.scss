@@ -277,9 +277,6 @@
 
 @media (max-width: 767px){
   .Contactus{
-    .Contactusbtn{
-      display: none;
-    }
     .BusinessForm{
       display: block;
     }
@@ -576,6 +573,7 @@ h2{
 }
 .JoinBoxTypography{
   padding-left: 32px;
+  position: relative;
 }
 
 .V-line, .BoxV-line, .FoodV-line, .workV-line, .workBoxV-line, .workFoodV-line, .ContactV-line, .ContactBoxV-line{
@@ -640,24 +638,46 @@ h2{
   .workV-line:after{
     content: '';
     border-right: 1px dashed #E7E9EF;
-    height: 794px;
+    height: 291px;
     width: 1px;
     display: inline-block;
     margin-left: 100px;
     position: absolute;
-    top: -239px;
+    top: 263px;
     left: 268px;
   }
   .workBoxV-line::after{
     content: '';
     border-right: 1px dashed #E7E9EF;
-    height: 837px;
+    height: 291px;
     width: 1px;
     display: inline-block;
     margin-left: 100px;
     position: absolute;
-    top: -282px;
+    top: 263px;
     left: 268px;
+}
+.BgLine1{
+  content: '';
+    border-right: 1px dashed #E7E9EF;
+    height: 238px;
+    width: 1px;
+    display: inline-block;
+    margin-left: 100px;
+    position: absolute;
+    top: -82px;
+    left: 268px;
+}
+.BgLine2{
+  content: '';
+    border-right: 1px dashed #E7E9EF;
+    height: 282px;
+    width: 1px;
+    display: inline-block;
+    margin-left: 100px;
+    position: absolute;
+    top: -125px;
+    left: 656px;
 }
   }
   .workFoodV-line:after{
@@ -717,6 +737,28 @@ h2{
   }
 
 @media(max-width:1440px){
+  .BgLine1{
+    content: '';
+      border-right: 1px dashed #E7E9EF;
+      height: 215px;
+    width: 1px;
+    display: inline-block;
+    margin-left: 100px;
+    position: absolute;
+    top: -58px;
+    left: 268px;
+  }
+  .BgLine2{
+    content: '';
+      border-right: 1px dashed #E7E9EF;
+      height: 282px;
+      width: 1px;
+      display: inline-block;
+      margin-left: 100px;
+      position: absolute;
+      top: -125px;
+      left: 656px;
+  }
   .ContactV-line:before{
     content: '';
     border-right: 1px solid #E7E9EF;
@@ -819,23 +861,23 @@ h2{
   .workV-line:after{
     content: '';
     border-right: 1px dashed #E7E9EF;
-    height: 770px;
+    height: 293px;
     width: 1px;
     display: inline-block;
     margin-left: 100px;
     position: absolute;
-    top: -215px;
+    top: 262px;
     left: 268px;
   }
   .workBoxV-line::after{
     content: '';
     border-right: 1px dashed #E7E9EF;
-    height: 812px;
+    height: 293px;
     width: 1px;
     display: inline-block;
     margin-left: 100px;
     position: absolute;
-    top: -257px;
+    top: 262px;
     left: 268px;
   }
   .workFoodV-line:after{
@@ -873,24 +915,24 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4877px;
+    height: 4861px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
     position: absolute;
-    top: 504px;
+    top: 425px;
     // left: -101px;
   }
   .MblVerticalLine2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4933px;
+    height: 4911px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
     position: absolute;
-    top: 448px;
+    top: 375px;
     right: 8px;
   }
 }
@@ -913,24 +955,24 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4746px;
+    height: 4710px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
     position: absolute;
-    top: 504px;
+    top: 445px;
+}
     // left: -101px;
-  }
   .MblVerticalLine2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4802px;
+    height: 4759px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
     position: absolute;
-    top: 448px;
+    top: 396px;
     right: 8px;
   }
 }
@@ -953,7 +995,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4592px;
+    height: 4497px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -965,7 +1007,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4648px;
+    height: 4553px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -996,7 +1038,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4371px;
+    height: 4276px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;
@@ -1008,7 +1050,7 @@ h2{
     display: block !important;
     content: '';
     border-right: 1px solid #E7E9EF;
-    height: 4445px;
+    height: 4350px;
     width: 1px;
     display: inline-block;
     margin-left: 8px;

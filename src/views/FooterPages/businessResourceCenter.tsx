@@ -29,9 +29,9 @@ const ContactUs: React.FC = () => (
                      <h3>Get Discovered by your ideal customers</h3>
                      <p>Thousands of businesses of all sizes-from local stores to large enterprises-use Sitarri platform to get discovered by new customers and keep them coming back.</p>
 
-                     <div className="BusinessForm">
-                        <div className="BusinessBtns">
-                           <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up
+                     {/* <div className="BusinessForm"> */}
+                        {/* <div className="BusinessBtns"> */}
+                           {/* <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                                  <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -41,8 +41,8 @@ const ContactUs: React.FC = () => (
                                  </g>
                               </svg>
 
-                           </a>
-                           <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
+                           </a> */}
+                           {/* <a className="SigninBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign In
 
                         <svg xmlns="https://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 289.048 492.004">
                                  <g id="next_1_" data-name="next (1)" transform="translate(-101.478)">
@@ -52,9 +52,9 @@ const ContactUs: React.FC = () => (
                                  </g>
                               </svg>
 
-                           </a>
-                        </div>
-                     </div>
+                           </a> */}
+                        {/* </div> */}
+                     {/* </div> */}
 
                   </div>
 
@@ -143,6 +143,8 @@ const ContactUs: React.FC = () => (
       <div className="joinSitarri">
          <div className="container">
             <div className="JoinBoxTypography">
+               <div className="BgLine1"></div>
+               <div className="BgLine2"></div>
                <p className="FormQuestion">Designed For Businesses</p>
                <h3 className="JoinTitle">How does Sitarri work?</h3>
                <p className="ProfileText">Set up your Sitarri Profile in Three easy steps.</p>
@@ -189,7 +191,7 @@ const ContactUs: React.FC = () => (
                   </Link>
                </div>
 
-               <div className="BusinessForm">
+               {/* <div className="BusinessForm">
                   <div className="BusinessBtns">
                      <a className="SignupBtn" target="_blank" href={ADMIN_PANEL_LINK}>Sign Up
 
@@ -214,7 +216,7 @@ const ContactUs: React.FC = () => (
 
                      </a>
                   </div>
-               </div>
+               </div> */}
 
             </div>
             {/* Contact-US */}

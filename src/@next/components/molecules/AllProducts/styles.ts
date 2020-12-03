@@ -365,17 +365,17 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  width: 18%;
+  width: 72px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 export const Imgbox = styled.div`
 overflow: hidden;
-max-height: 70px;
+max-height: 72px;
 img{
-  width: 100%;
-  height: 100%;
+  width: 72px;
+  height: 72px;
   border-radius: 5px;
 }
 `;

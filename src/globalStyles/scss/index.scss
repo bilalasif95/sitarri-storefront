@@ -50,6 +50,9 @@ body {
       background: #fafafa;
       margin: 75px 0 0;
       padding-bottom: 88px;
+      @media(max-width: 540px){
+        margin: 66px 0 0;
+      }
     }
   }
 
