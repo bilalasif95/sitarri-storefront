@@ -2,7 +2,7 @@
   "name": "",
   "version": "2.10.1",
   "private": true,
-  "author": "Sitarri",
+  "author": "",
   "homepage": "https://sitarri.co.uk/",
   "main": "dist/index.js",
   "browserslist": "last 2 versions",

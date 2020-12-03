@@ -102,7 +102,6 @@ module.exports = ({ sourceDir, distDir }) => ({
       logo: `${sourceDir}/images/favicon.svg`,
       prefix: "images/favicons/",
       favicons: {
-        appName: null,
         appDescription: "Storefront for the Sitarri e-commerce platform",
         display: "standalone",
         developerURL: null, // prevent retrieving from the nearest package.json
