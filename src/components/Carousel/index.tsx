@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselType> = ({ children, productDetails, length, ..
     ...rest,
   };
   const carousel = (slides: number) => (
-    <NukaCarousel slidesToShow={slides} slidesToScroll={slides} {...settings}>
+    <NukaCarousel slidesToShow={slides} slidesToScroll={"auto"} {...settings}>
       {children}
     </NukaCarousel>
   );

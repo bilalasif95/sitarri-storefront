@@ -136,7 +136,7 @@ export const ProductList: React.FC<IProps> = ({
                               <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                             </>
                             : <>
-                              <Carousel length={stores.length} dragging={false} productDetails={"productList"}>
+                              <Carousel length={stores.length} swiping={true} dragging={false} productDetails={"productList"}>
                                 {stores && stores.map(product => (
                                   <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
                                 ))}
@@ -185,7 +185,7 @@ export const ProductList: React.FC<IProps> = ({
                                 <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                               </> :
                               <>
-                                <Carousel length={products.length} dragging={false} productDetails={"productList"}>
+                                <Carousel length={products.length} swiping={true} dragging={false} productDetails={"productList"}>
                                   {products.map(product => (
                                     <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
                                   ))}
