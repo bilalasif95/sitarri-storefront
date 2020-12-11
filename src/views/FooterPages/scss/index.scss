@@ -3,6 +3,7 @@
 .homePage {
   width: 100%;
   padding-bottom: 65px;
+  position: relative;
   .Contactbg{
     background-image: url("../../../images/Contactbg.svg");
     background-size: cover;
@@ -86,6 +87,7 @@
     background-repeat: no-repeat;
     width: 100%;
     margin-bottom: 370px;
+    position: relative;
   .addBusiness{
     display: flex;
     .BusinessContent{
@@ -175,6 +177,7 @@
     background-repeat: no-repeat;
     width: 100%;
     margin-top: -120px;
+    position: relative;
     .partnerContent{
       padding: 295px 0px 200px;
       .partnerTitle{
@@ -214,6 +217,7 @@
   color: #425364;
 }
 .WorkContent{
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
@@ -274,7 +278,146 @@
     }
   }
 // Contactus
-
+@media(max-width: 1920px){
+  .LineOne{
+    left: 21% !important;
+  }
+  .LineTwo{
+    right: 21% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1680px){
+  .LineOne{
+    left: 17% !important;
+  }
+  .LineTwo{
+    right: 17% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1600px){
+  .LineOne{
+    left: 15.5% !important;
+  }
+  .LineTwo{
+    right: 15.5% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1550px){
+  .LineOne{
+    left: 14.3% !important;
+  }
+  .LineTwo{
+    right: 14.3% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1500px){
+  .LineOne{
+    left: 13.1% !important;
+  }
+  .LineTwo{
+    right: 13.1% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1440px){
+  .LineOne{
+    left: 11.5% !important;
+  }
+  .LineTwo{
+    right: 11.5% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1400px){
+  .LineOne{
+    left: 10.5% !important;
+  }
+  .LineTwo{
+    right: 10.5% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1366px){
+  .LineOne{
+    left: 9.3% !important;
+  }
+  .LineTwo{
+    right: 9.3% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1280px){
+  .LineOne{
+    left: 6.8% !important;
+  }
+  .LineTwo{
+    right: 6.8% !important;
+  }
+  .LineThree{
+    left: 39.5% !important;
+  }
+  .LineFour{
+    right: 39.5% !important;
+  }
+}
+@media(max-width: 1024px){
+  .LineOne{
+    left: 1.7% !important;
+  }
+  .LineTwo{
+    right: 1.7% !important;
+  }
+  .LineThree{
+    left: 32.5% !important;
+  }
+  .LineFour{
+    right: 32.5% !important;
+  }
+}
 @media (max-width: 767px){
   .Contactus{
     .BusinessForm{
@@ -396,6 +539,16 @@ h2{
 }
 
 @media(max-width: 540px){
+  .LineOne{
+    left: 8px !important;
+  }
+  .LineTwo{
+    right: 8px !important;
+  }
+
+  .LineFour, .LineThree{
+    display: none;
+  }
   .JoinBoxTypography{
     padding-left: 8px !important;
   }
@@ -452,10 +605,36 @@ h2{
   }
 }
 .LineOne{
-  border-right: 1px solid #000;
-  height: 200%;
+  border-right: 1px solid #E7E9EF;
+  height: 100%;
   position: absolute;
-  left: 30px;
+  left: 158px;
+  top: 0;
+  bottom: 0;
+}
+.LineTwo{
+  border-right: 1px solid #E7E9EF;
+  height: 100%;
+  position: absolute;
+  right: 158px;
+  top: 0;
+  bottom: 0;
+}
+.LineThree{
+  border-right: 1px dashed #E7E9EF;
+  height: 100%;
+  position: absolute;
+  left: 530px;
+  top: 0;
+  bottom: 0;
+}
+.LineFour{
+  border-right: 1px dashed #E7E9EF;
+  height: 100%;
+  position: absolute;
+  right: 530px;
+  top: 0;
+  bottom: 0;
 }
 @media (max-width: 480px){
   .partner{
@@ -1105,46 +1284,23 @@ h2{
 //     right: 8px;
 //   }
 // }
-// @media(max-width:425px){
+@media(max-width:425px){
 //    .WorkContent{
 //     position: relative;
 //   }
-//   .WorkContent:after{
-//     position: absolute;
-//     content: '';
-//     border-bottom: 1px solid #E7E9EF;
-//     /* height: 0px; */
-//     width: 425px;
-//     right: -8px;
-//     /* top: 80%; */
-//     bottom: -30px;
-//     z-index: 1;
-//   }
-//   .MblVerticalLine1{
-//     display: block !important;
-//     content: '';
-//     border-right: 1px solid #E7E9EF;
-//     height: 4695px;
-//     width: 1px;
-//     display: inline-block;
-//     margin-left: 8px;
-//     position: absolute;
-//     top: 445px;
-// }
-//     // left: -101px;
-//   .MblVerticalLine2{
-//     display: block !important;
-//     content: '';
-//     border-right: 1px solid #E7E9EF;
-//     height: 4744px;
-//     width: 1px;
-//     display: inline-block;
-//     margin-left: 8px;
-//     position: absolute;
-//     top: 396px;
-//     right: 8px;
-//   }
-// }
+  .WorkContent:after{
+    position: absolute;
+    content: '';
+    border-bottom: 1px solid #E7E9EF;
+    /* height: 0px; */
+    width: 425px;
+    right: -8px;
+    /* top: 80%; */
+    bottom: -30px;
+    z-index: 1;
+  }
+
+  }
 @media(max-width:375px){
   .WorkContent{
     position: relative;
