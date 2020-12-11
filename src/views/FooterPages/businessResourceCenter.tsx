@@ -21,6 +21,7 @@ import Signup from "../../images/Sign_Up.svg";
 
 const ContactUs: React.FC = () => (
    <div className="homePage">
+      <div className="LineOne"></div>
       <div className="Businessbg">
          <div className="container">
             <div className="addBusiness">

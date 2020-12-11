@@ -374,14 +374,14 @@
             display: none;
           }
         }
-        &:after{
-        content: '';
-        border: 1px solid #F5F5F5;
-        position: absolute;
-        width: 60px;
-        transform: rotate(90deg);
-        left: 245px;
-        }
+        // &:after{
+        // content: '';
+        // border: 1px solid #F5F5F5;
+        // position: absolute;
+        // width: 60px;
+        // transform: rotate(90deg);
+        // left: 245px;
+        // }
       }
       .deliveryItem{
         border: inherit !important;
@@ -435,6 +435,7 @@
         // text-align: center;
         flex-direction: column;
         margin: 0.5rem 0;
+        width: 25%;
         position: relative;
         // width: 23%;
         // border-right: 1px solid #F5F5F5;
@@ -443,15 +444,15 @@
             display: none;
           }
         }
-        &:after{
-        content: '';
-        border: 1px solid #F5F5F5;
-        position: absolute;
-        width: 50px;
-        transform: rotate(90deg);
-        left: 160px;
-        top: 30px;
-        }
+        // &:after{
+        // content: '';
+        // border: 1px solid #F5F5F5;
+        // position: absolute;
+        // width: 50px;
+        // transform: rotate(90deg);
+        // left: 160px;
+        // top: 30px;
+        // }
       }
       .deliveryItem{
         border: inherit !important;
@@ -968,7 +969,7 @@
     }
   }
   .product-page__product .useful-links .item{
-    width: 23%;
+    width: 25%;
     text-align: center;
     p{
       font-size: 12px;
@@ -976,7 +977,7 @@
   }
 
   .product-page__product .four-useful-links .item{
-    width: 23%;
+    width: 25%;
     text-align: center;
     p{
       font-size: 12px;
@@ -1196,20 +1197,20 @@
   .ril__outer{
     background-color: #000 !important;
   }
-  .useful-links{
-    .item{
-      &:after{
-        left: 127px !important;
-      }
-    }
-  }
-  .four-useful-links{
-    .item{
-      &:after{
-        left: 96px !important;
-      }
-    }
-  }
+  // .useful-links{
+  //   .item{
+  //     &:after{
+  //       left: 127px !important;
+  //     }
+  //   }
+  // }
+  // .four-useful-links{
+  //   .item{
+  //     &:after{
+  //       left: 96px !important;
+  //     }
+  //   }
+  // }
   .product-page{
     &__product{
     &__description{
@@ -1221,70 +1222,70 @@
   width: 90%;
 }
 }
-@media(max-width: 480px){
-  .useful-links{
-    .item{
-      &:after{
-        left: 110px !important;
-      }
-    }
-  }
-  .four-useful-links{
-    .item{
-      &:after{
-        left: 83px !important;
-      }
-    }
-  }
-}
-@media(max-width: 425px){
-  .useful-links{
-    .item{
-      &:after{
-        left: 93px !important;
-      }
-    }
-  }
-  .four-useful-links{
-    .item{
-      &:after{
-        left: 70px !important;
-      }
-    }
-  }
-}
-  @media(max-width: 375px){
-    .useful-links{
-      .item{
-        &:after{
-          left: 78px !important;
-        }
-      }
-    }
-    .four-useful-links{
-      .item{
-        &:after{
-          left: 63px !important;
-        }
-      }
-    }
-  }
-  @media(max-width: 320px){
-    .useful-links{
-      .item{
-        &:after{
-          left: 60px !important;
-        }
-      }
-    }
-    .four-useful-links{
-      .item{
-        &:after{
-          left: 45px !important;
-        }
-      }
-    }
-  }
+// @media(max-width: 480px){
+//   .useful-links{
+//     .item{
+//       &:after{
+//         left: 110px !important;
+//       }
+//     }
+//   }
+//   .four-useful-links{
+//     .item{
+//       &:after{
+//         left: 83px !important;
+//       }
+//     }
+//   }
+// }
+// @media(max-width: 425px){
+//   .useful-links{
+//     .item{
+//       &:after{
+//         left: 93px !important;
+//       }
+//     }
+//   }
+//   .four-useful-links{
+//     .item{
+//       &:after{
+//         left: 70px !important;
+//       }
+//     }
+//   }
+// }
+//   @media(max-width: 375px){
+//     .useful-links{
+//       .item{
+//         &:after{
+//           left: 78px !important;
+//         }
+//       }
+//     }
+//     .four-useful-links{
+//       .item{
+//         &:after{
+//           left: 63px !important;
+//         }
+//       }
+//     }
+//   }
+//   @media(max-width: 320px){
+//     .useful-links{
+//       .item{
+//         &:after{
+//           left: 60px !important;
+//         }
+//       }
+//     }
+//     .four-useful-links{
+//       .item{
+//         &:after{
+//           left: 45px !important;
+//         }
+//       }
+//     }
+//   }
 
   
 
