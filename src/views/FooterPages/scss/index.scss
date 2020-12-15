@@ -79,7 +79,10 @@
 .mt-20{
   margin-top: 20px;
 }
-
+.joinSitarri{
+  position: relative;
+  z-index: 1;
+}
 // Add-Business
 .Businessbg{
   background-image: url("../../../images/Contactbg.svg");
@@ -350,16 +353,16 @@
 }
 @media(max-width: 1440px){
   .LineOne{
-    left: 11.5% !important;
+    left: 158px !important;
   }
   .LineTwo{
-    right: 11.5% !important;
+    right: 158px !important;
   }
   .LineThree{
-    left: 39.5% !important;
+    left: 530px !important;
   }
   .LineFour{
-    right: 39.5% !important;
+    right: 530px !important;
   }
 }
 @media(max-width: 1400px){
