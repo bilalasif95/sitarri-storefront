@@ -387,7 +387,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                       <>
                         <div className="hrBorder"></div>
                         <div className="pro-list">
-                          <Carousel length={popularShops.length} swiping={true} dragging={false} productDetails={"productList"}>
+                          <Carousel length={popularShops.length} swiping={false} dragging={false} productDetails={"productList"}>
                             {popularShops && popularShops.map(({ node: product }) => (
                               <div className="modalDiv">
                                 <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
@@ -455,7 +455,7 @@ const ProductsFeatured: React.FC<ProductsFeaturedProps> = ({ SeeDetails, redirec
                         <>
                           <div className="hrBorder"></div>
                           <div className="pro-list">
-                            <Carousel length={popularProducts.length} swiping={true} dragging={false} productDetails={"productList"}>
+                            <Carousel length={popularProducts.length} swiping={false} dragging={false} productDetails={"productList"}>
                               {popularProducts && popularProducts.map(({ node: product }) => (
                                 <div className="modalDiv">
                                   <ProductTile redirectToProductPage={redirectToProductPage} product={product} />

@@ -36,14 +36,24 @@ const Carousel: React.FC<CarouselType> = ({ children, productDetails, length, ..
       slideCount,
       slidesToShow,
     }) =>
-      (slideCount - slidesToShow !== currentSlide) && (length > 2) ? (
-        <div
-          onClick={nextSlide}
-          className="carousel__control carousel__control--right"
-        >
-          <ReactSVG path={arrowImg} />
-        </div>
-      ) : null,
+      (slideCount - slidesToShow !== currentSlide) ?
+        window.innerWidth >= 540 && (length > 2) ? (
+          <div
+            onClick={nextSlide}
+            className="carousel__control carousel__control--right"
+          >
+            <ReactSVG path={arrowImg} />
+          </div>
+        ) :
+          window.innerWidth < 540 && (length >= 2) ? (
+            <div
+              onClick={nextSlide}
+              className="carousel__control carousel__control--right"
+            >
+              <ReactSVG path={arrowImg} />
+            </div>
+          )
+            : null : null,
     ...rest,
   };
   const carousel = (slides: number) => (

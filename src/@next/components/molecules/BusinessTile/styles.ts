@@ -101,7 +101,7 @@ export const CardDetails = styled.div`
   align-items: center;
   margin-bottom: 4px;
   @media(max-width: 767px){
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 5px;
   }
 `;

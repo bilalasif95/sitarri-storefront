@@ -136,7 +136,7 @@ export const ProductList: React.FC<IProps> = ({
                               <div id="js-next1" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                             </>
                             : <>
-                              <Carousel length={stores.length} swiping={true} dragging={false} productDetails={"productList"}>
+                              <Carousel length={stores.length} swiping={false} dragging={false} productDetails={"productList"}>
                                 {stores && stores.map(product => (
                                   <BusinessTile redirectToShopPage={redirectToShopPage} product={product} />
                                 ))}
@@ -157,7 +157,7 @@ export const ProductList: React.FC<IProps> = ({
               {(activeSortTypeBase === "Products" || activeSortTypeBase === "" || activeSortTypeBase === "All") && !showShopResults ? products.length > 0 ?
                 <div>
                   <S.ProductsShop>
-                    <S.Shops>
+                    <S.Products>
 
                       <S.Carouseltitle>
                         <h3>Products</h3>
@@ -185,7 +185,7 @@ export const ProductList: React.FC<IProps> = ({
                                 <div id="js-next2" className="swiper-button-next" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-40cee96a5dd35cf7" aria-disabled="false"></div>
                               </> :
                               <>
-                                <Carousel length={products.length} swiping={true} dragging={false} productDetails={"productList"}>
+                                <Carousel length={products.length} swiping={false} dragging={false} productDetails={"productList"}>
                                   {products.map(product => (
                                     <ProductTile redirectToProductPage={redirectToProductPage} product={product} />
                                   ))}
@@ -199,7 +199,7 @@ export const ProductList: React.FC<IProps> = ({
                             ))}
                           </S.AllShops>}
                       </S.Slider>
-                    </S.Shops>
+                    </S.Products>
                   </S.ProductsShop>
                 </div> : <div></div> : <div></div>}
 

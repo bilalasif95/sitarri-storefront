@@ -658,8 +658,11 @@
   right: -23px !important;
   .carousel__control{
     padding: 0.1rem 0.5rem;
-    height: 48px;
-    width: 48px;
+    height: 25px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     svg{
       transform: rotate(180deg);
       margin-top: 16px;
