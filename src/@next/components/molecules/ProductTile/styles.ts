@@ -42,8 +42,8 @@ export const Bottom = styled.div`
   align-items: center;
   // border-top:  1px solid #f5f5f5;
   @media(max-width: 767px) {
-    padding: 8px 16px 8px 16px;
-    align-items: flex-end;
+    padding: 16px 16px 16px 16px;
+    align-items: center;
   }
 `;
 
@@ -54,7 +54,7 @@ export const DividerSpan = styled.span`
 `;
 
 export const Content = styled.div`
-  padding: 1rem;
+  padding: 16px 16px 8px 16px;
   position: relative;
 `;
 export const Link = styled.div`
@@ -99,6 +99,9 @@ export const Title = styled.h4`
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 18px;
+  @media(max-width: 540px) {
+    color: #09253F;
+  }
 `;
 export const StoreTitle = styled.h4`
   font-weight: 700;
@@ -113,6 +116,7 @@ export const StoreTitle = styled.h4`
   font-size: 14px;
   @media(max-width: 767px){
     margin-bottom: 0px;
+    color: #09253F;
   }
 `;
 export const TotalReviews = styled.div` 
@@ -157,7 +161,7 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-  background: #f1f5f5;
+  // background: #f1f5f5;
 
   .swiper-container-horizontal{
     .swiper-wrapper{        
@@ -321,10 +325,9 @@ export const ModalImage = styled.div`
 export const Left = styled.div`
   width: 85%;
   padding: 0px 0px 0px 8px;
-  // @media (max-width: 767px){
-  //   width: 67%;
-  //   margin-top: 5px;
-  // }
+  @media (max-width: 540px){
+    height: 44px;
+  }
 `;
 
 export const Right = styled.div`
@@ -393,6 +396,9 @@ export const CardDetails = styled.div`
   margin-bottom: 10px;
   @media(max-width: 767px){
     margin-bottom: 0px;
+    p{
+      line-height: inherit !important;
+    }
   }
 `;
 
@@ -458,6 +464,9 @@ margin: 3px 5px 0px;
     path{
       fill: #FFCE2E;
     }
+  }
+  @media(max-width: 540px){
+    margin: 1px 5px 0px;
   }
 `;
 

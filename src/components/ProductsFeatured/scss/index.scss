@@ -27,6 +27,7 @@
   .shopsCarousel{
     background-color: #fff !important;
     padding: 0px 0px 0px 8px;
+    position: relative;
   }
   .Carouseltitle{
     display: flex;
@@ -51,10 +52,10 @@
   .hrBorder{
     border-bottom: 1px solid #F5F5F5;
     // margin-bottom: 20px;
-    position: relative;
-    width: 103.1%;
-    margin-left: -13px;
+    position: absolute;
+    width: 100%;
     overflow: hidden;
+    left: 0;
   }
   h3 {
     font-weight: 400;
@@ -270,22 +271,24 @@
     .shopsCarousel{
       background-color: #fff !important;
       padding: 0px 0px 0px 8px;
+      position: relative;
     }
     .productCarousel{
       .shopsCarousel{
         background-color: #fff !important;
         padding: 0px 0px 0px 8px;
+        position: relative;
         .slider-frame{
           height: 375px !important;
         }
       }
     }
     .productCarousel .shopsCarousel  .slider-frame{
-      height: 382px !important;
+      height: 390px !important;
     }
     .productCarousel .shopsCarousel {
       margin-bottom: 0px !important;
-      padding-bottom: 3px !important;
+      padding-bottom: 0px !important;
     }
   }
   @media(max-width: $small-screen){
@@ -307,7 +310,7 @@
     // }
     h3 {
       margin-top: 0 ;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       margin-top: 10px;
       font-size: 18px;
     }
@@ -515,7 +518,7 @@
     display: none;
   }
   .categoryCarousel{
-    padding: 5px 0px 0px 12px !important;
+    padding: 5px 0px 0px 8px !important;
     .pro-list::-webkit-scrollbar{
       display: none !important;
     }
@@ -535,7 +538,7 @@
   }
   .categoryCarousel{
     .pro-list{
-      margin-top: 16px !important;
+      padding-top: 16px !important;
     }
   }
   .allResults {
@@ -625,7 +628,7 @@
     .slider-control-centerright{
     transform: translateY(-90%) !important;
     right: 1px !important;
-    top: 50% !important;
+    top: 47% !important;
     }
   }
 }
@@ -634,7 +637,7 @@
     .slider-control-centerleft{
     transform: translateY(-90%) !important;
     right: 4px !important;
-    top: 50% !important;
+    top: 47% !important;
     }
   }
 }

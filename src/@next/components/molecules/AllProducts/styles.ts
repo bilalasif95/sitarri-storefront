@@ -203,6 +203,9 @@ export const Title = styled.h4`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @media(max-width: 540px){
+      color: #09253F
+    }
 `;
 
 export const ProductTitle = styled.h4`
@@ -251,7 +254,7 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-  background: #f1f5f5;
+  // background: #f1f5f5;
   .slider-control-bottomcenter {
     width: 100%;
     text-align: center;
@@ -443,9 +446,9 @@ export const Nos = styled.p`
   margin: 0 0.5rem 0 0;
   display: flex;
   align-items: end;
-  // @media(max-width: 767px){
-  //   font-size: 12px
-  // }
+  @media(max-width: 767px){
+    color: #40464A;
+  }
 `;
 
 export const Stars = styled.div`

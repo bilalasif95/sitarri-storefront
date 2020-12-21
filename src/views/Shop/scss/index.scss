@@ -13,7 +13,7 @@
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
-      background: #f1f5f5;
+      // background: #f1f5f5;
       .slider-control-bottomcenter {
         width: 100%;
         text-align: center;
@@ -305,7 +305,7 @@
       @media (max-width: 575px) {
         .item {
           width: 100%;
-          padding: 6px 24px 6px 16px;
+          padding: 8px 24px 8px 16px;
           .descr{
             min-height: 23px;
           }

@@ -191,6 +191,7 @@ export const Title = styled.h4`
   @media(max-width: 767px){
     font-size: 18px;
     margin: 0 0 0rem;
+    color: #09253F;
   }
 `;
 
@@ -222,7 +223,7 @@ export const Image = styled.div`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
-  background: #f1f5f5;
+  // background: #f1f5f5;
   // .swiper-container-horizontal{
   //   .swiper-slide{
   //    >img{
@@ -418,9 +419,9 @@ export const Nos = styled.p`
   margin: 0 0.5rem 0 0;
   display: flex;
   align-items: end;
-  // @media(max-width: 767px){
-  //   font-size: 12px
-  // }
+  @media(max-width: 767px){
+    color: #40464A;
+  }
 `;
 
 export const Stars = styled.div`
